@@ -1,0 +1,32 @@
+{
+  "sidebar": [
+    {
+      "label": "Overview",
+      "slug": "index",
+      "translations": {
+        "de": "Übersicht",
+        "en": "Overview"
+      }
+    },
+    {
+      "label": "Start Here",
+      "autogenerate": {
+        "directory": "start-here"
+      },
+      "translations": {
+        "de": "Hier Starten",
+        "en": "Start Here"
+      }
+    },
+    {
+      "label": "Inhaltsblöcke",
+      "autogenerate": {
+        "directory": "content-blocks"
+      },
+      "translations": {
+        "de": "Inhaltsblöcke",
+        "en": "Content Blocks"
+      }
+    }
+  ]
+}

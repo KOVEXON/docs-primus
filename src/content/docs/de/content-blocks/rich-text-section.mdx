@@ -1,0 +1,137 @@
+---
+title: Rich Text Section
+description: Flexibler Rich-Text-Block für formatierte Inhalte mit Bildern
+---
+
+Die **Rich Text Section** ist ein flexibler Content-Block für formatierte Textinhalte. Sie bietet einen vollständigen Rich-Text-Editor mit Formatierungsoptionen, Textausrichtung und Bildunterstützung.
+
+## Felder
+
+### Content
+
+- **Typ**: Array
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Array von Block-Elementen und Medien
+
+#### Unterstützte Block-Typen
+
+##### Text-Blöcke
+
+- **Typ**: Block
+- **Beschreibung**: Standard-Textblöcke mit Formatierungsoptionen
+
+**Verfügbare Formatierungen:**
+
+- **Strong** (`strong`) - Fettgedruckter Text
+- **Emphasis** (`em`) - Kursiver Text
+- **Textausrichtung**:
+  - **Left** - Linksbündig
+  - **Center** - Zentriert
+  - **Right** - Rechtsbündig
+
+##### Bilder
+
+- **Typ**: Image
+- **Optionen**: Hotspot aktiviert
+- **Felder**:
+  - **Alternative Text** (String) - Wichtig für Barrierefreiheit und SEO
+  - **Caption** (String) - Optionale Bildunterschrift
+
+## Verwendung
+
+Die Rich Text Section wird typischerweise verwendet für:
+
+- **Artikel-Inhalte** - Hauptinhalt von Blog-Artikeln
+- **Seiten-Inhalte** - Detaillierte Beschreibungen auf Seiten
+- **Rechtliche Seiten** - Lange Texte für Impressum, Datenschutz, etc.
+- **Informationsseiten** - Umfangreiche Informationen mit Bildern
+- **Produktbeschreibungen** - Detaillierte Beschreibungen mit Formatierung
+
+## Beispiel
+
+Eine typische Rich Text Section könnte folgende Struktur haben:
+
+### Text-Block 1
+
+**Text**: "Willkommen bei unserer Fahrschule"
+
+**Formatierung**: Strong, Center
+
+### Bild
+
+- **Image**: Bild einer modernen Fahrschule
+- **Alt-Text**: "Moderne Fahrschule mit Elektrofahrzeugen"
+- **Caption**: "Unsere Fahrschule bietet moderne Ausbildung mit Elektrofahrzeugen"
+
+### Text-Block 2
+
+**Text**: "Wir bieten professionelle Fahrschulausbildung für alle Führerscheinklassen. Unsere erfahrenen Fahrlehrer bereiten Sie optimal auf Ihre Prüfung vor."
+
+**Formatierung**: Left
+
+### Text-Block 3
+
+**Text**: "Unsere Vorteile:"
+
+**Formatierung**: Strong
+
+### Text-Block 4
+
+**Text**: "- Moderne Fahrzeuge\n- Flexible Termine\n- Erfahrene Fahrlehrer\n- Beste Erfolgsquote"
+
+**Formatierung**: Left
+
+## Formatierungsoptionen
+
+### Text-Formatierung
+
+- **Strong (Fett)**: Wichtige Begriffe oder Überschriften hervorheben
+- **Emphasis (Kursiv)**: Betonung oder Hervorhebung von Textpassagen
+
+### Textausrichtung
+
+- **Linksbündig**: Standard-Ausrichtung für Fließtext
+- **Zentriert**: Für Überschriften oder wichtige Botschaften
+- **Rechtsbündig**: Für spezielle Layouts oder Zitate
+
+### Bilder
+
+- **Hotspot**: Ermöglicht präzise Bildbearbeitung und Fokussierung
+- **Alt-Text**: Wichtig für Barrierefreiheit und SEO (immer ausfüllen)
+- **Caption**: Optionale Bildunterschrift für zusätzliche Informationen
+
+## Besonderheiten
+
+- **Flexible Struktur**: Kombination aus Text und Bildern in beliebiger Reihenfolge
+- **Rich-Text-Editor**: Vollständiger Editor mit Formatierungsoptionen
+- **Textausrichtung**: Inline-Ausrichtung als Mark/Decorator
+- **Bildunterstützung**: Bilder mit Hotspot, Alt-Text und Caption
+- **Barrierefreiheit**: Alt-Text für Bilder ist wichtig für Screenreader
+
+## Best Practices
+
+- **Strukturierung**: Verwenden Sie Strong für Überschriften innerhalb des Textes
+- **Bilder**: Immer Alt-Text ausfüllen für Barrierefreiheit und SEO
+- **Textausrichtung**: Zentrierte Ausrichtung sparsam verwenden, hauptsächlich für Überschriften
+- **Lesbarkeit**: Lange Textblöcke in mehrere Absätze aufteilen
+- **Bildunterschriften**: Captions verwenden, um zusätzlichen Kontext zu liefern
+- **Formatierung**: Konsistente Formatierung für bessere Lesbarkeit
+
+## Verwendung in anderen Content-Typen
+
+Die Rich Text Section wird auch in anderen Content-Typen verwendet:
+
+- **Artikel** (`article`) - Als Hauptinhalt-Feld
+- **Autoren** (`author`) - Für Biografien
+- **Rechtliche Seiten** (`legalPage`) - Als Teil des Inhalts-Arrays
+
+## Unterschiede zu anderen Content-Blöcken
+
+| Feature         | Rich Text Section      | Text With Media Section | Accordion Section     |
+| --------------- | ---------------------- | ----------------------- | --------------------- |
+| Text-Editor     | Ja (vollständig)       | Nein                    | Nein                  |
+| Formatierung    | Ja (Strong, Em)        | Nein                    | Nein                  |
+| Textausrichtung | Ja (Left/Center/Right) | Nein                    | Nein                  |
+| Bilder          | Ja (inline)            | Ja (strukturiert)       | Nein                  |
+| Struktur        | Flexibel               | Fest (Text + Media)     | Fest (Accordion)      |
+| Verwendung      | Fließtext              | Text-Bild-Kombination   | Ausklappbare Bereiche |

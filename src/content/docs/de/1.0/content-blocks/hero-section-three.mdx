@@ -1,0 +1,200 @@
+---
+title: Hero Section Three
+description: Hero-Bereich mit Karussell/Slider-Funktionalität für mehrere Slides
+slug: de/1.0/content-blocks/hero-section-three
+---
+
+Die **Hero Section Three** ist eine Karussell-basierte Hero-Variante, die mehrere Slides mit Bildern, Texten und Call-to-Action-Buttons unterstützt. Sie eignet sich für Seiten, die mehrere Botschaften oder Angebote präsentieren möchten.
+
+## Felder
+
+### Slides
+
+* **Typ**: Array von Slide-Objekten
+* **Pflichtfeld**: Ja
+* **Minimale Anzahl**: 1
+* **Maximale Anzahl**: 10
+* **Beschreibung**: Konfiguration der Slides für das Hero-Karussell
+
+#### Slide-Objekt Felder
+
+##### Slide Image
+
+* **Typ**: Image
+* **Pflichtfeld**: Ja
+* **Optionen**: Hotspot aktiviert
+* **Beschreibung**: Hauptbild für diesen Slide
+
+##### Title
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Maximale Länge**: 100 Zeichen
+* **Beschreibung**: Überschrift, die auf dem Slide angezeigt wird
+
+##### Description
+
+* **Typ**: Text
+* **Pflichtfeld**: Ja
+* **Zeilen**: 3
+* **Maximale Länge**: 300 Zeichen
+* **Beschreibung**: Beschreibungstext, der auf dem Slide angezeigt wird
+
+##### Call to Action Buttons
+
+* **Typ**: Reference zu `button`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Button-Konfiguration für den Slide
+
+### Slider-Verhalten
+
+#### Autoplay aktivieren
+
+* **Typ**: Boolean
+* **Pflichtfeld**: Nein
+* **Initialwert**: `true`
+* **Beschreibung**: Automatisches Wechseln zum nächsten Slide
+
+#### Autoplay Speed
+
+* **Typ**: Number
+* **Pflichtfeld**: Nein
+* **Initialwert**: 5
+* **Minimale Wert**: 1
+* **Maximale Wert**: 30
+* **Versteckt**: Ja (wenn Autoplay nicht aktiviert ist)
+* **Beschreibung**: Sekunden zwischen automatischen Slide-Wechseln (1-30 Sekunden)
+
+#### Navigation Dots anzeigen
+
+* **Typ**: Boolean
+* **Pflichtfeld**: Nein
+* **Initialwert**: `true`
+* **Beschreibung**: Klickbare Punkte unter dem Slider für Navigation anzeigen
+
+### Visuelle Einstellungen
+
+#### Slider Height
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Initialwert**: `large`
+* **Optionen**:
+  * **Small (30vh)** - Kleine Höhe
+  * **Medium (50vh)** - Mittlere Höhe
+  * **Large (70vh)** - Große Höhe (Standard)
+  * **Fullscreen (100vh)** - Vollbildhöhe
+  * **Custom Height** - Benutzerdefinierte Höhe
+
+#### Custom Height
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Versteckt**: Ja (wenn Slider Height nicht auf "Custom Height" gesetzt ist)
+* **Beschreibung**: Benutzerdefinierter CSS-Höhenwert (z. B. "400px", "50vh", "20rem")
+* **Validierung**: Muss ein gültiger CSS-Höhenwert sein (px, vh, vw, rem, em, % oder auto)
+
+#### Slider Width
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Initialwert**: `100%`
+* **Optionen**:
+  * **100%** - Volle Breite
+  * **50%** - Halbe Breite
+  * **Custom Width** - Benutzerdefinierte Breite
+* **Beschreibung**: Steuert die Breite des Bildsliders
+
+#### Custom Width
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Versteckt**: Ja (wenn Slider Width nicht auf "Custom Width" gesetzt ist)
+* **Beschreibung**: Benutzerdefinierter CSS-Breitenwert (z. B. "400px", "50vw", "20rem")
+* **Beschreibung**: Wird nur verwendet, wenn Breite auf "Custom Width" gesetzt ist
+
+#### Background Color
+
+* **Typ**: Reference zu `backgroundColor`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hintergrundfarbe für den Slider
+
+## Verwendung
+
+Die Hero Section Three wird typischerweise verwendet für:
+
+* **Startseiten** - Mehrere Angebote oder Botschaften präsentieren
+* **Marketing-Kampagnen** - Verschiedene Kampagnen in einem Karussell
+* **Produktpräsentation** - Mehrere Produkte oder Dienstleistungen vorstellen
+* **Event-Highlights** - Verschiedene Events oder Angebote rotierend anzeigen
+
+## Beispiel
+
+Eine typische Hero Section Three könnte folgende Konfiguration haben:
+
+### Slides
+
+**Slide 1:**
+
+* **Image**: Bild einer modernen Fahrschule
+* **Title**: "Führerschein Klasse B"
+* **Description**: "Professionelle Ausbildung mit modernster Technik und erfahrenen Fahrlehrern"
+* **CTA Button**: "Jetzt anmelden" → `/anmeldung`
+
+**Slide 2:**
+
+* **Image**: Bild eines Fahrzeugs
+* **Title**: "Elektrofahrzeuge"
+* **Description**: "Lernen Sie das Fahren mit umweltfreundlichen Elektrofahrzeugen"
+* **CTA Button**: "Mehr erfahren" → `/elektrofahrzeuge`
+
+**Slide 3:**
+
+* **Image**: Bild einer Gruppe von Fahrschülern
+* **Title**: "Intensivkurse"
+* **Description**: "Schnell zum Führerschein mit unseren bewährten Intensivkursen"
+* **CTA Button**: "Kurse ansehen" → `/kurse`
+
+### Slider-Verhalten
+
+* **Autoplay aktivieren**: `true`
+* **Autoplay Speed**: 5 Sekunden
+* **Navigation Dots anzeigen**: `true`
+
+### Visuelle Einstellungen
+
+* **Slider Height**: Large (70vh)
+* **Slider Width**: 100%
+* **Background Color**: Referenz zu einem Background-Color-Dokument
+
+## Besonderheiten
+
+* **Karussell-Funktionalität**: Unterstützt 1-10 Slides mit automatischem oder manuellem Wechsel
+* **Flexible Größen**: Verschiedene vordefinierte Höhen oder benutzerdefinierte CSS-Werte
+* **Autoplay**: Automatisches Wechseln zwischen Slides mit konfigurierbarer Geschwindigkeit
+* **Navigation**: Klickbare Dots für direkte Navigation zu einem bestimmten Slide
+* **Hotspot-Bilder**: Slide-Bilder unterstützen Hotspot-Funktion für bessere Bildbearbeitung
+
+## Unterschiede zu anderen Hero-Sektionen
+
+| Feature          | Home Hero Section                               | Hero Section Two | Hero Section Three      |
+| ---------------- | ----------------------------------------------- | ---------------- | ----------------------- |
+| Struktur         | Komplex (Main Part, Highlighted Word, Keywords) | Einfach (String) | Karussell (1-10 Slides) |
+| Slides           | Nein                                            | Nein             | Ja                      |
+| Keywords         | Ja, mit Farben                                  | Nein             | Nein                    |
+| Buttons          | Ja (Primary/Secondary)                          | Nein             | Ja (pro Slide)          |
+| Badge            | Nein                                            | Ja (optional)    | Nein                    |
+| Background Image | Ja                                              | Nein             | Ja (pro Slide)          |
+| Autoplay         | Nein                                            | Nein             | Ja (konfigurierbar)     |
+| Navigation Dots  | Nein                                            | Nein             | Ja (optional)           |
+| Größenanpassung  | Nein                                            | Nein             | Ja (Höhe & Breite)      |
+
+## Best Practices
+
+* **Anzahl der Slides**: 3-5 Slides sind optimal für die Benutzererfahrung
+* **Slide-Inhalte**: Jeder Slide sollte eine klare, fokussierte Botschaft haben
+* **Bilder**: Hochwertige, aussagekräftige Bilder verwenden, die die Botschaft unterstützen
+* **Textlängen**: Titel kurz halten (max. 100 Zeichen), Beschreibung prägnant (max. 300 Zeichen)
+* **Autoplay Speed**: 5-7 Sekunden sind ein guter Kompromiss zwischen Aufmerksamkeit und Informationsvermittlung
+* **Navigation**: Navigation Dots aktivieren für bessere Benutzerfreundlichkeit
+* **Höhe**: "Large" (70vh) ist für die meisten Fälle optimal, "Fullscreen" sparsam verwenden

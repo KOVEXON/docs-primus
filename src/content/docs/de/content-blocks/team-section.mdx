@@ -1,0 +1,177 @@
+---
+title: Team Section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import teamSectionWebsite from "../../../../assets/team-section-website.png";
+import teamSectionSanity from "../../../../assets/team-section-sanity.png";
+
+<img src={teamSectionWebsite.src} alt="Team Section Website" />
+
+In der **Team Section** werden alle Mitarbeiter:innen der Fahrschule vorgestellt.
+
+**Auf der Website erscheint diese Section als:**
+
+- große Überschrift mit Einleitungstext
+- Karten mit Foto, Name, Rolle und Beschreibung
+- optionalen Social-Media-Icons pro Person
+
+---
+
+## Aufbau im Sanity CMS
+
+<img src={teamSectionSanity.src} alt="Team Section in Sanity" />
+
+Die Team Section besteht aus:
+
+1. **Headline** – Überschrift im oberen Bereich
+2. **Members** – einzelne Teamkarten
+3. **Background Color** – Hintergrundfarbe des Bereichs
+
+---
+
+## Headline
+
+- **Wo?**
+  Wird oberhalb der Teamkarten angezeigt
+
+- **Was sehe ich auf der Website?**
+  Die große Überschrift wie z. B.:
+  **„Dein Team“**
+
+- **Empfehlung:**
+  1 kurzer Satz oder maximal 2 Zeilen
+
+✅ Gute Beispiele:
+
+- „Unser Team“
+- „Lerne unser Team kennen“
+
+❌ Schlechte Beispiele:
+
+- Sehr lange Texte
+- Mehrere Absätze
+
+---
+
+## Members – Teammitglieder
+
+Jeder Eintrag unter **Members** entspricht **einer Teamkarte** auf der Website.
+
+**Eine Karte = eine Person oder ein System (z. B. Simulator)**
+
+---
+
+## Felder eines Teammitglieds (Teamkarte)
+
+### Name
+
+- Wird **fett als Überschrift** auf der Karte angezeigt
+- Beispiel:
+  **Max Mustermann**
+
+---
+
+### Role
+
+- Erscheint als **farbiges Label** unter dem Namen
+- Kurz & klar halten
+
+Beispiele:
+
+- Ausbildungsleiter
+- Mobilitätsberaterin
+- Fahrsimulator
+
+---
+
+### Bio
+
+- Text im Hauptbereich der Karte
+- Kann mehrere Zeilen enthalten
+- Wird bei längeren Texten ggf. gekürzt („Mehr anzeigen“)
+
+:::note[Tipp]{icon="seti:smarty"}
+
+- Stichpunkte oder kurze Sätze
+- Max. 5–7 Zeilen
+  :::
+
+---
+
+### Photo
+
+- Rundes Profilbild oberhalb der Karte
+- Sollte **alleinstehend und gut ausgeleuchtet** sein
+
+:::note[Tipp]{icon="seti:smarty"}
+
+- Einheitlicher Stil für alle Teammitglieder
+- Gesicht gut erkennbar
+  :::
+
+---
+
+### Show Social Links
+
+- Aktiviert die Anzeige der Social-Media-Icons unter der Karte
+- Standardmäßig **ausgeschaltet**
+
+Nur aktivieren, wenn:
+
+- die Person öffentlich kontaktiert werden soll
+- Social Media gepflegt wird
+
+---
+
+### Social Links (optional)
+
+- Wird **nur angezeigt**, wenn _Show Social Links_ aktiviert ist
+- Icons erscheinen unter der Teamkarte
+
+Typische Links:
+
+- Instagram
+- Facebook
+- LinkedIn
+
+---
+
+## Background Color
+
+- Steuert die Hintergrundfarbe **des gesamten Team-Bereichs**
+- Hat keinen Einfluss auf einzelne Karten
+
+---
+
+## Beispiel – So sieht eine typische Teamkarte aus
+
+**Name:** Max Mustermann
+
+**Role:** Ausbildungsleiter
+
+**Bio:** Verkehrs­pädagoge, Simulatorcoach, Mental-Coach
+
+**Foto:** Profilfoto
+
+**Social Links:** Aktiviert
+
+---
+
+## ✅ Best Practices
+
+- 3–8 Teammitglieder sind optimal
+- Einheitliche Bildsprache
+- Rollen kurz halten
+- Texte persönlich, aber professionell
+
+---
+
+## ❌ Häufige Fehler
+
+- Zu lange Texte ohne Absätze
+- Unterschiedliche Fotoformate
+- Leere Rollenfelder
+- Social Links ohne gepflegte Profile
+
+---

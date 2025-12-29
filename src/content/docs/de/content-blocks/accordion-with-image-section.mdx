@@ -1,0 +1,216 @@
+---
+title: Accordion With Image Section
+description: Accordion-Block mit Bildunterstützung für visuell ansprechende, ausklappbare Bereiche
+---
+
+Die **Accordion With Image Section** ist eine erweiterte Version der Accordion Section mit Bildunterstützung. Sie kombiniert ausklappbare Bereiche mit Bildern für visuell ansprechende, strukturierte Inhalte.
+
+## Felder
+
+### Section Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Hauptüberschrift für die gesamte Accordion-Sektion
+
+### Description
+
+- **Typ**: Text
+- **Pflichtfeld**: Nein
+- **Zeilen**: 3
+- **Beschreibung**: Optionale Beschreibung unter der Headline
+
+### Accordion Items
+
+- **Typ**: Array von Accordion-Item-Objekten
+- **Pflichtfeld**: Ja
+- **Minimale Anzahl**: 1
+- **Beschreibung**: Liste der ausklappbaren Accordion-Items
+
+#### Accordion-Item Felder
+
+##### Item Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Beschreibung**: Überschrift des Accordion-Items (wird als ausklappbarer Titel angezeigt)
+
+##### Icon
+
+- **Typ**: Lucide Icon
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Optionales Icon, das neben der Headline angezeigt wird
+
+##### Content
+
+- **Typ**: Rich Text Section (`richTextSection`)
+- **Pflichtfeld**: Ja
+- **Beschreibung**: Rich-Text-Inhalt, der beim Ausklappen des Items angezeigt wird
+
+##### Image
+
+- **Typ**: Image
+- **Pflichtfeld**: Nein
+- **Optionen**: Hotspot aktiviert
+- **Versteckt**: Ja (wenn Image Display Mode "Shared Image" ist)
+- **Felder**:
+  - **Caption** (String) - Optionale Bildunterschrift
+- **Beschreibung**: Optionales Bild, das spezifisch für dieses Accordion-Item ist (nur bei "Individual Images" Modus)
+
+### Image Display Mode
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Initialwert**: `shared`
+- **Optionen**:
+  - **Shared Image** (`shared`) - Ein Bild neben der gesamten Accordion
+  - **Individual Images** (`individual`) - Einzelne Bilder pro Accordion-Item
+- **Beschreibung**: Bestimmt, wie Bilder mit der Accordion angezeigt werden sollen
+
+### Shared Image
+
+- **Typ**: Image
+- **Pflichtfeld**: Ja (wenn Image Display Mode "Shared Image" ist)
+- **Versteckt**: Ja (wenn Image Display Mode nicht "Shared Image" ist)
+- **Optionen**: Hotspot aktiviert
+- **Felder**:
+  - **Caption** (String) - Optionale Bildunterschrift
+- **Beschreibung**: Bild, das neben der gesamten Accordion angezeigt wird (nur bei "Shared Image" Modus)
+
+### Layout Settings
+
+- **Typ**: Object
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Layout-Konfiguration für die Accordion
+
+#### Image Position
+
+- **Typ**: String
+- **Initialwert**: `left`
+- **Optionen**:
+  - **Left** (`left`) - Bild links, Accordion rechts
+  - **Right** (`right`) - Bild rechts, Accordion links
+- **Beschreibung**: Position des Bildes relativ zur Accordion (nur bei "Shared Image" Modus)
+
+### Background Color
+
+- **Typ**: Reference zu `backgroundColor`
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Hintergrundfarbe für die gesamte Accordion-Sektion
+
+## Verwendung
+
+Die Accordion With Image Section wird typischerweise verwendet für:
+
+- **Produktpräsentationen** - Produkte mit Bildern und detaillierten Beschreibungen
+- **Dienstleistungsseiten** - Dienstleistungen mit visuellen Elementen
+- **Feature-Präsentationen** - Features mit erklärenden Bildern
+- **Angebotsseiten** - Angebote mit visueller Unterstützung
+- **Über-uns-Seiten** - Informationen über das Unternehmen mit Bildern
+
+## Beispiel
+
+### Shared Image Modus
+
+Eine typische Accordion With Image Section im "Shared Image" Modus könnte folgende Struktur haben:
+
+**Section Headline**: "Unsere Fahrzeuge"
+
+**Description**: "Lernen Sie unsere moderne Fahrzeugflotte kennen"
+
+**Image Display Mode**: Shared Image
+
+**Shared Image**: Bild einer Fahrzeugflotte
+
+**Image Position**: Left
+
+**Accordion Items**:
+
+- **Item 1**: "Elektrofahrzeuge" - Beschreibung der Elektrofahrzeuge
+- **Item 2**: "Kompaktwagen" - Beschreibung der Kompaktwagen
+- **Item 3**: "Luxusfahrzeuge" - Beschreibung der Luxusfahrzeuge
+
+### Individual Images Modus
+
+Eine typische Accordion With Image Section im "Individual Images" Modus könnte folgende Struktur haben:
+
+**Section Headline**: "Unsere Dienstleistungen"
+
+**Description**: "Alles, was wir für Sie anbieten"
+
+**Image Display Mode**: Individual Images
+
+**Accordion Items**:
+
+- **Item 1**:
+
+  - **Headline**: "Führerschein Klasse B"
+  - **Image**: Bild eines Autos
+  - **Content**: "Professionelle Ausbildung für den Pkw-Führerschein..."
+
+- **Item 2**:
+
+  - **Headline**: "Führerschein Klasse A"
+  - **Image**: Bild eines Motorrads
+  - **Content**: "Motorradführerschein mit modernen Maschinen..."
+
+- **Item 3**:
+  - **Headline**: "Intensivkurse"
+  - **Image**: Bild einer Gruppe von Fahrschülern
+  - **Content**: "Schnell zum Führerschein mit unseren Intensivkursen..."
+
+## Bild-Anzeige-Modi im Detail
+
+### Shared Image Modus
+
+- **Ein Bild**: Ein einzelnes Bild wird neben der gesamten Accordion angezeigt
+- **Position**: Bild kann links oder rechts positioniert werden
+- **Konsistenz**: Alle Accordion-Items teilen sich dasselbe Bild
+- **Ideal für**: Übersichtsbilder, die für alle Items relevant sind
+
+### Individual Images Modus
+
+- **Mehrere Bilder**: Jedes Accordion-Item kann ein eigenes Bild haben
+- **Flexibilität**: Jedes Item kann visuell individuell gestaltet werden
+- **Relevanz**: Bilder können spezifisch für jedes Item sein
+- **Ideal für**: Detaillierte Präsentationen mit itemspezifischen Bildern
+
+## Besonderheiten
+
+- **Zwei Bild-Modi**: Flexibler Wechsel zwischen Shared und Individual Images
+- **Layout-Kontrolle**: Bildposition (links/rechts) bei Shared Image Modus
+- **Rich Text Content**: Vollständiger Rich-Text-Editor für detaillierte Inhalte
+- **Icons**: Optional Icons für visuelle Unterstützung
+- **Hotspot-Bilder**: Bilder unterstützen Hotspot-Funktion für bessere Bildbearbeitung
+- **Bildunterschriften**: Optionale Captions für zusätzliche Informationen
+
+## Best Practices
+
+- **Bild-Modus wählen**:
+  - "Shared Image" für konsistente, übersichtliche Darstellung
+  - "Individual Images" für detaillierte, itemspezifische Präsentationen
+- **Bildqualität**: Hochwertige, aussagekräftige Bilder verwenden
+- **Bildposition**: Bei Shared Image Modus die Position je nach Layout wählen
+- **Konsistenz**: Bei Individual Images Modus ähnliche Bildgrößen und -stile verwenden
+- **Alt-Text**: Immer Alt-Text für Bilder ausfüllen (wird automatisch aus Caption generiert)
+- **Anzahl der Items**: 3-6 Items sind optimal für die Benutzererfahrung
+
+## Unterschiede zur Accordion Section
+
+| Feature                | Accordion Section | Accordion With Image Section |
+| ---------------------- | ----------------- | ---------------------------- |
+| Bilder                 | Nein              | Ja (2 Modi)                  |
+| Shared Image           | Nein              | Ja                           |
+| Individual Images      | Nein              | Ja                           |
+| Bildposition           | Nein              | Ja (bei Shared Image)        |
+| Visuelle Unterstützung | Nein              | Ja                           |
+| Verwendung             | Textlastige Infos | Visuell ansprechende Infos   |
+
+## Vorteile
+
+- **Visuelle Unterstützung**: Bilder machen Inhalte ansprechender und verständlicher
+- **Flexibilität**: Zwei verschiedene Bild-Modi für unterschiedliche Anforderungen
+- **Strukturiert**: Klare Struktur für komplexe Informationen mit visuellen Elementen
+- **Platzsparend**: Ausklappbare Bereiche sparen Platz auf der Seite
+- **Interaktiv**: Benutzer können relevante Bereiche gezielt ausklappen
+- **Barrierefrei**: Unterstützt Screenreader und Tastaturnavigation

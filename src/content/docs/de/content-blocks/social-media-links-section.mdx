@@ -1,0 +1,127 @@
+---
+title: Social Media Links Section
+description: Content-Block zur Anzeige von Social-Media-Links mit verschiedenen Plattformen
+---
+
+Die **Social Media Links Section** ist ein Content-Block zur Anzeige von Social-Media-Links mit Icons verschiedener Plattformen.
+
+## Felder
+
+### Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Nein
+- **Maximale Länge**: 100 Zeichen
+- **Beschreibung**: Optionale Überschrift für die Social-Links-Sektion
+
+### Description
+
+- **Typ**: Text
+- **Pflichtfeld**: Nein
+- **Zeilen**: 3
+- **Maximale Länge**: 500 Zeichen
+- **Beschreibung**: Optionale Beschreibung
+
+### Social Links
+
+- **Typ**: Array von Social-Link-Objekten
+- **Pflichtfeld**: Nein
+- **Minimale Anzahl**: 1
+- **Maximale Anzahl**: 20
+- **Beschreibung**: Liste der Social-Media-Links
+
+#### Social-Link Felder
+
+##### Platform
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Initialwert**: `facebook`
+- **Optionen**:
+  - Facebook
+  - Twitter/X
+  - Instagram
+  - LinkedIn
+  - YouTube
+  - TikTok
+  - Pinterest
+  - Snapchat
+  - WhatsApp
+  - Telegram
+  - GitHub
+  - Custom
+- **Beschreibung**: Social-Media-Plattform
+
+##### URL
+
+- **Typ**: URL
+- **Pflichtfeld**: Ja
+- **Beschreibung**: Vollständige URL zum Social-Media-Profil oder zur Seite
+
+##### Label
+
+- **Typ**: String
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Optionale benutzerdefinierte Beschriftung (für Screenreader und Tooltips)
+
+##### Custom Icon
+
+- **Typ**: String
+- **Versteckt**: Ja (wenn Platform nicht "Custom" ist)
+- **Beschreibung**: Optional: Name des Lucide-Icons von https://lucide.dev/icons (nur verwendet, wenn Platform "Custom" ist)
+
+### Alignment
+
+- **Typ**: String
+- **Initialwert**: `center`
+- **Optionen**:
+  - **Left** (`left`)
+  - **Center** (`center`)
+  - **Right** (`right`)
+- **Beschreibung**: Horizontale Ausrichtung der Social-Links
+
+### Icon Size
+
+- **Typ**: String
+- **Initialwert**: `medium`
+- **Optionen**:
+  - **Small** (`small`)
+  - **Medium** (`medium`)
+  - **Large** (`large`)
+- **Beschreibung**: Größe der Social-Media-Icons
+
+## Verwendung
+
+Die Social Media Links Section wird typischerweise verwendet für:
+
+- **Footer** - Social-Media-Links im Footer
+- **Kontaktseiten** - Social-Media-Präsenz auf Kontaktseiten
+- **Über-uns-Seiten** - Social-Media-Links auf Über-uns-Seiten
+- **Dedizierte Bereiche** - Eigene Bereiche für Social-Media-Links
+
+## Beispiel
+
+Eine typische Social Media Links Section könnte folgende Konfiguration haben:
+
+- **Headline**: "Folgen Sie uns"
+- **Description**: "Bleiben Sie auf dem Laufenden"
+- **Social Links**:
+  - Facebook: https://facebook.com/mustermann-fahrschule
+  - Instagram: https://instagram.com/mustermann_fahrschule
+  - YouTube: https://youtube.com/@mustermann-fahrschule
+- **Alignment**: Center
+- **Icon Size**: Medium
+
+## Besonderheiten
+
+- **Viele Plattformen**: Unterstützung für zahlreiche Social-Media-Plattformen
+- **Custom Icons**: Möglichkeit für benutzerdefinierte Icons
+- **Ausrichtung**: Flexible horizontale Ausrichtung
+- **Größen**: Verschiedene Icon-Größen verfügbar
+
+## Best Practices
+
+- **Relevanz**: Nur aktive Social-Media-Profile verlinken
+- **Konsistenz**: Konsistente Icon-Größen verwenden
+- **Ausrichtung**: Zentrierte Ausrichtung für bessere Optik
+- **Anzahl**: 3-6 Links sind optimal

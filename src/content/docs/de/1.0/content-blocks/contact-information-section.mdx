@@ -1,0 +1,70 @@
+---
+title: Contact Information Section
+description: Content-Block zur Anzeige von Kontaktinformationen mit optionaler Karte
+slug: de/1.0/content-blocks/contact-information-section
+---
+
+Die **Contact Information Section** ist ein Content-Block zur Anzeige von Kontaktinformationen mit optionaler Karten-Integration.
+
+## Felder
+
+### Headline
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hauptüberschrift für die Kontakt-Sektion
+
+### Description
+
+* **Typ**: Text
+* **Pflichtfeld**: Nein
+* **Zeilen**: 3
+* **Beschreibung**: Beschreibung für die Kontakt-Sektion
+
+### Company Information
+
+* **Typ**: Reference zu `companyInformation`
+* **Pflichtfeld**: Ja
+* **Beschreibung**: Referenz zu einem Unternehmensinformationen-Dokument
+
+### Map Section
+
+* **Typ**: Reference zu `mapSection`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Optionale Referenz zu einem Karten-Sektion-Dokument
+
+### Background Color
+
+* **Typ**: Reference zu `backgroundColor`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hintergrundfarbe für die gesamte Kontakt-Sektion
+
+## Verwendung
+
+Die Contact Information Section wird typischerweise verwendet für:
+
+* **Kontaktseiten** - Anzeige von Kontaktinformationen
+* **Impressum** - Rechtlich erforderliche Kontaktdaten
+* **Standorte** - Informationen zu Standorten mit Karte
+* **Über-uns-Seiten** - Kontaktinformationen auf Über-uns-Seiten
+
+## Beispiel
+
+Eine typische Contact Information Section könnte folgende Konfiguration haben:
+
+* **Headline**: "Kontakt"
+* **Description**: "Wir sind für Sie da"
+* **Company Information**: Referenz zu "Mustermann Fahrschule - Hauptstandort"
+* **Map Section**: Referenz zu einer Karten-Sektion mit Standort
+
+## Besonderheiten
+
+* **Zentrale Verwaltung**: Kontaktinformationen werden zentral in `companyInformation` verwaltet
+* **Karten-Integration**: Optionale Integration einer Karte für Standortanzeige
+* **Wiederverwendbarkeit**: Kann auf mehreren Seiten verwendet werden
+
+## Best Practices
+
+* **Aktualität**: Stellen Sie sicher, dass die `companyInformation` aktuell ist
+* **Karte**: Verwenden Sie eine Karte für bessere Standortfindung
+* **Vollständigkeit**: Alle relevanten Kontaktinformationen anzeigen

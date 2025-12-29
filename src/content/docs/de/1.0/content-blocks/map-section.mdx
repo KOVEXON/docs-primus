@@ -1,0 +1,90 @@
+---
+title: Map Section
+description: Karten-Sektion mit konfigurierbaren Koordinaten und Markern
+slug: de/1.0/content-blocks/map-section
+---
+
+Die **Map Section** ist ein Content-Block für interaktive Karten mit konfigurierbaren Koordinaten, Zoom-Level und Markern.
+
+## Felder
+
+### Latitude
+
+* **Typ**: Number
+* **Pflichtfeld**: Ja
+* **Minimale Wert**: -90
+* **Maximale Wert**: 90
+* **Initialwert**: 48.553752
+* **Beschreibung**: Breitengrad-Koordinate für den Kartenmittelpunkt
+
+### Longitude
+
+* **Typ**: Number
+* **Pflichtfeld**: Ja
+* **Minimale Wert**: -180
+* **Maximale Wert**: 180
+* **Initialwert**: 11.271375
+* **Beschreibung**: Längengrad-Koordinate für den Kartenmittelpunkt
+
+### Zoom Level
+
+* **Typ**: Number
+* **Pflichtfeld**: Ja
+* **Minimale Wert**: 1
+* **Maximale Wert**: 20
+* **Initialwert**: 17
+* **Beschreibung**: Initialer Zoom-Level für die Karte (1-20)
+
+### Marker Title
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Initialwert**: "Fahrschule Jan Gellermann"
+* **Beschreibung**: Titel, der im Marker-Popup angezeigt wird
+
+### Marker Address
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Initialwert**: "Gerolsbacher Straße 15"
+* **Beschreibung**: Adresse, die im Marker-Popup angezeigt wird
+
+### Marker City
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Initialwert**: "86529 Schrobenhausen"
+* **Beschreibung**: Stadt, die im Marker-Popup angezeigt wird
+
+### Enable Scroll Wheel Zoom
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Erlaubt Benutzern, mit dem Mausrad zu zoomen
+
+## Verwendung
+
+Die Map Section wird typischerweise verwendet für:
+
+* **Standortanzeige** - Anzeige des Standorts auf Kontaktseiten
+* **Mehrere Standorte** - Verschiedene Standorte mit separaten Map Sections
+* **Routenplanung** - Unterstützung bei der Routenplanung
+
+## Beispiel
+
+Eine typische Map Section könnte folgende Konfiguration haben:
+
+* **Latitude**: 48.553752
+* **Longitude**: 11.271375
+* **Zoom Level**: 17
+* **Marker Title**: "Mustermann Fahrschule"
+* **Marker Address**: "Musterstraße 123"
+* **Marker City**: "12345 Musterstadt"
+* **Enable Scroll Wheel Zoom**: `true`
+
+## Best Practices
+
+* **Koordinaten**: Verwenden Sie genaue GPS-Koordinaten für den Standort
+* **Zoom-Level**: 15-18 für Stadtansicht, 17-20 für detaillierte Ansicht
+* **Marker-Informationen**: Vollständige Adressinformationen im Marker
+* **Scroll-Zoom**: Aktivieren für bessere Benutzerfreundlichkeit

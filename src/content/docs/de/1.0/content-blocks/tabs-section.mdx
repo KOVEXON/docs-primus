@@ -1,0 +1,167 @@
+---
+title: Tabs Section
+description: Content-Block mit Tab-Navigation für strukturierte, kategorisierte Inhalte
+slug: de/1.0/content-blocks/tabs-section
+---
+
+Die **Tabs Section** ist ein Content-Block mit Tab-Navigation, der Inhalte in verschiedene Tabs organisiert. Sie eignet sich für strukturierte, kategorisierte Informationen, die in übersichtlichen Tabs präsentiert werden sollen.
+
+## Felder
+
+### Headline
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Beschreibung**: Hauptüberschrift für die gesamte Tabs-Sektion
+
+### Description
+
+* **Typ**: Text
+* **Pflichtfeld**: Nein
+* **Maximale Länge**: 500 Zeichen
+* **Beschreibung**: Beschreibung für die Tabs-Sektion
+
+### Accordion
+
+* **Typ**: Object
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Accordion-Items, die als Tabs angezeigt werden
+
+#### Accordion Items
+
+* **Typ**: Array von Accordion-Item-Objekten
+* **Pflichtfeld**: Ja
+* **Minimale Anzahl**: 1
+* **Beschreibung**: Liste der Accordion-Items, die als Tabs dargestellt werden
+
+##### Accordion-Item Felder
+
+###### Item Headline
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Beschreibung**: Überschrift des Tabs (wird als Tab-Label angezeigt)
+
+###### Icon
+
+* **Typ**: Lucide Icon
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Optionales Icon, das im Tab-Label angezeigt wird
+
+###### Content
+
+* **Typ**: Rich Text Section (`richTextSection`)
+* **Pflichtfeld**: Ja
+* **Beschreibung**: Rich-Text-Inhalt, der im aktiven Tab angezeigt wird
+
+### Background Color
+
+* **Typ**: Reference zu `backgroundColor`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hintergrundfarbe für die gesamte Tabs-Sektion
+
+## Verwendung
+
+Die Tabs Section wird typischerweise verwendet für:
+
+* **Kategorisierte Inhalte** - Inhalte, die in verschiedene Kategorien unterteilt werden sollen
+* **Produktdetails** - Verschiedene Aspekte eines Produkts in separaten Tabs
+* **Dienstleistungsseiten** - Verschiedene Dienstleistungen in übersichtlichen Tabs
+* **Preisvergleiche** - Verschiedene Pakete oder Optionen in Tabs
+* **Informationsseiten** - Strukturierte Informationen in kategorisierten Tabs
+* **Feature-Präsentationen** - Verschiedene Features in separaten Tabs
+
+## Beispiel
+
+Eine typische Tabs Section könnte folgende Struktur haben:
+
+### Headline
+
+"Unsere Führerschein-Klassen"
+
+### Description
+
+"Wählen Sie die passende Führerscheinklasse für Ihre Bedürfnisse"
+
+### Accordion Items (Tabs)
+
+**Tab 1:**
+
+* **Headline**: "Klasse B (Pkw)"
+* **Icon**: Car (optional)
+* **Content**: "Der Führerschein Klasse B berechtigt zum Führen von Kraftfahrzeugen..."
+
+**Tab 2:**
+
+* **Headline**: "Klasse A (Motorrad)"
+* **Icon**: Bike (optional)
+* **Content**: "Mit dem Führerschein Klasse A können Sie Motorräder aller Leistungsklassen fahren..."
+
+**Tab 3:**
+
+* **Headline**: "Klasse C (Lkw)"
+* **Icon**: Truck (optional)
+* **Content**: "Der Führerschein Klasse C ist für schwere Nutzfahrzeuge erforderlich..."
+
+**Tab 4:**
+
+* **Headline**: "Klasse BE (Anhänger)"
+* **Icon**: Car (optional)
+* **Content**: "Mit dem Führerschein Klasse BE können Sie Pkw mit Anhänger fahren..."
+
+## Besonderheiten
+
+* **Tab-Navigation**: Inhalte werden in übersichtlichen Tabs organisiert
+* **Rich Text Content**: Vollständiger Rich-Text-Editor für detaillierte Inhalte
+* **Icons**: Optional Icons für visuelle Unterstützung in Tab-Labels
+* **Strukturierte Darstellung**: Ideal für kategorisierte, gleichwertige Inhalte
+* **Kompakte Darstellung**: Spart Platz durch Tab-Navigation
+* **Interaktiv**: Benutzer können zwischen Tabs wechseln
+
+## Best Practices
+
+* **Klarheit**: Verwenden Sie prägnante, aussagekräftige Headlines für jeden Tab
+* **Kategorisierung**: Gruppieren Sie verwandte Inhalte logisch in Tabs
+* **Icons**: Verwenden Sie Icons konsistent und nur wenn sie einen Mehrwert bieten
+* **Content-Länge**: Halten Sie den Content pro Tab fokussiert und ausgewogen
+* **Anzahl**: 3-5 Tabs sind optimal für die Benutzererfahrung
+* **Gleichwertigkeit**: Tabs sollten gleichwertige Inhalte enthalten
+* **Hintergrundfarbe**: Verwenden Sie Hintergrundfarben sparsam, um die Lesbarkeit zu gewährleisten
+
+## Unterschiede zu anderen Content-Blöcken
+
+| Feature              | Tabs Section         | Accordion Section   |
+| -------------------- | -------------------- | ------------------- |
+| Struktur             | Fest (Tabs)          | Fest (Accordion)    |
+| Navigation           | Tab-Navigation       | Ausklappbar         |
+| Sichtbarkeit         | Ein Tab aktiv        | Mehrere ausklappbar |
+| Rich Text            | Ja (pro Tab)         | Ja (pro Item)       |
+| Icons                | Ja (optional)        | Ja (optional)       |
+| Headlines            | Ja (pro Tab)         | Ja (pro Item)       |
+| Kompakte Darstellung | Ja                   | Ja                  |
+| Verwendung           | Kategorisierte Infos | Strukturierte Infos |
+
+## Vorteile
+
+* **Übersichtlichkeit**: Klare Tab-Navigation für strukturierte Inhalte
+* **Platzsparend**: Nur ein Tab-Inhalt wird gleichzeitig angezeigt
+* **Kategorisierung**: Ideal für gleichwertige, kategorisierte Inhalte
+* **Interaktiv**: Benutzer können gezielt zwischen Tabs wechseln
+* **Strukturiert**: Klare Struktur für komplexe, kategorisierte Informationen
+* **Barrierefrei**: Unterstützt Screenreader und Tastaturnavigation
+
+## Wann Tabs vs. Accordion verwenden?
+
+### Tabs Section verwenden, wenn:
+
+* Inhalte gleichwertig und kategorisiert sind
+* Nur ein Bereich gleichzeitig sichtbar sein soll
+* Inhalte thematisch zusammengehören
+* Übersichtliche Navigation wichtig ist
+
+### Accordion Section verwenden, wenn:
+
+* Inhalte hierarchisch strukturiert sind
+* Mehrere Bereiche gleichzeitig sichtbar sein können
+* Inhalte unterschiedlich lang sind
+* Ausklappbare Bereiche bevorzugt werden

@@ -1,0 +1,68 @@
+---
+title: Call to Action Section
+description: Content-Block für Handlungsaufforderungen mit Headline, Beschreibung und Buttons
+---
+
+Die **Call to Action Section** ist ein Content-Block für Handlungsaufforderungen, der Besucher zu einer bestimmten Aktion motivieren soll.
+
+## Felder
+
+### Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Beschreibung**: Hauptüberschrift für die CTA-Sektion
+
+### Description
+
+- **Typ**: Text
+- **Pflichtfeld**: Nein
+- **Zeilen**: 3
+- **Beschreibung**: Beschreibungstext unter der Headline
+
+### Call to Action Buttons
+
+- **Typ**: Reference zu `button`
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Button-Konfiguration für die CTA-Sektion
+
+### Background Color
+
+- **Typ**: Reference zu `backgroundColor`
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Hintergrundfarbe für die gesamte CTA-Sektion
+
+## Verwendung
+
+Die Call to Action Section wird typischerweise verwendet für:
+
+- **Kontaktaufforderungen** - Besucher zum Kontakt aufzufordern
+- **Anmeldungen** - Zur Anmeldung für Kurse oder Angebote
+- **Downloads** - Zum Download von Materialien
+- **Newsletter** - Zur Newsletter-Anmeldung
+- **Angebote** - Zur Nutzung von Sonderangeboten
+
+## Beispiel
+
+Eine typische Call to Action Section könnte folgende Struktur haben:
+
+### Headline
+
+"Bereit für den Führerschein?"
+
+### Description
+
+"Melden Sie sich jetzt an und starten Sie Ihre Fahrausbildung mit erfahrenen Fahrlehrern und modernen Fahrzeugen."
+
+### Call to Action Buttons
+
+- **Primary Button**: "Jetzt anmelden" → `/anmeldung`
+- **Secondary Button**: "Mehr erfahren" → `/ueber-uns`
+
+## Best Practices
+
+- **Klarheit**: Klare, handlungsorientierte Headline
+- **Motivation**: Beschreibung sollte den Nutzen klar kommunizieren
+- **Buttons**: Primär-Button für Hauptaktion, Sekundär-Button optional
+- **Platzierung**: Oft am Ende von Seiten oder nach wichtigen Informationen
+- **Hintergrundfarbe**: Auffällige Hintergrundfarbe kann Aufmerksamkeit erregen

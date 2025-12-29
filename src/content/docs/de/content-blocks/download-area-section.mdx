@@ -1,0 +1,125 @@
+---
+title: Download Area Section
+description: Download-Bereich für Dokumente mit Filterung, Suche und Sortierung
+---
+
+Die **Download Area Section** ist ein Content-Block für einen Download-Bereich mit automatischem Abruf von Dokumenten, Kategoriefiltern, Suche und Sortierung.
+
+## Felder
+
+### Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Initialwert**: "Downloads"
+- **Maximale Länge**: 100 Zeichen
+- **Beschreibung**: Hauptüberschrift für den Download-Bereich
+
+### Description
+
+- **Typ**: Text
+- **Pflichtfeld**: Nein
+- **Zeilen**: 3
+- **Initialwert**: "Download our latest documents, forms and materials."
+- **Maximale Länge**: 500 Zeichen
+- **Beschreibung**: Beschreibung für den Download-Bereich
+
+### Auto-fetch Documents
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Automatisches Abrufen aller aktiven Dokumente statt manueller Auswahl
+
+### Show Categories
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Zeigt die Kategoriefilter an
+
+### Show File Sizes
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Zeigt die Dateigröße für jedes Dokument an
+
+### Show Last Modified Date
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Zeigt das Datum der letzten Änderung für jedes Dokument an
+
+### Documents Per Page
+
+- **Typ**: Number
+- **Initialwert**: 12
+- **Minimale Wert**: 6
+- **Maximale Wert**: 50
+- **Beschreibung**: Anzahl der Dokumente, die gleichzeitig angezeigt werden
+
+### Enable Search
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Ermöglicht die Suche durch Dokumente
+
+### Enable Sorting
+
+- **Typ**: Boolean
+- **Initialwert**: `true`
+- **Beschreibung**: Ermöglicht die Sortierung von Dokumenten nach verschiedenen Kriterien
+
+### Default Sorting
+
+- **Typ**: String
+- **Initialwert**: `nameAsc`
+- **Optionen**:
+  - **Name A-Z** (`nameAsc`)
+  - **Name Z-A** (`nameDesc`)
+  - **Category** (`categoryAsc`)
+  - **Newest First** (`lastModifiedDesc`)
+- **Beschreibung**: Standard-Sortierung für Dokumente
+
+### Background Color
+
+- **Typ**: Reference zu `backgroundColor`
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Hintergrundfarbe für die gesamte Download-Sektion
+
+## Verwendung
+
+Die Download Area Section wird typischerweise verwendet für:
+
+- **Download-Bereiche** - Zentrale Download-Bereiche für Dokumente
+- **Formulare** - Anzeige von Formularen zum Download
+- **Materialien** - Schulungsmaterialien und Dokumente
+- **Rechtliche Dokumente** - AGB, Datenschutz, etc.
+
+## Beispiel
+
+Eine typische Download Area Section könnte folgende Konfiguration haben:
+
+- **Headline**: "Downloads"
+- **Description**: "Hier finden Sie alle wichtigen Dokumente und Formulare"
+- **Auto-fetch Documents**: `true`
+- **Show Categories**: `true`
+- **Show File Sizes**: `true`
+- **Show Last Modified Date**: `true`
+- **Documents Per Page**: 12
+- **Enable Search**: `true`
+- **Enable Sorting**: `true`
+- **Default Sorting**: "Name A-Z"
+
+## Besonderheiten
+
+- **Automatischer Abruf**: Alle aktiven Dokumente werden automatisch abgerufen
+- **Kategoriefilter**: Filterung nach Dokument-Kategorien
+- **Suche**: Durchsuchbare Dokumente
+- **Sortierung**: Mehrere Sortieroptionen
+- **Paginierung**: Dokumente werden seitenweise angezeigt
+
+## Best Practices
+
+- **Kategorien**: Verwenden Sie sinnvolle Kategorien für bessere Organisation
+- **Anzahl pro Seite**: 12-24 Dokumente pro Seite sind optimal
+- **Suche**: Aktivieren Sie die Suche für große Dokumentensammlungen
+- **Sortierung**: Standard-Sortierung nach Relevanz wählen

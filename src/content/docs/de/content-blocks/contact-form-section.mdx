@@ -1,0 +1,131 @@
+---
+title: Contact Form Section
+description: Kontaktformular mit konfigurierbaren Feldern und Validierung
+---
+
+Die **Contact Form Section** ist ein Content-Block für Kontaktformulare mit konfigurierbaren Feldern, Validierung und DSGVO-konformen Einstellungen.
+
+## Felder
+
+### Headline
+
+- **Typ**: String
+- **Pflichtfeld**: Ja
+- **Beschreibung**: Hauptüberschrift für das Kontaktformular
+
+### Description
+
+- **Typ**: Text
+- **Pflichtfeld**: Nein
+- **Zeilen**: 3
+- **Beschreibung**: Optionale Beschreibung über dem Formular
+
+### Form Fields Configuration
+
+- **Typ**: Object
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Konfiguration der Formularfelder
+
+#### Name Field
+
+- **Label** (String, Initialwert: "Name")
+- **Placeholder** (String, Initialwert: "Name")
+- **Required** (Boolean, Initialwert: `true`)
+
+#### Email Field
+
+- **Label** (String, Initialwert: "E-Mail")
+- **Placeholder** (String, Initialwert: "email@example.com")
+- **Required** (Boolean, Initialwert: `true`)
+
+#### Phone Field
+
+- **Label** (String, Initialwert: "Telefon")
+- **Placeholder** (String, Initialwert: "Telefonnummer")
+- **Required** (Boolean, Initialwert: `false`)
+- **Show Phone Field** (Boolean, Initialwert: `true`)
+
+#### Message Field
+
+- **Label** (String, Initialwert: "Nachricht")
+- **Placeholder** (String, Initialwert: "Deine Nachricht an uns...")
+- **Required** (Boolean, Initialwert: `true`)
+- **Number of Rows** (Number, Initialwert: 5, Min: 3, Max: 10)
+
+### Submit Button
+
+- **Typ**: Object
+- **Felder**:
+  - **Button Text** (String, Initialwert: "Nachricht senden")
+  - **Loading Text** (String, Initialwert: "Wird gesendet...")
+
+### Required Fields Note
+
+- **Typ**: String
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Text unter dem Formular, der Pflichtfelder kennzeichnet
+
+### Privacy Policy
+
+- **Typ**: Object
+- **Felder**:
+  - **Privacy Policy Text** (Text, Initialwert: "Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.")
+  - **Privacy Policy Link** (String) - Link zur Datenschutzseite (z. B. `/datenschutz`)
+
+### Success Message
+
+- **Typ**: Text
+- **Zeilen**: 2
+- **Beschreibung**: Nachricht nach erfolgreichem Absenden des Formulars
+
+### Error Message
+
+- **Typ**: Text
+- **Zeilen**: 2
+- **Beschreibung**: Nachricht bei Fehler beim Absenden
+
+### Validation Messages
+
+- **Typ**: Object
+- **Felder**:
+  - **Required Field Message** (String)
+  - **Invalid Email Message** (String)
+  - **Invalid Phone Message** (String)
+
+### Background Color
+
+- **Typ**: Reference zu `backgroundColor`
+- **Pflichtfeld**: Nein
+- **Beschreibung**: Hintergrundfarbe für die gesamte Formular-Sektion
+
+## Verwendung
+
+Die Contact Form Section wird typischerweise verwendet für:
+
+- **Kontaktseiten** - Hauptkontaktformular
+- **Anfragen** - Formular für allgemeine Anfragen
+- **Beratung** - Formular für Beratungsanfragen
+- **Newsletter** - Newsletter-Anmeldung (mit angepassten Feldern)
+
+## Beispiel
+
+Eine typische Contact Form Section könnte folgende Konfiguration haben:
+
+- **Headline**: "Kontaktieren Sie uns"
+- **Description**: "Haben Sie Fragen? Wir helfen Ihnen gerne weiter."
+- **Name Field**: Pflichtfeld, Label "Name"
+- **Email Field**: Pflichtfeld, Label "E-Mail"
+- **Phone Field**: Optional, Label "Telefon"
+- **Message Field**: Pflichtfeld, 5 Zeilen, Label "Nachricht"
+- **Submit Button**: "Nachricht senden"
+- **Privacy Policy**: Link zu `/datenschutz`
+- **Success Message**: "Vielen Dank! Wir melden uns bald bei Ihnen."
+- **Error Message**: "Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut."
+
+## Best Practices
+
+- **Pflichtfelder**: Nur wirklich notwendige Felder als Pflicht markieren
+- **Validierung**: Klare Validierungsmeldungen für bessere UX
+- **DSGVO**: Privacy Policy Link immer angeben
+- **Feedback**: Klare Erfolgs- und Fehlermeldungen
+- **Beschriftungen**: Verständliche Labels und Placeholders

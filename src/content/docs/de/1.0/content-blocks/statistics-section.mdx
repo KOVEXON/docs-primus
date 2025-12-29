@@ -1,0 +1,109 @@
+---
+title: Statistics Section
+description: Content-Block zur Anzeige von Statistiken und Kennzahlen
+slug: de/1.0/content-blocks/statistics-section
+---
+
+Die **Statistics Section** ist ein Content-Block zur Anzeige von Statistiken, Kennzahlen oder Erfolgszahlen in übersichtlicher Form.
+
+## Felder
+
+### Headline
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hauptüberschrift für die Statistics-Sektion
+
+### Description
+
+* **Typ**: Text
+* **Pflichtfeld**: Nein
+* **Zeilen**: 3
+* **Beschreibung**: Kurze Beschreibung der Sektion
+
+### Statistics
+
+* **Typ**: Array von Statistic-Item-Objekten
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Liste der Statistiken
+
+#### Statistic-Item Felder
+
+##### Label
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Beschriftung der Statistik (z. B. "Zufriedene Kunden")
+
+##### Number
+
+* **Typ**: Number
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Zahl der Statistik (z. B. 1000)
+
+##### Suffix
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Suffix nach der Zahl (z. B. "+", "%", "Kunden")
+
+### Background Color
+
+* **Typ**: Reference zu `backgroundColor`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hintergrundfarbe für die gesamte Statistics-Sektion
+
+## Verwendung
+
+Die Statistics Section wird typischerweise verwendet für:
+
+* **Erfolgszahlen** - Präsentation von Erfolgszahlen
+* **Kennzahlen** - Wichtige Kennzahlen des Unternehmens
+* **Statistiken** - Statistiken und Daten
+* **Vertrauensbildung** - Aufbau von Vertrauen durch Zahlen
+
+## Beispiel
+
+Eine typische Statistics Section könnte folgende Struktur haben:
+
+### Headline
+
+"Unsere Erfolgszahlen"
+
+### Description
+
+"Zahlen, die für sich sprechen"
+
+### Statistics
+
+**Statistik 1:**
+
+* **Label**: "Zufriedene Kunden"
+* **Number**: 5000
+* **Suffix**: "+"
+
+**Statistik 2:**
+
+* **Label**: "Erfolgsquote"
+* **Number**: 95
+* **Suffix**: "%"
+
+**Statistik 3:**
+
+* **Label**: "Jahre Erfahrung"
+* **Number**: 15
+* **Suffix**: ""
+
+**Statistik 4:**
+
+* **Label**: "Fahrzeuge"
+* **Number**: 20
+* **Suffix**: ""
+
+## Best Practices
+
+* **Relevanz**: Nur relevante, aussagekräftige Statistiken verwenden
+* **Aktualität**: Statistiken regelmäßig aktualisieren
+* **Klarheit**: Klare, verständliche Labels
+* **Suffixe**: Passende Suffixe für bessere Lesbarkeit
+* **Anzahl**: 3-6 Statistiken sind optimal

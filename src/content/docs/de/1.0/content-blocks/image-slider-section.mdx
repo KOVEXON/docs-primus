@@ -1,0 +1,177 @@
+---
+title: Image Slider Section
+description: Bilderslider mit globalen und slide-spezifischen Inhalten, Autoplay
+  und Navigation
+slug: de/1.0/content-blocks/image-slider-section
+---
+
+Die **Image Slider Section** ist ein flexibler Bilderslider mit globalen und slide-spezifischen Inhalten, Autoplay-Funktionalität und umfangreichen Konfigurationsoptionen.
+
+## Felder
+
+### Global Slider Content
+
+#### Slider Title
+
+* **Typ**: String
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Titel, der auf allen Slides erscheint (optional)
+
+#### Slider Description
+
+* **Typ**: Text
+* **Pflichtfeld**: Nein
+* **Zeilen**: 3
+* **Beschreibung**: Kurzbeschreibung, die auf allen Slides erscheint (optional)
+
+#### Call to Action Buttons
+
+* **Typ**: Reference zu `button`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Globale CTA-Buttons für alle Slides
+
+#### Content Alignment
+
+* **Typ**: String
+* **Initialwert**: `left`
+* **Optionen**: Left, Right
+* **Beschreibung**: Ausrichtung des Textinhalts auf den Slides
+
+### Individual Slides Configuration
+
+#### Slides
+
+* **Typ**: Array von Slider-Image-Objekten
+* **Pflichtfeld**: Ja
+* **Minimale Anzahl**: 2
+* **Maximale Anzahl**: 20
+* **Beschreibung**: Konfiguration der einzelnen Slides
+
+##### Slide-Objekt Felder
+
+**Slide Image** (Image, Pflichtfeld) - Hauptbild für diesen Slide
+
+**Alt Text** (String, Pflichtfeld, max. 125 Zeichen) - Beschreibender Text für Screenreader und SEO
+
+**Image Caption** (String) - Kurze Bildunterschrift (optional)
+
+**Image Link** (Object) - Klickbares Link-Objekt für das gesamte Bild
+
+* **URL** (URL) - Externer Link beim Klick auf das Bild
+* **Open in New Tab** (Boolean) - Link in neuem Tab öffnen
+
+**Slide Headline** (String) - Benutzerdefinierte Überschrift für diesen Slide (überschreibt globalen Titel)
+
+**Slide Description** (Text, 3 Zeilen) - Benutzerdefinierte Beschreibung für diesen Slide (überschreibt globale Beschreibung)
+
+**Call to Action Buttons** (Reference zu `button`) - Slide-spezifische CTA-Buttons
+
+**Content Alignment** (String) - Ausrichtung des Textinhalts auf diesem Slide
+
+### Slider Behavior Settings
+
+#### Enable Autoplay
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Automatisches Wechseln zum nächsten Slide
+
+#### Autoplay Speed
+
+* **Typ**: Number
+* **Initialwert**: 5
+* **Minimale Wert**: 1
+* **Maximale Wert**: 30
+* **Versteckt**: Ja (wenn Autoplay nicht aktiviert ist)
+* **Beschreibung**: Sekunden zwischen automatischen Slide-Wechseln
+
+#### Show Navigation Dots
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Klickbare Punkte unter dem Slider für Navigation anzeigen
+
+### Visual Settings
+
+#### Slider Height
+
+* **Typ**: String
+* **Initialwert**: `large`
+* **Optionen**: Small (30vh), Medium (50vh), Large (70vh), Fullscreen (100vh), Custom Height
+* **Beschreibung**: Steuert die Höhe des Bildsliders
+
+#### Custom Height
+
+* **Typ**: String
+* **Versteckt**: Ja (wenn Slider Height nicht "Custom Height" ist)
+* **Beschreibung**: Benutzerdefinierter CSS-Höhenwert (z. B. "400px", "50vh", "20rem")
+
+#### Slider Width
+
+* **Typ**: String
+* **Initialwert**: `100%`
+* **Optionen**: 100%, 50%, Custom Width
+* **Beschreibung**: Steuert die Breite des Bildsliders
+
+#### Custom Width
+
+* **Typ**: String
+* **Versteckt**: Ja (wenn Slider Width nicht "Custom Width" ist)
+* **Beschreibung**: Benutzerdefinierter CSS-Breitenwert
+
+#### Background Color
+
+* **Typ**: Reference zu `backgroundColor`
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Hintergrundfarbe für den Slider
+
+## Verwendung
+
+Die Image Slider Section wird typischerweise verwendet für:
+
+* **Hero-Bereiche** - Auffällige Bildpräsentationen
+* **Produktpräsentationen** - Mehrere Produkte in einem Slider
+* **Event-Highlights** - Verschiedene Events oder Angebote
+* **Testimonials** - Kundenbewertungen mit Bildern
+
+## Beispiel
+
+Eine typische Image Slider Section könnte folgende Konfiguration haben:
+
+**Global Content:**
+
+* **Title**: "Unsere Angebote"
+* **Description**: "Entdecken Sie unsere vielfältigen Fahrschulangebote"
+* **Content Alignment**: Left
+
+**Slides:**
+
+* **Slide 1**: Bild + "Führerschein Klasse B" + Beschreibung
+* **Slide 2**: Bild + "Führerschein Klasse A" + Beschreibung
+* **Slide 3**: Bild + "Intensivkurse" + Beschreibung
+
+**Behavior:**
+
+* **Autoplay**: `true`
+* **Autoplay Speed**: 5 Sekunden
+* **Show Navigation Dots**: `true`
+
+**Visual:**
+
+* **Height**: Large (70vh)
+* **Width**: 100%
+
+## Besonderheiten
+
+* **Globale und slide-spezifische Inhalte**: Kombination aus globalen und individuellen Inhalten
+* **Klickbare Bilder**: Ganze Bilder können verlinkt werden
+* **Flexible Größen**: Verschiedene vordefinierte Höhen oder benutzerdefinierte CSS-Werte
+* **Autoplay**: Automatisches Wechseln mit konfigurierbarer Geschwindigkeit
+
+## Best Practices
+
+* **Anzahl der Slides**: 3-8 Slides sind optimal
+* **Alt-Text**: Immer aussagekräftigen Alt-Text ausfüllen (max. 125 Zeichen)
+* **Autoplay Speed**: 5-7 Sekunden sind ein guter Kompromiss
+* **Bildqualität**: Hochwertige, konsistente Bilder verwenden
+* **Content Alignment**: Konsistente Ausrichtung für bessere Lesbarkeit

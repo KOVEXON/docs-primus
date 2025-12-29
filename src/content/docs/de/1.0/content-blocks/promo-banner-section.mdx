@@ -1,0 +1,125 @@
+---
+title: Promo Banner Section
+description: Werbebanner für Sonderangebote und Promotionen mit Modal-Unterstützung
+slug: de/1.0/content-blocks/promo-banner-section
+---
+
+Die **Promo Banner Section** ist ein Content-Block für Werbebanner, die Sonderangebote, Promotionen oder wichtige Ankündigungen präsentieren.
+
+## Felder
+
+### Enable Banner
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Schalter zum Ein-/Ausschalten des Promo-Banners
+
+### Main Text
+
+* **Typ**: String
+* **Pflichtfeld**: Ja
+* **Beschreibung**: Hauptwerbetext, der im Banner angezeigt wird
+
+### CTA Button Text
+
+* **Typ**: String
+* **Initialwert**: "Angebot sichern"
+* **Beschreibung**: Text, der auf dem Call-to-Action-Button angezeigt wird
+
+### Background Color
+
+* **Typ**: String
+* **Initialwert**: `green`
+* **Optionen**: Green, Orange, Purple, Blue, Red, Pink, Yellow, Gray
+* **Beschreibung**: Hintergrundfarbe des Banners
+
+### Show Modal
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Ob beim Klick auf den CTA-Button ein Modal angezeigt werden soll
+
+### Modal Title
+
+* **Typ**: String
+* **Initialwert**: "🎉 Sonderangebot"
+* **Versteckt**: Ja (wenn Show Modal nicht aktiviert ist)
+* **Beschreibung**: Titel, der im Modal angezeigt wird
+
+### Modal Image
+
+* **Typ**: Image
+* **Versteckt**: Ja (wenn Show Modal nicht aktiviert ist)
+* **Optionen**: Hotspot aktiviert
+* **Beschreibung**: Optionales Bild, das im Modal angezeigt wird
+
+### Modal Description
+
+* **Typ**: Rich Text Section (`richTextSection`)
+* **Versteckt**: Ja (wenn Show Modal nicht aktiviert ist)
+* **Beschreibung**: Beschreibungstext, der im Modal angezeigt wird
+
+### Modal CTA Text
+
+* **Typ**: String
+* **Initialwert**: "Jetzt starten"
+* **Versteckt**: Ja (wenn Show Modal nicht aktiviert ist)
+* **Beschreibung**: Text für den Haupt-CTA-Button im Modal
+
+### Modal CTA Link
+
+* **Typ**: String
+* **Versteckt**: Ja (wenn Show Modal nicht aktiviert ist)
+* **Beschreibung**: Link für den Modal-CTA-Button
+
+### Start Date
+
+* **Typ**: DateTime
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Wann das Banner angezeigt werden soll (optional)
+
+### End Date
+
+* **Typ**: DateTime
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Wann das Banner nicht mehr angezeigt werden soll (optional)
+
+## Verwendung
+
+Die Promo Banner Section wird typischerweise verwendet für:
+
+* **Sonderangebote** - Zeitlich begrenzte Angebote
+* **Promotionen** - Marketing-Kampagnen
+* **Ankündigungen** - Wichtige Ankündigungen oder Neuigkeiten
+* **Aktionen** - Spezielle Aktionen oder Events
+
+## Beispiel
+
+Eine typische Promo Banner Section könnte folgende Konfiguration haben:
+
+* **Enable Banner**: `true`
+* **Main Text**: "🎉 20% Rabatt auf alle Intensivkurse - Nur noch diese Woche!"
+* **CTA Button Text**: "Angebot sichern"
+* **Background Color**: `orange`
+* **Show Modal**: `true`
+* **Modal Title**: "🎉 Sonderangebot"
+* **Modal Description**: "Nutzen Sie jetzt 20% Rabatt auf alle Intensivkurse..."
+* **Modal CTA Text**: "Jetzt buchen"
+* **Modal CTA Link**: `/intensivkurse`
+* **Start Date**: 01.01.2025
+* **End Date**: 31.01.2025
+
+## Besonderheiten
+
+* **Zeitsteuerung**: Automatische Anzeige basierend auf Start- und Enddatum
+* **Modal-Unterstützung**: Detaillierte Informationen im Modal
+* **Farbauswahl**: Verschiedene Hintergrundfarben für unterschiedliche Botschaften
+* **Ein/Aus-Schalter**: Einfaches Aktivieren/Deaktivieren des Banners
+
+## Best Practices
+
+* **Klarheit**: Klare, prägnante Werbetexte
+* **Dringlichkeit**: Zeitlich begrenzte Angebote schaffen Dringlichkeit
+* **Modal-Inhalt**: Detaillierte Informationen im Modal
+* **Farbwahl**: Passende Hintergrundfarbe für die Botschaft
+* **Zeitsteuerung**: Start- und Enddatum für zeitlich begrenzte Angebote

@@ -1,0 +1,92 @@
+---
+title: Masonry Gallery Section
+description: Masonry-Layout-Galerie mit flexibler Spaltenkonfiguration
+slug: de/1.0/content-blocks/masonry-gallery-section
+---
+
+Die **Masonry Gallery Section** ist eine Galerie mit Masonry-Layout, die Bilder in einer flexiblen, gestaffelten Anordnung präsentiert.
+
+## Felder
+
+### Gallery Images
+
+* **Typ**: Array von Gallery-Image-Objekten
+* **Pflichtfeld**: Ja
+* **Minimale Anzahl**: 1
+* **Maximale Anzahl**: 24
+* **Beschreibung**: Liste der Galeriebilder
+
+#### Gallery-Image Felder
+
+* **Image** (Image, Pflichtfeld) - Das Bild mit Hotspot-Unterstützung
+* **Alt Text** (String) - Alternative Text für das Bild (überschreibt Bild-Alt-Text)
+* **Caption** (String) - Optionale Bildunterschrift, die beim Hover angezeigt wird
+
+### Number of Columns
+
+* **Typ**: Object
+* **Pflichtfeld**: Nein
+* **Beschreibung**: Spaltenkonfiguration für verschiedene Bildschirmgrößen
+
+#### Mobile Columns
+
+* **Typ**: Number
+* **Initialwert**: 2
+* **Minimale Wert**: 1
+* **Maximale Wert**: 3
+* **Beschreibung**: Anzahl der Spalten auf mobilen Geräten
+
+#### Desktop Columns
+
+* **Typ**: Number
+* **Initialwert**: 4
+* **Minimale Wert**: 2
+* **Maximale Wert**: 6
+* **Beschreibung**: Anzahl der Spalten auf Desktop-Geräten
+
+### Images Per Column
+
+* **Typ**: Number
+* **Initialwert**: 3
+* **Minimale Wert**: 1
+* **Maximale Wert**: 10
+* **Beschreibung**: Maximale Anzahl von Bildern pro Spalte
+
+### Enable Image Modal
+
+* **Typ**: Boolean
+* **Initialwert**: `true`
+* **Beschreibung**: Ermöglicht es Benutzern, Bilder durch Klicken in einem Modal anzuzeigen
+
+## Verwendung
+
+Die Masonry Gallery Section wird typischerweise verwendet für:
+
+* **Portfolio-Galerien** - Kreative Portfolio-Präsentationen
+* **Event-Galerien** - Bilder von Veranstaltungen in gestaffelter Anordnung
+* **Produktgalerien** - Produktbilder mit unterschiedlichen Größen
+* **Inspirations-Galerien** - Sammlungen von inspirierenden Bildern
+
+## Beispiel
+
+Eine typische Masonry Gallery Section könnte folgende Konfiguration haben:
+
+* **Mobile Columns**: 2
+* **Desktop Columns**: 4
+* **Images Per Column**: 3
+* **Enable Image Modal**: `true`
+* **Images**: Array von 12-20 Bildern mit unterschiedlichen Größen
+
+## Besonderheiten
+
+* **Masonry-Layout**: Flexible, gestaffelte Anordnung der Bilder
+* **Responsive**: Unterschiedliche Spaltenanzahl für Mobile und Desktop
+* **Modal-Ansicht**: Bilder können in einem Modal vergrößert angezeigt werden
+* **Hover-Captions**: Captions werden beim Hover über Bildern angezeigt
+
+## Best Practices
+
+* **Bildgrößen**: Verwenden Sie Bilder mit unterschiedlichen Seitenverhältnissen für interessanteres Layout
+* **Alt-Text**: Immer aussagekräftigen Alt-Text für jedes Bild ausfüllen
+* **Anzahl**: 12-20 Bilder sind optimal für das Masonry-Layout
+* **Spalten**: 2-3 Spalten auf Mobile, 4-6 auf Desktop sind gute Richtwerte
