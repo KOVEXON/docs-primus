@@ -52,21 +52,21 @@ export default defineConfig({
           },
         },
         {
-          label: "Start Here",
+          label: "Getting Started",
           autogenerate: {
             directory: "start-here",
           },
           translations: {
             de: "Hier Starten",
-            en: "Start Here",
+            en: "Getting Started",
           },
         },
         {
-          label: "Inhaltsblöcke",
-          autogenerate: { directory: "content-blocks" },
+          label: "Komponenten",
+          autogenerate: { directory: "components" },
           translations: {
-            de: "Inhaltsblöcke",
-            en: "Content Blocks",
+            de: "Komponenten",
+            en: "Components",
           },
         },
       ],
