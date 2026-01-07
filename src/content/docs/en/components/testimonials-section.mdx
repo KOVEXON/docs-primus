@@ -5,120 +5,130 @@ description: A content block for displaying customer reviews and testimonials wi
 
 import { Aside } from "@astrojs/starlight/components";
 
-The Testimonials Section displays customer reviews, references, and testimonials in an organized format. With quotes, author names, and optional avatars, it's perfect for building trust and showcasing social proof.
+## Overview
+
+The **Testimonials Section** displays customer reviews, references, and testimonials in an organized format. With quotes, author names, and optional avatars, it's perfect for building trust and showcasing social proof.
 
 <Aside>
   **Best for:** Customer reviews, references, success stories, trust building,
   social proof, credibility enhancement.
 </Aside>
 
+---
+
 ## Fields
-
-### Title
-
-- **Type:** String (optional)
-- **Purpose:** Title for the testimonials section
-- **Example:** "What Our Customers Say"
 
 ### Headline
 
-- **Type:** String (required)
+- **Type:** String
+- **Required:** Yes
 - **Purpose:** Main heading for the testimonials section
-- **Example:** "Customer Reviews" or "Testimonials"
+- **Examples:**  
+  `Customer Reviews`, `Testimonials`
+
+---
+
+### Description
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Description text for the testimonials section
+- **Example:**  
+  `Read what our satisfied customers have to say about their experience.`
+
+---
 
 ### Testimonials
 
-- **Type:** Array of testimonial objects (optional)
-- **Purpose:** List of testimonials
+- **Type:** Array of testimonial objects
+- **Required:** No
+- **Purpose:** List of testimonials to display
 
 #### Testimonial Object Fields
 
-**Quote** (optional)
+**Quote**
 
-- Quote or review text
-- Type: Text
-- Example: "The best service provider in the region! Very professional and helpful."
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Quote or review text
+- **Example:**  
+  `The best service provider in the region! Very professional and helpful.`
 
-**Author** (optional)
+**Author**
 
-- Name of the review author
-- Example: "Max Mustermann"
+- **Type:** String
+- **Required:** No
+- **Purpose:** Name of the review author
+- **Example:**  
+  `Max Mustermann`
 
-**Show Avatar** (optional)
+**Show Avatar**
 
-- Toggle to show or hide the avatar
-- Default: `true`
+- **Type:** Boolean
+- **Required:** No
+- **Purpose:** Toggle to show or hide the avatar for this testimonial
+- **Default:** `true`
 
-**Avatar** (optional, hidden when Show Avatar is not enabled)
+**Avatar**
 
-- Profile picture of the author
-- Type: Image
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Profile picture of the author
+- **Note:** Hidden when Show Avatar is not enabled
+
+---
 
 ### Background Color
 
-- **Type:** Reference to `backgroundColor` (optional)
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
 - **Purpose:** Sets the background color for the entire testimonials section
 
 ---
 
 ## Usage Example
 
-Here's a typical Testimonials Section:
+### Typical Configuration
 
-**Title:** "What Our Customers Say"
-
-**Headline:** "Customer Reviews"
-
-**Testimonials:**
-
-1. **Quote:** "The best service provider in the region! Very professional and helpful."
-
-   - **Author:** "Max Mustermann"
-   - **Show Avatar:** `true`
-   - **Avatar:** Profile picture
-
-2. **Quote:** "Quick and successful service delivery. Can only recommend!"
-   - **Author:** "Anna Schmidt"
-   - **Show Avatar:** `true`
-   - **Avatar:** Profile picture
+- **Headline:** `Customer Reviews`
+- **Description:** `Read what our satisfied customers have to say about their experience.`
+- **Testimonials:**
+  1. **"The best service provider in the region! Very professional and helpful."**
+     - Author: `Max Mustermann`
+     - Show Avatar: `true`
+     - Avatar: Profile picture
+  2. **"Quick and successful service delivery. Can only recommend!"**
+     - Author: `Anna Schmidt`
+     - Show Avatar: `true`
+     - Avatar: Profile picture
 
 ---
 
 ## Best Practices
 
-**Authenticity:** Use real, authentic reviews—genuine testimonials build more trust
-
-**Diversity:** Show different perspectives and experiences
-
-**Avatars:** Profile pictures increase credibility
-
-**Count:** 3-6 testimonials are optimal for impact
-
-**Regular updates:** Update regularly with new reviews to keep content fresh
-
-**Balance:** Mix positive reviews with constructive feedback when appropriate
+- **Authenticity:** Use real, authentic reviews—genuine testimonials build more trust.
+- **Diversity:** Show different perspectives and experiences.
+- **Avatars:** Profile pictures increase credibility.
+- **Count:** 3-6 testimonials are optimal for impact.
+- **Regular updates:** Update regularly with new reviews to keep content fresh.
+- **Balance:** Mix positive reviews with constructive feedback when appropriate.
 
 ---
 
 ## Key Features
 
-**Organized display:** Testimonials displayed in clean, organized cards
-
-**Avatar support:** Optional profile pictures for each testimonial
-
-**Flexible content:** Quote and author name for comprehensive information
-
-**Trust building:** Social proof helps build credibility
-
-**Responsive:** Adapts to different screen sizes
+- **Organized display:** Testimonials displayed in clean, organized cards
+- **Avatar support:** Optional profile pictures for each testimonial
+- **Flexible content:** Quote and author name for comprehensive information
+- **Trust building:** Social proof helps build credibility
+- **Responsive:** Adapts to different screen sizes
 
 ---
 
 ## Where It's Used
 
-The Testimonials Section appears in these content types:
-
-- **Pages** (`page`) – General content pages, especially homepages and service pages
+- **Pages (`page`)**  
+  General content pages, especially homepages and service pages
 
 ---
 
@@ -129,3 +139,4 @@ The Testimonials Section appears in these content types:
 - Background color references the global `backgroundColor` schema
 - The section uses semantic HTML for accessibility
 - Testimonials are typically displayed with quote styling
+- Each testimonial has a `_key` field (internal Sanity identifier)
