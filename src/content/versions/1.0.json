@@ -9,23 +9,23 @@
       }
     },
     {
-      "label": "Start Here",
+      "label": "Getting Started",
       "autogenerate": {
         "directory": "start-here"
       },
       "translations": {
         "de": "Hier Starten",
-        "en": "Start Here"
+        "en": "Getting Started"
       }
     },
     {
-      "label": "Inhaltsblöcke",
+      "label": "Komponenten",
       "autogenerate": {
-        "directory": "content-blocks"
+        "directory": "components"
       },
       "translations": {
-        "de": "Inhaltsblöcke",
-        "en": "Content Blocks"
+        "de": "Komponenten",
+        "en": "Components"
       }
     }
   ]
