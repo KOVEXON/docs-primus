@@ -1,6 +1,7 @@
 ---
-title: Quick Start
-description: Guide to managing and updating the content of your website using Sanity Studio.
+title: Schnellstart
+description: Anleitung zur Verwaltung und Aktualisierung der Inhalte Ihrer
+  Website mit Sanity Studio.
 slug: de/1.0/start-here/how-it-works/01-quick-start
 ---
 
@@ -8,11 +9,12 @@ import { Steps, Aside } from "@astrojs/starlight/components";
 import sanityStudioUserLogin from "../../../../../../assets/1.0/sanity-studio-user-login.png";
 import sanityStudioDashboard from "../../../../../../assets/1.0/sanity-studio-dashboard.png";
 
-This guide will show you how to manage and update the content of your website using Sanity Studio. No technical knowledge required.
+Diese Anleitung zeigt Ihnen, wie Sie die Inhalte Ihrer Website mit Sanity Studio verwalten und aktualisieren können. Technische Kenntnisse sind nicht erforderlich.
 
 <Aside>
-  **Important:** All changes are saved automatically as drafts in Sanity Studio,
-  but they only become visible on your live website after you click **Publish**.
+  **Wichtig:** Alle Änderungen werden automatisch als Entwürfe in Sanity Studio
+  gespeichert, aber sie werden erst auf Ihrer Live-Website sichtbar, nachdem Sie
+  auf **Veröffentlichen** geklickt haben.
 </Aside>
 
 <br />
@@ -20,35 +22,47 @@ This guide will show you how to manage and update the content of your website us
 <br />
 
 <Steps>
-  1. ### Open Sanity Studio in your browser
+  1. ## Öffnen Sie Sanity Studio in Ihrem Browser
 
-     * Open the link to your Sanity Studio in your browser `www.example.com/admin`
-     * Log in using the credentials provided to you
+     * Öffnen Sie den Link zu Ihrem Sanity Studio in Ihrem Browser `www.example.com/admin`
+     * Melden Sie sich mit den Ihnen zur Verfügung gestellten Zugangsdaten an
 
-     {" "}
+     <figure style="text-align: center;">
+       <img src={sanityStudioUserLogin.src} alt="Sanity Studio Anmeldeseite" />
 
-     <img src={sanityStudioUserLogin.src} alt="Sanity Studio login page" />
+       <figcaption>
+         <em>Sanity Studio Anmeldeseite</em>
+       </figcaption>
+     </figure>
 
-     After logging in, you will see the Sanity Studio dashboard with all available content types.
+     <br />
 
-  2. ### Navigate the dashboard
+     Nach der Anmeldung sehen Sie das Sanity Studio Dashboard mit allen verfügbaren Inhaltstypen.
 
-     In the left sidebar, you will find different content sections, such as:
+  2. ## Navigieren Sie im Dashboard
+
+     In der linken Seitenleiste finden Sie verschiedene Inhaltsbereiche, wie zum Beispiel:
 
      * Top Header
      * Header
      * Footer
-     * Company information
-     * Map Section
-     * Events list
-     * Holiday notification
-     * Promo banner
+     * Firmeninformationen
+     * Kartenbereich
+     * Veranstaltungsliste
+     * Urlaubsbenachrichtigung
+     * Werbebanner
      * Blog
-     * Download section
-     * Pages
-     * Website settings
+     * Download-Bereich
+     * Seiten
+     * Website-Einstellungen
 
-     <img src={sanityStudioDashboard.src} alt="Sanity Studio dashboard" />
+     <figure style="text-align: center;">
+       <img src={sanityStudioDashboard.src} alt="Sanity Studio Dashboard" />
 
-     Click on any section to view and edit its content.
+       <figcaption><em>Sanity Studio Dashboard</em></figcaption>
+     </figure>
+
+     <br />
+
+     Klicken Sie auf einen beliebigen Bereich, um dessen Inhalte anzuzeigen und zu bearbeiten.
 </Steps>

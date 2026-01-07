@@ -1,73 +1,76 @@
 ---
-title: What are the main parts of a website page?
-description: Learn what the main parts of a website page are
+title: Was sind die Hauptbestandteile einer Website-Seite?
+description: Erfahren Sie, was die Hauptbestandteile einer Website-Seite sind
 ---
 
 import { Steps, Aside } from "@astrojs/starlight/components";
 import webPageStructure from "../../../../assets/web-page-structure.png";
 
-A website page is made up of several key parts that work together to display content clearly and consistently.  
-In Sanity Studio, these parts are structured so you can manage and update them easily.
+Eine Website-Seite besteht aus mehreren wichtigen Teilen, die zusammenarbeiten, um Inhalte klar und konsistent anzuzeigen.  
+In Sanity Studio sind diese Teile so strukturiert, dass Sie sie einfach verwalten und aktualisieren können.
 
-<img src={webPageStructure.src} alt="Web page structure" />
+<figure style="text-align: center;">
+  <img src={webPageStructure.src} alt="Struktur einer Webseite" />
+  <figcaption>
+    <em>Struktur einer Webseite</em>
+  </figcaption>
+</figure>
+
+<br />
 
 <Steps>
-1. ### Header
-
-    The header appears at the top of the page and is usually the same across the entire website.
-
-    It typically contains:
-
-    - The logo or website name
-    - The main navigation menu
-    - Optional buttons such as **Contact** or **Book now**
-
+1. ## Header (Kopfzeile)
+    Der Header erscheint oben auf der Seite und ist in der Regel auf der gesamten Website gleich.
+    Er enthält typischerweise:
+    - Das Logo
+    - Das Hauptnavigationsmenü
+    - Optional Buttons wie **Kontakt** oder **Jetzt buchen**
+    
     <Aside>
-        The header is usually managed globally, so changes affect all pages.
+        Der Header wird normalerweise global verwaltet, sodass Änderungen alle Seiten betreffen.
     </Aside>
 
-2.  ### Page sections (main content)
+    <br/>
 
-    The main content of a page is built from **sections**.
-    Sections are the building blocks of a page and can be added, edited, removed, or reordered in Sanity Studio.
+2.  ## Seitenabschnitte (Hauptinhalt)
 
-    Common section types include:
+    Der Hauptinhalt einer Seite wird aus **Abschnitten** aufgebaut.
+    Abschnitte sind die Bausteine einer Seite und können in Sanity Studio hinzugefügt, bearbeitet, entfernt oder neu angeordnet werden.
 
-    - Hero section (headline, text, image, call-to-action)
-    - Text or text-with-image sections
-    - Services or feature sections
-    - Testimonials or reviews
-    - Image galleries or videos
-    - Contact or call-to-action sections
+    Häufige Abschnittstypen sind:
 
-    Pages like **Home**, **About**, or **Contact** are usually created by combining multiple sections.
+    - Hero-Abschnitt (Überschrift, Text, Bild, Call-to-Action)
+    - Text- oder Text-mit-Bild-Abschnitte
+    - Dienstleistungs- oder Feature-Abschnitte
+    - Testimonials oder Bewertungen
+    - Bildergalerien oder Videos
+    - Kontakt- oder Call-to-Action-Abschnitte
 
-3.  ### Footer
+    Seiten wie **Startseite**, **Über uns** oder **Kontakt** werden normalerweise durch die Kombination mehrerer Abschnitte erstellt.
 
-    The footer appears at the bottom of every page and is usually shared across the entire website.
+3.  ## Footer (Fußzeile)
 
-    It often includes:
+    Der Footer erscheint am Ende jeder Seite und wird normalerweise auf der gesamten Website geteilt.
+    Er enthält oft:
 
-    - Contact details
-    - Legal links (Privacy Policy, Imprint)
-    - Social media links
-    - Copyright information
+    - Kontaktdaten
+    - Rechtliche Links (Datenschutzerklärung, Impressum)
+    - Social-Media-Links
+    - Copyright-Informationen
 
     <br />
 
-4.  ### SEO & page settings
+4.  ## SEO & Seiteneinstellungen
 
-    Each page includes settings that are important for search engines but not visible to visitors.
+        Jede Seite enthält Einstellungen, die für Suchmaschinen wichtig sind, aber für Besucher nicht sichtbar.
+        Diese umfassen normalerweise:
+        - Seitentitel
+        - Meta-Beschreibung
+        - Social-Sharing-Bild
 
-    These usually include:
-
-    - Page title
-    - Meta description
-    - Social sharing image
-
-    <Aside>
-      Proper SEO settings help your page appear correctly in search results and
-      when shared on social media.
-    </Aside>
+        <Aside>
+          Korrekte SEO-Einstellungen helfen Ihrer Seite, in Suchergebnissen richtig zu erscheinen und
+          wenn sie in sozialen Medien geteilt wird.
+        </Aside>
 
 </Steps>
