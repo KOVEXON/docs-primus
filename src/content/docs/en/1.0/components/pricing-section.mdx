@@ -1,0 +1,180 @@
+---
+title: Pricing Section
+description: A content block for presenting prices and packages in clear,
+  organized pricing cards with features and call-to-action buttons.
+slug: en/1.0/components/pricing-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Pricing Section displays prices, packages, or offers in organized pricing cards. Each card can include a name, price, description, features list, optional buttons, badges, and highlighting—perfect for comparing different options and driving conversions.
+
+<Aside>
+  **Best for:** Price lists, package comparisons, special offers, service tiers,
+  product pricing, subscription plans.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (optional)
+* **Purpose:** Main heading for the pricing section
+* **Example:** "Our Prices" or "Choose Your Plan"
+
+### Description
+
+* **Type:** Text, 4 rows (optional)
+* **Purpose:** Description for the pricing section
+* **Example:** "Choose the right package for your needs"
+
+### Items
+
+* **Type:** Array of pricing item objects (optional)
+* **Purpose:** List of pricing packages
+
+#### Pricing Item Fields
+
+**Item Name** (required)
+
+* Name of the pricing package
+* Example: "Basic Package"
+
+**Price** (optional)
+
+* Price (e.g., "€1,500" or "On request")
+* Example: "€1,500" or "Contact us"
+
+**Description** (optional)
+
+* Description of the package
+* Type: Text, 4 rows
+
+**Features** (optional)
+
+* List of features/included items in the package
+* Type: Array of strings
+
+**Show Button** (optional)
+
+* Toggle to show a button on this pricing card
+* Default: `false`
+
+**Button** (optional, hidden when Show Button is not enabled)
+
+* **Button Text** (String) – Text displayed on the button
+* **Relative Link** (String) – Relative path (e.g., `/contact`, `/registration`)
+  * **Validation:** Must start with `/`
+* **Button Role** (String) – Role of the button (Primary/Secondary)
+  * **Required:** Yes
+  * **Default:** `primary`
+
+**Highlighted** (optional)
+
+* Marks this package as highlighted (e.g., "Recommended")
+* Default: `false`
+
+**Show Badge** (optional)
+
+* Toggle to show a badge on this pricing card
+* Default: `false`
+
+**Badge** (optional, hidden when Show Badge is not enabled)
+
+* Badge component (e.g., "Bestseller", "NEW")
+* Reference to `badge` schema
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire pricing section
+
+***
+
+## Usage Example
+
+Here's a typical Pricing Section:
+
+**Headline:** "Our Prices"
+
+**Description:** "Choose the right package for your needs"
+
+**Items:**
+
+1. **"Basic Package"**
+
+   * Price: "€1,200"
+   * Description: "Basic package for essential services"
+   * Features:
+     * "12 consultation sessions"
+     * "20 service hours"
+     * "Support and guidance"
+   * Show Button: `true`
+   * Button: "Book now" → `/registration`
+   * Highlighted: `false`
+
+2. **"Premium Package"**
+   * Price: "€1,800"
+   * Description: "Comprehensive training with additional services"
+   * Features:
+     * "All basic features"
+     * "Additional 10 service hours"
+     * "Intensive course option"
+     * "Personal advisor"
+   * Show Button: `true`
+   * Button: "Book now" → `/registration`
+   * Highlighted: `true`
+   * Show Badge: `true`
+   * Badge: "Bestseller"
+
+***
+
+## Best Practices
+
+**Clarity:** Use clear, understandable price information
+
+**Comparability:** Use similar structure for all packages for easy comparison
+
+**Highlighting:** Highlight one package as "Recommended" to guide users
+
+**Features:** Provide clear listing of included features
+
+**Buttons:** Use CTA buttons to drive conversions
+
+**Count:** 2-4 packages are optimal for decision-making
+
+**Badges:** Use badges sparingly and only when they add value
+
+***
+
+## Key Features
+
+**Organized cards:** Prices displayed in clear, scannable cards
+
+**Feature lists:** Each package can include a list of features
+
+**Call-to-action:** Optional buttons for each package
+
+**Highlighting:** One package can be highlighted as recommended
+
+**Badges:** Optional badges for special offers or popular packages
+
+**Flexible pricing:** Support for fixed prices or "On request" options
+
+***
+
+## Where It's Used
+
+The Pricing Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially service and product pages
+
+***
+
+## Technical Notes
+
+* Buttons reference the global `button` schema
+* Badges reference the global `badge` schema
+* Background color references the global `backgroundColor` schema
+* Pricing cards are displayed in a responsive grid layout
+* Highlighted packages are visually distinguished from others

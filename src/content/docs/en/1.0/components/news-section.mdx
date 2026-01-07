@@ -1,0 +1,108 @@
+---
+title: News Section
+description: A content block for displaying news articles with automatic
+  fetching and load-more functionality for easy browsing.
+slug: en/1.0/components/news-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The News Section automatically fetches and displays news articles with a load-more functionality. Articles are sorted by publication date, making it easy for visitors to stay up to date with your latest news and updates.
+
+<Aside>
+  **Best for:** News areas, current updates, blog previews, announcements, press
+  releases, company updates.
+</Aside>
+
+## Fields
+
+### Section Headline
+
+* **Type:** String (optional)
+* **Purpose:** Main heading for the news section
+* **Example:** "News" or "Latest Updates"
+
+### Section Description
+
+* **Type:** Text (optional)
+* **Purpose:** Description for the news section
+* **Example:** "Latest news and updates"
+
+### Maximum Articles to Display
+
+* **Type:** Number (optional)
+* **Default Value:** 6
+* **Min Value:** 1
+* **Max Value:** 50
+* **Purpose:** Maximum number of articles to display initially (default: 6)
+
+### Show Load More Button
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Whether to show a "Load More" button for additional articles
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire news section
+
+***
+
+## Usage Example
+
+Here's a typical News Section configuration:
+
+* **Section Headline:** "News"
+* **Section Description:** "Latest news and updates"
+* **Maximum Articles to Display:** 6
+* **Show Load More Button:** `true`
+
+***
+
+## Best Practices
+
+**Initial count:** Display 6-12 articles initially for optimal performance and user experience
+
+**Load more:** Enable load more for better performance when you have many articles
+
+**Regular updates:** Publish new articles regularly to keep content fresh
+
+**Headlines:** Make article headlines clear and compelling
+
+**Descriptions:** Use section description to provide context about the types of articles users will find
+
+**Consistency:** Maintain consistent publishing schedule for better user engagement
+
+***
+
+## Key Features
+
+**Automatic fetching:** Articles are automatically retrieved and displayed
+
+**Load more:** Additional articles can be loaded on demand
+
+**Sorted by date:** Articles are sorted by publication date (newest first)
+
+**Performance optimized:** Initial load shows limited articles, with more available on demand
+
+**Responsive:** Adapts to different screen sizes
+
+***
+
+## Where It's Used
+
+The News Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially news or blog pages
+
+***
+
+## Technical Notes
+
+* Articles are automatically fetched from the article schema
+* Only published articles are displayed
+* Articles are sorted by publication date in descending order (newest first)
+* Load more functionality loads additional articles without page refresh
+* Background color references the global `backgroundColor` schema
+* The section uses pagination-like behavior with load more instead of traditional pagination

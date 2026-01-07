@@ -1,0 +1,227 @@
+---
+title: Text With Media Section
+description: A structured content block for text-media combinations with various layout options, perfect for combining text with images, videos, galleries, or sliders.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Text With Media Section combines text and media (images, videos, galleries, sliders) in various layouts. It's perfect for pages that need structured text-media combinations with flexible layout options for different content types.
+
+<Aside>
+  **Best for:** Product presentations, service pages, about-us pages, feature
+  presentations, offer pages, structured content with visual elements.
+</Aside>
+
+## Fields
+
+### Headline
+
+- **Type:** String (optional)
+- **Purpose:** Main heading for the entire section
+- **Example:** "Our Vehicles" or "Our Services"
+
+### Description
+
+- **Type:** Text, 3 rows (optional)
+- **Purpose:** Description for the entire section
+- **Example:** "Modern and eco-friendly vehicles for your training"
+
+### Items
+
+- **Type:** Array of `textWithMediaItem` objects (required)
+- **Min Count:** 1
+- **Max Count:** 10
+- **Purpose:** List of text-media items
+
+#### Text With Media Item Fields
+
+**Headline** (optional)
+
+- Main heading for this item
+- Example: "Electric Vehicles"
+
+**Content** (optional)
+
+- Text content in rich text format
+- Type: Rich Text Section (`richTextSection`)
+
+**Layout Options** (optional)
+
+- Layout configuration for text and media
+
+##### Layout Type
+
+- **Type:** String (optional)
+- **Default Value:** `split`
+- **Options:**
+  - **Split Layout** (`split`) – Text and media side by side
+  - **Media Above, Text Below** (`mediaAbove`) – Media above, text below
+  - **Text Above, Media Below** (`textAbove`) – Text above, media below
+
+##### Split Ratio
+
+- **Type:** String (optional)
+- **Default Value:** `50-50`
+- **Hidden:** Yes (when Layout Type is not "Split Layout")
+- **Options:**
+  - **50/50** – Equal split
+  - **60/40** – 60% text, 40% media (or vice versa depending on position)
+
+##### Split Media Position
+
+- **Type:** String (optional)
+- **Default Value:** `left`
+- **Hidden:** Yes (when Layout Type is not "Split Layout")
+- **Options:**
+  - **Media Left, Text Right** (`left`)
+  - **Media Right, Text Left** (`right`)
+
+##### Media Type
+
+- **Type:** String (optional)
+- **Default Value:** `image`
+- **Options:**
+  - **Single Image** (`image`)
+  - **Image Gallery** (`imageGallery`)
+  - **Video** (`video`)
+  - **Image Slider** (`slider`)
+
+**Media Fields** (varies by Media Type)
+
+- **Single Image:** Image with alt text and caption
+- **Image Gallery:** Array of images (1-20) with alt text and captions
+- **Video:** Video file or URL with poster image
+- **Image Slider:** Slider configuration with slides, autoplay, and navigation
+
+**Call to Action Buttons** (optional)
+
+- Button configuration for this item
+- Reference to `button` schema
+
+### Background Color
+
+- **Type:** Reference to `backgroundColor` (optional)
+- **Purpose:** Sets the background color for the entire section
+
+---
+
+## Usage Example
+
+Here's a typical Text With Media Section:
+
+**Headline:** "Our Vehicles"
+
+**Description:** "Modern and eco-friendly vehicles for your training"
+
+**Items:**
+
+1. **"Electric Vehicles"**
+
+   - Content: "Learn to drive with modern electric vehicles..."
+   - Layout Type: Split Layout
+   - Split Ratio: 50/50
+   - Media Position: Left
+   - Media Type: Single Image
+   - Image: Image of an electric vehicle
+
+2. **"Vehicle Fleet"**
+
+   - Content: "Our diverse vehicle fleet..."
+   - Layout Type: Media Above, Text Below
+   - Media Type: Image Gallery
+   - Images: Array of vehicle images
+
+3. **"Service Overview Video"**
+   - Content: "See how our service works in practice..."
+   - Layout Type: Text Above, Media Below
+   - Media Type: Video
+   - Video: Video file or URL
+
+---
+
+## Layout Options in Detail
+
+### Split Layout
+
+- **50/50 Split:** Equal division between text and media
+- **60/40 Split:** Larger area for text or media
+- **Media Position:** Positionable left or right
+
+### Media Above, Text Below
+
+Media is displayed fully above the text. Ideal for:
+
+- Large, meaningful images
+- Videos that should grab attention
+- Galleries that should be prominently presented
+
+### Text Above, Media Below
+
+Text is displayed above the media. Ideal for:
+
+- Text-heavy content
+- Explanations before visual elements
+- Step-by-step guides
+
+---
+
+## Best Practices
+
+**Consistency:** Use similar layout types within a section for better readability
+
+**Media selection:** Choose the appropriate media type for the content
+
+**Alt text:** Always fill in alt text for images for accessibility and SEO
+
+**Split ratio:** 50/50 for balanced display, 60/40 for text- or image-heavy content
+
+**Item count:** 3-5 items are optimal for user experience
+
+**Background color:** Use background colors sparingly to ensure readability
+
+---
+
+## Key Features
+
+**Flexible layouts:** Three different layout types for different requirements
+
+**Various media types:** Single images, galleries, videos, or sliders
+
+**Rich text content:** Full rich text editor for text content
+
+**Multiple items:** Up to 10 items per section for comprehensive content
+
+**Individual configuration:** Each item can be individually configured
+
+---
+
+## Where It's Used
+
+The Text With Media Section appears in these content types:
+
+- **Pages** (`page`) – General content pages, especially product and service pages
+
+---
+
+## Technical Notes
+
+- Each item can have different layout and media type
+- Media types are conditionally displayed based on selection
+- Rich text content uses the `richTextSection` type
+- Background color references the global `backgroundColor` schema
+- The section supports responsive layouts for all media types
+
+---
+
+## Differences from Other Content Blocks
+
+| Feature        | Text With Media Section | Rich Text Section | Gallery Section |
+| -------------- | ----------------------- | ----------------- | --------------- |
+| Structure      | Fixed (Text + Media)    | Flexible          | Media only      |
+| Layout Options | Yes (3 types)           | No                | No              |
+| Media Types    | Yes (4 types)           | Images only       | Images only     |
+| Rich Text      | Yes (per item)          | Yes (full)        | No              |
+| Multiple Items | Yes (1-10)              | No                | No              |
+| Videos         | Yes                     | No                | No              |
+| Slider         | Yes                     | No                | No              |
+| Usage          | Structured combinations | Flowing text      | Image galleries |

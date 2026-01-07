@@ -1,0 +1,246 @@
+---
+title: Image Slider Section TWO
+description: A carousel-based image slider with multiple slides, perfect for
+  showcasing multiple messages or offers on your pages.
+slug: en/1.0/components/image-slider-section-two
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Image Slider Section TWO is a carousel-based image slider that supports multiple slides with images, text, and call-to-action buttons. It's ideal for pages that want to present multiple messages or offers, rotating through different content automatically or manually.
+
+<Aside>
+  **Best for:** Homepages with multiple offers, marketing campaigns, product
+  presentations, event highlights, rotating promotions.
+</Aside>
+
+## Fields
+
+### Slides
+
+* **Type:** Array of slide objects (required)
+* **Min Count:** 1
+* **Max Count:** 10
+* **Purpose:** Configuration of slides for the image slider
+
+#### Slide Object Fields
+
+**Slide Image** (required)
+
+* Main image for this slide
+* Options: Hotspot enabled
+
+**Title** (required)
+
+* Heading displayed on the slide
+* Max Length: 100 characters
+
+**Description** (required)
+
+* Description text displayed on the slide
+* Type: Text, 3 rows
+* Max Length: 300 characters
+
+**Show Call to Action Button** (optional)
+
+* **Type:** Boolean
+* **Default Value:** `false`
+* **Purpose:** Toggle to display a call to action button on this slide
+
+**Call to Action Button** (optional)
+
+* **Type:** Object
+* **Hidden:** Yes (when "Show Call to Action Button" is not enabled)
+* **Purpose:** Button configuration for the slide
+
+##### Call to Action Button Fields
+
+* **Button Text** (String, required) – Text displayed on the button
+* **Relative Link** (String, required) – Relative path (e.g., `/contact`, `/services`)
+  * **Validation:** Must start with `/`
+
+### Slider Behavior
+
+#### Enable Autoplay
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Automatically advance to the next slide
+
+#### Autoplay Speed
+
+* **Type:** Number (optional)
+* **Default Value:** 5
+* **Min Value:** 1
+* **Max Value:** 30
+* **Hidden:** Yes (when Autoplay is not enabled)
+* **Purpose:** Seconds between automatic slide transitions (1-30 seconds)
+
+#### Show Navigation Dots
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Display clickable dots below the slider for navigation
+
+### Visual Settings
+
+#### Slider Height
+
+* **Type:** String (optional)
+* **Default Value:** `large`
+* **Options:**
+  * **Small (30vh)** – Small height
+  * **Medium (50vh)** – Medium height
+  * **Large (70vh)** – Large height (default)
+  * **Fullscreen (100vh)** – Fullscreen height
+  * **Custom Height** – Custom height value
+* **Purpose:** Controls the height of the slider
+
+#### Custom Height
+
+* **Type:** String (optional)
+* **Hidden:** Yes (when Slider Height is not set to "Custom Height")
+* **Purpose:** Custom CSS height value (e.g., "400px", "50vh", "20rem")
+* **Validation:** Must be a valid CSS height value
+
+#### Slider Width
+
+* **Type:** String (optional)
+* **Default Value:** `100%`
+* **Options:**
+  * **100%** – Full width
+  * **50%** – Half width
+  * **Custom Width** – Custom width value
+* **Purpose:** Controls the width of the image slider
+
+#### Custom Width
+
+* **Type:** String (optional)
+* **Hidden:** Yes (when Slider Width is not set to "Custom Width")
+* **Purpose:** Custom CSS width value (e.g., "400px", "50vw", "20rem")
+
+#### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the slider
+
+***
+
+## Usage Example
+
+Here's a typical Image Slider Section TWO configuration:
+
+**Slides:**
+
+1. **Image:** Image of a modern office or facility
+
+   * **Title:** "Professional Services"
+   * **Description:** "Professional services with modern solutions and experienced team members"
+   * **Show Call to Action Button:** `true`
+   * **Call to Action Button:**
+     * **Button Text:** "Sign up now"
+     * **Relative Link:** `/registration`
+
+2. **Image:** Image of a product or service
+
+   * **Title:** "Sustainable Solutions"
+   * **Description:** "Discover our eco-friendly and sustainable solutions"
+   * **Show Call to Action Button:** `true`
+   * **Call to Action Button:**
+     * **Button Text:** "Learn more"
+     * **Relative Link:** `/solutions`
+
+3. **Image:** Image of a team or group
+   * **Title:** "Premium Packages"
+   * **Description:** "Get results quickly with our proven premium packages"
+   * **Show Call to Action Button:** `true`
+   * **Call to Action Button:**
+     * **Button Text:** "View packages"
+     * **Relative Link:** `/packages`
+
+**Slider Behavior:**
+
+* **Enable Autoplay:** `true`
+* **Autoplay Speed:** 5 seconds
+* **Show Navigation Dots:** `true`
+
+**Visual Settings:**
+
+* **Slider Height:** Large (70vh)
+* **Slider Width:** 100%
+* **Background Color:** Reference to a background color document
+
+***
+
+## Best Practices
+
+**Slide count:** 3-5 slides are optimal for user experience—too few doesn't justify a carousel, too many can overwhelm
+
+**Slide content:** Each slide should have a clear, focused message
+
+**Images:** Use high-quality, meaningful images that support the message
+
+**Text lengths:** Keep titles short (max 100 characters), descriptions concise (max 300 characters)
+
+**Autoplay speed:** 5-7 seconds is a good balance between attention and information delivery
+
+**Navigation:** Enable navigation dots for better usability
+
+**Height:** "Large" (70vh) is optimal for most cases; use "Fullscreen" sparingly
+
+***
+
+## Key Features
+
+**Carousel functionality:** Supports 1-10 slides with automatic or manual navigation
+
+**Flexible sizing:** Various predefined heights or custom CSS values
+
+**Autoplay:** Automatic slide transitions with configurable speed
+
+**Navigation:** Clickable dots for direct navigation to a specific slide
+
+**Hotspot images:** Slide images support hotspot function for better image editing
+
+**Responsive:** Adapts to different screen sizes
+
+***
+
+## Where It's Used
+
+Image Slider Section TWO appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially when multiple offers or messages need to be showcased
+
+***
+
+## Technical Notes
+
+* Slides are displayed in order, with the first slide shown initially
+* CTA buttons are configured inline (not as references) with required button text and relative link
+* Autoplay can be paused on user interaction
+* Navigation dots indicate the current slide
+* Background color references the global `backgroundColor` schema
+* Custom height and width accept any valid CSS value (px, vh, vw, rem, em, %, or auto)
+* Custom height and width fields are validated to ensure proper CSS format
+
+***
+
+## Differences from Image Slider Section ONE
+
+| Feature                  | Image Slider Section ONE  | Image Slider Section TWO                 |
+| ------------------------ | ------------------------- | ---------------------------------------- |
+| Global Content           | No                        | Yes (Title, Description, CTA, Alignment) |
+| Global CTA Button        | No                        | Yes (optional)                           |
+| Global Content Alignment | No                        | Yes (Left/Right)                         |
+| Slide-Specific CTA       | Yes (optional, per slide) | Yes (optional, per slide)                |
+| Slide Content Alignment  | No                        | Yes (optional, per slide)                |
+| Slide Headlines          | Required (max 100)        | Optional (overrides global, max 125)     |
+| Slide Descriptions       | Required (max 300)        | Optional (overrides global)              |
+| Image Links              | No                        | Yes (clickable images with URL)          |
+| Image Captions           | No                        | Yes (optional)                           |
+| Alt Text                 | Same                      | Required (max 125 characters)            |
+| Slide Count              | 1-10 slides (minimum 1)   | 2-20 slides (minimum 2 required)         |
+| Structure                | Slide-only content        | Global + slide-specific content          |
+| Use Case                 | Independent slide content | Content with shared global elements      |
+| Complexity               | Simpler, slide-focused    | More flexible, supports global defaults  |

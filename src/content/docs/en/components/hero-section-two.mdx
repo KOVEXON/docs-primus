@@ -1,0 +1,139 @@
+---
+title: Hero Section TWO
+description: An alternative hero variant with headline, subheadline, description, and optional badge for clear, direct messaging.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+**Hero Section TWO** is a simplified hero variant designed for clear and direct communication.  
+Compared to **Hero Section ONE**, it removes complex styling options such as keywords and highlighted headline parts, making it ideal for straightforward messaging.
+
+<Aside>
+  **Best for:** Subpages, landing pages, and information pages that require
+  clear messaging without complex formatting. Ideal as a lightweight alternative
+  to Hero Section ONE.
+</Aside>
+
+---
+
+## Fields
+
+### Headline
+
+- **Type:** String
+- **Required:** Yes
+- **Max length:** 120 characters
+- **Purpose:** Main heading of the hero section
+- **Example:**  
+  `Professional Services – Your Business in Example City`
+
+---
+
+### Subheadline
+
+- **Type:** Text (2 rows)
+- **Required:** No
+- **Purpose:** Supporting heading displayed below the main headline
+- **Example:**  
+  `Modern solutions for your business needs`
+
+---
+
+### Description
+
+- **Type:** Text (3 rows)
+- **Required:** No
+- **Purpose:** Additional descriptive text providing more detail
+- **Example:**  
+  `We provide professional services tailored to your needs. With experienced team members and flexible scheduling.`
+
+---
+
+### Show Badge
+
+- **Type:** Boolean
+- **Required:** No
+- **Default:** `false`
+- **Purpose:** Toggles the visibility of a badge in the hero section
+
+---
+
+### Badge
+
+- **Type:** Reference (`badge`)
+- **Required:** No
+- **Hidden when:** _Show Badge_ is disabled
+- **Purpose:** Displays a badge component in the hero area
+- **Examples:**  
+  `NEW`, `Bestseller`
+
+---
+
+## Usage Example
+
+### Text Content
+
+- **Headline:**  
+  `Professional Services – Your Business in Example City`
+
+- **Subheadline:**  
+  `Modern solutions for your business needs`
+
+- **Description:**  
+  `We provide professional services tailored to your needs. With experienced team members and flexible scheduling.`
+
+### Badge Configuration
+
+- **Show Badge:** `true`
+- **Badge:** Reference to a badge document (e.g. `NEW`, `Bestseller`)
+
+---
+
+## Best Practices
+
+- **Headline:** Keep it concise and impactful. The 120-character limit helps maintain clarity.
+- **Subheadline:** Use to expand or clarify the headline without repeating it.
+- **Description:** Provide additional value for users who want more context.
+- **Badge:** Use sparingly and only when it adds meaningful emphasis.
+- **Hierarchy:** Leverage the three text levels (headline → subheadline → description) for a clear information flow.
+
+---
+
+## Key Features
+
+- **Simple structure:** Linear, easy-to-understand layout
+- **Compact headline:** Character limit ensures focused messaging
+- **Optional badge:** Adds emphasis when needed
+- **Layered text:** Supports staged content delivery
+- **Clean design:** Minimal styling keeps attention on the message
+
+---
+
+## Where It’s Used
+
+- **Pages (`page`)**  
+  Subpages, landing pages, and informational content
+
+---
+
+## Technical Notes
+
+- Badge uses the global `badge` schema
+- Headline length is capped at 120 characters
+- All text fields support rich formatting
+- Uses semantic HTML for accessibility
+
+---
+
+## Differences from Hero Section ONE
+
+| Feature            | Hero Section ONE                    | Hero Section TWO |
+| ------------------ | ----------------------------------- | ---------------- |
+| Headline structure | Multi-part with styles and keywords | Simple string    |
+| Keywords           | Yes (colored)                       | No               |
+| Buttons            | Yes (Primary / Secondary)           | No               |
+| Badge              | No                                  | Yes (optional)   |
+| Background image   | Yes                                 | No               |
+| Description        | Yes                                 | Yes              |

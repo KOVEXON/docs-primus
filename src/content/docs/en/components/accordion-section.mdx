@@ -1,0 +1,188 @@
+---
+title: Accordion Section
+description: A content block with expandable accordion items, perfect for FAQs, product details, and structured information.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import AccordionSectionOverview from "../../../../assets/accordion-section-overview.png";
+import AccordionSectionFields from "../../../../assets/accordion-section-fields.png";
+import AccordionSectionItemFields from "../../../../assets/accordion-section-item-fields.png";
+import AccordionSectionItemIcon from "../../../../assets/accordion-section-item-icon.png";
+
+The Accordion Section lets you organize content into collapsible panels. Users see only the headlines initially and can expand items they're interested in — keeping your pages clean and scannable.
+
+<Aside>
+  **Best for:** FAQs, product specifications, step-by-step guides, legal
+  information, feature descriptions.
+</Aside>
+
+<figure style="text-align: center;">
+  <img
+    src={AccordionSectionOverview.src}
+    alt="Example of an accordion section with multiple collapsed items"
+  />
+  <figcaption>
+    <em>Example of an accordion section with multiple collapsed items</em>
+  </figcaption>
+</figure>
+
+---
+
+## Fields
+
+<figure style="text-align: center;">
+  <img
+    src={AccordionSectionFields.src}
+    alt="The accordion section fields in Sanity Studio"
+  />
+  <figcaption>
+    <em>The accordion section fields in Sanity Studio</em>
+  </figcaption>
+</figure>
+
+### Section Headline
+
+- **Type:** String (optional)
+- **Purpose:** Main heading for the entire accordion section
+- **Example:** "Frequently Asked Questions"
+
+### Section Subheadline
+
+- **Type:** Text, 2 rows (optional)
+- **Purpose:** Brief description or context for the section
+- **Example:** "Everything you need to know about our company"
+
+### Accordion Items
+
+- **Type:** Array of accordion items (optional)
+- **Purpose:** The expandable content panels
+
+<figure style="text-align: center;">
+  <img
+    src={AccordionSectionItemFields.src}
+    alt="Adding and managing accordion items in the array"
+  />
+  <figcaption>
+    <em>Adding and managing accordion items in the array</em>
+  </figcaption>
+</figure>
+
+Each accordion item contains:
+
+**Item Headline** (required)
+
+- The clickable title shown when collapsed
+- Example: "What are our opening hours?"
+
+**Icon** (optional)
+
+- A Lucide icon displayed next to the headline
+- Example: Clock, Car, Calendar, Euro
+
+<figure style="text-align: center;">
+  <img
+    src={AccordionSectionItemIcon.src}
+    alt="Selecting an icon from the Lucide icon library"
+  />
+  <figcaption>
+    <em>Selecting an icon from the Lucide icon library</em>
+  </figcaption>
+</figure>
+
+**Content** (required)
+
+- Rich text content shown when expanded
+- Supports full formatting, images, links, etc.
+
+### Background Color
+
+- **Type:** Reference to `backgroundColor` (optional)
+- **Purpose:** Sets the background color for the entire section
+
+---
+
+## Usage Example
+
+Here's a typical accordion section for an FAQ:
+
+**Section Headline:** "Frequently Asked Questions"
+
+**Section Subheadline:** "Everything you need to know about our services"
+
+**Accordion Items:**
+
+1. **"How long does the process take?"** (Clock icon)
+
+   - Content: Details about timeline and factors that affect duration
+
+2. **"What options are available?"** (Package icon)
+
+   - Content: List of available service tiers or product options
+
+3. **"How much does it cost?"** (DollarSign icon)
+
+   - Content: Pricing information by service level or package
+
+4. **"Do you offer flexible scheduling?"** (Calendar icon)
+
+   - Content: Information about appointment availability and booking option
+
+---
+
+## Best Practices
+
+**Headlines:** Make them clear and specific—users should know what's inside before expanding
+
+**Item count:** 3-8 items work best. Too few isn't worth an accordion; too many becomes overwhelming
+
+**Content length:** Keep each item focused. If content gets too long, consider breaking it into multiple items
+
+**Icons:** Use them consistently or not at all. They should add clarity, not decoration
+
+**Grouping:** Organize related items together logically
+
+**Background color:** Use sparingly—high contrast can reduce readability
+
+---
+
+## When to Use vs. Rich Text Section
+
+| Accordion Section                    | Rich Text Section                |
+| ------------------------------------ | -------------------------------- |
+| Information users might want to skip | Content everyone should read     |
+| Multiple distinct topics             | One continuous narrative         |
+| FAQs and Q&A format                  | Articles and blog posts          |
+| Long reference information           | Short to medium explanatory text |
+| Interactive browsing experience      | Linear reading experience        |
+
+---
+
+## Key Features
+
+**Space-efficient:** Long content stays collapsed until needed
+
+**Scannable:** Users see all topics at a glance via headlines
+
+**Accessible:** Supports screen readers and keyboard navigation
+
+**Interactive:** Users control what they see
+
+**Rich content:** Full formatting support within each item
+
+---
+
+## Where It's Used
+
+The Accordion Section appears in these content types:
+
+- **Pages** (`page`) – General content pages
+- **Legal Pages** (`legalPage`) – Privacy policies, terms of service, etc.
+
+---
+
+## Technical Notes
+
+- Each accordion item can be expanded/collapsed independently
+- Content uses the `richTextSection` type for full formatting capabilities
+- Icons come from the Lucide icon library
+- Background color references the global `backgroundColor` schema

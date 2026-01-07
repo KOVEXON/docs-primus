@@ -1,0 +1,239 @@
+---
+title: Image Slider Section ONE
+description: A flexible image slider with global and slide-specific content, autoplay, and navigation options for dynamic presentations.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Image Slider Section is a flexible image slider that combines global content (shared across all slides) with slide-specific content. With autoplay functionality and extensive configuration options, it's perfect for creating dynamic, engaging presentations.
+
+<Aside>
+  **Best for:** Hero areas, product presentations, event highlights,
+  testimonials with images, rotating content displays.
+</Aside>
+
+## Fields
+
+### Global Slider Content
+
+#### Slider Title
+
+- **Type:** String (optional)
+- **Purpose:** Title that appears on all slides (optional)
+
+#### Slider Description
+
+- **Type:** Text, 3 rows (optional)
+- **Purpose:** Brief description that appears on all slides (optional)
+
+#### Show Call to Action Button
+
+- **Type:** Boolean (optional)
+- **Default Value:** `false`
+- **Purpose:** Toggle to display a call to action button on all slides
+
+#### Call to Action Button
+
+- **Type:** Object (optional)
+- **Hidden:** Yes (when "Show Call to Action Button" is not enabled)
+- **Purpose:** Global CTA button configuration for all slides
+
+##### Call to Action Button Fields
+
+- **Button Text** (String, required) – Text displayed on the button
+- **Relative Link** (String, required) – Relative path (e.g., `/contact`, `/services`)
+  - **Validation:** Must start with `/`
+
+#### Content Alignment
+
+- **Type:** String (optional)
+- **Default Value:** `left`
+- **Options:** Left, Right
+- **Purpose:** Alignment of text content on slides
+
+### Individual Slides Configuration
+
+#### Slides
+
+- **Type:** Array of slider image objects (required)
+- **Min Count:** 2
+- **Max Count:** 20
+- **Purpose:** Configuration of individual slides
+
+##### Slide Object Fields
+
+**Slide Image** (required) – Main image for this slide
+
+**Alt Text** (String, required, max 125 characters) – Descriptive text for screen readers and SEO
+
+**Image Caption** (String) – Short image caption (optional)
+
+**Enable Image Link** (Boolean) – Toggle to make the entire image clickable
+
+- **Default Value:** `false`
+
+**Image Link** (Object) – Clickable link configuration for the entire image
+
+- **Hidden:** Yes (when "Enable Image Link" is not enabled)
+- **URL** (URL, required) – External link when clicking the image
+- **Open in New Tab** (Boolean) – Open link in new tab
+  - **Default Value:** `false`
+
+**Slide Headline** (String) – Custom headline for this slide (overrides global title)
+
+**Slide Description** (Text, 3 rows) – Custom description for this slide (overrides global description)
+
+**Show Call to Action Button** (Boolean) – Toggle to display a call to action button on this slide
+
+- **Default Value:** `false`
+
+**Call to Action Button** (Object) – Slide-specific CTA button configuration
+
+- **Hidden:** Yes (when "Show Call to Action Button" is not enabled)
+- **Button Text** (String, required) – Text displayed on the button
+- **Relative Link** (String, required) – Relative path (e.g., `/contact`, `/services`)
+  - **Validation:** Must start with `/`
+
+**Content Alignment** (String) – Alignment of text content on this slide
+
+### Slider Behavior Settings
+
+#### Enable Autoplay
+
+- **Type:** Boolean (optional)
+- **Default Value:** `true`
+- **Purpose:** Automatically advance to the next slide
+
+#### Autoplay Speed
+
+- **Type:** Number (optional)
+- **Default Value:** 5
+- **Min Value:** 1
+- **Max Value:** 30
+- **Hidden:** Yes (when Autoplay is not enabled)
+- **Purpose:** Seconds between automatic slide transitions
+
+#### Show Navigation Dots
+
+- **Type:** Boolean (optional)
+- **Default Value:** `true`
+- **Purpose:** Display clickable dots below the slider for navigation
+
+### Visual Settings
+
+#### Slider Height
+
+- **Type:** String (optional)
+- **Default Value:** `large`
+- **Options:** Small (30vh), Medium (50vh), Large (70vh), Fullscreen (100vh), Custom Height
+- **Purpose:** Controls the height of the image slider
+
+#### Custom Height
+
+- **Type:** String (optional)
+- **Hidden:** Yes (when Slider Height is not "Custom Height")
+- **Purpose:** Custom CSS height value (e.g., "400px", "50vh", "20rem")
+- **Validation:** Must be a valid CSS height value (supports px, vh, vw, rem, em, %, or auto)
+
+#### Slider Width
+
+- **Type:** String (optional)
+- **Default Value:** `100%`
+- **Options:** 100%, 50%, Custom Width
+- **Purpose:** Controls the width of the image slider
+
+#### Custom Width
+
+- **Type:** String (optional)
+- **Hidden:** Yes (when Slider Width is not "Custom Width")
+- **Purpose:** Custom CSS width value (e.g., "400px", "50vw", "20rem")
+- **Validation:** Must be a valid CSS width value
+
+#### Background Color
+
+- **Type:** Reference to `backgroundColor` (optional)
+- **Purpose:** Sets the background color for the slider
+
+---
+
+## Usage Example
+
+Here's a typical Image Slider Section configuration:
+
+**Global Content:**
+
+- **Title:** "Our Offers"
+- **Description:** "Discover our diverse service offerings"
+- **Show Call to Action Button:** `false` (or `true` with button configuration)
+- **Content Alignment:** Left
+
+**Slides:**
+
+- **Slide 1:** Image + "Premium Service Package" + Description
+- **Slide 2:** Image + "Standard Service Package" + Description
+- **Slide 3:** Image + "Express Service" + Description
+
+**Behavior:**
+
+- **Autoplay:** `true`
+- **Autoplay Speed:** 5 seconds
+- **Show Navigation Dots:** `true`
+
+**Visual:**
+
+- **Height:** Large (70vh)
+- **Width:** 100%
+
+---
+
+## Best Practices
+
+**Slide count:** 3-8 slides are optimal for engagement
+
+**Alt text:** Always fill in meaningful alt text (max 125 characters) for accessibility and SEO
+
+**Autoplay speed:** 5-7 seconds is a good balance between attention and information delivery
+
+**Image quality:** Use high-quality, consistent images
+
+**Content alignment:** Use consistent alignment for better readability
+
+**Global vs. slide-specific:** Use global content for consistency, slide-specific content for variety
+
+---
+
+## Key Features
+
+**Global and slide-specific content:** Combination of global and individual content
+
+**Clickable images:** Entire images can be linked
+
+**Flexible sizing:** Various predefined heights or custom CSS values
+
+**Autoplay:** Automatic transitions with configurable speed
+
+**Navigation:** Clickable dots for direct navigation
+
+**Responsive:** Adapts to different screen sizes
+
+---
+
+## Where It's Used
+
+The Image Slider Section appears in these content types:
+
+- **Pages** (`page`) – General content pages, especially hero areas and product pages
+
+---
+
+## Technical Notes
+
+- Global content appears on all slides unless overridden by slide-specific content
+- CTA buttons are configured inline (not as references) with required button text and relative link
+- Images can be made clickable by enabling the image link option
+- Image links must be external URLs (full URL required)
+- Alt text is limited to 125 characters for optimal SEO
+- Autoplay can be paused on user interaction
+- Background color references the global `backgroundColor` schema
+- Custom height and width accept any valid CSS value (px, vh, vw, rem, em, %, or auto)
+- Custom height and width fields are validated to ensure proper CSS format

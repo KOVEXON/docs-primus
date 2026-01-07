@@ -1,0 +1,133 @@
+---
+title: Statistics Section
+description: A content block for displaying statistics and key figures in an organized, visually appealing format.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Statistics Section displays statistics, key figures, or success numbers in a clear, organized format. Perfect for building trust, showcasing achievements, or highlighting important metrics that demonstrate your value.
+
+<Aside>
+  **Best for:** Success numbers, key figures, company statistics, trust
+  building, achievement highlights, metric displays.
+</Aside>
+
+## Fields
+
+### Headline
+
+- **Type:** String (optional)
+- **Purpose:** Main heading for the statistics section
+- **Example:** "Our Success Numbers" or "By the Numbers"
+
+### Description
+
+- **Type:** Text, 3 rows (optional)
+- **Purpose:** Brief description of the section
+- **Example:** "Numbers that speak for themselves"
+
+### Statistics
+
+- **Type:** Array of statistic item objects (optional)
+- **Purpose:** List of statistics
+
+#### Statistic Item Fields
+
+**Label** (optional)
+
+- Label for the statistic
+- Example: "Satisfied Customers"
+
+**Number** (optional)
+
+- Number of the statistic
+- Example: 1000
+
+**Suffix** (optional)
+
+- Suffix after the number
+- Example: "+", "%", "Customers"
+
+### Background Color
+
+- **Type:** Reference to `backgroundColor` (optional)
+- **Purpose:** Sets the background color for the entire statistics section
+
+---
+
+## Usage Example
+
+Here's a typical Statistics Section:
+
+**Headline:** "Our Success Numbers"
+
+**Description:** "Numbers that speak for themselves"
+
+**Statistics:**
+
+1. **"Satisfied Customers"**
+
+   - Number: 5000
+   - Suffix: "+"
+
+2. **"Success Rate"**
+
+   - Number: 95
+   - Suffix: "%"
+
+3. **"Years of Experience"**
+
+   - Number: 15
+   - Suffix: ""
+
+4. **"Vehicles"**
+   - Number: 20
+   - Suffix: ""
+
+---
+
+## Best Practices
+
+**Relevance:** Only use relevant, meaningful statistics that add value
+
+**Accuracy:** Keep statistics current and accurate
+
+**Clarity:** Use clear, understandable labels
+
+**Suffixes:** Use appropriate suffixes for better readability
+
+**Count:** 3-6 statistics are optimal for impact
+
+**Visual hierarchy:** Use consistent formatting for all statistics
+
+---
+
+## Key Features
+
+**Organized display:** Statistics displayed in a clean, grid-based layout
+
+**Flexible formatting:** Support for numbers with custom suffixes
+
+**Visual impact:** Large numbers create visual impact
+
+**Trust building:** Statistics help build credibility and trust
+
+**Responsive:** Adapts to different screen sizes
+
+---
+
+## Where It's Used
+
+The Statistics Section appears in these content types:
+
+- **Pages** (`page`) – General content pages, especially homepages and about-us pages
+
+---
+
+## Technical Notes
+
+- Statistics are displayed in a responsive grid layout
+- Numbers can be formatted with custom suffixes
+- Background color references the global `backgroundColor` schema
+- The section uses semantic HTML for accessibility
+- Statistics are typically displayed with large, prominent numbers

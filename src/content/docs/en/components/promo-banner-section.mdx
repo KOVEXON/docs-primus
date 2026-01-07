@@ -1,0 +1,159 @@
+---
+title: Promo Banner Section
+description: A promotional banner for special offers and promotions with modal support and time-based display controls.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Promo Banner Section creates attention-grabbing promotional banners for special offers, promotions, or important announcements. With modal support for detailed information and time-based display controls, you can create targeted, time-sensitive campaigns.
+
+<Aside>
+  **Best for:** Special offers, promotions, marketing campaigns, important
+  announcements, time-limited actions, seasonal campaigns.
+</Aside>
+
+## Fields
+
+### Enable Banner
+
+- **Type:** Boolean (optional)
+- **Default Value:** `true`
+- **Purpose:** Toggle to enable or disable the promo banner
+
+### Main Text
+
+- **Type:** String (required)
+- **Purpose:** Main promotional text displayed in the banner
+- **Example:** "🎉 20% off all intensive courses - Only this week!"
+
+### CTA Button Text
+
+- **Type:** String (optional)
+- **Default Value:** "Get offer"
+- **Purpose:** Text displayed on the call-to-action button
+- **Example:** "Get offer" or "Learn more"
+
+### Background Color
+
+- **Type:** String (optional)
+- **Default Value:** `green`
+- **Options:** Green, Orange, Purple, Blue, Red, Pink, Yellow, Gray
+- **Purpose:** Background color of the banner
+
+### Show Modal
+
+- **Type:** Boolean (optional)
+- **Default Value:** `true`
+- **Purpose:** Whether to show a modal when clicking the CTA button
+
+### Modal Title
+
+- **Type:** String (optional)
+- **Default Value:** "🎉 Special Offer"
+- **Hidden:** Yes (when Show Modal is not enabled)
+- **Purpose:** Title displayed in the modal
+- **Example:** "🎉 Special Offer"
+
+### Modal Image
+
+- **Type:** Image (optional)
+- **Hidden:** Yes (when Show Modal is not enabled)
+- **Options:** Hotspot enabled
+- **Purpose:** Optional image displayed in the modal
+
+### Modal Description
+
+- **Type:** Rich Text Section (`richTextSection`) (optional)
+- **Hidden:** Yes (when Show Modal is not enabled)
+- **Purpose:** Description text displayed in the modal
+
+### Modal CTA Text
+
+- **Type:** String (optional)
+- **Default Value:** "Get started"
+- **Hidden:** Yes (when Show Modal is not enabled)
+- **Purpose:** Text for the main CTA button in the modal
+- **Example:** "Book now"
+
+### Modal CTA Link
+
+- **Type:** String (optional)
+- **Hidden:** Yes (when Show Modal is not enabled)
+- **Purpose:** Link for the modal CTA button
+- **Example:** `/intensive-courses`
+
+### Start Date
+
+- **Type:** DateTime (optional)
+- **Purpose:** When the banner should start being displayed (optional)
+
+### End Date
+
+- **Type:** DateTime (optional)
+- **Purpose:** When the banner should stop being displayed (optional)
+
+---
+
+## Usage Example
+
+Here's a typical Promo Banner Section configuration:
+
+- **Enable Banner:** `true`
+- **Main Text:** "🎉 20% off all intensive courses - Only this week!"
+- **CTA Button Text:** "Get offer"
+- **Background Color:** `orange`
+- **Show Modal:** `true`
+- **Modal Title:** "🎉 Special Offer"
+- **Modal Description:** "Use 20% off on all intensive courses now..."
+- **Modal CTA Text:** "Book now"
+- **Modal CTA Link:** `/intensive-courses`
+- **Start Date:** January 1, 2025
+- **End Date:** January 31, 2025
+
+---
+
+## Best Practices
+
+**Clarity:** Use clear, concise promotional text that immediately communicates the offer
+
+**Urgency:** Time-limited offers create urgency and drive action
+
+**Modal content:** Provide detailed information in the modal for interested users
+
+**Color choice:** Choose a background color that matches your message and brand
+
+**Time control:** Use start and end dates for time-limited offers
+
+**Testing:** Test the banner on different devices to ensure it displays correctly
+
+---
+
+## Key Features
+
+**Time-based display:** Automatic display based on start and end dates
+
+**Modal support:** Detailed information available in a modal
+
+**Color options:** Various background colors for different messages
+
+**Easy toggle:** Simple enable/disable switch for the banner
+
+**Flexible content:** Main text and modal content for comprehensive information
+
+---
+
+## Where It's Used
+
+The Promo Banner Section appears in these content types:
+
+- **Pages** (`page`) – General content pages, especially homepages and landing pages
+
+---
+
+## Technical Notes
+
+- Banner automatically shows/hides based on start and end dates
+- Modal uses rich text section for formatted content
+- Background color options are predefined for consistency
+- Banner is typically displayed at the top of pages
+- Modal supports keyboard navigation for accessibility

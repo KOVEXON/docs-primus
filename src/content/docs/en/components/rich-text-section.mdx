@@ -1,0 +1,142 @@
+---
+title: Rich Text Section
+description: A flexible rich text block for formatted content with images, perfect for articles, blog posts, and detailed information.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Rich Text Section provides a full-featured rich text editor for formatted content. With formatting options, text alignment, and image support, it's perfect for creating detailed content like articles, blog posts, or comprehensive information pages.
+
+<Aside>
+  **Best for:** Article content, blog posts, detailed page descriptions, legal
+  pages, information pages, product descriptions.
+</Aside>
+
+## Fields
+
+### Content
+
+- **Type:** Array (optional)
+- **Purpose:** Array of block elements and media
+
+#### Supported Block Types
+
+##### Text Blocks
+
+- **Type:** Block
+- **Purpose:** Standard text blocks with formatting options
+
+**Available Formatting:**
+
+- **Strong** (`strong`) – Bold text
+- **Emphasis** (`em`) – Italic text
+- **Text Alignment:**
+  - **Left** – Left-aligned
+  - **Center** – Center-aligned
+  - **Right** – Right-aligned
+
+##### Images
+
+- **Type:** Image
+- **Options:** Hotspot enabled
+- **Fields:**
+  - **Alternative Text** (String) – Important for accessibility and SEO
+  - **Caption** (String) – Optional image caption
+
+---
+
+## Usage Example
+
+Here's a typical Rich Text Section structure:
+
+**Text Block 1:**
+
+- **Text:** "Welcome to our company"
+- **Formatting:** Strong, Center
+
+**Image:**
+
+- **Image:** Image of a modern office building
+- **Alt Text:** "Modern office building with sustainable features"
+- **Caption:** "Our company offers modern services with sustainable practices"
+
+**Text Block 2:**
+
+- **Text:** "We offer professional services for all your needs. Our experienced team members are here to help you achieve your goals."
+- **Formatting:** Left
+
+**Text Block 3:**
+
+- **Text:** "Our advantages:"
+- **Formatting:** Strong
+
+**Text Block 4:**
+
+- **Text:** "- Modern solutions\n- Flexible scheduling\n- Experienced team\n- Proven track record"
+- **Formatting:** Left
+
+---
+
+## Best Practices
+
+**Structure:** Use Strong formatting for headings within the text
+
+**Images:** Always fill in alt text for accessibility and SEO
+
+**Text alignment:** Use center alignment sparingly, mainly for headings
+
+**Readability:** Break long text blocks into multiple paragraphs
+
+**Image captions:** Use captions to provide additional context
+
+**Formatting:** Use consistent formatting for better readability
+
+---
+
+## Key Features
+
+**Flexible structure:** Combination of text and images in any order
+
+**Rich text editor:** Full editor with formatting options
+
+**Text alignment:** Inline alignment as mark/decorator
+
+**Image support:** Images with hotspot, alt text, and caption
+
+**Accessibility:** Alt text for images is important for screen readers
+
+**Full formatting:** Support for bold, italic, and alignment options
+
+---
+
+## Where It's Used
+
+The Rich Text Section appears in these content types:
+
+- **Pages** (`page`) – General content pages
+- **Articles** (`article`) – As main content field
+- **Legal Pages** (`legalPage`) – As part of content array
+- **Authors** (`author`) – For biographies
+
+---
+
+## Technical Notes
+
+- Content uses block-based structure for flexible composition
+- Images support hotspot editing for better cropping
+- Text alignment is applied as inline decorators
+- Alt text is required for accessibility compliance
+- The section supports full rich text formatting capabilities
+
+---
+
+## Differences from Other Content Blocks
+
+| Feature        | Rich Text Section       | Text With Media Section | Accordion Section |
+| -------------- | ----------------------- | ----------------------- | ----------------- |
+| Text Editor    | Yes (full)              | No                      | No                |
+| Formatting     | Yes (Strong, Em)        | No                      | No                |
+| Text Alignment | Yes (Left/Center/Right) | No                      | No                |
+| Images         | Yes (inline)            | Yes (structured)        | No                |
+| Structure      | Flexible                | Fixed (Text + Media)    | Fixed (Accordion) |
+| Usage          | Flowing text            | Text-image combination  | Expandable areas  |

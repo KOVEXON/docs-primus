@@ -1,0 +1,241 @@
+---
+title: Hero Section ONE
+description: A specialized hero area with flexible headline parts, multiple style options, colored keywords, and call-to-action buttons.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+**Hero Section ONE** is a flexible and visually rich hero area designed to create strong first impressions.  
+It supports multi-part headlines with different styles, colored keywords for emphasis, and call-to-action buttons to guide user interaction.
+
+<Aside>
+  **Best for:** Homepages, landing pages, and marketing campaigns that require
+  strong visual hierarchy, highlighted keywords, and prominent CTAs.
+</Aside>
+
+---
+
+## Fields
+
+### Headline
+
+**Type:** Object  
+**Required:** Yes
+
+The headline is composed of multiple parts, each with its own visual style.  
+This allows you to emphasize specific words or phrases while keeping the headline readable and dynamic.
+
+#### Headline Parts
+
+**Type:** Array of objects  
+**Required:** Yes (minimum 1)
+
+Each part represents a segment of the headline.
+
+##### Text
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Text content of the headline part
+- **Example:** `Welcome to the`
+
+##### Style
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Visual appearance of the text
+- **Options:**
+  - `Normal` – Default text style
+  - `Highlighted (Background)` – Text with colored background
+  - `Colored Text` – Colored text without background
+
+##### Background Color
+
+- **Type:** String
+- **Shown when:** Style is `Highlighted (Background)`
+- **Description:** Background color behind the text
+- **Options:**  
+  Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
+
+##### Text Color
+
+- **Type:** String
+- **Shown when:**
+  - Style is `Highlighted (Background)`
+  - Style is `Colored Text`
+- **Description:**
+  - Highlighted: Text color on the background
+  - Colored Text: Color of the text itself
+- **Options:**
+  - Highlighted: Black (default), White
+  - Colored Text: Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
+
+---
+
+### Keywords
+
+**Type:** Array of objects  
+**Required:** No
+
+Keywords appear below the headline and can each have their own color for additional emphasis  
+(e.g. _electric_, _digital_, _modern_).
+
+Each keyword includes:
+
+#### Keyword Text
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Text displayed as a keyword
+
+#### Color
+
+- **Type:** String
+- **Required:** No
+- **Description:** Color of the keyword
+- **Options:**  
+  Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
+
+---
+
+### Subheadline
+
+**Type:** Text  
+**Required:** No
+
+Supporting text displayed below the headline to add context or explain the value proposition.
+
+---
+
+### Background Image
+
+**Type:** Image  
+**Required:** Yes
+
+The background image of the hero section.  
+Hotspot positioning is enabled for optimal cropping and focal point control.
+
+---
+
+### Call to Action Buttons
+
+**Type:** Array of objects  
+**Required:** No
+
+Buttons that encourage user interaction.
+
+**Validation rules:**
+
+- Maximum **one Primary** button
+- Maximum **one Secondary** button
+- All button fields are required
+
+Each button includes:
+
+#### Button Text
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Label shown on the button
+
+#### Relative Link
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Target URL
+- **Format:** Must start with `/`
+- **Examples:** `/speed-courses`, `/contact`
+
+#### Button Role
+
+- **Type:** String
+- **Required:** Yes
+- **Description:** Visual importance of the button
+- **Options:**
+  - `Primary` – Main call to action
+  - `Secondary` – Secondary action
+
+---
+
+## Usage Example
+
+### Headline Parts
+
+1. **"Welcome to the"**  
+   Style: Normal
+2. **"modern"**  
+   Style: Highlighted  
+   Background: Green  
+   Text Color: Black
+3. **"experience"**  
+   Style: Normal
+
+### Keywords
+
+- `innovative` (Green)
+- `digital` (Blue)
+- `sustainable` (Green)
+
+### Subheadline
+
+> Discover our comprehensive solutions designed to help you achieve your goals with cutting-edge technology and expert support.
+
+### Background Image
+
+A professional brand-related image (required).
+
+### Call to Action Buttons
+
+- **Primary:** Sign up now → `/registration`
+- **Secondary:** Learn more → `/about-us`
+
+---
+
+## Best Practices
+
+- **Headline:** Keep it short and impactful. Use highlights sparingly.
+- **Style mix:** Combine normal, highlighted, and colored text for visual rhythm.
+- **Keywords:** Use 2–4 keywords and keep colors consistent with your brand.
+- **Subheadline:** Add clarity without repeating the headline.
+- **Buttons:** Use clear, action-oriented language.
+- **Background image:** Choose high-quality images that work well with text overlays.
+- **Color coordination:** Ensure sufficient contrast and brand consistency.
+
+---
+
+## Key Features
+
+- Flexible multi-part headline system
+- Highlighted backgrounds and colored text options
+- Conditional fields based on selected styles
+- Individually colored keywords
+- Button validation (one Primary, one Secondary)
+- Required background image with hotspot support
+- Clear visual hierarchy and accessibility-friendly markup
+
+---
+
+## Where It’s Used
+
+- **Pages (`page`)**  
+  Homepages and landing pages
+
+---
+
+## Technical Notes
+
+- Headline is built from an array of styled parts
+- Supported headline styles:
+  - Normal
+  - Highlighted (background + text color)
+  - Colored text
+- Color options:
+  - 9 background colors
+  - 9 text colors
+- Keywords are separate from the headline and fully customizable
+- Button links must be relative paths starting with `/`
+- All button fields are mandatory
+- Uses semantic HTML for accessibility
+- Conditional fields appear dynamically based on selected styles

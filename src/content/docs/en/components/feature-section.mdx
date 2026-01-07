@@ -1,0 +1,169 @@
+---
+title: Feature Section
+description: A content block for presenting features, benefits, or services with icons, headlines, and descriptions in an organized layout.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Feature Section** lets you showcase your key features, benefits, or services in an organized, visually appealing format. Each feature can include an icon, headline, subheadline, description, and optional call-to-action button—perfect for highlighting what makes your offering unique.
+
+<Aside>
+  **Best for:** Feature presentations, benefit highlights, service overviews,
+  product features, value propositions, competitive advantages.
+</Aside>
+
+---
+
+## Fields
+
+### Headline
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Main heading for the entire feature section
+- **Examples:**  
+  `Our Advantages`, `Why Choose Us`
+
+---
+
+### Description
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Description for the feature section
+- **Example:**  
+  `Why you should choose us`
+
+---
+
+### Features
+
+- **Type:** Array of feature objects
+- **Required:** No
+- **Purpose:** List of features to display
+
+#### Feature Object Fields
+
+**Headline**
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** The main title for this feature
+- **Example:**  
+  `Expert Team`
+
+**Subheadline**
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** A secondary title or tagline
+- **Example:**  
+  `Industry-leading expertise`
+
+**Description**
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Detailed description of the feature
+- **Example:**  
+  `Our team brings years of expertise and knowledge...`
+
+**Icon**
+
+- **Type:** Icon reference (Lucide)
+- **Required:** No
+- **Purpose:** A Lucide icon displayed with the feature
+- **Examples:**  
+  `UserCheck`, `Zap`, `Calendar`
+
+**Show Button**
+
+- **Type:** Boolean
+- **Required:** No
+- **Purpose:** Flag to show or hide the call-to-action button for this feature
+- **Example:**  
+  `true` or `false`
+
+**CTA Button**
+
+- **Type:** Object
+- **Required:** No
+- **Purpose:** Call-to-action button configuration for this feature
+- **Contains:**
+  - **Label:** The button text
+  - **Link:** The URL or path the button links to
+- **Example:**  
+  `{ label: "Learn more", link: "/about-us" }`
+
+---
+
+### Background Color
+
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
+- **Purpose:** Sets the background color for the entire feature section
+
+---
+
+## Usage Example
+
+### Typical Configuration
+
+- **Headline:** `Our Advantages`
+- **Description:** `Why you should choose us`
+- **Features:**
+  1. **"Expert Team"** (UserCheck icon)
+     - Subheadline: `Industry-leading expertise`
+     - Description: `Our team brings years of expertise and knowledge...`
+     - Show Button: `true`
+     - CTA Button: `{ label: "Learn more", link: "/about-us" }`
+  2. **"Modern Technology"** (Zap icon)
+     - Subheadline: `Cutting-edge solutions`
+     - Description: `Built with the latest technology and innovation...`
+     - Show Button: `true`
+     - CTA Button: `{ label: "View products", link: "/products" }`
+  3. **"Flexible Options"** (Calendar icon)
+     - Subheadline: `Available 24/7`
+     - Description: `We offer flexible solutions that adapt to your needs...`
+     - Show Button: `true`
+     - CTA Button: `{ label: "Get started", link: "/get-started" }`
+
+---
+
+## Best Practices
+
+- **Consistency:** Use similar structures for all features to create visual harmony.
+- **Icons:** Use icons consistently and appropriately—they should add clarity, not just decoration.
+- **Clarity:** Keep headlines and subheadlines short and impactful.
+- **Count:** 3-6 features work best for optimal user experience.
+- **Buttons:** Use CTA buttons sparingly, only when they add value.
+- **Focus:** Each feature should communicate a single, clear benefit.
+
+---
+
+## Key Features
+
+- **Visual organization:** Features displayed in a clean, organized layout
+- **Icon support:** Lucide icons add visual interest and clarity
+- **Flexible content:** Headlines, subheadlines, and descriptions for comprehensive information
+- **Call-to-action:** Optional buttons for each feature to drive engagement
+- **Customizable:** Background color and layout options for brand consistency
+
+---
+
+## Where It's Used
+
+- **Pages (`page`)**  
+  General content pages, especially homepages and service pages
+
+---
+
+## Technical Notes
+
+- Icons come from the Lucide icon library
+- CTA buttons are simple objects with `label` and `link` fields
+- Background color references the global `backgroundColor` schema
+- Features are typically displayed in a grid layout that adapts to screen size
+- Each feature has a `_key` field (internal Sanity identifier)

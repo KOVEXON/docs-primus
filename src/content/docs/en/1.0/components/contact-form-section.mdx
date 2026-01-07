@@ -1,0 +1,170 @@
+---
+title: Contact Form Section
+description: A contact form with configurable fields, validation, and
+  GDPR-compliant settings for collecting user inquiries.
+slug: en/1.0/components/contact-form-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Contact Form Section provides a fully customizable contact form with field configuration, validation, and GDPR-compliant privacy settings. It's designed to make it easy for visitors to reach out while ensuring data protection compliance.
+
+<Aside>
+  **Best for:** Contact pages, inquiry forms, consultation requests, newsletter
+  signups (with customized fields), general inquiries.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (required)
+* **Purpose:** Main heading for the contact form
+* **Example:** "Contact Us" or "Get in Touch"
+
+### Description
+
+* **Type:** Text, 3 rows (optional)
+* **Purpose:** Optional description displayed above the form
+* **Example:** "Have questions? We're happy to help."
+
+### Form Fields Configuration
+
+* **Type:** Object (optional)
+* **Purpose:** Configuration for all form fields
+
+#### Name Field
+
+* **Label** (String, default: "Name")
+* **Placeholder** (String, default: "Name")
+* **Required** (Boolean, default: `true`)
+
+#### Email Field
+
+* **Label** (String, default: "Email")
+* **Placeholder** (String, default: "email@example.com")
+* **Required** (Boolean, default: `true`)
+
+#### Phone Field
+
+* **Label** (String, default: "Phone")
+* **Placeholder** (String, default: "Phone number")
+* **Required** (Boolean, default: `false`)
+* **Show Phone Field** (Boolean, default: `true`)
+
+#### Message Field
+
+* **Label** (String, default: "Message")
+* **Placeholder** (String, default: "Your message to us...")
+* **Required** (Boolean, default: `true`)
+* **Number of Rows** (Number, default: 5, min: 3, max: 10)
+
+### Submit Button
+
+* **Type:** Object
+* **Fields:**
+  * **Button Text** (String, default: "Send message")
+  * **Loading Text** (String, default: "Sending...")
+
+### Required Fields Note
+
+* **Type:** String (optional)
+* **Purpose:** Text displayed below the form indicating required fields
+
+### Privacy Policy
+
+* **Type:** Object
+* **Fields:**
+  * **Privacy Policy Text** (Text, default: "I agree to the processing of my data according to the privacy policy.")
+  * **Privacy Policy Link** (String) – Link to privacy page (e.g., `/privacy`)
+
+### Success Message
+
+* **Type:** Text, 2 rows
+* **Purpose:** Message displayed after successfully submitting the form
+* **Example:** "Thank you! We'll get back to you soon."
+
+### Error Message
+
+* **Type:** Text, 2 rows
+* **Purpose:** Message displayed if form submission fails
+* **Example:** "An error occurred. Please try again."
+
+### Validation Messages
+
+* **Type:** Object
+* **Fields:**
+  * **Required Field Message** (String)
+  * **Invalid Email Message** (String)
+  * **Invalid Phone Message** (String)
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire form section
+
+***
+
+## Usage Example
+
+Here's a typical Contact Form Section configuration:
+
+* **Headline:** "Contact Us"
+* **Description:** "Have questions? We're happy to help."
+* **Name Field:** Required, Label "Name"
+* **Email Field:** Required, Label "Email"
+* **Phone Field:** Optional, Label "Phone"
+* **Message Field:** Required, 5 rows, Label "Message"
+* **Submit Button:** "Send message"
+* **Privacy Policy:** Link to `/privacy`
+* **Success Message:** "Thank you! We'll get back to you soon."
+* **Error Message:** "An error occurred. Please try again."
+
+***
+
+## Best Practices
+
+**Required fields:** Only mark fields as required if they're truly necessary—fewer required fields can increase form completion rates
+
+**Validation:** Provide clear validation messages for better user experience
+
+**GDPR compliance:** Always include a privacy policy link for GDPR compliance
+
+**Feedback:** Use clear success and error messages so users know what happened
+
+**Labels:** Use understandable labels and helpful placeholders
+
+**Field order:** Place most important fields first, optional fields last
+
+***
+
+## Key Features
+
+**Fully configurable:** Customize labels, placeholders, and required status for all fields
+
+**GDPR compliant:** Built-in privacy policy checkbox and link support
+
+**Validation:** Client-side validation with clear error messages
+
+**Accessible:** Proper form labels and structure for screen readers
+
+**Customizable messages:** Configure all user-facing messages for consistency
+
+***
+
+## Where It's Used
+
+The Contact Form Section appears in these content types:
+
+* **Pages** (`page`) – Contact pages and general content pages
+* **Landing Pages** – Conversion-focused pages requiring contact forms
+
+***
+
+## Technical Notes
+
+* Form fields support client-side validation before submission
+* Privacy policy checkbox is required for GDPR compliance
+* All validation messages can be customized per form
+* Background color references the global `backgroundColor` schema
+* Form submission handling is managed by the frontend application

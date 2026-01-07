@@ -1,0 +1,108 @@
+---
+title: Article Carousel Section
+description: A content block that automatically displays the latest articles in
+  a carousel format, perfect for showcasing recent news and blog posts.
+slug: en/1.0/components/article-carousel-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Article Carousel Section automatically displays your most recent articles in an interactive carousel format. It pulls the latest content based on publication date, making it perfect for keeping your homepage or news pages fresh and up-to-date without manual updates.
+
+<Aside>
+  **Best for:** Homepage highlights, news sections, blog previews, recent
+  updates, article showcases.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (optional)
+* **Purpose:** Main heading for the carousel section
+* **Max Length:** 100 characters
+* **Example:** "Latest Articles" or "Recent News"
+
+### Description
+
+* **Type:** Text (optional)
+* **Purpose:** Brief description or context displayed below the headline
+* **Max Length:** 200 characters
+* **Example:** "Stay up to date with our latest news and insights"
+
+### Maximum Articles
+
+* **Type:** Number (optional)
+* **Default Value:** 6
+* **Min Value:** 3
+* **Max Value:** 12
+* **Purpose:** Controls how many of the most recent articles appear in the carousel
+* **Example:** Set to 6 to show the 6 newest articles
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire carousel section
+
+***
+
+## Usage Example
+
+Here's a typical Article Carousel Section for a homepage:
+
+**Headline:** "Latest Articles"
+
+**Description:** "Stay informed with our most recent news and updates"
+
+**Maximum Articles:** 6
+
+The carousel will automatically display the 6 most recently published articles, sorted by publication date (newest first). Users can navigate through the carousel to browse all displayed articles.
+
+***
+
+## Best Practices
+
+**Article count:** 3-6 articles work best for optimal display and user engagement. Too few may look sparse; too many can overwhelm users
+
+**Fresh content:** Publish new articles regularly to keep the carousel dynamic and engaging
+
+**Relevance:** The carousel automatically shows the most recent articles, so ensure your latest content is relevant to your audience
+
+**Headlines:** Make article headlines clear and compelling—they're what users see first in the carousel
+
+**Description:** Use the description field to provide context about what types of articles users will find
+
+**Background color:** Use sparingly—ensure sufficient contrast for readability
+
+***
+
+## Key Features
+
+**Automatic updates:** No manual selection needed—the carousel automatically pulls the latest articles
+
+**Sorted by date:** Articles are always displayed with the newest first
+
+**Interactive navigation:** Users can browse through articles using carousel controls
+
+**Responsive design:** The carousel adapts to different screen sizes
+
+**Dynamic content:** Content updates automatically as new articles are published
+
+***
+
+## Where It's Used
+
+The Article Carousel Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially homepages
+* **News Pages** – Dedicated news or blog listing pages
+
+***
+
+## Technical Notes
+
+* Articles are automatically sorted by publication date in descending order (newest first)
+* The carousel displays articles up to the specified maximum count
+* Only published articles are included in the carousel
+* Background color references the global `backgroundColor` schema
+* The carousel uses responsive breakpoints for optimal display on all devices

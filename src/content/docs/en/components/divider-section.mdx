@@ -1,0 +1,111 @@
+---
+title: Divider Section
+description: A simple content block that creates a visual separator or spacing between other content blocks.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import DividerSectionOverview from "../../../../assets/divider-section.png";
+
+The Divider Section is a minimal content block that creates visual separation or spacing between other content sections. Use it sparingly to break up long content or create clear visual boundaries between different topics.
+
+<Aside>
+  **Best for:** Visual separation between content areas, creating spacing,
+  structuring page layouts, breaking up long sections.
+</Aside>
+
+## Fields
+
+<figure style="text-align: center;">
+  <img
+    src={DividerSectionOverview.src}
+    alt="The divider section fields in Sanity Studio"
+  />
+  <figcaption>
+    <em>The divider section fields in Sanity Studio</em>
+  </figcaption>
+</figure>
+
+### Show Divider Line
+
+- **Type:** Boolean (optional)
+- **Purpose:** Toggle to show or hide the divider line
+- **Default:** `false`
+
+### Divider Width
+
+- **Type:** String (optional)
+- **Default Value:** `100%`
+- **Options:**
+  - **100%** – Full width
+  - **Container Width (max-w-6xl)** – Container width
+  - **Custom Width** – Custom width value
+- **Purpose:** Controls the width of the divider line
+
+### Custom Width
+
+- **Type:** String (optional)
+- **Hidden:** Yes (when Divider Width is not set to "Custom Width")
+- **Purpose:** Custom CSS width value (e.g., "400px", "50vw", "20rem")
+- **Note:** Only used when width is set to "Custom Width"
+
+---
+
+## Usage Example
+
+Here's a typical Divider Section configuration:
+
+**With divider line:**
+
+- **Show Divider Line:** `true`
+- **Divider Width:** `100%`
+
+**For spacing without line:**
+
+- **Show Divider Line:** `false`
+- **Divider Width:** `100%`
+
+---
+
+## Best Practices
+
+**Sparingly:** Use dividers sparingly to maintain readability—too many can make content feel fragmented
+
+**Consistency:** Use consistent widths within a page for visual harmony
+
+**Purpose:** Have a clear purpose for each divider (separation or spacing)
+
+**Context:** Consider whether a divider adds value or if content structure could achieve the same effect
+
+**Width:** Full width dividers work best for clear section breaks; container width for subtle separation
+
+---
+
+## Key Features
+
+**Simple and flexible:** Minimal configuration for maximum flexibility
+
+**Visual separation:** Clear visual boundaries between content sections
+
+**Spacing control:** Can create spacing without a visible line
+
+**Width options:** Multiple width options for different design needs
+
+**Lightweight:** Minimal impact on page performance
+
+---
+
+## Where It's Used
+
+The Divider Section appears in these content types:
+
+- **Pages** (`page`) – General content pages for section separation
+- **Legal Pages** (`legalPage`) – Legal pages requiring clear section breaks
+
+---
+
+## Technical Notes
+
+- Custom width accepts any valid CSS width value (px, vw, rem, %, etc.)
+- When divider line is hidden, the section still creates spacing
+- Background color is not configurable for this section
+- The divider uses semantic HTML for accessibility

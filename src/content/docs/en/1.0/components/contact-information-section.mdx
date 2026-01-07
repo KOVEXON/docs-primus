@@ -1,0 +1,101 @@
+---
+title: Contact Information Section
+description: A content block for displaying contact information with optional
+  map integration for location display.
+slug: en/1.0/components/contact-information-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Contact Information Section displays your company's contact details in a structured format, with optional map integration to help visitors find your location. Contact information is centrally managed through company information documents, making updates easy and consistent across your site.
+
+<Aside>
+  **Best for:** Contact pages, legal pages (imprint), location pages, about-us
+  pages, footer contact information.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (optional)
+* **Purpose:** Main heading for the contact section
+* **Example:** "Contact" or "Get in Touch"
+
+### Description
+
+* **Type:** Text, 3 rows (optional)
+* **Purpose:** Description for the contact section
+* **Example:** "We're here for you"
+
+### Company Information
+
+* **Type:** Reference to `companyInformation` (required)
+* **Purpose:** Reference to a company information document containing contact details
+
+### Map Section
+
+* **Type:** Reference to `mapSection` (optional)
+* **Purpose:** Optional reference to a map section document for location display
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire contact section
+
+***
+
+## Usage Example
+
+Here's a typical Contact Information Section configuration:
+
+* **Headline:** "Contact"
+* **Description:** "We're here for you"
+* **Company Information:** Reference to "Example Company - Main Location"
+* **Map Section:** Reference to a map section with location
+
+***
+
+## Best Practices
+
+**Centralized management:** Keep contact information up to date in the `companyInformation` document—changes will reflect across all pages using it
+
+**Map integration:** Use a map section for better location finding, especially for businesses with physical locations
+
+**Completeness:** Display all relevant contact information (phone, email, address, hours)
+
+**Consistency:** Use the same company information reference across multiple pages for consistency
+
+**Accessibility:** Ensure contact information is accessible and clearly formatted
+
+***
+
+## Key Features
+
+**Centralized management:** Contact information is managed in one place and referenced across pages
+
+**Map integration:** Optional map section for visual location display
+
+**Reusable:** Can be used on multiple pages with the same company information reference
+
+**Flexible display:** Headline and description allow for contextual presentation
+
+**Consistent updates:** Update company information once, and it updates everywhere
+
+***
+
+## Where It's Used
+
+The Contact Information Section appears in these content types:
+
+* **Pages** (`page`) – Contact pages and general content pages
+* **Legal Pages** (`legalPage`) – Legal pages requiring contact information (imprint)
+
+***
+
+## Technical Notes
+
+* Company information references the global `companyInformation` schema
+* Map section references the global `mapSection` schema
+* Background color references the global `backgroundColor` schema
+* Contact information is displayed in a structured format with proper semantic HTML

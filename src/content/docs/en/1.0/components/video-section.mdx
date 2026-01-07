@@ -1,0 +1,131 @@
+---
+title: Video Section
+description: A content block for embedding videos with optional headline,
+  description, and poster image for engaging video content.
+slug: en/1.0/components/video-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Video Section** allows you to embed video content with an optional headline, description, and poster image.\
+It’s ideal for explaining concepts, showcasing processes, sharing testimonials, or adding engaging multimedia content to your pages.
+
+<Aside>
+  **Best for:** Explanatory videos, tutorials, company presentations, event
+  highlights, and instructional content.
+</Aside>
+
+***
+
+## Fields
+
+### Headline
+
+* **Type:** String
+* **Required:** Yes
+* **Max length:** 120 characters
+* **Purpose:** Main heading for the video section
+* **Examples:**\
+  `How Our Service Works`, `Our Process`
+
+***
+
+### Description
+
+* **Type:** Text (3 rows)
+* **Required:** No
+* **Purpose:** Supporting text describing the video content
+* **Example:**\
+  `See how our service works in practice`
+
+***
+
+### Video File
+
+* **Type:** File
+* **Required:** No
+* **Accepted formats:** `video/*` (MP4, WebM, etc.)
+* **Purpose:** Uploaded video file
+
+***
+
+### Video URL (Alternative)
+
+* **Type:** URL
+* **Required:** No
+* **Purpose:** Alternative to file upload; embeds a video via direct URL
+* **Example:**\
+  URL to a video hosting service
+
+> Either **Video File** or **Video URL** should be provided.
+
+***
+
+### Poster Image
+
+* **Type:** Image
+* **Required:** No
+* **Options:** Hotspot enabled
+* **Purpose:** Thumbnail image shown before the video plays
+* **Best practice:** Use a representative image that clearly reflects the video content
+
+***
+
+### Background Color
+
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color of the video section
+
+***
+
+## Usage Example
+
+### Typical Configuration
+
+* **Headline:** `How Our Service Works`
+* **Description:** `See how our service works in practice`
+* **Video:**
+  * Uploaded MP4 file **or**
+  * Direct video URL
+* **Poster Image:** Thumbnail representing the service or process
+
+***
+
+## Best Practices
+
+* **Video format:** Use MP4 for maximum browser compatibility.
+* **Poster image:** Always provide a meaningful thumbnail.
+* **Optimization:** Compress videos for fast loading without sacrificing quality.
+* **Description:** Add context so users know what to expect.
+* **Headline:** Keep it clear and descriptive (max 120 characters).
+* **Accessibility:** Provide captions or transcripts whenever possible.
+
+***
+
+## Key Features
+
+* **Flexible sources:** Supports uploaded videos and external URLs
+* **Poster image:** Improves visual presentation and engagement
+* **Hotspot support:** Better control over poster image cropping
+* **Responsive:** Video scales smoothly across screen sizes
+* **Semantic markup:** Uses HTML5 video elements
+
+***
+
+## Where It’s Used
+
+* **Pages (`page`)**\
+  Service pages, about pages, and general content pages
+
+***
+
+## Technical Notes
+
+* Videos can be uploaded directly or embedded via URL
+* Poster image appears before playback begins
+* Background color references the global `backgroundColor` schema
+* Uses semantic HTML5 video elements for accessibility
+* Videos are optimized for web playback

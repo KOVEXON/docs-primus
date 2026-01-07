@@ -1,0 +1,133 @@
+---
+title: Testimonials Section
+description: A content block for displaying customer reviews and testimonials
+  with quotes, author names, and optional avatars.
+slug: en/1.0/components/testimonials-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Testimonials Section displays customer reviews, references, and testimonials in an organized format. With quotes, author names, and optional avatars, it's perfect for building trust and showcasing social proof.
+
+<Aside>
+  **Best for:** Customer reviews, references, success stories, trust building,
+  social proof, credibility enhancement.
+</Aside>
+
+## Fields
+
+### Title
+
+* **Type:** String (optional)
+* **Purpose:** Title for the testimonials section
+* **Example:** "What Our Customers Say"
+
+### Headline
+
+* **Type:** String (required)
+* **Purpose:** Main heading for the testimonials section
+* **Example:** "Customer Reviews" or "Testimonials"
+
+### Testimonials
+
+* **Type:** Array of testimonial objects (optional)
+* **Purpose:** List of testimonials
+
+#### Testimonial Object Fields
+
+**Quote** (optional)
+
+* Quote or review text
+* Type: Text
+* Example: "The best service provider in the region! Very professional and helpful."
+
+**Author** (optional)
+
+* Name of the review author
+* Example: "Max Mustermann"
+
+**Show Avatar** (optional)
+
+* Toggle to show or hide the avatar
+* Default: `true`
+
+**Avatar** (optional, hidden when Show Avatar is not enabled)
+
+* Profile picture of the author
+* Type: Image
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire testimonials section
+
+***
+
+## Usage Example
+
+Here's a typical Testimonials Section:
+
+**Title:** "What Our Customers Say"
+
+**Headline:** "Customer Reviews"
+
+**Testimonials:**
+
+1. **Quote:** "The best service provider in the region! Very professional and helpful."
+
+   * **Author:** "Max Mustermann"
+   * **Show Avatar:** `true`
+   * **Avatar:** Profile picture
+
+2. **Quote:** "Quick and successful service delivery. Can only recommend!"
+   * **Author:** "Anna Schmidt"
+   * **Show Avatar:** `true`
+   * **Avatar:** Profile picture
+
+***
+
+## Best Practices
+
+**Authenticity:** Use real, authentic reviews—genuine testimonials build more trust
+
+**Diversity:** Show different perspectives and experiences
+
+**Avatars:** Profile pictures increase credibility
+
+**Count:** 3-6 testimonials are optimal for impact
+
+**Regular updates:** Update regularly with new reviews to keep content fresh
+
+**Balance:** Mix positive reviews with constructive feedback when appropriate
+
+***
+
+## Key Features
+
+**Organized display:** Testimonials displayed in clean, organized cards
+
+**Avatar support:** Optional profile pictures for each testimonial
+
+**Flexible content:** Quote and author name for comprehensive information
+
+**Trust building:** Social proof helps build credibility
+
+**Responsive:** Adapts to different screen sizes
+
+***
+
+## Where It's Used
+
+The Testimonials Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially homepages and service pages
+
+***
+
+## Technical Notes
+
+* Testimonials are displayed in a responsive grid or carousel layout
+* Avatars are displayed as round images when enabled
+* Background color references the global `backgroundColor` schema
+* The section uses semantic HTML for accessibility
+* Testimonials are typically displayed with quote styling

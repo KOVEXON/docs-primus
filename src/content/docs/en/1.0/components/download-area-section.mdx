@@ -1,0 +1,160 @@
+---
+title: Download Area Section
+description: A download area for documents with filtering, search, and sorting
+  capabilities for easy document management.
+slug: en/1.0/components/download-area-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Download Area Section automatically fetches and displays documents in an organized, searchable interface. With category filters, search functionality, and sorting options, visitors can quickly find the documents they need — from forms and materials to legal documents.
+
+<Aside>
+  **Best for:** Document libraries, form downloads, training materials, legal
+  documents (terms, privacy policies), resource centers.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (required)
+* **Default Value:** "Downloads"
+* **Max Length:** 100 characters
+* **Purpose:** Main heading for the download area
+* **Example:** "Downloads" or "Document Library"
+
+### Description
+
+* **Type:** Text, 3 rows (optional)
+* **Default Value:** "Download our latest documents, forms and materials."
+* **Max Length:** 500 characters
+* **Purpose:** Description for the download area
+
+### Auto-fetch Documents
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Automatically fetch all active documents instead of manual selection
+
+### Show Categories
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Display category filters for documents
+
+### Show File Sizes
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Display file size for each document
+
+### Show Last Modified Date
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Display the last modified date for each document
+
+### Documents Per Page
+
+* **Type:** Number (optional)
+* **Default Value:** 12
+* **Min Value:** 6
+* **Max Value:** 50
+* **Purpose:** Number of documents displayed at once
+
+### Enable Search
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Enable search functionality to find documents
+
+### Enable Sorting
+
+* **Type:** Boolean (optional)
+* **Default Value:** `true`
+* **Purpose:** Enable sorting of documents by various criteria
+
+### Default Sorting
+
+* **Type:** String (optional)
+* **Default Value:** `nameAsc`
+* **Options:**
+  * **Name A-Z** (`nameAsc`)
+  * **Name Z-A** (`nameDesc`)
+  * **Category** (`categoryAsc`)
+  * **Newest First** (`lastModifiedDesc`)
+* **Purpose:** Default sorting method for documents
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire download section
+
+***
+
+## Usage Example
+
+Here's a typical Download Area Section configuration:
+
+* **Headline:** "Downloads"
+* **Description:** "Here you'll find all important documents and forms"
+* **Auto-fetch Documents:** `true`
+* **Show Categories:** `true`
+* **Show File Sizes:** `true`
+* **Show Last Modified Date:** `true`
+* **Documents Per Page:** 12
+* **Enable Search:** `true`
+* **Enable Sorting:** `true`
+* **Default Sorting:** "Name A-Z"
+
+***
+
+## Best Practices
+
+**Categories:** Use meaningful categories for better organization and user experience
+
+**Documents per page:** 12-24 documents per page is optimal for performance and usability
+
+**Search:** Enable search for large document collections to help users find what they need
+
+**Sorting:** Choose a default sorting method that makes sense for your content (alphabetical or newest first)
+
+**File information:** Show file sizes and modification dates to help users make informed decisions
+
+**Regular updates:** Keep documents current and remove outdated files
+
+***
+
+## Key Features
+
+**Automatic fetching:** All active documents are automatically retrieved and displayed
+
+**Category filtering:** Filter documents by category for easy navigation
+
+**Search functionality:** Search through document names and descriptions
+
+**Multiple sorting options:** Sort by name, category, or modification date
+
+**Pagination:** Documents are displayed in pages for better performance
+
+**File metadata:** Display file sizes and modification dates
+
+***
+
+## Where It's Used
+
+The Download Area Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially resource or document pages
+
+***
+
+## Technical Notes
+
+* Documents are automatically fetched from the document schema
+* Only active documents are displayed
+* Search functionality works on document names and descriptions
+* Sorting options include ascending and descending order
+* Background color references the global `backgroundColor` schema
+* Pagination is handled automatically based on documents per page setting

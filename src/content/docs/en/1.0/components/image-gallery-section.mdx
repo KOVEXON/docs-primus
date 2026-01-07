@@ -1,0 +1,123 @@
+---
+title: Image Gallery Section
+description: An image gallery with title, subtitle, and up to 20 images for
+  showcasing products, events, or portfolios.
+slug: en/1.0/components/image-gallery-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Image Gallery Section** displays a collection of images in a clean, structured gallery layout.\
+It is ideal for presenting visual content such as products, events, portfolios, or reference imagery in an organized and responsive format.
+
+<Aside>
+  **Best for:** Product galleries, event galleries, portfolios, reference
+  images, photo collections, and showcase sections.
+</Aside>
+
+***
+
+## Fields
+
+### Title
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Main title of the gallery section
+* **Examples:**\
+  `Product Gallery`, `Event Photos`
+
+***
+
+### Subtitle
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Supporting subtitle displayed below the title
+* **Example:**\
+  `Explore our latest collection`
+
+***
+
+### Images
+
+* **Type:** Array of images
+* **Required:** No
+* **Minimum:** 1
+* **Maximum:** 20
+* **Purpose:** Images displayed within the gallery
+
+#### Image Fields
+
+Each image includes:
+
+* **Alt Text**
+
+  * **Type:** String
+  * **Required:** Yes
+  * **Purpose:** Accessibility and SEO description
+
+* **Caption**
+  * **Type:** String
+  * **Required:** No
+  * **Purpose:** Optional descriptive text shown below the image
+
+***
+
+### Background Color
+
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color of the gallery section
+
+***
+
+## Usage Example
+
+### Basic Configuration
+
+* **Title:** `Product Gallery`
+* **Subtitle:** `Explore our latest collection`
+* **Images:**
+  * Array of product images
+  * Each image includes alt text and optional captions
+
+***
+
+## Best Practices
+
+* **Alt text:** Always provide meaningful alt text for accessibility and SEO.
+* **Image quality:** Use high-quality images with consistent lighting and style.
+* **Image count:** 6–12 images provide the best balance between engagement and usability.
+* **Captions:** Use captions to add context when needed.
+* **Consistency:** Maintain consistent aspect ratios where possible.
+* **Organization:** Group related images logically to improve visual flow.
+
+***
+
+## Key Features
+
+* **Organized layout:** Clean, grid-based image presentation
+* **Accessibility-ready:** Required alt text support
+* **Captions:** Optional captions for added context
+* **Flexible size:** Supports 1–20 images
+* **Responsive design:** Adapts smoothly across screen sizes
+
+***
+
+## Where It’s Used
+
+* **Pages (`page`)**\
+  Product pages, event pages, portfolio pages, and general content pages
+
+***
+
+## Technical Notes
+
+* Images are rendered in a responsive grid layout
+* Alt text is mandatory for accessibility compliance
+* Captions appear below images when provided
+* Background color references the global `backgroundColor` schema
+* Images are optimized for web delivery

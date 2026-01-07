@@ -1,0 +1,176 @@
+---
+title: Tabs Section
+description: A content block with tab navigation for structured, categorized
+  content, perfect for organizing related information in clear sections.
+slug: en/1.0/components/tabs-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+The Tabs Section organizes content into different tabs using tab navigation. It's perfect for structured, categorized information that benefits from a clear, organized presentation where only one section is visible at a time.
+
+<Aside>
+  **Best for:** Categorized content, product details, service pages, price
+  comparisons, information pages, feature presentations.
+</Aside>
+
+## Fields
+
+### Headline
+
+* **Type:** String (required)
+* **Purpose:** Main heading for the entire tabs section
+* **Example:** "Our Service Packages" or "Service Options"
+
+### Description
+
+* **Type:** Text (optional)
+* **Max Length:** 500 characters
+* **Purpose:** Description for the tabs section
+* **Example:** "Choose the right service package for your needs"
+
+### Accordion
+
+* **Type:** Object (optional)
+* **Purpose:** Accordion items that are displayed as tabs
+
+#### Accordion Items
+
+* **Type:** Array of accordion item objects (required)
+* **Min Count:** 1
+* **Purpose:** List of accordion items displayed as tabs
+
+##### Accordion Item Fields
+
+**Item Headline** (required)
+
+* Headline of the tab (displayed as tab label)
+* Example: "Basic Package"
+
+**Icon** (optional)
+
+* Optional icon displayed in the tab label
+* Lucide icon library
+* Example: Package, Star, Crown, Building
+
+**Content** (required)
+
+* Rich text content displayed in the active tab
+* Type: Rich Text Section (`richTextSection`)
+
+### Background Color
+
+* **Type:** Reference to `backgroundColor` (optional)
+* **Purpose:** Sets the background color for the entire tabs section
+
+***
+
+## Usage Example
+
+Here's a typical Tabs Section:
+
+**Headline:** "Our Service Packages"
+
+**Description:** "Choose the right service package for your needs"
+
+**Accordion Items (Tabs):**
+
+1. **"Basic Package"** (Package icon)
+
+   * Content: "The Basic Package includes essential services for your needs..."
+
+2. **"Standard Package"** (Star icon)
+
+   * Content: "With the Standard Package, you get comprehensive services with additional features..."
+
+3. **"Premium Package"** (Crown icon)
+
+   * Content: "The Premium Package is designed for businesses requiring advanced solutions..."
+
+4. **"Enterprise Package"** (Building icon)
+   * Content: "With the Enterprise Package, you get full-scale solutions with dedicated support..."
+
+***
+
+## Best Practices
+
+**Clarity:** Use concise, meaningful headlines for each tab
+
+**Categorization:** Group related content logically in tabs
+
+**Icons:** Use icons consistently and only when they add value
+
+**Content length:** Keep content per tab focused and balanced
+
+**Count:** 3-5 tabs are optimal for user experience
+
+**Equivalence:** Tabs should contain equivalent content
+
+**Background color:** Use background colors sparingly to ensure readability
+
+***
+
+## Key Features
+
+**Tab navigation:** Content organized in clear tabs
+
+**Rich text content:** Full rich text editor for detailed content
+
+**Icons:** Optional icons for visual support in tab labels
+
+**Structured display:** Ideal for categorized, equivalent content
+
+**Space-efficient:** Saves space through tab navigation
+
+**Interactive:** Users can switch between tabs
+
+***
+
+## Where It's Used
+
+The Tabs Section appears in these content types:
+
+* **Pages** (`page`) – General content pages, especially service and product pages
+
+***
+
+## Technical Notes
+
+* Only one tab is active at a time
+* Content uses the `richTextSection` type for full formatting capabilities
+* Icons come from the Lucide icon library
+* Background color references the global `backgroundColor` schema
+* The section supports keyboard navigation for accessibility
+
+***
+
+## Differences from Other Content Blocks
+
+| Feature         | Tabs Section     | Accordion Section   |
+| --------------- | ---------------- | ------------------- |
+| Structure       | Fixed (Tabs)     | Fixed (Accordion)   |
+| Navigation      | Tab navigation   | Expandable          |
+| Visibility      | One tab active   | Multiple expandable |
+| Rich Text       | Yes (per tab)    | Yes (per item)      |
+| Icons           | Yes (optional)   | Yes (optional)      |
+| Headlines       | Yes (per tab)    | Yes (per item)      |
+| Space-efficient | Yes              | Yes                 |
+| Usage           | Categorized info | Structured info     |
+
+***
+
+## When to Use Tabs vs. Accordion
+
+### Use Tabs Section when:
+
+* Content is equivalent and categorized
+* Only one area should be visible at a time
+* Content belongs together thematically
+* Clear navigation is important
+
+### Use Accordion Section when:
+
+* Content is hierarchically structured
+* Multiple areas can be visible simultaneously
+* Content varies in length
+* Expandable areas are preferred
