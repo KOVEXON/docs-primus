@@ -1,0 +1,165 @@
+---
+title: Download Section
+description: A download section for documents with filtering and search capabilities for easy document management.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Download Section** automatically fetches and displays documents in an organized, searchable interface.  
+With category filters and search functionality, visitors can quickly find the documents they need — from forms and materials to legal documents.
+
+<Aside>
+  **Best for:** Document libraries, form downloads, training materials, legal
+  documents (terms, privacy policies), resource centers.
+</Aside>
+
+---
+
+## Fields
+
+### Headline
+
+**Type:** String  
+**Required:** Yes
+
+Main heading for the download section.
+
+- **Default Value:** "Downloads"
+- **Max Length:** 100 characters
+- **Example:** "Downloads" or "Document Library"
+
+---
+
+### Description
+
+**Type:** Text  
+**Required:** No
+
+Description for the download section.
+
+- **Default Value:** "Download our latest documents, forms and materials."
+- **Max Length:** 500 characters
+
+---
+
+### Auto-fetch Documents
+
+**Type:** Boolean  
+**Required:** Yes
+
+Automatically fetch all active documents to display in the download area.
+
+- **Default Value:** `true`
+
+---
+
+### Show Categories
+
+**Type:** Boolean  
+**Required:** No
+
+Shows the category filters.
+
+- **Default Value:** `true`
+
+---
+
+### Documents Per Page
+
+**Type:** Number  
+**Required:** No
+
+Number of documents displayed at once.
+
+- **Default Value:** 12
+- **Min Value:** 6
+- **Max Value:** 50
+
+---
+
+### Enable Search
+
+**Type:** Boolean  
+**Required:** No
+
+Allows searching through documents.
+
+- **Default Value:** `true`
+
+---
+
+### Background Color
+
+**Type:** Reference to `backgroundColor`  
+**Required:** No
+
+Sets the background color for the entire download section.
+
+---
+
+## Usage Example
+
+### Headline
+
+"Downloads"
+
+### Description
+
+"Here you'll find all important documents and forms"
+
+### Auto-fetch Documents
+
+`true`
+
+### Show Categories
+
+`true`
+
+### Documents Per Page
+
+12
+
+### Enable Search
+
+`true`
+
+### Background Color
+
+Reference to a `backgroundColor` object
+
+---
+
+## Best Practices
+
+- **Categories:** Use meaningful categories for better organization and user experience
+- **Documents per page:** 12-24 documents per page is optimal for performance and usability
+- **Search:** Enable search for large document collections to help users find what they need
+- **Regular updates:** Keep documents current and remove outdated files
+
+---
+
+## Key Features
+
+- Automatic fetching where all active documents are automatically retrieved and displayed
+- Category filtering to filter documents by category for easy navigation
+- Search functionality to search through documents
+- Pagination where documents are displayed in pages for better performance
+
+---
+
+## Where It's Used
+
+- **Pages (`page`)**  
+  General content pages, especially resource or document pages
+
+---
+
+## Technical Notes
+
+- Documents are automatically fetched from the `downloadDocument` schema
+- Only active documents are displayed
+- Search functionality allows searching through documents
+- Background color references the global `backgroundColor` schema
+- Pagination is handled automatically based on documents per page setting
