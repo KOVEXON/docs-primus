@@ -5,49 +5,74 @@ description: A content block designed to motivate visitors to take a specific ac
 
 import { Aside } from "@astrojs/starlight/components";
 
-The Call to Action Section is a focused content block that encourages visitors to take a specific action. With a compelling headline, supporting description, and clear buttons, it guides users toward your primary goals — whether that's signing up, contacting you, or downloading resources.
+## Overview
+
+The **Call to Action Section** is a focused content block that encourages visitors to take a specific action.  
+With a compelling headline, supporting description, and clear buttons, it guides users toward your primary goals — whether that's signing up, contacting you, or downloading resources.
 
 <Aside>
   **Best for:** Contact prompts, course registrations, downloads, newsletter
   signups, special offers, conversion-focused pages.
 </Aside>
 
+---
+
 ## Fields
 
 ### Headline
 
-- **Type:** String (required)
-- **Purpose:** Main heading that captures attention and communicates the action
+**Type:** String  
+**Required:** Yes
+
+Main heading that captures attention and communicates the action.
+
+- **Max Length:** 100 characters
 - **Example:** "Ready to get started?" or "Start your journey today"
+
+---
 
 ### Description
 
-- **Type:** Text, 3 rows (optional)
-- **Purpose:** Supporting text that explains the value or benefit
+**Type:** Text  
+**Required:** No
+
+Supporting text that explains the value or benefit.
+
+- **Max Length:** 200 characters
 - **Example:** "Sign up now and start your journey with experienced professionals and quality service."
+
+---
 
 ### Call to Action Buttons
 
-- **Type:** Reference to `button` (optional)
-- **Purpose:** Button configuration for the primary and secondary actions
-- **Note:** You can configure primary and secondary buttons to guide users
+**Type:** Reference to `button`  
+**Required:** No
+
+Button configuration for the primary and secondary actions.  
+You can configure primary and secondary buttons to guide users.
+
+---
 
 ### Background Color
 
-- **Type:** Reference to `backgroundColor` (optional)
-- **Purpose:** Sets the background color for the entire CTA section
+**Type:** Reference to `backgroundColor`  
+**Required:** No
+
+Sets the background color for the entire CTA section.
 
 ---
 
 ## Usage Example
 
-Here's a typical Call to Action Section for a course registration:
+### Headline
 
-**Headline:** "Ready to get started?"
+"Ready to get started?"
 
-**Description:** "Sign up now and start your journey with experienced professionals and quality service."
+### Description
 
-**Call to Action Buttons:**
+"Sign up now and start your journey with experienced professionals and quality service."
+
+### Call to Action Buttons
 
 - **Primary Button:** "Sign up now" → `/registration`
 - **Secondary Button:** "Learn more" → `/about-us`
@@ -56,40 +81,31 @@ Here's a typical Call to Action Section for a course registration:
 
 ## Best Practices
 
-**Clarity:** Use clear, action-oriented headlines that immediately communicate what you want users to do
-
-**Motivation:** The description should clearly communicate the benefit or value proposition
-
-**Buttons:** Use a primary button for the main action, with an optional secondary button for alternative actions
-
-**Placement:** Often placed at the end of pages or after important information to capture interest
-
-**Background color:** A distinctive background color can draw attention, but ensure sufficient contrast for readability
-
-**Single focus:** Keep the CTA focused on one primary action to avoid decision paralysis
+- **Clarity:** Use clear, action-oriented headlines that immediately communicate what you want users to do
+- **Motivation:** The description should clearly communicate the benefit or value proposition
+- **Buttons:** Use a primary button for the main action, with an optional secondary button for alternative actions
+- **Placement:** Often placed at the end of pages or after important information to capture interest
+- **Background color:** A distinctive background color can draw attention, but ensure sufficient contrast for readability
+- **Single focus:** Keep the CTA focused on one primary action to avoid decision paralysis
 
 ---
 
 ## Key Features
 
-**Action-oriented:** Designed specifically to drive conversions and engagement
-
-**Flexible buttons:** Support for primary and secondary action buttons
-
-**Clear messaging:** Headline and description work together to communicate value
-
-**Visual emphasis:** Background color options help the section stand out
-
-**Strategic placement:** Works best when positioned after users have consumed relevant content
+- Action-oriented design specifically to drive conversions and engagement
+- Flexible buttons with support for primary and secondary action buttons
+- Clear messaging where headline and description work together to communicate value
+- Visual emphasis through background color options that help the section stand out
+- Strategic placement that works best when positioned after users have consumed relevant content
 
 ---
 
 ## Where It's Used
 
-The Call to Action Section appears in these content types:
-
-- **Pages** (`page`) – General content pages, especially at the end of sections
-- **Landing Pages** – Conversion-focused landing pages
+- **Pages (`page`)**  
+  General content pages, especially at the end of sections
+- **Landing Pages**  
+  Conversion-focused landing pages
 
 ---
 
