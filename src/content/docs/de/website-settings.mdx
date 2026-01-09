@@ -1,0 +1,872 @@
+---
+title: Website-Einstellungen
+description: Konfigurieren Sie globale Website-Einstellungen einschließlich Site-Informationen, SEO, Analytics, rechtliche Compliance und Lokalisierung.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der Bereich **Website-Einstellungen** ermöglicht es Ihnen, globale Einstellungen zu konfigurieren, die Ihre gesamte Website betreffen. Diese Einstellungen steuern Site-Informationen, SEO-Standards, Analytics-Tracking, rechtliche Compliance, Lokalisierung und mehr.
+
+<Aside>
+  **Wichtig:** Änderungen an den Website-Einstellungen betreffen die gesamte
+  Website. Stellen Sie sicher, dass Sie Änderungen sorgfältig überprüfen, bevor
+  Sie sie veröffentlichen.
+</Aside>
+
+---
+
+## Allgemeine Site-Informationen
+
+### Site-Name
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Der Name Ihrer Website. Wird in strukturierten Daten und SEO verwendet.
+- **Beispiel:**  
+  `Meine Firmen-Website`
+
+---
+
+### Basis-URL
+
+- **Typ:** URL
+- **Erforderlich:** Ja
+- **Zweck:** Die Basis-URL Ihrer Website (z. B. https://example.com). Wird zur Generierung absoluter URLs in strukturierten Daten und Sitemaps verwendet.
+- **Beispiel:**  
+  `https://example.com`
+
+---
+
+### Standardsprache
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Standardwert:** `de`
+- **Zweck:** Standard-Sprachcode (z. B. 'de' für Deutsch, 'en' für Englisch). Wird im HTML lang-Attribut verwendet.
+- **Beispiel:**  
+  `de`, `en`, `fr`
+
+---
+
+### Standardland
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Standardwert:** `DE`
+- **Zweck:** Standard-Ländercode für Adressen (ISO-Code wie 'DE', 'US', 'GB'). Wird in strukturierten Daten verwendet.
+- **Validierung:** Muss genau 2 Zeichen lang sein
+- **Beispiel:**  
+  `DE`, `US`, `GB`
+
+---
+
+## Organisationsinformationen
+
+Die Organisationsinformationen werden für strukturierte Daten verwendet und können entweder auf Unternehmensinformationen verweisen oder manuell festgelegt werden.
+
+### Datenquelle
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Standardwert:** `reference`
+- **Zweck:** Wählen Sie, ob auf Unternehmensinformationen verwiesen oder Organisationsdetails manuell festgelegt werden sollen.
+- **Optionen:**
+  - `Unternehmensinformationen referenzieren` – Daten aus einem Unternehmensinformationsdokument verwenden
+  - `Manuell festlegen` – Organisationsdetails direkt eingeben
+
+---
+
+### Unternehmensinformationen (bei Verwendung der Referenz)
+
+- **Typ:** Referenz (`companyInformation`)
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Datenquelle ist nicht "Unternehmensinformationen referenzieren"
+- **Zweck:** Referenz auf ein Unternehmensinformationsdokument. Wenn gesetzt, werden Organisationsname, Adresse und Kontaktinformationen von hier abgerufen.
+
+---
+
+### Organisationsname (bei manueller Festlegung)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Datenquelle ist nicht "Manuell festlegen"
+- **Zweck:** Organisationsname für strukturierte Daten. Wird verwendet, wenn keine Unternehmensinformationsreferenz gesetzt ist.
+
+---
+
+### Organisationslogo (bei manueller Festlegung)
+
+- **Typ:** Referenz (`logo`)
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Datenquelle ist nicht "Manuell festlegen"
+- **Zweck:** Referenz auf ein Logo-Dokument. Wird in strukturierten Daten und Social-Media-Vorschauen verwendet.
+
+---
+
+### Adresse (bei manueller Festlegung)
+
+- **Typ:** Objekt
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Datenquelle ist nicht "Manuell festlegen"
+- **Zweck:** Organisationsadresse für strukturierte Daten. Wird verwendet, wenn keine Unternehmensinformationsreferenz gesetzt ist.
+
+#### Adressfelder
+
+- **Straßenadresse** (String) – Straßenadresse
+- **Stadt** (String) – Stadtname
+- **Postleitzahl** (String) – Postleitzahl
+
+---
+
+### Kontaktpunkt (bei manueller Festlegung)
+
+- **Typ:** Objekt
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Datenquelle ist nicht "Manuell festlegen"
+- **Zweck:** Kontaktinformationen für strukturierte Daten. Wird verwendet, wenn keine Unternehmensinformationsreferenz gesetzt ist.
+
+#### Kontaktpunktfelder
+
+- **Telefon** (String) – Telefonnummer
+- **E-Mail** (String) – E-Mail-Adresse
+
+---
+
+## Standard-SEO-Einstellungen
+
+Standard-SEO-Einstellungen werden verwendet, wenn keine seitenspezifischen SEO-Einstellungen gesetzt sind.
+
+### Meta-Titel
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `{pageTitle} | {siteName}`
+- **Zweck:** Standard-Meta-Titel-Vorlage. Verwenden Sie `{siteName}` und `{pageTitle}` als Platzhalter.
+- **Beispiel:**  
+  `{pageTitle} | {siteName}`
+
+---
+
+### Meta-Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Standard-Meta-Beschreibung. Empfohlene maximale Länge: ~155 Zeichen.
+- **Validierung:** Maximum 155 Zeichen
+
+---
+
+### Meta-Schlüsselwörter
+
+- **Typ:** Array von Strings
+- **Erforderlich:** Nein
+- **Zweck:** Standard-Schlüsselwörter. Werden von Google nicht stark genutzt, können aber für andere Suchmaschinen nützlich sein.
+- **Hinweis:** Werden als Tags im Editor angezeigt
+
+---
+
+### OG-Bild
+
+- **Typ:** Bild
+- **Erforderlich:** Nein
+- **Zweck:** Standard Open Graph-Bild für Social-Media-Vorschauen. Empfohlene Größe: 1200x630px.
+- **Optionen:** Hotspot aktiviert
+
+---
+
+### OG-Typ
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `website`
+- **Zweck:** Standard Open Graph-Objekttyp.
+- **Optionen:**
+  - `Website` – Für allgemeine Website-Seiten
+  - `Artikel` – Für Blog-Posts und Artikel
+
+---
+
+### Robots
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `index, follow`
+- **Zweck:** Standard-Robots-Meta-Tag (z. B. 'index, follow' oder 'noindex, nofollow').
+- **Beispiel:**  
+  `index, follow`, `noindex, nofollow`
+
+---
+
+### Twitter-Card-Typ
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `summary_large_image`
+- **Zweck:** Standard Twitter-Card-Typ.
+- **Optionen:**
+  - `Zusammenfassung` – Standard-Zusammenfassungskarte
+  - `Zusammenfassung mit großem Bild` – Zusammenfassungskarte mit großem Bild
+
+---
+
+## Social Media
+
+Standard-Social-Media-Links und -Einstellungen.
+
+### Facebook
+
+- **Typ:** URL
+- **Erforderlich:** Nein
+- **Zweck:** Facebook-Seiten-URL
+- **Beispiel:**  
+  `https://facebook.com/ihre-seite`
+
+---
+
+### Instagram
+
+- **Typ:** URL
+- **Erforderlich:** Nein
+- **Zweck:** Instagram-Profil-URL
+- **Beispiel:**  
+  `https://instagram.com/ihr-profil`
+
+---
+
+### X (Twitter)
+
+- **Typ:** URL
+- **Erforderlich:** Nein
+- **Zweck:** X (Twitter)-Profil-URL
+- **Beispiel:**  
+  `https://twitter.com/ihr-profil`
+
+---
+
+### LinkedIn
+
+- **Typ:** URL
+- **Erforderlich:** Nein
+- **Zweck:** LinkedIn-Unternehmens-/Profil-URL
+- **Beispiel:**  
+  `https://linkedin.com/company/ihr-unternehmen`
+
+---
+
+### YouTube
+
+- **Typ:** URL
+- **Erforderlich:** Nein
+- **Zweck:** YouTube-Kanal-URL
+- **Beispiel:**  
+  `https://youtube.com/@ihr-kanal`
+
+---
+
+## Analytics & Tracking
+
+Analytics- und Tracking-Konfiguration.
+
+### Analytics aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `false`
+- **Zweck:** Analytics-Tracking auf der Website aktivieren.
+
+---
+
+### Google Analytics ID
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Analytics ist deaktiviert ODER Google Tag Manager ID ist gesetzt
+- **Zweck:** Google Analytics-Mess-ID (z. B. G-XXXXXXXXXX).
+- **Hinweis:** Wenn Sie Google Tag Manager verwenden, konfigurieren Sie GA4 innerhalb von GTM und lassen Sie dieses Feld leer, um Doppeltracking zu vermeiden.
+- **Validierung:** Kann nicht zusammen mit Google Tag Manager ID verwendet werden
+
+---
+
+### Google Tag Manager ID
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Analytics ist deaktiviert ODER Google Analytics ID ist gesetzt
+- **Zweck:** Google Tag Manager-Container-ID (z. B. GTM-XXXXXXX).
+- **Hinweis:** Wenn Sie GTM verwenden, konfigurieren Sie Google Analytics innerhalb von GTM und lassen Sie das Google Analytics ID-Feld leer, um Doppeltracking zu vermeiden.
+- **Validierung:** Kann nicht zusammen mit Google Analytics ID verwendet werden
+
+---
+
+### Meta Pixel ID
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Analytics ist deaktiviert
+- **Zweck:** Meta Pixel ID für Conversion-Tracking.
+
+---
+
+### Benutzerdefinierter Tracking-Code
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Analytics ist deaktiviert
+- **Zweck:** Benutzerdefinierter Tracking-Code oder Skript, das in die Website eingefügt werden soll (z. B. andere Analytics-Anbieter).
+
+<Aside type="caution">
+  **Sicherheitswarnung:** Dieses Feld erlaubt benutzerdefinierten
+  HTML/JavaScript-Code. Fügen Sie nur Code von vertrauenswürdigen Quellen hinzu.
+  Bösartiger Code könnte Ihrer Website und Besuchern schaden. **Empfohlen:**
+  Verwenden Sie externe Skript-URLs (z. B., https://example.com/script.js)
+  anstelle von Inline-Code, wenn möglich. Externe Skripte können bei Bedarf
+  leichter über Content Security Policy blockiert werden.
+</Aside>
+
+---
+
+## Kontaktformular-Einstellungen
+
+Standard-Kontaktformular-Einstellungen. Hinweis: SMTP-Anmeldedaten sollten aus Sicherheitsgründen in Umgebungsvariablen gesetzt werden.
+
+### Standard-Empfänger-E-Mail
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Standard-E-Mail-Adresse zum Empfangen von Kontaktformular-Übermittlungen. Fällt zurück auf SMTP_TO-Umgebungsvariable.
+
+---
+
+### Standard-Betreff-Vorlage
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Neue Kontaktanfrage von {name}`
+- **Zweck:** Standard-E-Mail-Betreff-Vorlage. Verwenden Sie `{name}` als Platzhalter.
+
+---
+
+### Erfolgsmeldung
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Vielen Dank für Ihre Nachricht! Wir werden uns bald bei Ihnen melden.`
+- **Zweck:** Nachricht, die nach erfolgreicher Formularübermittlung angezeigt wird.
+
+---
+
+### Fehlermeldung
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Es ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.`
+- **Zweck:** Nachricht, die angezeigt wird, wenn die Formularübermittlung fehlschlägt.
+
+---
+
+## Feature-Umschalter
+
+Website-Features aktivieren oder deaktivieren.
+
+### Wartungsmodus
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `false`
+- **Zweck:** Wartungsmodus aktivieren. Wenn aktiviert, zeigt die Website eine Wartungsnachricht an.
+
+---
+
+### Wartungsnachricht
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Standardwert:** `Wir sind derzeit in Wartung. Bitte besuchen Sie uns später wieder.`
+- **Ausgeblendet wenn:** Wartungsmodus ist deaktiviert
+- **Zweck:** Nachricht, die angezeigt wird, wenn der Wartungsmodus aktiviert ist.
+
+---
+
+## Strukturierte Daten-Einstellungen
+
+Einstellungen für die Generierung strukturierter Daten (JSON-LD).
+
+### Organisations-Schema aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** Organisations-Strukturdaten auf allen Seiten aktivieren.
+
+---
+
+### Website-Schema aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** Website-Strukturdaten auf der Startseite aktivieren.
+
+---
+
+### Breadcrumb-Schema aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** BreadcrumbList-Strukturdaten auf Seiten aktivieren.
+
+---
+
+### Suchaktion
+
+- **Typ:** Objekt
+- **Erforderlich:** Nein
+- **Zweck:** Suchaktions-Konfiguration für Website-Strukturdaten.
+
+#### Suchaktionsfelder
+
+- **Aktiviert** (Boolean, Standard: `false`) – Suchaktion aktivieren
+- **Such-URL** (URL, ausgeblendet wenn deaktiviert) – URL-Vorlage für Suche (z. B. https://example.com/search?q={search_term_string})
+
+---
+
+## Rechtliches & Compliance (Deutsch)
+
+Deutsche rechtliche und Compliance-Einstellungen, die für Websites in Deutschland erforderlich sind.
+
+### Impressum-Einstellungen
+
+Impressum (rechtliche Hinweise) Einstellungen, die nach deutschem Recht erforderlich sind.
+
+#### Rechtsform
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Rechtsform des Unternehmens (z. B. Einzelunternehmen, GmbH, UG, etc.).
+- **Optionen:**
+  - Einzelunternehmen
+  - GmbH
+  - UG (haftungsbeschränkt)
+  - GbR
+  - OHG
+  - KG
+  - e.K.
+  - e.V.
+  - Sonstiges
+
+---
+
+#### Umsatzsteuer-ID (Umsatzsteuer-ID)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Umsatzsteuer-Identifikationsnummer (Umsatzsteuer-ID), falls zutreffend.
+
+---
+
+#### Steuernummer (Steuernummer)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Steueridentifikationsnummer (Steuernummer).
+
+---
+
+#### Handelsregisternummer (Handelsregisternummer)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Handelsregisternummer aus dem Handelsregister, falls zutreffend.
+
+---
+
+#### Industrie- und Handelskammer (IHK/Handwerkskammer)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Industrie- und Handelskammer-Registrierung (z. B. IHK München).
+
+---
+
+#### Berufsverband (Berufsverband)
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Berufsverbandsmitgliedschaft (relevant für Fahrschulen).
+
+---
+
+#### Verantwortliche Person (Verantwortlicher)
+
+- **Typ:** Objekt
+- **Erforderlich:** Nein
+- **Zweck:** Person, die für Inhalte gemäß § 55 Abs. 2 RStV verantwortlich ist.
+
+##### Verantwortliche Person Felder
+
+- **Name** (String) – Name der verantwortlichen Person
+- **Adresse** (String) – Adresse der verantwortlichen Person
+
+---
+
+#### Datenschutzbeauftragter (Datenschutzbeauftragter)
+
+- **Typ:** Objekt
+- **Erforderlich:** Nein
+- **Zweck:** Kontaktinformationen des Datenschutzbeauftragten (falls erforderlich).
+
+##### Datenschutzbeauftragter Felder
+
+- **Name** (String) – Name des Datenschutzbeauftragten
+- **E-Mail** (String) – E-Mail-Adresse
+- **Telefon** (String) – Telefonnummer
+
+---
+
+### Datenschutzerklärung (Datenschutzerklärung)
+
+Datenschutz- und Datenschutzeinstellungen.
+
+#### Cookie-Consent-Banner aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** Cookie-Consent-Banner für GDPR/DSGVO-Compliance aktivieren.
+
+---
+
+#### Cookie-Consent-Text
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Standardwert:** `Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.`
+- **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+- **Zweck:** Text, der im Cookie-Consent-Banner angezeigt wird.
+
+---
+
+#### Akzeptieren-Button-Text
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Akzeptieren`
+- **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+- **Zweck:** Text für den Akzeptieren-Button im Cookie-Consent-Banner.
+
+---
+
+#### Ablehnen-Button-Text
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Ablehnen`
+- **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+- **Zweck:** Text für den Ablehnen-Button im Cookie-Consent-Banner.
+
+---
+
+#### Mehr-Info-Link-Text
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Mehr erfahren`
+- **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+- **Zweck:** Text für den 'Weitere Informationen'-Link im Cookie-Consent-Banner.
+
+---
+
+#### Mehr-Info-Link
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+- **Zweck:** Link zur Datenschutzrichtlinien-Seite (z. B. /datenschutz).
+
+---
+
+#### Datenverarbeitungszwecke
+
+- **Typ:** Array von Strings
+- **Erforderlich:** Nein
+- **Zweck:** Liste der Zwecke für die Datenverarbeitung (z. B. 'Website-Funktionalität', 'Analytics', 'Marketing').
+
+---
+
+#### Datenaufbewahrungsdauer
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Wie lange personenbezogene Daten aufbewahrt werden (z. B. '12 Monate', 'Bis zum Widerruf').
+
+---
+
+#### Benutzerrechte-Informationen
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Informationen über Benutzerrechte (Recht auf Zugang, Löschung, Berichtigung, etc.) gemäß DSGVO.
+
+---
+
+### Streitschlichtung (Streitschlichtung)
+
+Online-Streitschlichtungseinstellungen gemäß EU-Verordnung.
+
+#### ODR-Plattform
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Online-Streitschlichtungsplattform-URL (z. B. https://ec.europa.eu/consumers/odr/).
+
+---
+
+#### Nicht zur Teilnahme bereit
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `false`
+- **Zweck:** Aktivieren Sie dies, wenn Sie nicht an Streitschlichtungsverfahren teilnehmen möchten.
+
+---
+
+## Lokalisierung (Deutsch)
+
+Deutsche Lokalisierungseinstellungen für Datums-, Zahlen- und Währungsformate.
+
+### Datumsformat
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `DD.MM.YYYY`
+- **Zweck:** Datumsformat, das auf der gesamten Website verwendet wird.
+- **Optionen:**
+  - `DD.MM.YYYY (Deutsch)` – Deutsches Datumsformat
+  - `DD/MM/YYYY` – Alternatives Format
+  - `YYYY-MM-DD (ISO)` – ISO-Format
+
+---
+
+### Zeitformat
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `24h`
+- **Zweck:** Zeitformat, das auf der gesamten Website verwendet wird.
+- **Optionen:**
+  - `24-Stunden (Deutsch)` – 24-Stunden-Format
+  - `12-Stunden (AM/PM)` – 12-Stunden-Format
+
+---
+
+### Zahlenformat
+
+Zahlenformatierungseinstellungen (Deutsch verwendet Komma als Dezimaltrennzeichen).
+
+#### Dezimaltrennzeichen
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `,`
+- **Zweck:** Dezimaltrennzeichen.
+- **Optionen:**
+  - `Komma (Deutsch)` – Komma-Trennzeichen
+  - `Punkt (US)` – Punkt-Trennzeichen
+
+---
+
+#### Tausendertrennzeichen
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `.`
+- **Zweck:** Tausendertrennzeichen.
+- **Optionen:**
+  - `Punkt (Deutsch)` – Punkt-Trennzeichen
+  - `Komma` – Komma-Trennzeichen
+  - `Leerzeichen` – Leerzeichen-Trennzeichen
+
+---
+
+### Währung
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `EUR`
+- **Zweck:** Standard-Währung, die auf der Website verwendet wird.
+- **Optionen:**
+  - `EUR (€)` – Euro
+  - `USD ($)` – US-Dollar
+  - `GBP (£)` – Britisches Pfund
+
+---
+
+### Währungssymbol
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `€`
+- **Zweck:** Anzuzeigendes Währungssymbol.
+
+---
+
+### Währungsposition
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `after`
+- **Zweck:** Position des Währungssymbols relativ zum Betrag.
+- **Optionen:**
+  - `Nach Betrag (€100)` – Symbol nach Zahl
+  - `Vor Betrag ($100)` – Symbol vor Zahl
+
+---
+
+### Zeitzone
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Europe/Berlin`
+- **Zweck:** Standard-Zeitzone für die Website.
+
+---
+
+## Adressformat (Deutsch)
+
+Deutsche Adressformat-Einstellungen.
+
+### Bundesland einschließen (Bundesland)
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** Deutsches Bundesland (Bundesland) im Adressformat einschließen.
+
+---
+
+### Bundesland-Label
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Standardwert:** `Bundesland`
+- **Ausgeblendet wenn:** Bundesland einschließen ist deaktiviert
+- **Zweck:** Label für das Bundesland-Feld (z. B. 'Bundesland', 'Land').
+
+---
+
+## Zusätzliche Einstellungen
+
+Zusätzliche websiteweite Einstellungen.
+
+### Favicon
+
+- **Typ:** Bild
+- **Erforderlich:** Nein
+- **Zweck:** Website-Favicon. Empfohlene Größe: 32x32px oder 16x16px.
+
+---
+
+### Apple Touch Icon
+
+- **Typ:** Bild
+- **Erforderlich:** Nein
+- **Zweck:** Apple Touch Icon für iOS-Geräte. Empfohlene Größe: 180x180px.
+
+---
+
+### Benutzerdefinierter Head-Code
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Benutzerdefinierter HTML-Code, der im `<head>`-Bereich aller Seiten eingefügt werden soll.
+
+<Aside type="caution">
+  **Sicherheitswarnung:** Dieses Feld erlaubt benutzerdefinierten
+  HTML/JavaScript-Code. Fügen Sie nur Code von vertrauenswürdigen Quellen hinzu.
+</Aside>
+
+---
+
+### Benutzerdefinierter Body-Code
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Benutzerdefinierter HTML-Code, der vor dem schließenden `</body>`-Tag auf allen Seiten eingefügt werden soll.
+
+<Aside type="caution">
+  **Sicherheitswarnung:** Dieses Feld erlaubt benutzerdefinierten
+  HTML/JavaScript-Code. Fügen Sie nur Code von vertrauenswürdigen Quellen hinzu.
+</Aside>
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Site-Name:** `Meine Firmen-Website`
+- **Basis-URL:** `https://example.com`
+- **Standardsprache:** `de`
+- **Standardland:** `DE`
+- **Organisation:** Referenz auf Unternehmensinformationsdokument
+- **Standard-SEO:** Meta-Titel-Vorlage mit Platzhaltern
+- **Social Media:** Links zu Facebook, Instagram, LinkedIn
+- **Analytics:** Google Analytics ID konfiguriert
+- **Cookie-Consent:** Aktiviert mit benutzerdefiniertem Text
+
+---
+
+## Best Practices
+
+- **Site-Informationen:** Halten Sie Site-Name und Basis-URL genau und aktuell
+- **Organisationsdaten:** Verwenden Sie nach Möglichkeit die Unternehmensinformationsreferenz für Konsistenz
+- **SEO-Einstellungen:** Setzen Sie aussagekräftige Standards, die für die meisten Seiten funktionieren
+- **Analytics:** Aktivieren Sie nur eine Tracking-Methode (GA4 oder GTM), um Doppeltracking zu vermeiden
+- **Rechtliche Compliance:** Stellen Sie sicher, dass alle erforderlichen deutschen rechtlichen Felder für die Compliance ausgefüllt sind
+- **Lokalisierung:** Passen Sie Datums-, Zeit- und Währungsformate an Ihre Zielgruppe an
+- **Sicherheit:** Seien Sie vorsichtig mit benutzerdefinierten Code-Feldern—verwenden Sie nur vertrauenswürdige Quellen
+
+---
+
+## Hauptmerkmale
+
+- **Globale Konfiguration:** Einstellungen gelten für die gesamte Website
+- **Strukturierte Daten:** Automatische Generierung von JSON-LD-Strukturdaten
+- **Rechtliche Compliance:** Deutsche spezifische rechtliche und Compliance-Einstellungen
+- **Lokalisierung:** Deutsche Datums-, Zahlen- und Währungsformatierung
+- **Analytics-Integration:** Unterstützung für Google Analytics, GTM und Meta Pixel
+- **SEO-Standards:** Vorlagenbasierte SEO-Einstellungen für konsistente Optimierung
+- **Feature-Umschalter:** Wartungsmodus und andere Feature-Steuerungen
+
+---
+
+## Wo es verwendet wird
+
+- **Globale Einstellungen**  
+  Angewendet auf allen Seiten und Komponenten
+- **Strukturierte Daten**  
+  Verwendet für die Generierung von JSON-LD-Schema-Markup
+- **SEO**  
+  Standard-Meta-Tags und Open Graph-Einstellungen
+- **Analytics**  
+  Tracking-Code-Injection auf allen Seiten
+- **Rechtliche Seiten**  
+  Impressum- und Datenschutzrichtlinien-Informationen
+- **Kontaktformulare**  
+  Standard-Empfänger- und Nachrichtenvorlagen
+
+---
+
+## Technische Hinweise
+
+- Website-Einstellungen werden global gespeichert und von anderen Inhaltstypen referenziert
+- Änderungen an Website-Einstellungen erfordern Veröffentlichung, um wirksam zu werden
+- Einige Einstellungen können auf Seitenebene überschrieben werden (z. B. SEO)
+- Organisationsdaten können auf Unternehmensinformationen verweisen oder manuell festgelegt werden
+- Analytics-Einstellungen schließen sich gegenseitig aus (GA4 oder GTM, nicht beide)
+- Rechtliche Compliance-Einstellungen sind spezifisch für deutsche Rechtsanforderungen
+- Benutzerdefinierte Code-Felder sollten mit Vorsicht und nur für vertrauenswürdigen Code verwendet werden
+- Strukturierte Daten werden automatisch basierend auf aktivierten Schema-Typen generiert

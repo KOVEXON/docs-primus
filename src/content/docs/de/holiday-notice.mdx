@@ -1,0 +1,146 @@
+---
+title: Feiertagsbenachrichtigung
+description: Konfigurieren Sie Feiertagsbenachrichtigungen und Ankündigungen zu Sonderöffnungszeiten, die auf Ihrer Website erscheinen.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Die **Feiertagsbenachrichtigung** ermöglicht es Ihnen, Besucher über Sonderöffnungszeiten, Feiertagsschließungen oder vorübergehende Änderungen Ihrer Geschäftstätigkeit zu informieren. Diese Benachrichtigung erscheint als Popup auf Ihrer Website, um Besuchern bei der Planung ihrer Besuche zu helfen.
+
+<Aside>
+  **Am besten für:** Feiertagsschließungen, Sonderöffnungszeiten, vorübergehende
+  Schließungen, Wartungsperioden und wichtige Terminänderungen.
+</Aside>
+
+---
+
+## Felder
+
+### Feiertagsbenachrichtigung aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true`
+- **Zweck:** Umschalten, um die Feiertagsbenachrichtigung anzuzeigen oder auszublenden
+- **Hinweis:** Wenn deaktiviert, erscheint die Benachrichtigung auf keiner Seite
+
+---
+
+### Überschrift
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Hauptüberschrift für die Feiertagsbenachrichtigung
+- **Beispiel:**  
+  `Feiertagszeiten` oder `Sonderöffnungszeiten`
+
+---
+
+### Inhalt
+
+- **Typ:** Rich Text Section
+- **Erforderlich:** Ja
+- **Zweck:** Detaillierte Nachricht über den Feiertag oder die Sonderöffnungszeiten
+- **Beschreibung:** Inhalt der Feiertagsbenachrichtigung
+- **Beispiel:**  
+  `Wir sind am 25. Dezember und 1. Januar geschlossen. Wir nehmen den normalen Betrieb am 2. Januar wieder auf.`
+
+---
+
+### Bild
+
+- **Typ:** Bild
+- **Erforderlich:** Nein
+- **Zweck:** Hauptbild für die Feiertagsbenachrichtigung
+- **Optionen:**  
+  Unterstützt Hotspot für responsives Zuschneiden
+- **Beschreibung:** Visuelles Element zur Begleitung der Feiertagsbenachrichtigung
+
+---
+
+### Startdatum
+
+- **Typ:** DateTime
+- **Erforderlich:** Nein
+- **Zweck:** Datum und Uhrzeit, zu der die Feiertagsbenachrichtigung erscheinen soll
+- **Beispiel:**  
+  `2025-12-24T09:00:00Z`
+
+---
+
+### Enddatum
+
+- **Typ:** DateTime
+- **Erforderlich:** Nein
+- **Zweck:** Datum und Uhrzeit, zu der die Feiertagsbenachrichtigung nicht mehr angezeigt werden soll
+- **Beispiel:**  
+  `2025-12-26T23:59:59Z`
+
+---
+
+### Popup-Verzögerung (ms)
+
+- **Typ:** Number
+- **Erforderlich:** Nein
+- **Standardwert:** `3000`
+- **Zweck:** Verzögerung in Millisekunden, bevor das Popup nach dem Laden der Seite erscheint
+- **Beispiel:**  
+  `3000` (3 Sekunden)
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Feiertagsbenachrichtigung aktivieren:** `true`
+- **Überschrift:** `Feiertagszeiten`
+- **Inhalt:** `Wir sind am 25. Dezember und 1. Januar geschlossen. Wir nehmen den normalen Betrieb am 2. Januar wieder auf.`
+- **Bild:** (Optionales feiertagsbezogenes Bild)
+- **Startdatum:** `2025-12-24T09:00:00Z`
+- **Enddatum:** `2025-12-26T23:59:59Z`
+- **Popup-Verzögerung (ms):** `3000`
+
+---
+
+## Best Practices
+
+- **Timing:** Legen Sie genaue Start- und Enddaten fest, um Benachrichtigungen automatisch anzuzeigen/auszublenden
+- **Klarheit:** Schreiben Sie klare, prägnante Nachrichten, die Besucher schnell verstehen können
+- **Vorlaufzeit:** Aktivieren Sie Benachrichtigungen einige Tage vor dem Feiertag, damit Besucher Zeit zur Planung haben
+- **Visuelle Attraktivität:** Verwenden Sie ein passendes Bild, um die Benachrichtigung ansprechender zu gestalten
+- **Popup-Timing:** Passen Sie die Popup-Verzögerung an, um Sichtbarkeit und Benutzererfahrung auszubalancieren
+- **Aktualisierungen:** Entfernen oder aktualisieren Sie Benachrichtigungen umgehend nach Ende der Feiertage
+
+---
+
+## Hauptmerkmale
+
+- **Automatische Planung:** Start- und Enddaten für automatische Anzeigesteuerung
+- **Popup-Anzeige:** Erscheint als Popup mit konfigurierbarer Verzögerung
+- **Rich-Content:** Unterstützt Rich-Text-Formatierung für detaillierte Nachrichten
+- **Bildunterstützung:** Optionales Bild zur Verbesserung der Benachrichtigung
+- **Zeitabhängig:** Wird nach dem Enddatum automatisch ausgeblendet
+- **Globale Anzeige:** Erscheint auf allen Seiten, wenn aktiviert
+
+---
+
+## Wo es verwendet wird
+
+- **Alle Seiten**  
+  Die Feiertagsbenachrichtigung erscheint als Popup auf allen Website-Seiten, wenn aktiviert, mit einer konfigurierbaren Verzögerung nach dem Laden der Seite
+
+---
+
+## Technische Hinweise
+
+- Die Benachrichtigung erscheint und verschwindet automatisch basierend auf Start- und Enddaten
+- Die Sichtbarkeit der Benachrichtigung wird durch den Feiertagsbenachrichtigung aktivieren-Schalter gesteuert
+- Start- und Enddaten verwenden das DateTime-Format und berücksichtigen die Zeitzoneneinstellung der Website
+- Die Benachrichtigung erscheint als Popup mit einer konfigurierbaren Verzögerung (Standard: 3000ms)
+- Die Benachrichtigung ist responsiv und passt sich verschiedenen Bildschirmgrößen an
+- Mehrere Benachrichtigungen können konfiguriert werden, aber typischerweise sollte nur eine gleichzeitig aktiv sein
+- Benachrichtigungseinstellungen werden global gespeichert und betreffen die gesamte Website
+- Bilder unterstützen Hotspot-Zuschneiden für responsive Anzeige

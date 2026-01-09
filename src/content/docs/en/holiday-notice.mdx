@@ -1,0 +1,146 @@
+---
+title: Holiday Notice
+description: Configure holiday notices and special hours announcements that appear on your website.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Holiday Notice** allows you to inform visitors about special hours, holiday closures, or temporary changes to your business operations. This notice appears as a popup on your website to help visitors plan their visits accordingly.
+
+<Aside>
+  **Best for:** Holiday closures, special operating hours, temporary closures,
+  maintenance periods, and important schedule changes.
+</Aside>
+
+---
+
+## Fields
+
+### Enable Holiday Notice
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Toggle to show or hide the holiday notice
+- **Note:** When disabled, the notice will not appear on any pages
+
+---
+
+### Headline
+
+- **Type:** String
+- **Required:** Yes
+- **Purpose:** Main heading for the holiday notice
+- **Example:**  
+  `Holiday Hours` or `Special Operating Hours`
+
+---
+
+### Content
+
+- **Type:** Rich Text Section
+- **Required:** Yes
+- **Purpose:** Detailed message about the holiday or special hours
+- **Description:** Content of the holiday notice
+- **Example:**  
+  `We will be closed on December 25th and January 1st. We will resume normal hours on January 2nd.`
+
+---
+
+### Image
+
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Main image for the holiday notice
+- **Options:**  
+  Supports hotspot for responsive cropping
+- **Description:** Visual element to accompany the holiday notice
+
+---
+
+### Start Date
+
+- **Type:** DateTime
+- **Required:** No
+- **Purpose:** Date and time when the holiday notice should start appearing
+- **Example:**  
+  `2025-12-24T09:00:00Z`
+
+---
+
+### End Date
+
+- **Type:** DateTime
+- **Required:** No
+- **Purpose:** Date and time when the holiday notice should stop appearing
+- **Example:**  
+  `2025-12-26T23:59:59Z`
+
+---
+
+### Popup Delay (ms)
+
+- **Type:** Number
+- **Required:** No
+- **Default Value:** `3000`
+- **Purpose:** Delay in milliseconds before the popup appears after page load
+- **Example:**  
+  `3000` (3 seconds)
+
+---
+
+## Usage Example
+
+### Typical Configuration
+
+- **Enable Holiday Notice:** `true`
+- **Headline:** `Holiday Hours`
+- **Content:** `We will be closed on December 25th and January 1st. We will resume normal hours on January 2nd.`
+- **Image:** (Optional holiday-themed image)
+- **Start Date:** `2025-12-24T09:00:00Z`
+- **End Date:** `2025-12-26T23:59:59Z`
+- **Popup Delay (ms):** `3000`
+
+---
+
+## Best Practices
+
+- **Timing:** Set accurate start and end dates to automatically show/hide notices
+- **Clarity:** Write clear, concise messages that visitors can quickly understand
+- **Advance notice:** Enable notices a few days before the holiday to give visitors time to plan
+- **Visual appeal:** Use an appropriate image to make the notice more engaging
+- **Popup timing:** Adjust the popup delay to balance visibility with user experience
+- **Updates:** Remove or update notices promptly after holidays end
+
+---
+
+## Key Features
+
+- **Automatic scheduling:** Start and end dates for automatic display control
+- **Popup display:** Appears as a popup with configurable delay
+- **Rich content:** Supports rich text formatting for detailed messages
+- **Image support:** Optional image to enhance the notice
+- **Time-sensitive:** Automatically hides after the end date
+- **Global display:** Appears on all pages when enabled
+
+---
+
+## Where It's Used
+
+- **All Pages**  
+  The holiday notice appears as a popup on all website pages when enabled, with a configurable delay after page load
+
+---
+
+## Technical Notes
+
+- The notice automatically appears and disappears based on start and end dates
+- Notice visibility is controlled by the Enable Holiday Notice toggle
+- Start and end dates use datetime format and respect the website's timezone setting
+- The notice appears as a popup with a configurable delay (default: 3000ms)
+- The notice is responsive and adapts to different screen sizes
+- Multiple notices can be configured, but typically only one should be active at a time
+- Notice settings are stored globally and affect the entire website
+- Images support hotspot cropping for responsive display

@@ -1,0 +1,870 @@
+---
+title: Website Settings
+description: Configure global website settings including site information, SEO, analytics, legal compliance, and localization.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Website Settings** section allows you to configure global settings that affect your entire website. These settings control site information, SEO defaults, analytics tracking, legal compliance, localization, and more.
+
+<Aside>
+  **Important:** Changes to website settings affect the entire website. Make
+  sure to review changes carefully before publishing.
+</Aside>
+
+---
+
+## General Site Information
+
+### Site Name
+
+- **Type:** String
+- **Required:** Yes
+- **Purpose:** The name of your website. Used in structured data and SEO.
+- **Example:**  
+  `My Company Website`
+
+---
+
+### Base URL
+
+- **Type:** URL
+- **Required:** Yes
+- **Purpose:** The base URL of your website (e.g., https://example.com). Used for generating absolute URLs in structured data and sitemaps.
+- **Example:**  
+  `https://example.com`
+
+---
+
+### Default Language
+
+- **Type:** String
+- **Required:** Yes
+- **Default Value:** `de`
+- **Purpose:** Default language code (e.g., 'de' for German, 'en' for English). Used in HTML lang attribute.
+- **Example:**  
+  `de`, `en`, `fr`
+
+---
+
+### Default Country
+
+- **Type:** String
+- **Required:** Yes
+- **Default Value:** `DE`
+- **Purpose:** Default country code for addresses (ISO code like 'DE', 'US', 'GB'). Used in structured data.
+- **Validation:** Must be exactly 2 characters
+- **Example:**  
+  `DE`, `US`, `GB`
+
+---
+
+## Organization Information
+
+The organization information is used for structured data and can either reference company information or be set manually.
+
+### Data Source
+
+- **Type:** String
+- **Required:** Yes
+- **Default Value:** `reference`
+- **Purpose:** Choose whether to reference company information or set organization details manually.
+- **Options:**
+  - `Reference Company Information` – Use data from a company information document
+  - `Set Manually` – Enter organization details directly
+
+---
+
+### Company Information (when using reference)
+
+- **Type:** Reference (`companyInformation`)
+- **Required:** No
+- **Hidden when:** Data Source is not "Reference Company Information"
+- **Purpose:** Reference to company information document. If set, organization name, address, and contact info will be fetched from here.
+
+---
+
+### Organization Name (when setting manually)
+
+- **Type:** String
+- **Required:** No
+- **Hidden when:** Data Source is not "Set Manually"
+- **Purpose:** Organization name for structured data. Used if company information reference is not set.
+
+---
+
+### Organization Logo (when setting manually)
+
+- **Type:** Reference (`logo`)
+- **Required:** No
+- **Hidden when:** Data Source is not "Set Manually"
+- **Purpose:** Reference to logo document. Used in structured data and social media previews.
+
+---
+
+### Address (when setting manually)
+
+- **Type:** Object
+- **Required:** No
+- **Hidden when:** Data Source is not "Set Manually"
+- **Purpose:** Organization address for structured data. Used if company information reference is not set.
+
+#### Address Fields
+
+- **Street Address** (String) – Street address
+- **City** (String) – City name
+- **Postal Code** (String) – Postal/ZIP code
+
+---
+
+### Contact Point (when setting manually)
+
+- **Type:** Object
+- **Required:** No
+- **Hidden when:** Data Source is not "Set Manually"
+- **Purpose:** Contact information for structured data. Used if company information reference is not set.
+
+#### Contact Point Fields
+
+- **Phone** (String) – Phone number
+- **Email** (String) – Email address
+
+---
+
+## Default SEO Settings
+
+Default SEO settings are used when page-specific SEO is not set.
+
+### Meta Title
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `{pageTitle} | {siteName}`
+- **Purpose:** Default meta title template. Use `{siteName}` and `{pageTitle}` as placeholders.
+- **Example:**  
+  `{pageTitle} | {siteName}`
+
+---
+
+### Meta Description
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Default meta description. Recommended max length: ~155 characters.
+- **Validation:** Maximum 155 characters
+
+---
+
+### Meta Keywords
+
+- **Type:** Array of strings
+- **Required:** No
+- **Purpose:** Default keywords. Not heavily used by Google, but may be useful for other search engines.
+- **Note:** Displayed as tags in the editor
+
+---
+
+### OG Image
+
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Default Open Graph image for social media previews. Recommended size: 1200x630px.
+- **Options:** Hotspot enabled
+
+---
+
+### OG Type
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `website`
+- **Purpose:** Default Open Graph object type.
+- **Options:**
+  - `Website` – For general website pages
+  - `Article` – For blog posts and articles
+
+---
+
+### Robots
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `index, follow`
+- **Purpose:** Default robots meta tag (e.g., 'index, follow' or 'noindex, nofollow').
+- **Example:**  
+  `index, follow`, `noindex, nofollow`
+
+---
+
+### Twitter Card Type
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `summary_large_image`
+- **Purpose:** Default Twitter card type.
+- **Options:**
+  - `Summary` – Standard summary card
+  - `Summary with Large Image` – Summary card with large image
+
+---
+
+## Social Media
+
+Default social media links and settings.
+
+### Facebook
+
+- **Type:** URL
+- **Required:** No
+- **Purpose:** Facebook page URL
+- **Example:**  
+  `https://facebook.com/your-page`
+
+---
+
+### Instagram
+
+- **Type:** URL
+- **Required:** No
+- **Purpose:** Instagram profile URL
+- **Example:**  
+  `https://instagram.com/your-profile`
+
+---
+
+### X (Twitter)
+
+- **Type:** URL
+- **Required:** No
+- **Purpose:** X (Twitter) profile URL
+- **Example:**  
+  `https://twitter.com/your-profile`
+
+---
+
+### LinkedIn
+
+- **Type:** URL
+- **Required:** No
+- **Purpose:** LinkedIn company/profile URL
+- **Example:**  
+  `https://linkedin.com/company/your-company`
+
+---
+
+### YouTube
+
+- **Type:** URL
+- **Required:** No
+- **Purpose:** YouTube channel URL
+- **Example:**  
+  `https://youtube.com/@your-channel`
+
+---
+
+## Analytics & Tracking
+
+Analytics and tracking configuration.
+
+### Enable Analytics
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `false`
+- **Purpose:** Enable analytics tracking on the website.
+
+---
+
+### Google Analytics ID
+
+- **Type:** String
+- **Required:** No
+- **Hidden when:** Analytics is disabled OR Google Tag Manager ID is set
+- **Purpose:** Google Analytics measurement ID (e.g., G-XXXXXXXXXX).
+- **Note:** If using Google Tag Manager, configure GA4 inside GTM and leave this field empty to avoid double-tracking.
+- **Validation:** Cannot be used together with Google Tag Manager ID
+
+---
+
+### Google Tag Manager ID
+
+- **Type:** String
+- **Required:** No
+- **Hidden when:** Analytics is disabled OR Google Analytics ID is set
+- **Purpose:** Google Tag Manager container ID (e.g., GTM-XXXXXXX).
+- **Note:** If using GTM, configure Google Analytics inside GTM and leave the Google Analytics ID field empty to avoid double-tracking.
+- **Validation:** Cannot be used together with Google Analytics ID
+
+---
+
+### Meta Pixel ID
+
+- **Type:** String
+- **Required:** No
+- **Hidden when:** Analytics is disabled
+- **Purpose:** Meta Pixel ID for tracking conversions.
+
+---
+
+### Custom Tracking Code
+
+- **Type:** Text
+- **Required:** No
+- **Hidden when:** Analytics is disabled
+- **Purpose:** Custom tracking code or script to include in the site (e.g., other analytics providers).
+
+<Aside type="caution">
+  **Security Warning:** This field allows custom HTML/JavaScript code. Only add
+  code from trusted sources. Malicious code could harm your website and
+  visitors. **Recommended:** Use external script URLs (e.g.,
+  https://example.com/script.js) instead of inline code when possible. External
+  scripts are easier to block via Content Security Policy if needed.
+</Aside>
+
+---
+
+## Contact Form Settings
+
+Default contact form settings. Note: SMTP credentials should be set in environment variables for security.
+
+### Default Recipient Email
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Default email address to receive contact form submissions. Falls back to SMTP_TO environment variable.
+
+---
+
+### Default Subject Template
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `New contact request from {name}`
+- **Purpose:** Default email subject template. Use `{name}` as placeholder.
+
+---
+
+### Success Message
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Thank you for your message! We will get back to you soon.`
+- **Purpose:** Message displayed after successful form submission.
+
+---
+
+### Error Message
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `An error occurred. Please try again later.`
+- **Purpose:** Message displayed when form submission fails.
+
+---
+
+## Feature Toggles
+
+Enable or disable site features.
+
+### Maintenance Mode
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `false`
+- **Purpose:** Enable maintenance mode. When enabled, the site will display a maintenance message.
+
+---
+
+### Maintenance Message
+
+- **Type:** Text
+- **Required:** No
+- **Default Value:** `We are currently under maintenance. Please visit us again later.`
+- **Hidden when:** Maintenance Mode is disabled
+- **Purpose:** Message displayed when maintenance mode is enabled.
+
+---
+
+## Structured Data Settings
+
+Settings for structured data (JSON-LD) generation.
+
+### Enable Organization Schema
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Enable Organization structured data on all pages.
+
+---
+
+### Enable Website Schema
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Enable Website structured data on the homepage.
+
+---
+
+### Enable Breadcrumb Schema
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Enable BreadcrumbList structured data on pages.
+
+---
+
+### Search Action
+
+- **Type:** Object
+- **Required:** No
+- **Purpose:** Search action configuration for Website structured data.
+
+#### Search Action Fields
+
+- **Enabled** (Boolean, default: `false`) – Enable search action
+- **Search URL** (URL, hidden when disabled) – URL template for search (e.g., https://example.com/search?q={search_term_string})
+
+---
+
+## Legal & Compliance (German)
+
+German legal and compliance settings required for websites in Germany.
+
+### Impressum Settings
+
+Impressum (legal notice) settings required by German law.
+
+#### Legal Form
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Legal form of the business (e.g., Einzelunternehmen, GmbH, UG, etc.).
+- **Options:**
+  - Einzelunternehmen
+  - GmbH
+  - UG (haftungsbeschränkt)
+  - GbR
+  - OHG
+  - KG
+  - e.K.
+  - e.V.
+  - Other
+
+---
+
+#### VAT ID (Umsatzsteuer-ID)
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** VAT identification number (Umsatzsteuer-ID) if applicable.
+
+---
+
+#### Tax ID (Steuernummer)
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Tax identification number (Steuernummer).
+
+---
+
+#### Business Registration Number (Handelsregisternummer)
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Business registration number from Handelsregister if applicable.
+
+---
+
+#### Chamber of Commerce (IHK/Handwerkskammer)
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Chamber of Commerce registration (e.g., IHK München).
+
+---
+
+#### Professional Association (Berufsverband)
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Professional association membership (relevant for driving schools).
+
+---
+
+#### Responsible Person (Verantwortlicher)
+
+- **Type:** Object
+- **Required:** No
+- **Purpose:** Person responsible for content according to § 55 Abs. 2 RStV.
+
+##### Responsible Person Fields
+
+- **Name** (String) – Name of responsible person
+- **Address** (String) – Address of responsible person
+
+---
+
+#### Data Protection Officer (Datenschutzbeauftragter)
+
+- **Type:** Object
+- **Required:** No
+- **Purpose:** Data protection officer contact information (if required).
+
+##### Data Protection Officer Fields
+
+- **Name** (String) – Name of data protection officer
+- **Email** (String) – Email address
+- **Phone** (String) – Phone number
+
+---
+
+### Privacy Policy (Datenschutzerklärung)
+
+Privacy policy and data protection settings.
+
+#### Enable Cookie Consent Banner
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Enable cookie consent banner for GDPR/DSGVO compliance.
+
+---
+
+#### Cookie Consent Text
+
+- **Type:** Text
+- **Required:** No
+- **Default Value:** `We use cookies to provide you with the best possible experience on our website. By using our website, you agree to the use of cookies.`
+- **Hidden when:** Cookie Consent Banner is disabled
+- **Purpose:** Text displayed in the cookie consent banner.
+
+---
+
+#### Accept Button Text
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Accept`
+- **Hidden when:** Cookie Consent Banner is disabled
+- **Purpose:** Text for the accept button in cookie consent banner.
+
+---
+
+#### Decline Button Text
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Decline`
+- **Hidden when:** Cookie Consent Banner is disabled
+- **Purpose:** Text for the decline button in cookie consent banner.
+
+---
+
+#### More Info Link Text
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Learn more`
+- **Hidden when:** Cookie Consent Banner is disabled
+- **Purpose:** Text for the 'more information' link in cookie consent banner.
+
+---
+
+#### More Info Link
+
+- **Type:** String
+- **Required:** No
+- **Hidden when:** Cookie Consent Banner is disabled
+- **Purpose:** Link to privacy policy page (e.g., /privacy).
+
+---
+
+#### Data Processing Purposes
+
+- **Type:** Array of strings
+- **Required:** No
+- **Purpose:** List of purposes for data processing (e.g., 'Website functionality', 'Analytics', 'Marketing').
+
+---
+
+#### Data Retention Period
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** How long personal data is retained (e.g., '12 months', 'Until withdrawal').
+
+---
+
+#### User Rights Information
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Information about user rights (right to access, deletion, correction, etc.) according to DSGVO.
+
+---
+
+### Dispute Resolution (Streitschlichtung)
+
+Online dispute resolution settings according to EU regulation.
+
+#### ODR Platform
+
+- **Type:** String
+- **Required:** No
+- **Purpose:** Online dispute resolution platform URL (e.g., https://ec.europa.eu/consumers/odr/).
+
+---
+
+#### Not Willing to Participate
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `false`
+- **Purpose:** Check if you are not willing to participate in dispute resolution proceedings.
+
+---
+
+## Localization (German)
+
+German localization settings for date, number, and currency formats.
+
+### Date Format
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `DD.MM.YYYY`
+- **Purpose:** Date format used throughout the website.
+- **Options:**
+  - `DD.MM.YYYY (German)` – German date format
+  - `DD/MM/YYYY` – Alternative format
+  - `YYYY-MM-DD (ISO)` – ISO format
+
+---
+
+### Time Format
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `24h`
+- **Purpose:** Time format used throughout the website.
+- **Options:**
+  - `24-hour (German)` – 24-hour format
+  - `12-hour (AM/PM)` – 12-hour format
+
+---
+
+### Number Format
+
+Number formatting settings (German uses comma as decimal separator).
+
+#### Decimal Separator
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `,`
+- **Purpose:** Decimal separator character.
+- **Options:**
+  - `Comma (German)` – Comma separator
+  - `Dot (US)` – Dot separator
+
+---
+
+#### Thousands Separator
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `.`
+- **Purpose:** Thousands separator character.
+- **Options:**
+  - `Dot (German)` – Dot separator
+  - `Comma` – Comma separator
+  - `Space` – Space separator
+
+---
+
+### Currency
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `EUR`
+- **Purpose:** Default currency used on the website.
+- **Options:**
+  - `EUR (€)` – Euro
+  - `USD ($)` – US Dollar
+  - `GBP (£)` – British Pound
+
+---
+
+### Currency Symbol
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `€`
+- **Purpose:** Currency symbol to display.
+
+---
+
+### Currency Position
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `after`
+- **Purpose:** Position of currency symbol relative to amount.
+- **Options:**
+  - `After amount (€100)` – Symbol after number
+  - `Before amount ($100)` – Symbol before number
+
+---
+
+### Timezone
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Europe/Berlin`
+- **Purpose:** Default timezone for the website.
+
+---
+
+## Address Format (German)
+
+German address format settings.
+
+### Include State (Bundesland)
+
+- **Type:** Boolean
+- **Required:** No
+- **Default Value:** `true`
+- **Purpose:** Include German state (Bundesland) in address format.
+
+---
+
+### State Label
+
+- **Type:** String
+- **Required:** No
+- **Default Value:** `Bundesland`
+- **Hidden when:** Include State is disabled
+- **Purpose:** Label for state field (e.g., 'Bundesland', 'Land').
+
+---
+
+## Additional Settings
+
+Additional site-wide settings.
+
+### Favicon
+
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Site favicon. Recommended size: 32x32px or 16x16px.
+
+---
+
+### Apple Touch Icon
+
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Apple touch icon for iOS devices. Recommended size: 180x180px.
+
+---
+
+### Custom Head Code
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Custom HTML code to include in the `<head>` section of all pages.
+
+<Aside type="caution">
+  **Security Warning:** This field allows custom HTML/JavaScript code. Only add
+  code from trusted sources.
+</Aside>
+
+---
+
+### Custom Body Code
+
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Custom HTML code to include before the closing `</body>` tag on all pages.
+
+<Aside type="caution">
+  **Security Warning:** This field allows custom HTML/JavaScript code. Only add
+  code from trusted sources.
+</Aside>
+
+---
+
+## Usage Example
+
+### Typical Configuration
+
+- **Site Name:** `My Company Website`
+- **Base URL:** `https://example.com`
+- **Default Language:** `de`
+- **Default Country:** `DE`
+- **Organization:** Reference to company information document
+- **Default SEO:** Meta title template with placeholders
+- **Social Media:** Links to Facebook, Instagram, LinkedIn
+- **Analytics:** Google Analytics ID configured
+- **Cookie Consent:** Enabled with custom text
+
+---
+
+## Best Practices
+
+- **Site Information:** Keep site name and base URL accurate and up to date
+- **Organization Data:** Use company information reference when possible for consistency
+- **SEO Settings:** Set meaningful defaults that work for most pages
+- **Analytics:** Only enable one tracking method (GA4 or GTM) to avoid double-tracking
+- **Legal Compliance:** Ensure all required German legal fields are filled for compliance
+- **Localization:** Match date, time, and currency formats to your target audience
+- **Security:** Be cautious with custom code fields—only use trusted sources
+
+---
+
+## Key Features
+
+- **Global configuration:** Settings apply across the entire website
+- **Structured data:** Automatic generation of JSON-LD structured data
+- **Legal compliance:** German-specific legal and compliance settings
+- **Localization:** German date, number, and currency formatting
+- **Analytics integration:** Support for Google Analytics, GTM, and Meta Pixel
+- **SEO defaults:** Template-based SEO settings for consistent optimization
+- **Feature toggles:** Maintenance mode and other feature controls
+
+---
+
+## Where It's Used
+
+- **Global Settings**  
+  Applied across all pages and components
+- **Structured Data**  
+  Used for generating JSON-LD schema markup
+- **SEO**  
+  Default meta tags and Open Graph settings
+- **Analytics**  
+  Tracking code injection across all pages
+- **Legal Pages**  
+  Impressum and privacy policy information
+- **Contact Forms**  
+  Default recipient and message templates
+
+---
+
+## Technical Notes
+
+- Website settings are stored globally and referenced by other content types
+- Changes to website settings require publishing to take effect
+- Some settings may be overridden at the page level (e.g., SEO)
+- Organization data can reference company information or be set manually
+- Analytics settings are mutually exclusive (GA4 or GTM, not both)
+- Legal compliance settings are specific to German law requirements
+- Custom code fields should be used with caution and only for trusted code
+- Structured data is automatically generated based on enabled schema types
