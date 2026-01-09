@@ -4,55 +4,80 @@ description: A structured content block for text-media combinations with various
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import TextWithSingleImage from "../../../../assets/text-with-media-section.png";
+import TextWithGallery from "../../../../assets/text-with-gallery.png";
+import TextWithVideo from "../../../../assets/text-with-video.png";
+import TextWithSlider from "../../../../assets/text-with-slider.png";
 
-The Text With Media Section combines text and media (images, videos, galleries, sliders) in various layouts. It's perfect for pages that need structured text-media combinations with flexible layout options for different content types.
+## Overview
+
+The **Text With Media Section** combines text and media (images, videos, galleries, sliders) in various layouts. It's perfect for pages that need structured text-media combinations with flexible layout options for different content types.
 
 <Aside>
   **Best for:** Product presentations, service pages, about-us pages, feature
   presentations, offer pages, structured content with visual elements.
 </Aside>
 
+---
+
 ## Fields
 
 ### Headline
 
-- **Type:** String (optional)
+- **Type:** String
+- **Required:** No
 - **Purpose:** Main heading for the entire section
-- **Example:** "Our Vehicles" or "Our Services"
+- **Example:**  
+  `Our Products` or `Our Services`
+
+---
 
 ### Description
 
-- **Type:** Text, 3 rows (optional)
+- **Type:** Text
+- **Required:** No
 - **Purpose:** Description for the entire section
-- **Example:** "Modern and eco-friendly vehicles for your training"
+- **Example:**  
+  `Discover our range of innovative solutions designed to meet your needs`
+
+---
 
 ### Items
 
-- **Type:** Array of `textWithMediaItem` objects (required)
+- **Type:** Array of `textWithMediaItem` objects
+- **Required:** Yes
 - **Min Count:** 1
 - **Max Count:** 10
 - **Purpose:** List of text-media items
 
-#### Text With Media Item Fields
+Each text with media item contains:
 
-**Headline** (optional)
+#### Item Headline
 
-- Main heading for this item
-- Example: "Electric Vehicles"
+- **Type:** String
+- **Required:** No
+- **Purpose:** Main heading for this item
+- **Example:**  
+  `Product Overview`
 
-**Content** (optional)
+#### Content
 
-- Text content in rich text format
-- Type: Rich Text Section (`richTextSection`)
+- **Type:** Rich Text Section (`richTextSection`)
+- **Required:** No
+- **Purpose:** Text content in rich text format
+- **Note:** Supports full formatting, images, links, etc.
 
-**Layout Options** (optional)
+#### Layout Options
 
-- Layout configuration for text and media
+- **Type:** Object
+- **Required:** No
+- **Purpose:** Layout configuration for text and media
 
 ##### Layout Type
 
-- **Type:** String (optional)
+- **Type:** String
 - **Default Value:** `split`
+- **Purpose:** Select the layout style for this item
 - **Options:**
   - **Split Layout** (`split`) – Text and media side by side
   - **Media Above, Text Below** (`mediaAbove`) – Media above, text below
@@ -60,82 +85,158 @@ The Text With Media Section combines text and media (images, videos, galleries, 
 
 ##### Split Ratio
 
-- **Type:** String (optional)
+- **Type:** String
 - **Default Value:** `50-50`
 - **Hidden:** Yes (when Layout Type is not "Split Layout")
+- **Purpose:** Split ratio for text and media (only for Split Layout)
 - **Options:**
-  - **50/50** – Equal split
-  - **60/40** – 60% text, 40% media (or vice versa depending on position)
+  - **50/50 (Equal)** (`50-50`) – Equal split between text and media
+  - **60/40 (Text Wider)** (`60-40-text`) – 60% text, 40% media
+  - **60/40 (Image Wider)** (`60-40-image`) – 60% media, 40% text
 
 ##### Split Media Position
 
-- **Type:** String (optional)
+- **Type:** String
 - **Default Value:** `left`
 - **Hidden:** Yes (when Layout Type is not "Split Layout")
+- **Purpose:** Position of media relative to text (only for Split Layout)
 - **Options:**
   - **Media Left, Text Right** (`left`)
   - **Media Right, Text Left** (`right`)
 
 ##### Media Type
 
-- **Type:** String (optional)
+- **Type:** String
 - **Default Value:** `image`
+- **Purpose:** Choose which media should be displayed alongside the text
 - **Options:**
   - **Single Image** (`image`)
   - **Image Gallery** (`imageGallery`)
   - **Video** (`video`)
   - **Image Slider** (`slider`)
 
-**Media Fields** (varies by Media Type)
+#### Media Fields
 
-- **Single Image:** Image with alt text and caption
-- **Image Gallery:** Array of images (1-20) with alt text and captions
-- **Video:** Video file or URL with poster image
-- **Image Slider:** Slider configuration with slides, autoplay, and navigation
+Fields are conditionally displayed based on the selected Media Type.
 
-**Call to Action Buttons** (optional)
+##### Single Image
 
-- Button configuration for this item
-- Reference to `button` schema
+<img src={TextWithSingleImage.src} alt="Overview of Text with Single Image" />
+
+- **Type:** Image
+- **Required:** No
+- **Hidden:** Yes (when Media Type is not "Single Image")
+- **Purpose:** Single image with alt text and caption
+- **Fields:**
+  - **Image:** Image with hotspot support
+  - **Alt Text:** Alternative text for accessibility and SEO
+  - **Caption:** Optional caption for the image
+
+##### Image Gallery
+
+<img src={TextWithGallery.src} alt="Overview of Text with Image Gallery" />
+
+- **Type:** Array of Images
+- **Required:** No
+- **Hidden:** Yes (when Media Type is not "Image Gallery")
+- **Min Count:** 1
+- **Max Count:** 20
+- **Purpose:** Multiple images displayed as a gallery
+- **Fields per Image:**
+  - **Image:** Gallery image with hotspot support
+  - **Alt Text:** Alternative text for accessibility and SEO
+  - **Caption:** Optional caption for the image
+
+##### Video
+
+<img src={TextWithVideo.src} alt="Overview of Text with Video" />
+
+- **Type:** Object
+- **Required:** No
+- **Hidden:** Yes (when Media Type is not "Video")
+- **Purpose:** Video configuration for the text with media item
+- **Fields:**
+  - **Video File:** Upload a video file (MP4, WebM, etc.) - accepts `video/*`
+  - **Video URL (Alternative):** Direct video URL instead of uploading a file
+  - **Poster Image:** Thumbnail image shown before video plays (with hotspot support)
+- **Note:** Either Video File or Video URL should be provided
+
+##### Image Slider
+
+<img src={TextWithSlider.src} alt="Overview of Text with Image Slider" />
+
+- **Type:** Object
+- **Required:** No
+- **Hidden:** Yes (when Media Type is not "Image Slider")
+- **Purpose:** Image slider configuration with slides, autoplay, and navigation
+- **Fields:**
+  - **Slides:** Array of slide objects
+    - **Min Count:** 1
+    - **Max Count:** 10
+    - **Fields per Slide:**
+      - **Slide Image:** Image with hotspot support (required)
+      - **Alt Text:** Alternative text for accessibility and SEO
+  - **Enable Autoplay:** Boolean to enable automatic slide progression
+    - **Default Value:** `true`
+  - **Autoplay Speed:** Number of seconds between slides
+    - **Default Value:** 5
+    - **Min Value:** 1
+    - **Max Value:** 30
+    - **Hidden:** Yes (when Autoplay is disabled)
+  - **Show Navigation Dots:** Boolean to show dot navigation
+    - **Default Value:** `true`
+
+#### Call to Action Buttons
+
+- **Type:** Reference to `button` schema
+- **Required:** No
+- **Purpose:** Button configuration for this item
+
+---
 
 ### Background Color
 
-- **Type:** Reference to `backgroundColor` (optional)
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
 - **Purpose:** Sets the background color for the entire section
 
 ---
 
 ## Usage Example
 
-Here's a typical Text With Media Section:
+### Typical Configuration
 
-**Headline:** "Our Vehicles"
-
-**Description:** "Modern and eco-friendly vehicles for your training"
-
-**Items:**
-
-1. **"Electric Vehicles"**
-
-   - Content: "Learn to drive with modern electric vehicles..."
-   - Layout Type: Split Layout
-   - Split Ratio: 50/50
-   - Media Position: Left
-   - Media Type: Single Image
-   - Image: Image of an electric vehicle
-
-2. **"Vehicle Fleet"**
-
-   - Content: "Our diverse vehicle fleet..."
-   - Layout Type: Media Above, Text Below
-   - Media Type: Image Gallery
-   - Images: Array of vehicle images
-
-3. **"Service Overview Video"**
-   - Content: "See how our service works in practice..."
-   - Layout Type: Text Above, Media Below
-   - Media Type: Video
-   - Video: Video file or URL
+- **Headline:** `Our Products`
+- **Description:** `Discover our range of innovative solutions designed to meet your needs`
+- **Items:**
+  1. **"Product Overview"**
+     - Content: "Our flagship product combines quality and innovation..."
+     - Layout Type: Split Layout
+     - Split Ratio: 50/50 (Equal)
+     - Media Position: Media Left, Text Right
+     - Media Type: Single Image
+     - Image: Product image with alt text and caption
+  2. **"Product Gallery"**
+     - Content: "Explore our complete product range..."
+     - Layout Type: Media Above, Text Below
+     - Media Type: Image Gallery
+     - Images: Array of 5 product images, each with alt text and captions
+  3. **"How It Works"**
+     - Content: "Watch this video to see how our solution works..."
+     - Layout Type: Text Above, Media Below
+     - Media Type: Video
+     - Video File: Uploaded MP4 video file
+     - Poster Image: Thumbnail image for the video
+  4. **"Features Showcase"**
+     - Content: "Learn about the key features that set us apart..."
+     - Layout Type: Split Layout
+     - Split Ratio: 60/40 (Text Wider)
+     - Media Position: Media Right, Text Left
+     - Media Type: Image Slider
+     - Slides: 6 slides showcasing different features
+     - Autoplay: Enabled
+     - Autoplay Speed: 5 seconds
+     - Show Navigation Dots: Enabled
 
 ---
 
@@ -143,8 +244,9 @@ Here's a typical Text With Media Section:
 
 ### Split Layout
 
-- **50/50 Split:** Equal division between text and media
-- **60/40 Split:** Larger area for text or media
+- **50/50 (Equal) Split:** Equal division between text and media
+- **60/40 (Text Wider) Split:** 60% text area, 40% media area
+- **60/40 (Image Wider) Split:** 60% media area, 40% text area
 - **Media Position:** Positionable left or right
 
 ### Media Above, Text Below
@@ -167,47 +269,42 @@ Text is displayed above the media. Ideal for:
 
 ## Best Practices
 
-**Consistency:** Use similar layout types within a section for better readability
-
-**Media selection:** Choose the appropriate media type for the content
-
-**Alt text:** Always fill in alt text for images for accessibility and SEO
-
-**Split ratio:** 50/50 for balanced display, 60/40 for text- or image-heavy content
-
-**Item count:** 3-5 items are optimal for user experience
-
-**Background color:** Use background colors sparingly to ensure readability
+- **Consistency:** Use similar layout types within a section for better readability
+- **Media selection:** Choose the appropriate media type for the content
+- **Alt text:** Always fill in alt text for images for accessibility and SEO
+- **Split ratio:** 50/50 for balanced display, 60/40 (Text Wider) for text-heavy content, 60/40 (Image Wider) for image-heavy content
+- **Item count:** 3-5 items are optimal for user experience
+- **Background color:** Use background colors sparingly to ensure readability
 
 ---
 
 ## Key Features
 
-**Flexible layouts:** Three different layout types for different requirements
-
-**Various media types:** Single images, galleries, videos, or sliders
-
-**Rich text content:** Full rich text editor for text content
-
-**Multiple items:** Up to 10 items per section for comprehensive content
-
-**Individual configuration:** Each item can be individually configured
+- **Flexible layouts:** Three different layout types for different requirements
+- **Various media types:** Single images, galleries, videos, or sliders
+- **Rich text content:** Full rich text editor for text content
+- **Multiple items:** Up to 10 items per section for comprehensive content
+- **Individual configuration:** Each item can be individually configured
 
 ---
 
 ## Where It's Used
 
-The Text With Media Section appears in these content types:
-
-- **Pages** (`page`) – General content pages, especially product and service pages
+- **Pages (`page`)**  
+  General content pages, especially product and service pages
 
 ---
 
 ## Technical Notes
 
 - Each item can have different layout and media type
-- Media types are conditionally displayed based on selection
+- Layout options are nested in a `layout` object within each item
+- Media fields are conditionally displayed based on the selected `layout.mediaType`
+- Split ratio and media position fields are only visible when Layout Type is "Split Layout"
 - Rich text content uses the `richTextSection` type
+- Video supports both file upload (`videoFile`) and URL (`videoUrl`) options
+- Slider autoplay speed is only visible when autoplay is enabled
+- Image gallery supports 1-20 images, slider supports 1-10 slides
 - Background color references the global `backgroundColor` schema
 - The section supports responsive layouts for all media types
 
