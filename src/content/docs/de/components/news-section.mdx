@@ -4,6 +4,7 @@ description: Ein Inhaltsblock zur Anzeige von Nachrichtenartikeln mit automatisc
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import NewsSection from "../../../../assets/news-section.png";
 
 ## Übersicht
 
@@ -13,6 +14,17 @@ Der **Nachrichten** ruft automatisch Nachrichtenartikel ab und zeigt sie mit ein
   **Ideal für:** Nachrichtenbereiche, aktuelle Updates, Blog-Vorschauen,
   Ankündigungen, Pressemitteilungen Unternehmensupdates.
 </Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={NewsSection.src} alt="Beispiel einer Nachricht" />
+  <figcaption>
+    <em>Beispiel einer Nachricht</em>
+  </figcaption>
+</figure>
 
 ---
 

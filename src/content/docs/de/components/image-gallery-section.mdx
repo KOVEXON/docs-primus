@@ -4,6 +4,7 @@ description: Eine Bildergalerie mit Titel, Untertitel und bis zu 20 Bildern zur 
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import ImageGallerySection from "../../../../assets/image-gallery-section.png";
 
 ## Übersicht
 
@@ -14,6 +15,17 @@ Er ist ideal für die Präsentation visueller Inhalte wie Produkte, Veranstaltun
   **Ideal für:** Produktgalerien, Veranstaltungsgalerien, Portfolios, Referenz
   Bilder, Fotosammlungen und Showcasee.
 </Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ImageGallerySection.src} alt="Beispiel einer Bildergalerie" />
+  <figcaption>
+    <em>Beispiel einer Bildergalerie</em>
+  </figcaption>
+</figure>
 
 ---
 

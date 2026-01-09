@@ -4,6 +4,7 @@ description: Ein Inhaltsblock, der automatisch die neuesten Artikel in einem Kar
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import ArticleCarouselSection from "../../../../assets/article-carousel-section.png";
 
 ## Übersicht
 
@@ -14,6 +15,17 @@ Er ruft die neuesten Inhalte basierend auf dem Veröffentlichungsdatum ab und is
   **Ideal für:** Startseiten-Highlights, Nachrichtenbereiche, Blog-Vorschauen,
   aktuelle Updates, Artikel-Präsentationen.
 </Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ArticleCarouselSection.src} alt="Beispiel eines Artikel-Karussells" />
+  <figcaption>
+    <em>Beispiel eines Artikel-Karussells</em>
+  </figcaption>
+</figure>
 
 ---
 

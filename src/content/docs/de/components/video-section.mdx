@@ -4,6 +4,7 @@ description: Ein Inhaltsblock zum Einbetten von Videos mit optionaler Überschri
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import VideoSection from "../../../../assets/video-section.png";
 
 ## Übersicht
 
@@ -14,6 +15,17 @@ Er ist ideal für die Erklärung von Konzepten, Präsentation von Prozessen, Tei
   **Ideal für:** Erklärungsvideos, Tutorials, Unternehmenspräsentationen,
   Veranstaltungs Highlights und Anleitungsinhalte.
 </Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={VideoSection.src} alt="Beispiel eines Videos" />
+  <figcaption>
+    <em>Beispiel eines Videos</em>
+  </figcaption>
+</figure>
 
 ---
 
