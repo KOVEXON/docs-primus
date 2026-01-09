@@ -7,94 +7,104 @@ slug: en/1.0/components/news-section
 
 import { Aside } from "@astrojs/starlight/components";
 
-The News Section automatically fetches and displays news articles with a load-more functionality. Articles are sorted by publication date, making it easy for visitors to stay up to date with your latest news and updates.
+## Overview
+
+The **News Section** automatically fetches and displays news articles with a load-more functionality. Articles are sorted by publication date, making it easy for visitors to stay up to date with your latest news and updates.
 
 <Aside>
   **Best for:** News areas, current updates, blog previews, announcements, press
   releases, company updates.
 </Aside>
 
+***
+
 ## Fields
 
 ### Section Headline
 
-* **Type:** String (optional)
+* **Type:** String
+* **Required:** No
 * **Purpose:** Main heading for the news section
-* **Example:** "News" or "Latest Updates"
+* **Example:**\
+  `News` or `Latest Updates`
+
+***
 
 ### Section Description
 
-* **Type:** Text (optional)
+* **Type:** Text
+* **Required:** No
 * **Purpose:** Description for the news section
-* **Example:** "Latest news and updates"
+* **Example:**\
+  `Latest news and updates`
+
+***
 
 ### Maximum Articles to Display
 
-* **Type:** Number (optional)
-* **Default Value:** 6
+* **Type:** Number
+* **Required:** No
+* **Purpose:** Maximum number of articles to display initially
+* **Default Value:** `6`
 * **Min Value:** 1
 * **Max Value:** 50
-* **Purpose:** Maximum number of articles to display initially (default: 6)
+
+***
 
 ### Show Load More Button
 
-* **Type:** Boolean (optional)
-* **Default Value:** `true`
+* **Type:** Boolean
+* **Required:** No
 * **Purpose:** Whether to show a "Load More" button for additional articles
+* **Default Value:** `true`
+
+***
 
 ### Background Color
 
-* **Type:** Reference to `backgroundColor` (optional)
-* **Purpose:** Sets the background color for the entire news section
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color for the entire section
 
 ***
 
 ## Usage Example
 
-Here's a typical News Section configuration:
+### Typical Configuration
 
-* **Section Headline:** "News"
-* **Section Description:** "Latest news and updates"
-* **Maximum Articles to Display:** 6
+* **Section Headline:** `News`
+* **Section Description:** `Latest news and updates`
+* **Maximum Articles to Display:** `6`
 * **Show Load More Button:** `true`
+* **Background Color:** Reference to a `backgroundColor` object
 
 ***
 
 ## Best Practices
 
-**Initial count:** Display 6-12 articles initially for optimal performance and user experience
-
-**Load more:** Enable load more for better performance when you have many articles
-
-**Regular updates:** Publish new articles regularly to keep content fresh
-
-**Headlines:** Make article headlines clear and compelling
-
-**Descriptions:** Use section description to provide context about the types of articles users will find
-
-**Consistency:** Maintain consistent publishing schedule for better user engagement
+* **Initial count:** Display 6-12 articles initially for optimal performance and user experience
+* **Load more:** Enable load more for better performance when you have many articles
+* **Regular updates:** Publish new articles regularly to keep content fresh
+* **Headlines:** Make article headlines clear and compelling
+* **Descriptions:** Use section description to provide context about the types of articles users will find
+* **Consistency:** Maintain consistent publishing schedule for better user engagement
 
 ***
 
 ## Key Features
 
-**Automatic fetching:** Articles are automatically retrieved and displayed
-
-**Load more:** Additional articles can be loaded on demand
-
-**Sorted by date:** Articles are sorted by publication date (newest first)
-
-**Performance optimized:** Initial load shows limited articles, with more available on demand
-
-**Responsive:** Adapts to different screen sizes
+* **Automatic fetching:** Articles are automatically retrieved and displayed
+* **Load more:** Additional articles can be loaded on demand
+* **Sorted by date:** Articles are sorted by publication date (newest first)
+* **Performance optimized:** Initial load shows limited articles, with more available on demand
+* **Responsive:** Adapts to different screen sizes
 
 ***
 
 ## Where It's Used
 
-The News Section appears in these content types:
-
-* **Pages** (`page`) – General content pages, especially news or blog pages
+* **Pages (`page`)**\
+  General content pages, especially news or blog pages
 
 ***
 

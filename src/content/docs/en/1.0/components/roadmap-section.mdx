@@ -7,116 +7,114 @@ slug: en/1.0/components/roadmap-section
 
 import { Aside } from "@astrojs/starlight/components";
 
-The Roadmap Section displays roadmaps, timelines, or milestones in chronological order. Perfect for showing project plans, development timelines, or important milestones in a clear, visual format.
+## Overview
+
+The **Roadmap Section** displays roadmaps, timelines, or milestones in chronological order. Perfect for showing project plans, development timelines, or important milestones in a clear, visual format.
 
 <Aside>
   **Best for:** Project roadmaps, timelines, milestones, development plans,
   future plans, chronological event displays.
 </Aside>
 
+***
+
 ## Fields
 
-### Headline
+### Section Headline
 
-* **Type:** String (required)
-* **Max Length:** 100 characters
-* **Purpose:** Main heading for the roadmap section
-* **Example:** "Our Roadmap" or "Development Timeline"
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Main heading for the entire roadmap section
+* **Example:**\
+  `Our Roadmap` or `Development Timeline`
 
-### Description
+***
 
-* **Type:** Text, 3 rows (optional)
-* **Max Length:** 500 characters
+### Section Description
+
+* **Type:** Text
+* **Required:** No
 * **Purpose:** Description for the roadmap section
-* **Example:** "Our planned milestones and developments"
+* **Example:**\
+  `Our planned milestones and developments`
+
+***
 
 ### Timeline Items
 
-* **Type:** Array of timeline item objects (optional)
-* **Min Count:** 1
-* **Max Count:** 20
+* **Type:** Array of timeline item objects
+* **Required:** No
 * **Purpose:** Timeline items for the roadmap
 
-#### Timeline Item Fields
+Each timeline item contains:
 
-**Title** (required)
+#### Title
 
-* Title of the milestone or feature
-* Max Length: 100 characters
-* Example: "Q1 2025: New Vehicles"
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Title of the milestone or feature
+* **Example:**\
+  `Q1 2025: Product Launch` or `Phase 1: Foundation`
 
-**Description** (optional)
+#### Description
 
-* Detailed description of the milestone
-* Type: Text, 3 rows
-* Max Length: 500 characters
-* Example: "Integration of electric vehicles into our fleet"
+* **Type:** Text
+* **Required:** No
+* **Purpose:** Detailed description of the milestone
+* **Example:**\
+  `Launch of our new product line with enhanced features`
+
+***
 
 ### Background Color
 
-* **Type:** Reference to `backgroundColor` (optional)
-* **Purpose:** Sets the background color for the entire roadmap section
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color for the entire section
 
 ***
 
 ## Usage Example
 
-Here's a typical Roadmap Section:
+### Typical Configuration
 
-**Headline:** "Our Roadmap"
-
-**Description:** "Our planned milestones and developments"
-
-**Timeline Items:**
-
-1. **"Q1 2025: New Vehicles"**
-
-   * Description: "Integration of electric vehicles into our fleet"
-
-2. **"Q2 2025: Online Registration"**
-
-   * Description: "Introduction of an online registration function"
-
-3. **"Q3 2025: Expanded Locations"**
-   * Description: "Opening of new locations in the region"
+* **Section Headline:** `Our Roadmap`
+* **Section Description:** `Our planned milestones and developments`
+* **Timeline Items:**
+  1. **"Q1 2025: Product Launch"**
+     * Description: Launch of our new product line with enhanced features
+  2. **"Q2 2025: Platform Update"**
+     * Description: Introduction of new platform features and improvements
+  3. **"Q3 2025: Market Expansion"**
+     * Description: Expansion into new markets and regions
 
 ***
 
 ## Best Practices
 
-**Chronology:** Arrange items in chronological order for clarity
-
-**Clarity:** Use clear, concise titles that communicate the milestone
-
-**Descriptions:** Provide detailed but concise descriptions
-
-**Count:** 3-10 items are optimal for readability
-
-**Regular updates:** Keep the roadmap current with actual progress
-
-**Consistency:** Use consistent date formats and terminology
+* **Chronology:** Arrange items in chronological order for clarity
+* **Clarity:** Use clear, concise titles that communicate the milestone
+* **Descriptions:** Provide detailed but concise descriptions
+* **Item count:** 3-10 items are optimal for readability. Too few doesn't justify a roadmap; too many becomes overwhelming
+* **Regular updates:** Keep the roadmap current with actual progress
+* **Consistency:** Use consistent date formats and terminology
 
 ***
 
 ## Key Features
 
-**Chronological display:** Items displayed in timeline order
-
-**Clear structure:** Title and description for each milestone
-
-**Visual timeline:** Timeline visualization for easy understanding
-
-**Flexible content:** Support for multiple timeline items
-
-**Responsive:** Adapts to different screen sizes
+* **Chronological display:** Items displayed in timeline order
+* **Clear structure:** Title and description for each milestone
+* **Visual timeline:** Timeline visualization for easy understanding
+* **Flexible content:** Support for multiple timeline items (1-20 items)
+* **Responsive:** Adapts to different screen sizes
 
 ***
 
 ## Where It's Used
 
-The Roadmap Section appears in these content types:
-
-* **Pages** (`page`) – General content pages, especially project or development pages
+* **Pages (`page`)**\
+  General content pages, especially project or development pages
 
 ***
 
@@ -127,3 +125,4 @@ The Roadmap Section appears in these content types:
 * Background color references the global `backgroundColor` schema
 * The section uses semantic HTML for accessibility
 * Timeline visualization is handled by the frontend application
+* Minimum 1 item and maximum 20 items are allowed per roadmap
