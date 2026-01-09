@@ -7,7 +7,7 @@ import { Aside } from "@astrojs/starlight/components";
 
 ## Overview
 
-**Tabs Section** organizes content into different tabs using tab navigation. It's perfect for structured, categorized information that benefits from a clear, organized presentation where only one section is visible at a time.
+The **Tabs Section** organizes content into different tabs using tab navigation. It's perfect for structured, categorized information that benefits from a clear, organized presentation where only one section is visible at a time.
 
 <Aside>
   **Best for:** Categorized content, product details, service pages, price
@@ -20,33 +20,30 @@ import { Aside } from "@astrojs/starlight/components";
 
 ### Headline
 
-**Type:** String  
-**Required:** Yes
-
-Main heading for the entire tabs section.
-
-**Examples:** `Our Service Packages`, `Service Options`
+- **Type:** String
+- **Required:** Yes
+- **Purpose:** Main heading for the entire tabs section
+- **Example:**  
+  `Our Service Packages` or `Service Options`
 
 ---
 
 ### Description
 
-**Type:** Text  
-**Required:** No  
-**Max Length:** 500 characters
-
-Description for the tabs section.
-
-**Example:** `Choose the right service package for your needs`
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Description for the tabs section
+- **Max Length:** 500 characters
+- **Example:**  
+  `Choose the right service package for your needs`
 
 ---
 
 ### Items
 
-**Type:** Array of objects  
-**Required:** Yes (minimum 1)
-
-List of tab items displayed as tabs.
+- **Type:** Array of objects
+- **Required:** Yes (minimum 1)
+- **Purpose:** List of tab items displayed as tabs
 
 Each tab item includes:
 
@@ -54,14 +51,15 @@ Each tab item includes:
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Headline of the tab (displayed as tab label)
-- **Example:** `Basic Package`
+- **Purpose:** Headline of the tab (displayed as tab label)
+- **Example:**  
+  `Basic Package`
 
 #### Icon (mobile version only)
 
 - **Type:** Lucide Icon
 - **Required:** No
-- **Description:** Optional icon (mobile version only)
+- **Purpose:** Optional icon (mobile version only)
 - **Source:** Lucide icon library
 - **Examples:** Package, Star, Crown, Building
 
@@ -69,45 +67,34 @@ Each tab item includes:
 
 - **Type:** Rich Text Section (`richTextSection`)
 - **Required:** Yes
-- **Description:** Rich text content displayed in the active tab
+- **Purpose:** Rich text content displayed in the active tab
+- **Note:** Supports full formatting, images, links, etc.
 
 ---
 
 ### Background Color
 
-**Type:** Reference to `backgroundColor`  
-**Required:** No
-
-Sets the background color for the entire tabs section.
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
+- **Purpose:** Sets the background color for the entire section
 
 ---
 
 ## Usage Example
 
-### Headline
+### Typical Configuration
 
-`Our Service Packages`
-
-### Description
-
-`Choose the right service package for your needs`
-
-### Items (Tabs)
-
-1. **"Basic Package"** (Package icon)
-
-   - Content: "The Basic Package includes essential services for your needs..."
-
-2. **"Standard Package"** (Star icon)
-
-   - Content: "With the Standard Package, you get comprehensive services with additional features..."
-
-3. **"Premium Package"** (Crown icon)
-
-   - Content: "The Premium Package is designed for businesses requiring advanced solutions..."
-
-4. **"Enterprise Package"** (Building icon)
-   - Content: "With the Enterprise Package, you get full-scale solutions with dedicated support..."
+- **Headline:** `Our Service Packages`
+- **Description:** `Choose the right service package for your needs`
+- **Items (Tabs):**
+  1. **"Basic Package"** (Package icon)
+     - Content: Details about the basic package with essential services
+  2. **"Standard Package"** (Star icon)
+     - Content: Comprehensive services with additional features
+  3. **"Premium Package"** (Crown icon)
+     - Content: Advanced solutions for businesses
+  4. **"Enterprise Package"** (Building icon)
+     - Content: Full-scale solutions with dedicated support
 
 ---
 
@@ -125,13 +112,13 @@ Sets the background color for the entire tabs section.
 
 ## Key Features
 
-- Tab navigation for organized content display
-- Rich text content with full formatting capabilities
-- Optional icons for visual support (mobile version only)
-- Structured display ideal for categorized, equivalent content
-- Space-efficient layout through tab navigation
-- Interactive tab switching for users
-- Keyboard navigation support for accessibility
+- **Tab navigation:** Organized content display with tab switching
+- **Rich text content:** Full formatting capabilities within each tab
+- **Optional icons:** Visual support for mobile version only
+- **Structured display:** Ideal for categorized, equivalent content
+- **Space-efficient:** Layout through tab navigation
+- **Interactive:** Users can switch between tabs
+- **Accessible:** Keyboard navigation support
 
 ---
 

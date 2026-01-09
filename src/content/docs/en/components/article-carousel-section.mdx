@@ -21,64 +21,54 @@ It pulls the latest content based on publication date, making it perfect for kee
 
 ### Headline
 
-**Type:** String  
-**Required:** No
-
-Main heading for the carousel section.
-
+- **Type:** String
+- **Required:** No
+- **Purpose:** Main heading for the carousel section
 - **Max Length:** 100 characters
-- **Example:** "Latest Articles" or "Recent News"
+- **Example:**  
+  `Latest Articles` or `Recent News`
 
 ---
 
 ### Description
 
-**Type:** Text  
-**Required:** No
-
-Brief description or context displayed below the headline.
-
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Brief description or context displayed below the headline
 - **Max Length:** 200 characters
-- **Example:** "Stay up to date with our latest news and insights"
+- **Example:**  
+  `Stay up to date with our latest news and insights`
 
 ---
 
 ### Maximum Articles
 
-**Type:** Number  
-**Required:** No  
-**Default Value:** 6
-
-Controls how many of the most recent articles appear in the carousel.
-
+- **Type:** Number
+- **Required:** No
+- **Purpose:** Controls how many of the most recent articles appear in the carousel
+- **Default Value:** 6
 - **Min Value:** 3
 - **Max Value:** 12
-- **Example:** Set to 6 to show the 6 newest articles
+- **Example:**  
+  Set to `6` to show the 6 newest articles
 
 ---
 
 ### Background Color
 
-**Type:** Reference to `backgroundColor`  
-**Required:** No
-
-Sets the background color for the entire carousel section.
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
+- **Purpose:** Sets the background color for the entire section
 
 ---
 
 ## Usage Example
 
-### Headline
+### Typical Configuration
 
-"Latest Articles"
-
-### Description
-
-"Stay informed with our most recent news and updates"
-
-### Maximum Articles
-
-6
+- **Headline:** `Latest Articles`
+- **Description:** `Stay informed with our most recent news and updates`
+- **Maximum Articles:** `6`
 
 The carousel will automatically display the 6 most recently published articles, sorted by publication date (newest first). Users can navigate through the carousel to browse all displayed articles.
 
@@ -97,11 +87,11 @@ The carousel will automatically display the 6 most recently published articles, 
 
 ## Key Features
 
-- Automatic updates—no manual selection needed—the carousel automatically pulls the latest articles
-- Sorted by date—articles are always displayed with the newest first
-- Interactive navigation—users can browse through articles using carousel controls
-- Responsive design—the carousel adapts to different screen sizes
-- Dynamic content—content updates automatically as new articles are published
+- **Automatic updates:** No manual selection needed—the carousel automatically pulls the latest articles
+- **Sorted by date:** Articles are always displayed with the newest first
+- **Interactive navigation:** Users can browse through articles using carousel controls
+- **Responsive design:** The carousel adapts to different screen sizes
+- **Dynamic content:** Content updates automatically as new articles are published
 
 ---
 

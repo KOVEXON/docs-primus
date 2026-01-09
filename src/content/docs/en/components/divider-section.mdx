@@ -32,52 +32,48 @@ Use it sparingly to break up long content or create clear visual boundaries betw
 
 ### Show Divider Line
 
-**Type:** Boolean  
-**Required:** No  
-**Default:** `false`
-
-Toggle to show or hide the divider line.
+- **Type:** Boolean
+- **Required:** No
+- **Purpose:** Toggle to show or hide the divider line
+- **Default Value:** `false`
 
 ---
 
 ### Divider Width
 
-**Type:** String  
-**Required:** No  
-**Default Value:** `100%`
-
-Controls the width of the divider line.
-
-**Options:**
-
-- `100%` – Full width
-- `Container Width (max-w-6xl)` – Container width
-- `Custom Width` – Custom width value
+- **Type:** String
+- **Required:** No
+- **Purpose:** Controls the width of the divider line
+- **Default Value:** `100%`
+- **Options:**
+  - `100%` – Full width
+  - `Container Width (max-w-6xl)` – Container width
+  - `Custom Width` – Custom width value
 
 ---
 
 ### Custom Width
 
-**Type:** String  
-**Required:** No  
-**Shown when:** Divider Width is set to "Custom Width"
-
-Custom CSS width value (e.g., "400px", "50vw", "20rem").  
-Only used when width is set to "Custom Width".
+- **Type:** String
+- **Required:** No
+- **Purpose:** Custom CSS width value (e.g., "400px", "50vw", "20rem"). Only used when width is set to "Custom Width"
+- **Note:** Only visible when "Divider Width" is set to `Custom Width`
+- **Example:**  
+  `400px`, `50vw`, or `20rem`
 
 ---
 
 ## Usage Example
 
-### With divider line
+### Typical Configuration
 
-**Show Divider Line:** `true`  
-**Divider Width:** `100%`
+- **Show Divider Line:** `true`
+- **Divider Width:** `100%`
 
-### For spacing without line
+For spacing without a visible line:
 
-**Show Divider Line:** `false`  
-**Divider Width:** `100%`
+- **Show Divider Line:** `false`
+- **Divider Width:** `100%`
 
 ---
 
@@ -93,11 +89,11 @@ Only used when width is set to "Custom Width".
 
 ## Key Features
 
-- Simple and flexible with minimal configuration for maximum flexibility
-- Visual separation with clear visual boundaries between content sections
-- Spacing control that can create spacing without a visible line
-- Width options with multiple width options for different design needs
-- Lightweight with minimal impact on page performance
+- **Simple and flexible:** Minimal configuration for maximum flexibility
+- **Visual separation:** Clear visual boundaries between content sections
+- **Spacing control:** Can create spacing without a visible line
+- **Width options:** Multiple width options for different design needs
+- **Lightweight:** Minimal impact on page performance
 
 ---
 

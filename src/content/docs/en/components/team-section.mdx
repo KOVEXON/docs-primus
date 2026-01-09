@@ -7,7 +7,7 @@ import { Aside } from "@astrojs/starlight/components";
 import teamSectionWebsite from "../../../../assets/team-section-website.png";
 import teamSectionSanity from "../../../../assets/team-section-sanity.png";
 
-The Team Section displays all team members in organized cards. Each card shows a photo, name, role, bio, and optional social media links—perfect for introducing your team and building personal connections with visitors.
+The **Team Section** displays all team members in organized cards. Each card shows a photo, name, role, bio, and optional social media links—perfect for introducing your team and building personal connections with visitors.
 
 <Aside>
   **Best for:** Team introductions, staff pages, about-us sections, building
@@ -38,126 +38,130 @@ The Team Section displays all team members in organized cards. Each card shows a
 
 ### Headline
 
-- **Type:** String (optional)
+- **Type:** String
+- **Required:** No
 - **Purpose:** Main heading displayed above the team cards
-- **Example:** "Our Team" or "Meet the Team"
-- **Best Practice:** Keep it short—one sentence or maximum 2 lines
+- **Example:**  
+  `Our Team` or `Meet the Team`
+- **Note:** Keep it short—one sentence or maximum 2 lines
+
+---
 
 ### Members
 
-- **Type:** Array of team member objects (optional)
+- **Type:** Array of team member objects
+- **Required:** No
 - **Purpose:** List of team members—each entry corresponds to one team card on the website
 - **Note:** One card = one person or system (e.g., simulator)
 
-#### Team Member Fields
+Each team member includes:
 
-**Name** (required)
+#### Name
 
-- Displayed as bold heading on the card
-- Example: "Max Mustermann"
+- **Type:** String
+- **Required:** Yes
+- **Purpose:** Displayed as bold heading on the card
+- **Example:**  
+  `Max Mustermann`
 
-**Role** (optional)
+#### Role
 
-- Displayed as colored label under the name
-- Keep it short and clear
-- Examples: "Project Manager", "Business Advisor", "Technical Specialist"
+- **Type:** String
+- **Required:** No
+- **Purpose:** Displayed as colored label under the name
+- **Example:**  
+  `Project Manager`, `Business Advisor`, or `Technical Specialist`
+- **Note:** Keep it short and clear
 
-**Bio** (optional)
+#### Bio
 
-- Text in the main area of the card
-- Can contain multiple lines
-- Longer texts may be truncated with "Show more"
-- **Best Practice:** Use bullet points or short sentences, max 5-7 lines
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Text in the main area of the card
+- **Note:** Can contain multiple lines. Longer texts may be truncated with "Show more". Use bullet points or short sentences, max 5-7 lines
 
-**Photo** (optional)
+#### Photo
 
-- Round profile picture displayed above the card
-- Should be standalone and well-lit
-- **Best Practice:** Consistent style for all team members, face clearly visible
+- **Type:** Image
+- **Required:** No
+- **Purpose:** Round profile picture displayed above the card
+- **Note:** Should be standalone and well-lit. Consistent style for all team members, face clearly visible
 
-**Show Social Links** (optional)
+#### Show Social Links
 
-- Toggle to display social media icons below the card
-- Default: `false`
-- **Best Practice:** Only enable when the person should be publicly contactable and social media is maintained
+- **Type:** Boolean
+- **Required:** No
+- **Purpose:** Toggle to display social media icons below the card
+- **Default Value:** `false`
+- **Note:** Only enable when the person should be publicly contactable and social media is maintained
 
-**Social Links** (optional, hidden when Show Social Links is not enabled)
+#### Social Links
 
-- Displayed only when Show Social Links is enabled
-- Icons appear below the team card
-- Typical links: Instagram, Facebook, LinkedIn
+- **Type:** Array of social media links
+- **Required:** No
+- **Purpose:** Social media links displayed below the team card
+- **Note:** Only visible when "Show Social Links" is enabled. Typical links: Instagram, Facebook, LinkedIn
+
+---
 
 ### Background Color
 
-- **Type:** Reference to `backgroundColor` (optional)
-- **Purpose:** Sets the background color for the entire team section
+- **Type:** Reference (`backgroundColor`)
+- **Required:** No
+- **Purpose:** Sets the background color for the entire section
 - **Note:** Does not affect individual cards
 
 ---
 
 ## Usage Example
 
-Here's a typical team member card:
+### Typical Configuration
 
-**Name:** Max Mustermann
-
-**Role:** Project Manager
-
-**Bio:** Team leader, process coordinator, client relations specialist
-
-**Photo:** Profile photo
-
-**Social Links:** Enabled (Instagram, LinkedIn)
+- **Headline:** `Our Team`
+- **Members:**
+  1. **Name:** `Max Mustermann`
+     - **Role:** `Project Manager`
+     - **Bio:** Team leader, process coordinator, client relations specialist
+     - **Photo:** Profile photo
+     - **Show Social Links:** `true`
+     - **Social Links:** Instagram, LinkedIn
 
 ---
 
 ## Best Practices
 
-**Team size:** 3-8 team members are optimal
-
-**Consistent imagery:** Use uniform photo style for all team members
-
-**Roles:** Keep roles short and clear
-
-**Bios:** Keep text personal but professional
-
-**Social links:** Only enable when profiles are actively maintained
-
-**Photo quality:** Use high-quality, consistent photos with good lighting
+- **Team size:** 3-8 team members are optimal
+- **Consistent imagery:** Use uniform photo style for all team members
+- **Roles:** Keep roles short and clear
+- **Bios:** Keep text personal but professional
+- **Social links:** Only enable when profiles are actively maintained
+- **Photo quality:** Use high-quality, consistent photos with good lighting
 
 ---
 
 ## Common Mistakes to Avoid
 
-**Long texts:** Avoid very long texts without paragraphs
-
-**Inconsistent photos:** Don't use different photo formats or styles
-
-**Empty roles:** Always fill in role fields
-
-**Unmaintained social links:** Don't enable social links without active profiles
+- **Long texts:** Avoid very long texts without paragraphs
+- **Inconsistent photos:** Don't use different photo formats or styles
+- **Empty roles:** Always fill in role fields
+- **Unmaintained social links:** Don't enable social links without active profiles
 
 ---
 
 ## Key Features
 
-**Organized cards:** Team members displayed in clean, organized cards
-
-**Photo support:** Round profile pictures for each member
-
-**Social integration:** Optional social media links for each member
-
-**Flexible content:** Name, role, and bio for comprehensive information
-
-**Responsive:** Adapts to different screen sizes
+- **Organized cards:** Team members displayed in clean, organized cards
+- **Photo support:** Round profile pictures for each member
+- **Social integration:** Optional social media links for each member
+- **Flexible content:** Name, role, and bio for comprehensive information
+- **Responsive:** Adapts to different screen sizes
 
 ---
 
 ## Where It's Used
 
-The Team Section appears in these content types:
-
-- **Pages** (`page`) – General content pages, especially about-us pages
+- **Pages (`page`)**  
+  General content pages, especially about-us pages
 
 ---
 

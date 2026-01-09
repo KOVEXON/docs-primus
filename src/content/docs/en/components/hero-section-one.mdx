@@ -7,7 +7,7 @@ import { Aside } from "@astrojs/starlight/components";
 
 ## Overview
 
-**Hero Section ONE** is a flexible and visually rich hero area designed to create strong first impressions.  
+The **Hero Section ONE** is a flexible and visually rich hero area designed to create strong first impressions.  
 It supports multi-part headlines with different styles, colored keywords for emphasis, and call-to-action buttons to guide user interaction.
 
 <Aside>
@@ -21,31 +21,31 @@ It supports multi-part headlines with different styles, colored keywords for emp
 
 ### Headline
 
-**Type:** Object  
-**Required:** Yes
-
-The headline is composed of multiple parts, each with its own visual style.  
-This allows you to emphasize specific words or phrases while keeping the headline readable and dynamic.
+- **Type:** Object
+- **Required:** Yes
+- **Purpose:** The headline is composed of multiple parts, each with its own visual style. This allows you to emphasize specific words or phrases while keeping the headline readable and dynamic.
 
 #### Headline Parts
 
-**Type:** Array of objects  
-**Required:** Yes (minimum 1)
+- **Type:** Array of objects
+- **Required:** Yes (minimum 1)
+- **Purpose:** Each part represents a segment of the headline
 
-Each part represents a segment of the headline.
+Each headline part includes:
 
 ##### Text
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Text content of the headline part
-- **Example:** `Welcome to the`
+- **Purpose:** Text content of the headline part
+- **Example:**  
+  `Welcome to the`
 
 ##### Style
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Visual appearance of the text
+- **Purpose:** Visual appearance of the text
 - **Options:**
   - `Normal` – Default text style
   - `Highlighted (Background)` – Text with colored background
@@ -54,20 +54,18 @@ Each part represents a segment of the headline.
 ##### Background Color
 
 - **Type:** String
-- **Shown when:** Style is `Highlighted (Background)`
-- **Description:** Background color behind the text
+- **Required:** No
+- **Purpose:** Background color behind the text
+- **Note:** Only visible when Style is `Highlighted (Background)`
 - **Options:**  
   Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
 
 ##### Text Color
 
 - **Type:** String
-- **Shown when:**
-  - Style is `Highlighted (Background)`
-  - Style is `Colored Text`
-- **Description:**
-  - Highlighted: Text color on the background
-  - Colored Text: Color of the text itself
+- **Required:** No
+- **Purpose:** Text color on the background (when highlighted) or color of the text itself (when colored text)
+- **Note:** Visible when Style is `Highlighted (Background)` or `Colored Text`
 - **Options:**
   - Highlighted: Black (default), White
   - Colored Text: Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
@@ -76,11 +74,9 @@ Each part represents a segment of the headline.
 
 ### Keywords
 
-**Type:** Array of objects  
-**Required:** No
-
-Keywords appear below the headline and can each have their own color for additional emphasis  
-(e.g. _electric_, _digital_, _modern_).
+- **Type:** Array of objects
+- **Required:** No
+- **Purpose:** Keywords appear below the headline and can each have their own color for additional emphasis (e.g. _electric_, _digital_, _modern_)
 
 Each keyword includes:
 
@@ -88,13 +84,13 @@ Each keyword includes:
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Text displayed as a keyword
+- **Purpose:** Text displayed as a keyword
 
 #### Color
 
 - **Type:** String
 - **Required:** No
-- **Description:** Color of the keyword
+- **Purpose:** Color of the keyword
 - **Options:**  
   Green (default), Orange, Purple, Blue, Red, Pink, Yellow, Gray, Black
 
@@ -102,35 +98,30 @@ Each keyword includes:
 
 ### Subheadline
 
-**Type:** Text  
-**Required:** No
-
-Supporting text displayed below the headline to add context or explain the value proposition.
+- **Type:** Text
+- **Required:** No
+- **Purpose:** Supporting text displayed below the headline to add context or explain the value proposition
 
 ---
 
 ### Background Image
 
-**Type:** Image  
-**Required:** Yes
-
-The background image of the hero section.  
-Hotspot positioning is enabled for optimal cropping and focal point control.
+- **Type:** Image
+- **Required:** Yes
+- **Purpose:** The background image of the hero section
+- **Note:** Hotspot positioning is enabled for optimal cropping and focal point control
 
 ---
 
 ### Call to Action Buttons
 
-**Type:** Array of objects  
-**Required:** No
-
-Buttons that encourage user interaction.
-
-**Validation rules:**
-
-- Maximum **one Primary** button
-- Maximum **one Secondary** button
-- All button fields are required
+- **Type:** Array of objects
+- **Required:** No
+- **Purpose:** Buttons that encourage user interaction
+- **Validation rules:**
+  - Maximum **one Primary** button
+  - Maximum **one Secondary** button
+  - All button fields are required
 
 Each button includes:
 
@@ -138,21 +129,22 @@ Each button includes:
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Label shown on the button
+- **Purpose:** Label shown on the button
 
 #### Relative Link
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Target URL
+- **Purpose:** Target URL
 - **Format:** Must start with `/`
-- **Examples:** `/speed-courses`, `/contact`
+- **Example:**  
+  `/speed-courses` or `/contact`
 
 #### Button Role
 
 - **Type:** String
 - **Required:** Yes
-- **Description:** Visual importance of the button
+- **Purpose:** Visual importance of the button
 - **Options:**
   - `Primary` – Main call to action
   - `Secondary` – Secondary action
@@ -161,35 +153,21 @@ Each button includes:
 
 ## Usage Example
 
-### Headline Parts
+### Typical Configuration
 
-1. **"Welcome to the"**  
-   Style: Normal
-2. **"modern"**  
-   Style: Highlighted  
-   Background: Green  
-   Text Color: Black
-3. **"experience"**  
-   Style: Normal
-
-### Keywords
-
-- `innovative` (Green)
-- `digital` (Blue)
-- `sustainable` (Green)
-
-### Subheadline
-
-> Discover our comprehensive solutions designed to help you achieve your goals with cutting-edge technology and expert support.
-
-### Background Image
-
-A professional brand-related image (required).
-
-### Call to Action Buttons
-
-- **Primary:** Sign up now → `/registration`
-- **Secondary:** Learn more → `/about-us`
+- **Headline Parts:**
+  1. **"Welcome to the"** – Style: Normal
+  2. **"modern"** – Style: Highlighted, Background: Green, Text Color: Black
+  3. **"experience"** – Style: Normal
+- **Keywords:**
+  - `innovative` (Green)
+  - `digital` (Blue)
+  - `sustainable` (Green)
+- **Subheadline:** `Discover our comprehensive solutions designed to help you achieve your goals with cutting-edge technology and expert support.`
+- **Background Image:** A professional brand-related image (required)
+- **Call to Action Buttons:**
+  - **Primary:** Sign up now → `/registration`
+  - **Secondary:** Learn more → `/about-us`
 
 ---
 
@@ -207,13 +185,13 @@ A professional brand-related image (required).
 
 ## Key Features
 
-- Flexible multi-part headline system
-- Highlighted backgrounds and colored text options
-- Conditional fields based on selected styles
-- Individually colored keywords
-- Button validation (one Primary, one Secondary)
-- Required background image with hotspot support
-- Clear visual hierarchy and accessibility-friendly markup
+- **Flexible headline system:** Multi-part headline with different styles
+- **Visual emphasis:** Highlighted backgrounds and colored text options
+- **Conditional fields:** Fields appear dynamically based on selected styles
+- **Colored keywords:** Individually colored keywords for emphasis
+- **Button validation:** One Primary and one Secondary button maximum
+- **Background image:** Required background image with hotspot support
+- **Accessibility:** Clear visual hierarchy and accessibility-friendly markup
 
 ---
 
