@@ -1,0 +1,176 @@
+---
+title: Social Media Links Section
+description: A content block for displaying social media links with icons from
+  various platforms and customizable alignment and sizing.
+slug: en/1.0/components/social-media-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Social Media Links Section** displays social media links with platform-specific icons. With support for numerous platforms, custom icons, flexible alignment, and size options, it's perfect for connecting visitors to your social media presence.
+
+<Aside>
+  **Best for:** Footer social links, contact pages, about-us pages, dedicated
+  social media areas, brand presence sections.
+</Aside>
+
+***
+
+## Fields
+
+### Section Headline
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Main heading for the entire social media links section
+* **Example:**\
+  `Follow Us` or `Connect With Us`
+
+***
+
+### Section Description
+
+* **Type:** Text
+* **Required:** No
+* **Purpose:** Description for the social media links section
+* **Example:**\
+  `Stay up to date`
+
+***
+
+### Social Links
+
+* **Type:** Array of social link objects
+* **Required:** No
+* **Purpose:** List of social media links
+
+Each social link contains:
+
+#### Platform
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Social media platform
+* **Default Value:** `facebook`
+* **Options:**
+  * Facebook
+  * Twitter/X
+  * Instagram
+  * LinkedIn
+  * YouTube
+  * TikTok
+  * Pinterest
+  * Snapchat
+  * WhatsApp
+  * Telegram
+  * GitHub
+  * Custom
+
+#### URL
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Complete URL to the social media profile or page
+* **Example:**\
+  `https://facebook.com/example-company`
+
+#### Label
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Optional custom label (for screen readers and tooltips)
+* **Example:**\
+  `Follow us on Facebook`
+
+#### Custom Icon
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Name of Lucide icon from https://lucide.dev/icons
+* **Note:** Only visible when Platform is set to "Custom"
+
+### Alignment
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Horizontal alignment of social links
+* **Default Value:** `center`
+* **Options:**
+  * **Left** (`left`)
+  * **Center** (`center`)
+  * **Right** (`right`)
+
+***
+
+### Icon Size
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Size of social media icons
+* **Default Value:** `medium`
+* **Options:**
+  * **Small** (`small`)
+  * **Medium** (`medium`)
+  * **Large** (`large`)
+
+***
+
+***
+
+## Usage Example
+
+### Typical Configuration
+
+* **Section Headline:** `Follow Us`
+* **Section Description:** `Stay up to date`
+* **Social Links:**
+  1. **Facebook**
+     * URL: `https://facebook.com/example-company`
+     * Label: `Follow us on Facebook`
+  2. **Instagram**
+     * URL: `https://instagram.com/example_company`
+     * Label: `Follow us on Instagram`
+  3. **YouTube**
+     * URL: `https://youtube.com/@example-company`
+     * Label: `Subscribe to our channel`
+* **Alignment:** `center`
+* **Icon Size:** `medium`
+
+***
+
+## Best Practices
+
+* **Relevance:** Only link to active social media profiles
+* **Consistency:** Use consistent icon sizes throughout
+* **Alignment:** Center alignment works well for most layouts
+* **Link count:** 3-6 links are optimal for user experience. Too few doesn't justify a section; too many becomes cluttered
+* **Labels:** Use labels for better accessibility and clarity
+* **Platform selection:** Choose platforms that match your audience and content strategy
+
+***
+
+## Key Features
+
+* **Multiple platforms:** Support for numerous social media platforms
+* **Custom icons:** Option for custom icons when needed
+* **Flexible alignment:** Left, center, or right alignment options
+* **Size options:** Small, medium, or large icon sizes
+* **Accessibility:** Labels support screen readers and tooltips
+
+***
+
+## Where It's Used
+
+* **Pages (`page`)**\
+  General content pages, especially footer areas and contact pages
+
+***
+
+## Technical Notes
+
+* Icons are automatically selected based on platform
+* Custom icons use Lucide icon library when platform is set to "Custom"
+* Icon sizes are responsive and adapt to screen size
+* Minimum 1 link and maximum 20 links are allowed per section

@@ -1,0 +1,245 @@
+---
+title: Events Section
+description: A content block for displaying events from an events list in a
+  clear table format with availability status.
+slug: en/1.0/components/events-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Events Section** presents events from an events list in an organized table format. It's perfect for displaying courses, appointments, or any scheduled activities with clear date, time, and availability information.
+
+<Aside>
+  **Best for:** Event calendars, course overviews, appointment schedules, class
+  listings, training schedules.
+</Aside>
+
+***
+
+## Fields
+
+### Section Headline
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Main heading for the events section
+* **Example:**\
+  `Upcoming Events` or `Course Schedule`
+
+***
+
+### Section Description
+
+* **Type:** Text
+* **Required:** No
+* **Rows:** 3
+* **Purpose:** Optional description text below the headline
+* **Example:**\
+  `Here you'll find all current courses and appointments`
+
+***
+
+### Date Column Title
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Title for the date column
+* **Example:**\
+  `Date` or `Day & Date`
+
+***
+
+### Title Column Title
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Title for the session title column
+* **Example:**\
+  `Course` or `Event`
+
+***
+
+### Time Column Title
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Title for the time column
+* **Example:**\
+  `Time` or `Start Time`
+
+***
+
+### Available Status Text
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Text to display when spots are available
+* **Example:**\
+  `Spots available` or `Open`
+
+***
+
+### Full Status Text
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Text to display when event is fully booked
+* **Example:**\
+  `Fully booked` or `Sold out`
+
+***
+
+### Events List
+
+* **Type:** Reference (`eventsList`)
+* **Required:** Yes
+* **Purpose:** Reference to an events list document. The events list document contains an array of events. Each event can have multiple sessions.
+
+Each events list contains:
+
+#### Events
+
+* **Type:** Array
+* **Required:** No
+* **Purpose:** List of events to display in the events section
+
+Each event in the events array contains:
+
+#### Enable Event
+
+* **Type:** Boolean
+* **Required:** No
+* **Purpose:** Toggle to show/hide the event
+* **Default Value:** `true`
+
+#### Event Title
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Title of the event
+
+#### Is Full
+
+* **Type:** Boolean
+* **Required:** No
+* **Purpose:** Whether this event is fully booked
+* **Default Value:** `false`
+
+#### Custom Full Message
+
+* **Type:** Text
+* **Required:** No
+* **Rows:** 3
+* **Purpose:** Custom message to display when the event is full (optional). If left empty, the default message will be used.
+* **Note:** Only visible when "Is Full" is set to `true`
+
+#### Location
+
+* **Type:** Reference (`companyInformation`)
+* **Required:** No
+* **Purpose:** Location of the event
+
+#### Event Sessions
+
+* **Type:** Array
+* **Required:** No
+* **Purpose:** Sessions for this event
+
+Each session in the event sessions array contains:
+
+#### Session Title
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** Title of the session
+
+#### Start Time
+
+* **Type:** Datetime
+* **Required:** Yes
+* **Purpose:** Start time of the session
+* **Date Format:** DD.MM.YYYY
+* **Time Format:** HH:mm
+* **Time Step:** 15 minutes
+
+#### End Time
+
+* **Type:** Datetime
+* **Required:** Yes
+* **Purpose:** End time of the session
+* **Date Format:** DD.MM.YYYY
+* **Time Format:** HH:mm
+* **Time Step:** 15 minutes
+
+***
+
+### No Events Message
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Message to display when there are no events
+* **Example:**\
+  `Currently no events are scheduled`
+
+***
+
+### Background Color
+
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color for the entire section
+
+***
+
+## Usage Example
+
+### Typical Configuration
+
+* **Section Headline:** `Upcoming Events`
+* **Section Description:** `Here you'll find all current courses and appointments`
+* **Date Column Title:** `Date`
+* **Title Column Title:** `Course`
+* **Time Column Title:** `Time`
+* **Available Status Text:** `Spots available`
+* **Full Status Text:** `Fully booked`
+* **Events List:** Reference to an `eventsList` document
+* **No Events Message:** `Currently no events are scheduled`
+
+***
+
+## Best Practices
+
+* **Column titles:** Use clear, understandable column titles that match your content
+* **Status texts:** Use clear status texts that users can quickly understand
+* **Regular updates:** Keep the events list current with upcoming events
+* **Empty state:** Provide a friendly message when no events are available
+* **Consistency:** Use consistent terminology across all column titles and status texts
+* **Accessibility:** Ensure the table structure is accessible with proper headers
+
+***
+
+## Key Features
+
+* **Table format:** Events displayed in a clear, scannable table layout
+* **Status display:** Shows availability status for each event
+* **Centralized management:** Uses events list documents for centralized event management
+* **Customizable columns:** Column titles can be customized to match your needs
+* **Empty state handling:** Friendly message when no events are available
+
+***
+
+## Where It's Used
+
+* **Pages (`page`)**\
+  Event pages, course pages, and general content pages
+
+***
+
+## Technical Notes
+
+* Events are fetched from the referenced events list document
+* Table structure uses semantic HTML for accessibility
+* Background color references the global `backgroundColor` schema
+* Only enabled events are displayed in the table
