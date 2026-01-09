@@ -1,0 +1,113 @@
+---
+title: Artikel-Karussell
+description: Ein Inhaltsblock, der automatisch die neuesten Artikel in einem Karussell-Format anzeigt, perfekt für die Präsentation aktueller Nachrichten und Blog-Posts.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Artikel-Karussell** zeigt automatisch Ihre neuesten Artikel in einem interaktiven Karussell-Format an.  
+Er ruft die neuesten Inhalte basierend auf dem Veröffentlichungsdatum ab und ist perfekt geeignet, um Ihre Startseite oder Nachrichtenseiten frisch und aktuell zu halten, ohne manuelle Updates.
+
+<Aside>
+  **Ideal für:** Startseiten-Highlights, Nachrichtenbereiche, Blog-Vorschauen,
+  aktuelle Updates, Artikel-Präsentationen.
+</Aside>
+
+---
+
+## Felder
+
+### Überschrift
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Hauptüberschrift für den Karussell
+- **Maximale Länge:** 100 Zeichen
+- **Beispiel:**  
+  `Neueste Artikel` oder `Aktuelle Nachrichten`
+
+---
+
+### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Kurze Beschreibung oder Kontext, die unter der Überschrift angezeigt wird
+- **Maximale Länge:** 200 Zeichen
+- **Beispiel:**  
+  `Bleiben Sie auf dem Laufenden mit unseren neuesten Nachrichten und Einblicken`
+
+---
+
+### Maximale Artikel
+
+- **Typ:** Zahl
+- **Erforderlich:** Nein
+- **Zweck:** Steuert, wie viele der neuesten Artikel im Karussell angezeigt werden
+- **Standardwert:** 6
+- **Mindestwert:** 3
+- **Maximalwert:** 12
+- **Beispiel:**  
+  Auf `6` setzen, um die 6 neuesten Artikel anzuzeigen
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Überschrift:** `Neueste Artikel`
+- **Beschreibung:** `Bleiben Sie informiert mit unseren neuesten Nachrichten und Updates`
+- **Maximale Artikel:** `6`
+
+Das Karussell zeigt automatisch die 6 zuletzt veröffentlichten Artikel an, sortiert nach Veröffentlichungsdatum (neueste zuerst). Benutzer können durch das Karussell navigieren, um alle angezeigten Artikel zu durchsuchen.
+
+---
+
+## Best Practices
+
+- **Anzahl der Artikel:** 3-6 Artikel funktionieren am besten für optimale Anzeige und Benutzerengagement. Zu wenige können spärlich aussehen; zu viele können Benutzer überfordern
+- **Frische Inhalte:** Veröffentlichen Sie regelmäßig neue Artikel, um das Karussell dynamisch und ansprechend zu halten
+- **Relevanz:** Das Karussell zeigt automatisch die neuesten Artikel an, stellen Sie also sicher, dass Ihre neuesten Inhalte für Ihr Publikum relevant sind
+- **Überschriften:** Machen Sie Artikelüberschriften klar und überzeugend – sie sind das, was Benutzer zuerst im Karussell sehen
+- **Beschreibung:** Verwenden Sie das Beschreibungsfeld, um Kontext über die Arten von Artikeln zu geben, die Benutzer finden werden
+- **Hintergrundfarbe:** Verwenden Sie sparsam – stellen Sie sicher, dass ausreichend Kontrast für die Lesbarkeit vorhanden ist
+
+---
+
+## Hauptmerkmale
+
+- **Automatische Updates:** Keine manuelle Auswahl erforderlich – das Karussell ruft automatisch die neuesten Artikel ab
+- **Nach Datum sortiert:** Artikel werden immer mit den neuesten zuerst angezeigt
+- **Interaktive Navigation:** Benutzer können mit Karussell-Steuerelementen durch Artikel navigieren
+- **Responsive Design:** Das Karussell passt sich verschiedenen Bildschirmgrößen an
+- **Dynamischer Inhalt:** Inhalte aktualisieren sich automatisch, wenn neue Artikel veröffentlicht werden
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere Startseiten
+- **Nachrichtenseiten**  
+  Dedizierte Nachrichten- oder Blog-Übersichtsseiten
+
+---
+
+## Technische Hinweise
+
+- Artikel werden automatisch nach Veröffentlichungsdatum in absteigender Reihenfolge sortiert (neueste zuerst)
+- Das Karussell zeigt Artikel bis zur angegebenen maximalen Anzahl an
+- Nur veröffentlichte Artikel werden im Karussell angezeigt
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Das Karussell verwendet responsive Breakpoints für optimale Anzeige auf allen Geräten

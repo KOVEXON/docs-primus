@@ -1,0 +1,126 @@
+---
+title: Roadmap
+description: Ein Inhaltsblock zur Anzeige von Roadmaps und Zeitplänen in chronologischer Reihenfolge, perfekt für Projektpläne und Meilensteine.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Roadmap** zeigt Roadmaps, Zeitpläne oder Meilensteine in chronologischer Reihenfolge an. Perfekt für die Anzeige von Projektplänen, Entwicklungszeitplänen oder wichtigen Meilensteinen in einem klaren, visuellen Format.
+
+<Aside>
+  **Ideal für:** Projekt-Roadmaps, Zeitpläne, Meilensteine, Entwicklungspläne,
+  Zukunftspläne, chronologische Ereignisanzeigen.
+</Aside>
+
+---
+
+## Felder
+
+### Bereichsüberschrift
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Hauptüberschrift für den gesamten Roadmap
+- **Beispiel:**  
+  `Unsere Roadmap` oder `Entwicklungszeitplan`
+
+---
+
+### Bereichsbeschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Beschreibung für den Roadmap
+- **Beispiel:**  
+  `Unsere geplanten Meilensteine und Entwicklungen`
+
+---
+
+### Zeitplan-Elemente
+
+- **Typ:** Array von Zeitplan-Element-Objekten
+- **Erforderlich:** Nein
+- **Zweck:** Zeitplan-Elemente für die Roadmap
+
+Jedes Zeitplan-Element enthält:
+
+#### Titel
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Titel des Meilensteins oder Features
+- **Beispiel:**  
+  `Q1 2025: Produktstart` oder `Phase 1: Grundlage`
+
+#### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Detaillierte Beschreibung des Meilensteins
+- **Beispiel:**  
+  `Start unserer neuen Produktlinie mit erweiterten Features`
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Bereichsüberschrift:** `Unsere Roadmap`
+- **Bereichsbeschreibung:** `Unsere geplanten Meilensteine und Entwicklungen`
+- **Zeitplan-Elemente:**
+  1. **"Q1 2025: Produktstart"**
+     - Beschreibung: Start unserer neuen Produktlinie mit erweiterten Features
+  2. **"Q2 2025: Plattform-Update"**
+     - Beschreibung: Einführung neuer Plattform-Features und Verbesserungen
+  3. **"Q3 2025: Marktexpansion"**
+     - Beschreibung: Expansion in neue Märkte und Regionen
+
+---
+
+## Best Practices
+
+- **Chronologie:** Ordnen Sie Elemente in chronologischer Reihenfolge für Klarheit
+- **Klarheit:** Verwenden Sie klare, prägnante Titel, die den Meilenstein kommunizieren
+- **Beschreibungen:** Bieten Sie detaillierte, aber prägnante Beschreibungen
+- **Anzahl der Elemente:** 3-10 Elemente sind optimal für Lesbarkeit. Zu wenige rechtfertigen keine Roadmap; zu viele werden überwältigend
+- **Regelmäßige Updates:** Halten Sie die Roadmap mit tatsächlichem Fortschritt aktuell
+- **Konsistenz:** Verwenden Sie konsistente Datumsformate und Terminologie
+
+---
+
+## Hauptmerkmale
+
+- **Chronologische Anzeige:** Elemente werden in Zeitplan-Reihenfolge angezeigt
+- **Klare Struktur:** Titel und Beschreibung für jeden Meilenstein
+- **Visueller Zeitplan:** Zeitplan-Visualisierung für einfaches Verständnis
+- **Flexibler Inhalt:** Unterstützung für mehrere Zeitplan-Elemente (1-20 Elemente)
+- **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere Projekt- oder Entwicklungsseiten
+
+---
+
+## Technische Hinweise
+
+- Zeitplan-Elemente werden in der Reihenfolge angezeigt, in der sie im Array erscheinen
+- Elemente werden typischerweise in einem vertikalen Zeitplan-Format angezeigt
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Der Bereich verwendet semantisches HTML für Barrierefreiheit
+- Zeitplan-Visualisierung wird von der Frontend-Anwendung behandelt
+- Mindestens 1 Element und maximal 20 Elemente sind pro Roadmap erlaubt

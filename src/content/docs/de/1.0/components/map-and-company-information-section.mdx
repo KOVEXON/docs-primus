@@ -1,0 +1,130 @@
+---
+title: Karte und Unternehmensinformationen-Bereich
+description: Ein umfassender Bereich, der Unternehmenskontaktinformationen,
+  interaktive Karte und optionales Kontaktformular für vollständige Standort-
+  und Kontaktdaten kombiniert.
+slug: de/1.0/components/map-and-company-information-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskontaktdaten, eine interaktive Karte und ein optionales Kontaktformular in einem einzigen, umfassenden Bereich. Diese All-in-One-Komponente hilft Besuchern, Ihren Standort zu finden, Ihre Kontaktinformationen anzuzeigen und Kontakt aufzunehmen – alles an einem Ort.
+
+<Aside>
+  **Ideal für:** Kontaktseiten, Standortseiten, Unternehmensfinder-Seiten, Seiten
+  die vollständige Kontakt- und Standortinformationen erfordern.
+</Aside>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den gesamten Bereich
+* **Beispiel:**\
+  `Finden Sie uns` oder `Kontakt & Standort`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zeilen:** 3
+* **Zweck:** Kurze Beschreibung oder Kontext für den Bereich
+* **Beispiel:**\
+  `Besuchen Sie uns an unserem Standort oder kontaktieren Sie uns über das untenstehende Formular`
+
+***
+
+### Unternehmensinformationen
+
+* **Typ:** Referenz (`companyInformation`)
+* **Erforderlich:** Ja
+* **Zweck:** Referenz auf ein Unternehmensinformations-Dokument, das Kontaktdaten wie Adresse, Telefon, E-Mail und Geschäftszeiten enthält
+* **Hinweis:** Dies ist ein erforderliches Feld und muss auf ein bestehendes Unternehmensinformations-Dokument verweisen
+
+***
+
+### Karten-Bereich
+
+* **Typ:** Referenz (`mapSection`)
+* **Erforderlich:** Nein
+* **Zweck:** Optionale Referenz auf ein Karten-Bereich-Dokument zur Anzeige einer interaktiven Karte mit Ihrem Standort
+* **Hinweis:** Wenn bereitgestellt, zeigt es eine interaktive Karte mit Ihrem Geschäftsstandort an
+
+***
+
+### Kontaktformular-Bereich
+
+* **Typ:** Referenz (`contactFormSection`)
+* **Erforderlich:** Nein
+* **Zweck:** Optionales Kontaktformular, das neben den Unternehmensinformationen und der Karte angezeigt wird
+* **Beschreibung:** Optionales Kontaktformular, das auf der rechten Seite angezeigt wird
+* **Hinweis:** Wenn bereitgestellt, zeigt es ein Kontaktformular an, das es Besuchern ermöglicht, Anfragen direkt von der Seite aus zu senden
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Finden Sie uns`
+* **Beschreibung:** `Besuchen Sie uns an unserem Standort oder kontaktieren Sie uns über das untenstehende Formular`
+* **Unternehmensinformationen:** Referenz auf ein `companyInformation`-Dokument (z. B. "Hauptbüro - Innenstadt-Standort")
+* **Karten-Bereich:** Referenz auf ein `mapSection`-Dokument mit Koordinaten und Marker-Informationen
+* **Kontaktformular-Bereich:** Referenz auf ein `contactFormSection`-Dokument (optional)
+* **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt (optional)
+
+***
+
+## Best Practices
+
+* **Unternehmensinformationen:** Halten Sie Ihr Unternehmensinformations-Dokument aktuell – Änderungen spiegeln sich in allen Bereichen wider, die es verwenden
+* **Karten-Integration:** Fügen Sie immer einen Karten-Bereich für Unternehmen mit physischen Standorten hinzu, um Besuchern zu helfen, Sie leicht zu finden
+* **Kontaktformular:** Fügen Sie ein Kontaktformular hinzu, wenn Sie möchten, dass Besucher direkt von der Seite aus Kontakt aufnehmen können
+* **Vollständigkeit:** Stellen Sie sicher, dass alle Kontaktinformationen im Unternehmensinformations-Dokument vollständig und genau sind
+* **Layout:** Dieser Bereich funktioniert am besten, wenn alle drei Komponenten (Unternehmensinfo, Karte und Formular) zusammen für ein vollständiges Kontakterlebnis verwendet werden
+* **Hintergrundfarbe:** Verwenden Sie sparsam – hoher Kontrast kann die Lesbarkeit von Kontaktinformationen reduzieren
+
+***
+
+## Hauptmerkmale
+
+* **All-in-One-Lösung:** Kombiniert Unternehmensinformationen, Karte und Kontaktformular in einem einzigen Bereich
+* **Zentralisierte Verwaltung:** Unternehmensinformationen werden an einem Ort verwaltet und auf Seiten referenziert
+* **Interaktive Karte:** Optionaler Karten-Bereich zur visuellen Standortanzeige und Routenplanung
+* **Kontaktformular-Integration:** Optionales Kontaktformular für direkte Anfragen ohne die Seite zu verlassen
+* **Flexible Konfiguration:** Verwenden Sie jede Kombination aus Karte und Kontaktformular basierend auf Ihren Bedürfnissen
+* **Wiederverwendbar:** Kann auf mehreren Seiten mit derselben Unternehmensinformations-Referenz verwendet werden
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Kontaktseiten, Standortseiten und allgemeine Inhaltsseiten, die vollständige Kontakt- und Standortinformationen erfordern
+
+***
+
+## Technische Hinweise
+
+* Unternehmensinformationen verweisen auf das globale `companyInformation`-Schema und sind erforderlich
+* Karten-Bereich verweist auf das globale `mapSection`-Schema und ist optional
+* Kontaktformular-Bereich verweist auf das globale `contactFormSection`-Schema und ist optional
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Alle drei Komponenten (Unternehmensinfo, Karte, Formular) können zusammen oder unabhängig basierend auf der Konfiguration verwendet werden
+* Der Bereich zeigt Unternehmensinformationen, Karte und Kontaktformular in einem koordinierten Layout an

@@ -1,0 +1,174 @@
+---
+title: Tabs-Bereich
+description: Ein Inhaltsblock mit Tab-Navigation für strukturierte,
+  kategorisierte Inhalte, perfekt für die Organisation verwandter Informationen
+  in klaren Bereichen.
+slug: de/1.0/components/tabs-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Tabs-Bereich** organisiert Inhalte in verschiedene Tabs mit Tab-Navigation. Er ist perfekt für strukturierte, kategorisierte Informationen, die von einer klaren, organisierten Präsentation profitieren, bei der nur ein Bereich gleichzeitig sichtbar ist.
+
+<Aside>
+  **Ideal für:** Kategorisierte Inhalte, Produktdetails, Serviceseiten, Preis
+  Vergleiche, Informationsseiten, Feature-Präsentationen.
+</Aside>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Hauptüberschrift für den gesamten Tabs-Bereich
+* **Beispiel:**\
+  `Unsere Service-Pakete` oder `Service-Optionen`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibung für den Tabs-Bereich
+* **Maximale Länge:** 500 Zeichen
+* **Beispiel:**\
+  `Wählen Sie das richtige Service-Paket für Ihre Bedürfnisse`
+
+***
+
+### Elemente
+
+* **Typ:** Array von Objekten
+* **Erforderlich:** Ja (mindestens 1)
+* **Zweck:** Liste der Tab-Elemente, die als Tabs angezeigt werden
+
+Jedes Tab-Element enthält:
+
+#### Elementüberschrift
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Überschrift des Tabs (wird als Tab-Label angezeigt)
+* **Beispiel:**\
+  `Basis-Paket`
+
+#### Icon (nur mobile Version)
+
+* **Typ:** Lucide Icon
+* **Erforderlich:** Nein
+* **Zweck:** Optionales Icon (nur mobile Version)
+* **Quelle:** Lucide Icon-Bibliothek
+* **Beispiele:** Package, Star, Crown, Building
+
+#### Inhalt
+
+* **Typ:** Rich Text Section (`richTextSection`)
+* **Erforderlich:** Ja
+* **Zweck:** Rich-Text-Inhalt, der im aktiven Tab angezeigt wird
+* **Hinweis:** Unterstützt vollständige Formatierung, Bilder, Links usw.
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Unsere Service-Pakete`
+* **Beschreibung:** `Wählen Sie das richtige Service-Paket für Ihre Bedürfnisse`
+* **Elemente (Tabs):**
+  1. **"Basis-Paket"** (Package-Icon)
+     * Inhalt: Details zum Basis-Paket mit wesentlichen Dienstleistungen
+  2. **"Standard-Paket"** (Star-Icon)
+     * Inhalt: Umfassende Dienstleistungen mit zusätzlichen Features
+  3. **"Premium-Paket"** (Crown-Icon)
+     * Inhalt: Erweiterte Lösungen für Unternehmen
+  4. **"Enterprise-Paket"** (Building-Icon)
+     * Inhalt: Vollständige Lösungen mit dediziertem Support
+
+***
+
+## Best Practices
+
+* **Überschrift:** Verwenden Sie prägnante, aussagekräftige Überschriften für jeden Tab
+* **Kategorisierung:** Gruppieren Sie verwandte Inhalte logisch in Tabs
+* **Icons:** Verwenden Sie Icons konsistent und nur, wenn sie einen Mehrwert bieten (nur mobile Version)
+* **Inhaltslänge:** Halten Sie den Inhalt pro Tab fokussiert und ausgewogen
+* **Anzahl:** 3-5 Tabs sind optimal für die Benutzererfahrung
+* **Äquivalenz:** Tabs sollten äquivalente Inhalte enthalten
+* **Hintergrundfarbe:** Verwenden Sie Hintergrundfarben sparsam, um Lesbarkeit sicherzustellen
+
+***
+
+## Hauptmerkmale
+
+* **Tab-Navigation:** Organisierte Inhaltsanzeige mit Tab-Wechsel
+* **Rich-Text-Inhalt:** Vollständige Formatierungsmöglichkeiten innerhalb jedes Tabs
+* **Optionale Icons:** Visuelle Unterstützung nur für mobile Version
+* **Strukturierte Anzeige:** Ideal für kategorisierte, äquivalente Inhalte
+* **Platzsparend:** Layout durch Tab-Navigation
+* **Interaktiv:** Benutzer können zwischen Tabs wechseln
+* **Barrierefrei:** Tastaturnavigation-Unterstützung
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Service- und Produktseiten
+
+***
+
+## Technische Hinweise
+
+* Nur ein Tab ist gleichzeitig aktiv
+* Inhalt verwendet den Typ `richTextSection` für vollständige Formatierungsmöglichkeiten
+* Icons (nur mobile Version) stammen aus der Lucide Icon-Bibliothek
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Der Bereich unterstützt Tastaturnavigation für Barrierefreiheit
+
+***
+
+## Unterschiede zu anderen Inhaltsblöcken
+
+| Feature         | Tabs-Bereich     | Accordion-Bereich   |
+| --------------- | ---------------- | ------------------- |
+| Struktur       | Fest (Tabs)     | Fest (Accordion)   |
+| Navigation      | Tab-Navigation   | Erweiterbar          |
+| Sichtbarkeit      | Ein Tab aktiv   | Mehrere erweiterbar |
+| Rich Text       | Ja (pro Tab)    | Ja (pro Element)      |
+| Icons           | Nein               | Ja (optional)      |
+| Überschriften       | Ja (pro Tab)    | Ja (pro Element)      |
+| Platzsparend | Ja              | Ja                 |
+| Verwendung           | Kategorisierte Informationen | Strukturierte Informationen     |
+
+***
+
+## Wann Tabs vs. Accordion verwenden
+
+### Verwenden Sie Tabs-Bereich, wenn:
+
+* Inhalte äquivalent und kategorisiert sind
+* Nur ein Bereich gleichzeitig sichtbar sein sollte
+* Inhalte thematisch zusammengehören
+* Klare Navigation wichtig ist
+
+### Verwenden Sie Accordion-Bereich, wenn:
+
+* Inhalte hierarchisch strukturiert sind
+* Mehrere Bereiche gleichzeitig sichtbar sein können
+* Inhalte in der Länge variieren
+* Erweiterbare Bereiche bevorzugt werden

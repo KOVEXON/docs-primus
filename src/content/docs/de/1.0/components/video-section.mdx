@@ -1,0 +1,131 @@
+---
+title: Video-Bereich
+description: Ein Inhaltsblock zum Einbetten von Videos mit optionaler
+  Überschrift, Beschreibung und Poster-Bild für ansprechende Videoinhalte.
+slug: de/1.0/components/video-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Video-Bereich** ermöglicht es Ihnen, Videoinhalte mit einer optionalen Überschrift, Beschreibung und Poster-Bild einzubetten.\
+Er ist ideal für die Erklärung von Konzepten, Präsentation von Prozessen, Teilen von Testimonials oder das Hinzufügen ansprechender Multimedia-Inhalte zu Ihren Seiten.
+
+<Aside>
+  **Ideal für:** Erklärungsvideos, Tutorials, Unternehmenspräsentationen, Veranstaltungs
+  Highlights und Anleitungsinhalte.
+</Aside>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Maximale Länge:** 120 Zeichen
+* **Zweck:** Hauptüberschrift für den Video-Bereich
+* **Beispiele:**\
+  `Wie unser Service funktioniert`, `Unser Prozess`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text (3 Zeilen)
+* **Erforderlich:** Nein
+* **Zweck:** Unterstützender Text, der den Videoinhalt beschreibt
+* **Beispiel:**\
+  `Sehen Sie, wie unser Service in der Praxis funktioniert`
+
+***
+
+### Video-Datei
+
+* **Typ:** Datei
+* **Erforderlich:** Nein
+* **Akzeptierte Formate:** `video/*` (MP4, WebM usw.)
+* **Zweck:** Hochgeladene Video-Datei
+
+***
+
+### Video-URL (Alternative)
+
+* **Typ:** URL
+* **Erforderlich:** Nein
+* **Zweck:** Alternative zum Datei-Upload; bettet ein Video über direkte URL ein
+* **Beispiel:**\
+  URL zu einem Video-Hosting-Service
+
+> Entweder **Video-Datei** oder **Video-URL** sollte bereitgestellt werden.
+
+***
+
+### Poster-Bild
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Optionen:** Hotspot aktiviert
+* **Zweck:** Thumbnail-Bild, das angezeigt wird, bevor das Video abgespielt wird
+* **Best Practice:** Verwenden Sie ein repräsentatives Bild, das den Videoinhalt klar widerspiegelt
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe des Video-Bereichs fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Wie unser Service funktioniert`
+* **Beschreibung:** `Sehen Sie, wie unser Service in der Praxis funktioniert`
+* **Video:**
+  * Hochgeladene MP4-Datei **oder**
+  * Direkte Video-URL
+* **Poster-Bild:** Thumbnail, das den Service oder Prozess repräsentiert
+
+***
+
+## Best Practices
+
+* **Videoformat:** Verwenden Sie MP4 für maximale Browser-Kompatibilität.
+* **Poster-Bild:** Bieten Sie immer ein aussagekräftiges Thumbnail an.
+* **Optimierung:** Komprimieren Sie Videos für schnelles Laden ohne Qualitätsverlust.
+* **Beschreibung:** Fügen Sie Kontext hinzu, damit Benutzer wissen, was sie erwartet.
+* **Überschrift:** Halten Sie sie klar und beschreibend (max. 120 Zeichen).
+* **Barrierefreiheit:** Bieten Sie Untertitel oder Transkripte nach Möglichkeit an.
+
+***
+
+## Hauptmerkmale
+
+* **Flexible Quellen:** Unterstützt hochgeladene Videos und externe URLs
+* **Poster-Bild:** Verbessert visuelle Präsentation und Engagement
+* **Hotspot-Unterstützung:** Bessere Kontrolle über Poster-Bild-Zuschneidung
+* **Responsive:** Video skaliert reibungslos über verschiedene Bildschirmgrößen
+* **Semantisches Markup:** Verwendet HTML5-Video-Elemente
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Serviceseiten, Über-Seiten und allgemeine Inhaltsseiten
+
+***
+
+## Technische Hinweise
+
+* Videos können direkt hochgeladen oder über URL eingebettet werden
+* Poster-Bild erscheint vor dem Abspielen
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Verwendet semantische HTML5-Video-Elemente für Barrierefreiheit
+* Videos sind für Web-Wiedergabe optimiert

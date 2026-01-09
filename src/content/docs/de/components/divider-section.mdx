@@ -1,0 +1,114 @@
+---
+title: Trennlinien
+description: Ein einfacher Inhaltsblock, der eine visuelle Trennung oder Abstand zwischen anderen Inhaltsblöcken schafft.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import DividerSectionOverview from "../../../../assets/divider-section.png";
+
+## Übersicht
+
+Der **Trennlinien** ist ein minimaler Inhaltsblock, der visuelle Trennung oder Abstand zwischen anderen Inhaltsbereichen schafft.  
+Verwenden Sie ihn sparsam, um lange Inhalte aufzulockern oder klare visuelle Grenzen zwischen verschiedenen Themen zu schaffen.
+
+<Aside>
+  **Ideal für:** Visuelle Trennung zwischen Inhaltsbereichen, Abstand schaffen,
+  Seitenlayouts strukturieren, lange Bereiche auflockern.
+</Aside>
+
+---
+
+## Felder
+
+<figure style="text-align: center;">
+  <img
+    src={DividerSectionOverview.src}
+    alt="Die Trennlinien-Felder in Sanity Studio"
+  />
+  <figcaption>
+    <em>Die Trennlinien-Felder in Sanity Studio</em>
+  </figcaption>
+</figure>
+
+### Trennlinie anzeigen
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Umschalter zum Anzeigen oder Ausblenden der Trennlinie
+- **Standardwert:** `false`
+
+---
+
+### Trennlinien-Breite
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Steuert die Breite der Trennlinie
+- **Standardwert:** `100%`
+- **Optionen:**
+  - `100%` – Volle Breite
+  - `Container-Breite (max-w-6xl)` – Container-Breite
+  - `Benutzerdefinierte Breite` – Benutzerdefinierter Breitenwert
+
+---
+
+### Benutzerdefinierte Breite
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Benutzerdefinierter CSS-Breitenwert (z. B. "400px", "50vw", "20rem"). Wird nur verwendet, wenn die Breite auf "Benutzerdefinierte Breite" gesetzt ist
+- **Hinweis:** Nur sichtbar, wenn "Trennlinien-Breite" auf `Benutzerdefinierte Breite` gesetzt ist
+- **Beispiel:**  
+  `400px`, `50vw` oder `20rem`
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Trennlinie anzeigen:** `true`
+- **Trennlinien-Breite:** `100%`
+
+Für Abstand ohne sichtbare Linie:
+
+- **Trennlinie anzeigen:** `false`
+- **Trennlinien-Breite:** `100%`
+
+---
+
+## Best Practices
+
+- **Sparsam:** Verwenden Sie Trennlinien sparsam, um die Lesbarkeit zu erhalten – zu viele können Inhalte fragmentiert wirken lassen
+- **Konsistenz:** Verwenden Sie konsistente Breiten innerhalb einer Seite für visuelle Harmonie
+- **Zweck:** Haben Sie einen klaren Zweck für jede Trennlinie (Trennung oder Abstand)
+- **Kontext:** Überlegen Sie, ob eine Trennlinie einen Mehrwert bietet oder ob die Inhaltsstruktur denselben Effekt erzielen könnte
+- **Breite:** Volle Breite funktioniert am besten für klare Bereichsunterbrechungen; Container-Breite für subtile Trennung
+
+---
+
+## Hauptmerkmale
+
+- **Einfach und flexibel:** Minimale Konfiguration für maximale Flexibilität
+- **Visuelle Trennung:** Klare visuelle Grenzen zwischen Inhaltsbereichen
+- **Abstandskontrolle:** Kann Abstand ohne sichtbare Linie schaffen
+- **Breitenoptionen:** Mehrere Breitenoptionen für verschiedene Designanforderungen
+- **Leichtgewichtig:** Minimaler Einfluss auf die Seitenleistung
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten für Bereichstrennung
+- **Rechtliche Seiten (`legalPage`)**  
+  Rechtliche Seiten, die klare Bereichsunterbrechungen erfordern
+
+---
+
+## Technische Hinweise
+
+- Benutzerdefinierte Breite akzeptiert jeden gültigen CSS-Breitenwert (px, vw, rem, % usw.)
+- Wenn die Trennlinie ausgeblendet ist, erzeugt der Bereich dennoch Abstand
+- Hintergrundfarbe ist für diesen Bereich nicht konfigurierbar
+- Die Trennlinie verwendet semantisches HTML für Barrierefreiheit

@@ -1,0 +1,136 @@
+---
+title: Download
+description: Ein Download für Dokumente mit Filter- und Suchfunktionen für einfaches Dokumentenmanagement.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Download** ruft automatisch Dokumente ab und zeigt sie in einer organisierten, durchsuchbaren Oberfläche an.  
+Mit Kategoriefiltern und Suchfunktion können Besucher schnell die benötigten Dokumente finden – von Formularen und Materialien bis hin zu rechtlichen Dokumenten.
+
+<Aside>
+  **Ideal für:** Dokumentenbibliotheken, Formular-Downloads,
+  Schulungsmaterialien, rechtliche Dokumente (Bedingungen,
+  Datenschutzerklärungen), Ressourcenzentren.
+</Aside>
+
+---
+
+## Felder
+
+### Überschrift
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Hauptüberschrift für den Download
+- **Standardwert:** `Downloads`
+- **Maximale Länge:** 100 Zeichen
+- **Beispiel:**  
+  `Downloads` oder `Dokumentenbibliothek`
+
+---
+
+### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Beschreibung für den Download
+- **Standardwert:** `Laden Sie unsere neuesten Dokumente, Formulare und Materialien herunter.`
+- **Maximale Länge:** 500 Zeichen
+
+---
+
+### Dokumente automatisch abrufen
+
+- **Typ:** Boolean
+- **Erforderlich:** Ja
+- **Zweck:** Ruft automatisch alle aktiven Dokumente ab, um sie im Download anzuzeigen
+- **Standardwert:** `true`
+
+---
+
+### Kategorien anzeigen
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Zeigt die Kategoriefilter an
+- **Standardwert:** `true`
+
+---
+
+### Dokumente pro Seite
+
+- **Typ:** Zahl
+- **Erforderlich:** Nein
+- **Zweck:** Anzahl der gleichzeitig angezeigten Dokumente
+- **Standardwert:** 12
+- **Mindestwert:** 6
+- **Maximalwert:** 50
+
+---
+
+### Suche aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Ermöglicht die Suche durch Dokumente
+- **Standardwert:** `true`
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Überschrift:** `Downloads`
+- **Beschreibung:** `Hier finden Sie alle wichtigen Dokumente und Formulare`
+- **Dokumente automatisch abrufen:** `true`
+- **Kategorien anzeigen:** `true`
+- **Dokumente pro Seite:** `12`
+- **Suche aktivieren:** `true`
+- **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt
+
+---
+
+## Best Practices
+
+- **Kategorien:** Verwenden Sie aussagekräftige Kategorien für bessere Organisation und Benutzererfahrung
+- **Dokumente pro Seite:** 12-24 Dokumente pro Seite sind optimal für Leistung und Benutzerfreundlichkeit
+- **Suche:** Aktivieren Sie die Suche für große Dokumentensammlungen, um Benutzern zu helfen, das zu finden, was sie benötigen
+- **Regelmäßige Updates:** Halten Sie Dokumente aktuell und entfernen Sie veraltete Dateien
+
+---
+
+## Hauptmerkmale
+
+- **Automatisches Abrufen:** Alle aktiven Dokumente werden automatisch abgerufen und angezeigt
+- **Kategoriefilterung:** Dokumente nach Kategorie filtern für einfache Navigation
+- **Suchfunktion:** Durch Dokumente suchen
+- **Paginierung:** Dokumente werden in Seiten angezeigt für bessere Leistung
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere Ressourcen- oder Dokumentenseiten
+
+---
+
+## Technische Hinweise
+
+- Dokumente werden automatisch aus dem `downloadDocument`-Schema abgerufen
+- Nur aktive Dokumente werden angezeigt
+- Suchfunktion ermöglicht die Suche durch Dokumente
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Paginierung wird automatisch basierend auf der Einstellung "Dokumente pro Seite" behandelt

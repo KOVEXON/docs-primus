@@ -1,0 +1,273 @@
+---
+title: Bildslider-Bereich ZWEI
+description: Ein karussellbasierter Bildslider mit mehreren Slides, perfekt für
+  die Präsentation mehrerer Botschaften oder Angebote auf Ihren Seiten.
+slug: de/1.0/components/image-slider-section-two
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Der **Bildslider-Bereich ZWEI** ist ein karussellbasierter Bildslider, der mehrere Slides mit Bildern, Text und Call-to-Action-Buttons unterstützt. Er ist ideal für Seiten, die mehrere Botschaften oder Angebote präsentieren möchten, die automatisch oder manuell durch verschiedene Inhalte rotieren.
+
+<Aside>
+  **Ideal für:** Startseiten mit mehreren Angeboten, Marketing-Kampagnen, Produkt
+  Präsentationen, Veranstaltungs-Highlights, rotierende Aktionen.
+</Aside>
+
+## Felder
+
+### Slides
+
+* **Typ:** Array von Slide-Objekten
+* **Erforderlich:** Ja
+* **Zweck:** Konfiguration der Slides für den Bildslider
+* **Mindestanzahl:** 1
+* **Maximalanzahl:** 10
+
+Jeder Slide enthält:
+
+#### Slide-Bild
+
+* **Typ:** Bild
+* **Erforderlich:** Ja
+* **Zweck:** Hauptbild für diesen Slide
+* **Optionen:** Hotspot aktiviert für optimale Zuschneidung und Fokuspunktkontrolle
+
+***
+
+#### Titel
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Überschrift, die auf dem Slide angezeigt wird
+* **Maximale Länge:** 100 Zeichen
+
+***
+
+#### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Ja
+* **Zeilen:** 3
+* **Zweck:** Beschreibungstext, der auf dem Slide angezeigt wird
+* **Maximale Länge:** 300 Zeichen
+
+***
+
+#### Call-to-Action-Button anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen eines Call-to-Action-Buttons auf diesem Slide
+* **Standardwert:** `false`
+
+***
+
+#### Call-to-Action-Button
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Button-Konfiguration für den Slide
+* **Hinweis:** Nur sichtbar, wenn "Call-to-Action-Button anzeigen" aktiviert ist
+
+Jeder Button enthält:
+
+##### Button-Text (label)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Text, der auf dem Button angezeigt wird
+
+##### Relativer Link (link)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Relativer Pfad (z. B., `/contact`, `/services`)
+* **Validierung:** Muss mit `/` beginnen
+* **Beispiel:**\
+  `/contact` oder `/services`
+
+### Slider-Verhalten
+
+#### Autoplay aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Automatisch zum nächsten Slide wechseln
+* **Standardwert:** `true`
+
+***
+
+#### Autoplay-Geschwindigkeit
+
+* **Typ:** Zahl
+* **Erforderlich:** Nein
+* **Zweck:** Sekunden zwischen automatischen Slide-Übergängen (1-30 Sekunden)
+* **Standardwert:** 5
+* **Mindestwert:** 1
+* **Maximalwert:** 30
+* **Hinweis:** Nur sichtbar, wenn "Autoplay aktivieren" aktiviert ist
+
+***
+
+#### Navigationspunkte anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Klickbare Punkte unter dem Slider für Navigation anzeigen
+* **Standardwert:** `true`
+
+### Visuelle Einstellungen
+
+#### Slider-Höhe
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Steuert die Höhe des Sliders
+* **Standardwert:** `large`
+* **Optionen:**
+  * `small` – Klein (30vh)
+  * `medium` – Mittel (50vh)
+  * `large` – Groß (70vh)
+  * `fullscreen` – Vollbild (100vh)
+  * `custom` – Benutzerdefinierte Höhe
+
+***
+
+#### Benutzerdefinierte Höhe
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierter CSS-Höhenwert (z. B. "400px", "50vh", "20rem"). Wird nur verwendet, wenn die Höhe auf "Benutzerdefinierte Höhe" gesetzt ist
+* **Hinweis:** Nur sichtbar, wenn "Slider-Höhe" auf `custom` gesetzt ist
+* **Validierung:** Muss ein gültiger CSS-Höhenwert sein (unterstützt px, vh, vw, rem, em, % oder auto)
+* **Beispiel:**\
+  `400px`, `50vh` oder `20rem`
+
+***
+
+#### Slider-Breite
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Steuert die Breite des Bildsliders
+* **Standardwert:** `100%`
+* **Optionen:**
+  * `100%` – Volle Breite
+  * `50%` – Halbe Breite
+  * `custom` – Benutzerdefinierte Breite
+
+***
+
+#### Benutzerdefinierte Breite
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierter CSS-Breitenwert (z. B. "400px", "50vw", "20rem"). Wird nur verwendet, wenn die Breite auf "Benutzerdefinierte Breite" gesetzt ist
+* **Hinweis:** Nur sichtbar, wenn "Slider-Breite" auf `custom` gesetzt ist
+* **Validierung:** Muss ein gültiger CSS-Breitenwert sein
+* **Beispiel:**\
+  `400px`, `50vw` oder `20rem`
+
+***
+
+#### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den Slider fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Slides:**
+  1. **Slide 1:**
+     * Bild: Modernes Büro oder Einrichtung
+     * Titel: `Professionelle Dienstleistungen`
+     * Beschreibung: Professionelle Dienstleistungen mit modernen Lösungen und erfahrenen Teammitgliedern
+     * Call-to-Action-Button anzeigen: `true`
+     * Call-to-Action-Button: "Jetzt anmelden" → `/registration`
+  2. **Slide 2:**
+     * Bild: Produkt oder Service
+     * Titel: `Nachhaltige Lösungen`
+     * Beschreibung: Entdecken Sie unsere umweltfreundlichen und nachhaltigen Lösungen
+     * Call-to-Action-Button anzeigen: `true`
+     * Call-to-Action-Button: "Mehr erfahren" → `/solutions`
+  3. **Slide 3:**
+     * Bild: Team oder Gruppe
+     * Titel: `Premium-Pakete`
+     * Beschreibung: Erzielen Sie schnell Ergebnisse mit unseren bewährten Premium-Paketen
+     * Call-to-Action-Button anzeigen: `true`
+     * Call-to-Action-Button: "Pakete ansehen" → `/packages`
+* **Autoplay aktivieren:** `true`
+* **Autoplay-Geschwindigkeit:** `5` Sekunden
+* **Navigationspunkte anzeigen:** `true`
+* **Slider-Höhe:** `large` (70vh)
+* **Slider-Breite:** `100%`
+* **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt
+
+***
+
+## Best Practices
+
+* **Anzahl der Slides:** 3-5 Slides sind optimal für die Benutzererfahrung – zu wenige rechtfertigen kein Karussell, zu viele können überfordern
+* **Slide-Inhalt:** Jeder Slide sollte eine klare, fokussierte Botschaft haben
+* **Bilder:** Verwenden Sie hochwertige, aussagekräftige Bilder, die die Botschaft unterstützen
+* **Textlängen:** Halten Sie Titel kurz (max. 100 Zeichen), Beschreibungen prägnant (max. 300 Zeichen)
+* **Autoplay-Geschwindigkeit:** 5-7 Sekunden sind ein gutes Gleichgewicht zwischen Aufmerksamkeit und Informationsbereitstellung
+* **Navigation:** Aktivieren Sie Navigationspunkte für bessere Benutzerfreundlichkeit
+* **Höhe:** "Groß" (70vh) ist optimal für die meisten Fälle; verwenden Sie "Vollbild" sparsam
+
+***
+
+## Hauptmerkmale
+
+* **Karussell-Funktionalität:** Unterstützt 1-10 Slides mit automatischer oder manueller Navigation
+* **Flexible Größen:** Verschiedene vordefinierte Höhen oder benutzerdefinierte CSS-Werte
+* **Autoplay:** Automatische Slide-Übergänge mit konfigurierbarer Geschwindigkeit
+* **Navigation:** Klickbare Punkte für direkte Navigation zu einem bestimmten Slide
+* **Hotspot-Bilder:** Slide-Bilder unterstützen Hotspot-Funktion für bessere Bildbearbeitung
+* **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere wenn mehrere Angebote oder Botschaften präsentiert werden sollen
+
+***
+
+## Technische Hinweise
+
+* Slides werden in Reihenfolge angezeigt, wobei der erste Slide zunächst angezeigt wird
+* CTA-Buttons werden inline konfiguriert (nicht als Referenzen) mit erforderlichen `label`- (Button-Text) und `link`- (relativer Link) Feldern
+* Navigationspunkte zeigen den aktuellen Slide an
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Benutzerdefinierte Höhe und Breite akzeptieren jeden gültigen CSS-Wert (px, vh, vw, rem, em, % oder auto)
+* Benutzerdefinierte Höhen- und Breitenfelder werden validiert, um ordnungsgemäßes CSS-Format sicherzustellen
+* Der Slider erfordert mindestens 1 Slide und unterstützt bis zu 10 Slides
+
+***
+
+## Unterschiede zu Bildslider-Bereich EINS
+
+| Feature                  | Bildslider-Bereich EINS                 | Bildslider-Bereich ZWEI              |
+| ------------------------ | ---------------------------------------- | ------------------------------------- |
+| Globale Inhalte           | Ja (Titel, Beschreibung, CTA, Ausrichtung) | Nein                                    |
+| Globaler CTA-Button        | Ja (optional)                           | Nein                                    |
+| Globale Inhaltsausrichtung | Ja (Links/Rechts)                         | Nein                                    |
+| Slide-spezifischer CTA       | Ja (optional, pro Slide)                | Ja (optional, pro Slide)             |
+| Slide-Inhaltsausrichtung  | Ja (optional, pro Slide)                | Nein                                    |
+| Slide-Überschriften          | Optional (überschreibt globalen Titel)        | Erforderlich (max. 100 Zeichen)         |
+| Slide-Beschreibungen       | Optional (überschreibt globale Beschreibung)  | Erforderlich (max. 300 Zeichen, 3 Zeilen) |
+| Bildlinks              | Ja (klickbare Bilder mit URL)          | Nein                                    |
+| Bildunterschriften           | Ja (optional)                           | Nein                                    |
+| Alt-Text                 | Erforderlich (min 1, max 125 Zeichen)     | Erforderlich (gleich)                       |
+| Slide-Anzahl              | 1-10 Slides (mindestens 1)                  | 1-10 Slides (mindestens 1)               |
+| Struktur                | Globale + slide-spezifische Inhalte          | Nur Slide-Inhalte                    |
+| Anwendungsfall                 | Inhalte mit gemeinsamen globalen Elementen      | Unabhängige Slide-Inhalte             |
+| Komplexität               | Flexibler, unterstützt globale Standardwerte  | Einfacher, slide-fokussiert                |

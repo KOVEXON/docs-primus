@@ -1,0 +1,357 @@
+---
+title: Bildslider-Bereich EINS
+description: Ein flexibler Bildslider mit globalen und slide-spezifischen
+  Inhalten, Autoplay und Navigationsoptionen für dynamische Präsentationen.
+slug: de/1.0/components/image-slider-section-one
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+Der **Bildslider-Bereich** ist ein flexibler Bildslider, der globale Inhalte (geteilt über alle Slides) mit slide-spezifischen Inhalten kombiniert. Mit Autoplay-Funktionalität und umfangreichen Konfigurationsoptionen ist er perfekt für die Erstellung dynamischer, ansprechender Präsentationen.
+
+<Aside>
+  **Ideal für:** Hero-Bereiche, Produktpräsentationen, Veranstaltungs-Highlights,
+  Testimonials mit Bildern, rotierende Inhaltsanzeigen.
+</Aside>
+
+## Felder
+
+### Globale Slider-Inhalte
+
+#### Slider-Titel
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Titel, der auf allen Slides erscheint
+
+***
+
+#### Slider-Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Kurze Beschreibung, die auf allen Slides erscheint
+
+***
+
+#### Call-to-Action-Button anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen eines Call-to-Action-Buttons auf allen Slides
+* **Standardwert:** `false`
+
+***
+
+#### Call-to-Action-Button
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Globale CTA-Button-Konfiguration für alle Slides
+* **Hinweis:** Nur sichtbar, wenn "Call-to-Action-Button anzeigen" aktiviert ist
+
+Jeder Button enthält:
+
+##### Button-Text (label)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Text, der auf dem Button angezeigt wird
+
+##### Relativer Link (link)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Relativer Pfad (z. B., `/contact`, `/services`)
+* **Validierung:** Muss mit `/` beginnen
+* **Beispiel:**\
+  `/contact` oder `/services`
+
+***
+
+#### Inhaltsausrichtung
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Ausrichtung des Textinhalts auf den Slides
+* **Standardwert:** `left`
+* **Optionen:**
+  * `left` – Links
+  * `right` – Rechts
+
+***
+
+### Einzelne Slide-Konfiguration
+
+#### Slides
+
+* **Typ:** Array von Slider-Bild-Objekten
+* **Erforderlich:** Ja
+* **Zweck:** Konfiguration einzelner Slides
+* **Mindestanzahl:** 1
+* **Maximalanzahl:** 10
+
+Jeder Slide enthält:
+
+##### Slide-Bild
+
+* **Typ:** Bild
+* **Erforderlich:** Ja
+* **Zweck:** Hauptbild für diesen Slide
+* **Optionen:** Hotspot aktiviert für optimale Zuschneidung und Fokuspunktkontrolle
+
+##### Alt-Text
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Beschreibender Text für Screenreader und SEO
+* **Mindestlänge:** 1 Zeichen
+* **Maximale Länge:** 125 Zeichen
+
+##### Bildunterschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Kurze Bildunterschrift
+
+##### Bildlink aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter, um das gesamte Bild klickbar zu machen
+* **Standardwert:** `false`
+
+##### Bildlink
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Klickbare Link-Konfiguration für das gesamte Bild
+* **Hinweis:** Nur sichtbar, wenn "Bildlink aktivieren" aktiviert ist
+
+Jeder Bildlink enthält:
+
+###### URL (url)
+
+* **Typ:** URL
+* **Erforderlich:** Ja
+* **Zweck:** Externer Link beim Klicken auf das Bild
+* **Hinweis:** Muss eine vollständige URL sein (z. B., `https://example.com`)
+
+###### In neuem Tab öffnen (openInNewTab)
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Link in neuem Tab öffnen
+* **Standardwert:** `false`
+
+##### Slide-Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierte Überschrift für diesen Slide (überschreibt globalen Titel)
+
+##### Slide-Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierte Beschreibung für diesen Slide (überschreibt globale Beschreibung)
+
+##### Call-to-Action-Button anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen eines Call-to-Action-Buttons auf diesem Slide
+* **Standardwert:** `false`
+
+##### Call-to-Action-Button
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Slide-spezifische CTA-Button-Konfiguration
+* **Hinweis:** Nur sichtbar, wenn "Call-to-Action-Button anzeigen" aktiviert ist
+
+Jeder Button enthält:
+
+###### Button-Text (label)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Text, der auf dem Button angezeigt wird
+
+###### Relativer Link (link)
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Relativer Pfad (z. B., `/contact`, `/services`)
+* **Validierung:** Muss mit `/` beginnen
+* **Beispiel:**\
+  `/contact` oder `/services`
+
+##### Inhaltsausrichtung
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Ausrichtung des Textinhalts auf diesem Slide
+* **Standardwert:** `left`
+* **Optionen:**
+  * `left` – Links
+  * `right` – Rechts
+
+***
+
+### Slider-Verhaltenseinstellungen
+
+#### Autoplay aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Automatisch zum nächsten Slide wechseln
+* **Standardwert:** `true`
+
+***
+
+#### Autoplay-Geschwindigkeit
+
+* **Typ:** Zahl
+* **Erforderlich:** Nein
+* **Zweck:** Sekunden zwischen automatischen Slide-Übergängen
+* **Standardwert:** 5
+* **Mindestwert:** 1
+* **Maximalwert:** 30
+* **Hinweis:** Nur sichtbar, wenn "Autoplay aktivieren" aktiviert ist
+
+***
+
+#### Navigationspunkte anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Klickbare Punkte unter dem Slider für Navigation anzeigen
+* **Standardwert:** `true`
+
+***
+
+### Visuelle Einstellungen
+
+#### Slider-Höhe
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Steuert die Höhe des Bildsliders
+* **Standardwert:** `large`
+* **Optionen:**
+  * `small` – Klein (30vh)
+  * `medium` – Mittel (50vh)
+  * `large` – Groß (70vh)
+  * `fullscreen` – Vollbild (100vh)
+  * `custom` – Benutzerdefinierte Höhe
+
+***
+
+#### Benutzerdefinierte Höhe
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierter CSS-Höhenwert (z. B. "400px", "50vh", "20rem"). Wird nur verwendet, wenn die Höhe auf "Benutzerdefinierte Höhe" gesetzt ist
+* **Hinweis:** Nur sichtbar, wenn "Slider-Höhe" auf `custom` gesetzt ist
+* **Validierung:** Muss ein gültiger CSS-Höhenwert sein (unterstützt px, vh, vw, rem, em, % oder auto)
+* **Beispiel:**\
+  `400px`, `50vh` oder `20rem`
+
+***
+
+#### Slider-Breite
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Steuert die Breite des Bildsliders
+* **Standardwert:** `100%`
+* **Optionen:**
+  * `100%` – Volle Breite
+  * `50%` – Halbe Breite
+  * `custom` – Benutzerdefinierte Breite
+
+***
+
+#### Benutzerdefinierte Breite
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Benutzerdefinierter CSS-Breitenwert (z. B. "400px", "50vw", "20rem"). Wird nur verwendet, wenn die Breite auf "Benutzerdefinierte Breite" gesetzt ist
+* **Hinweis:** Nur sichtbar, wenn "Slider-Breite" auf `custom` gesetzt ist
+* **Validierung:** Muss ein gültiger CSS-Breitenwert sein
+* **Beispiel:**\
+  `400px`, `50vw` oder `20rem`
+
+***
+
+#### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den Slider fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Slider-Titel:** `Unsere Angebote`
+* **Slider-Beschreibung:** `Entdecken Sie unsere vielfältigen Service-Angebote`
+* **Call-to-Action-Button anzeigen:** `false` (oder `true` mit Button-Konfiguration)
+* **Inhaltsausrichtung:** `left`
+* **Slides:**
+  1. **Slide 1:** Bild + "Premium Service-Paket" + Beschreibung
+  2. **Slide 2:** Bild + "Standard Service-Paket" + Beschreibung
+  3. **Slide 3:** Bild + "Express-Service" + Beschreibung
+* **Autoplay aktivieren:** `true`
+* **Autoplay-Geschwindigkeit:** `5` Sekunden
+* **Navigationspunkte anzeigen:** `true`
+* **Slider-Höhe:** `large` (70vh)
+* **Slider-Breite:** `100%`
+
+***
+
+## Best Practices
+
+* **Anzahl der Slides:** 3-8 Slides sind optimal für Engagement
+* **Alt-Text:** Füllen Sie immer aussagekräftigen Alt-Text (max. 125 Zeichen) für Barrierefreiheit und SEO aus
+* **Autoplay-Geschwindigkeit:** 5-7 Sekunden sind ein gutes Gleichgewicht zwischen Aufmerksamkeit und Informationsbereitstellung
+* **Bildqualität:** Verwenden Sie hochwertige, konsistente Bilder
+* **Inhaltsausrichtung:** Verwenden Sie konsistente Ausrichtung für bessere Lesbarkeit
+* **Global vs. slide-spezifisch:** Verwenden Sie globale Inhalte für Konsistenz, slide-spezifische Inhalte für Vielfalt
+
+***
+
+## Hauptmerkmale
+
+* **Globale und slide-spezifische Inhalte:** Kombination aus globalen und individuellen Inhalten
+* **Klickbare Bilder:** Gesamte Bilder können verlinkt werden
+* **Flexible Größen:** Verschiedene vordefinierte Höhen oder benutzerdefinierte CSS-Werte
+* **Autoplay:** Automatische Übergänge mit konfigurierbarer Geschwindigkeit
+* **Navigation:** Klickbare Punkte für direkte Navigation
+* **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Hero-Bereiche und Produktseiten
+
+***
+
+## Technische Hinweise
+
+* Globale Inhalte erscheinen auf allen Slides, es sei denn, sie werden durch slide-spezifische Inhalte überschrieben
+* CTA-Buttons werden inline konfiguriert (nicht als Referenzen) mit erforderlichen `label`- (Button-Text) und `link`- (relativer Link) Feldern
+* Bilder können durch Aktivieren der Bildlink-Option klickbar gemacht werden
+* Bildlinks müssen externe URLs sein (vollständige URL erforderlich, gespeichert im `url`-Feld)
+* Alt-Text (`alt`-Feld) ist erforderlich mit mindestens 1 Zeichen und maximal 125 Zeichen für optimales SEO
+* Slide-Bilder unterstützen Hotspot-Positionierung für optimale Zuschneidung und Fokuspunktkontrolle
+* Autoplay kann bei Benutzerinteraktion pausiert werden
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Benutzerdefinierte Höhe und Breite akzeptieren jeden gültigen CSS-Wert (px, vh, vw, rem, em, % oder auto)
+* Benutzerdefinierte Höhen- und Breitenfelder werden validiert, um ordnungsgemäßes CSS-Format sicherzustellen
+* Der Slider erfordert mindestens 1 Slide und unterstützt bis zu 10 Slides

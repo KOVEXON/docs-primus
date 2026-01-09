@@ -1,0 +1,174 @@
+---
+title: Social-Media-Links
+description: Ein Inhaltsblock zur Anzeige von Social-Media-Links mit Icons von verschiedenen Plattformen und anpassbarer Ausrichtung und Größe.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Social-Media-Links** zeigt Social-Media-Links mit plattformspezifischen Icons an. Mit Unterstützung für zahlreiche Plattformen, benutzerdefinierten Icons, flexibler Ausrichtung und Größenoptionen ist er perfekt, um Besucher mit Ihrer Social-Media-Präsenz zu verbinden.
+
+<Aside>
+  **Ideal für:** Footer-Social-Links, Kontaktseiten, Über-uns-Seiten, dedizierte
+  Social-Mediae, Markenpräsenze.
+</Aside>
+
+---
+
+## Felder
+
+### Bereichsüberschrift
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Hauptüberschrift für den gesamten Social-Media-Links
+- **Beispiel:**  
+  `Folgen Sie uns` oder `Verbinden Sie sich mit uns`
+
+---
+
+### Bereichsbeschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Beschreibung für den Social-Media-Links
+- **Beispiel:**  
+  `Bleiben Sie auf dem Laufenden`
+
+---
+
+### Social-Links
+
+- **Typ:** Array von Social-Link-Objekten
+- **Erforderlich:** Nein
+- **Zweck:** Liste der Social-Media-Links
+
+Jeder Social-Link enthält:
+
+#### Plattform
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Social-Media-Plattform
+- **Standardwert:** `facebook`
+- **Optionen:**
+  - Facebook
+  - Twitter/X
+  - Instagram
+  - LinkedIn
+  - YouTube
+  - TikTok
+  - Pinterest
+  - Snapchat
+  - WhatsApp
+  - Telegram
+  - GitHub
+  - Benutzerdefiniert
+
+#### URL
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Vollständige URL zum Social-Media-Profil oder zur Seite
+- **Beispiel:**  
+  `https://facebook.com/example-company`
+
+#### Label
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Optionales benutzerdefiniertes Label (für Screenreader und Tooltips)
+- **Beispiel:**  
+  `Folgen Sie uns auf Facebook`
+
+#### Benutzerdefiniertes Icon
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Name des Lucide-Icons von https://lucide.dev/icons
+- **Hinweis:** Nur sichtbar, wenn Plattform auf "Benutzerdefiniert" gesetzt ist
+
+### Ausrichtung
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Horizontale Ausrichtung der Social-Links
+- **Standardwert:** `center`
+- **Optionen:**
+  - **Links** (`left`)
+  - **Zentriert** (`center`)
+  - **Rechts** (`right`)
+
+---
+
+### Icon-Größe
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Größe der Social-Media-Icons
+- **Standardwert:** `medium`
+- **Optionen:**
+  - **Klein** (`small`)
+  - **Mittel** (`medium`)
+  - **Groß** (`large`)
+
+---
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Bereichsüberschrift:** `Folgen Sie uns`
+- **Bereichsbeschreibung:** `Bleiben Sie auf dem Laufenden`
+- **Social-Links:**
+  1. **Facebook**
+     - URL: `https://facebook.com/example-company`
+     - Label: `Folgen Sie uns auf Facebook`
+  2. **Instagram**
+     - URL: `https://instagram.com/example_company`
+     - Label: `Folgen Sie uns auf Instagram`
+  3. **YouTube**
+     - URL: `https://youtube.com/@example-company`
+     - Label: `Abonnieren Sie unseren Kanal`
+- **Ausrichtung:** `center`
+- **Icon-Größe:** `medium`
+
+---
+
+## Best Practices
+
+- **Relevanz:** Verlinken Sie nur zu aktiven Social-Media-Profilen
+- **Konsistenz:** Verwenden Sie konsistente Icon-Größen durchgehend
+- **Ausrichtung:** Zentrierte Ausrichtung funktioniert gut für die meisten Layouts
+- **Anzahl der Links:** 3-6 Links sind optimal für die Benutzererfahrung. Zu wenige rechtfertigen keinen Bereich; zu viele werden unübersichtlich
+- **Labels:** Verwenden Sie Labels für bessere Barrierefreiheit und Klarheit
+- **Plattformauswahl:** Wählen Sie Plattformen, die zu Ihrer Zielgruppe und Content-Strategie passen
+
+---
+
+## Hauptmerkmale
+
+- **Mehrere Plattformen:** Unterstützung für zahlreiche Social-Media-Plattformen
+- **Benutzerdefinierte Icons:** Option für benutzerdefinierte Icons bei Bedarf
+- **Flexible Ausrichtung:** Links-, zentrierte oder rechtsbündige Ausrichtungsoptionen
+- **Größenoptionen:** Kleine, mittlere oder große Icon-Größen
+- **Barrierefreiheit:** Labels unterstützen Screenreader und Tooltips
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere Footere und Kontaktseiten
+
+---
+
+## Technische Hinweise
+
+- Icons werden automatisch basierend auf der Plattform ausgewählt
+- Benutzerdefinierte Icons verwenden die Lucide Icon-Bibliothek, wenn die Plattform auf "Benutzerdefiniert" gesetzt ist
+- Icon-Größen sind responsive und passen sich der Bildschirmgröße an
+- Mindestens 1 Link und maximal 20 Links sind pro Bereich erlaubt

@@ -1,0 +1,131 @@
+---
+title: Rich-Text-Bereich
+description: Ein flexibler Rich-Text-Block für formatierte Inhalte mit Bildern,
+  perfekt für Artikel, Blog-Posts und detaillierte Informationen.
+slug: de/1.0/components/rich-text-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Rich-Text-Bereich** bietet einen vollständigen Rich-Text-Editor für formatierte Inhalte. Mit Formatierungsoptionen, Textausrichtung und Bildunterstützung ist er perfekt für die Erstellung detaillierter Inhalte wie Artikel, Blog-Posts oder umfassende Informationsseiten.
+
+<Aside>
+  **Ideal für:** Artikelinhalte, Blog-Posts, detaillierte Seitenbeschreibungen, rechtliche
+  Seiten, Informationsseiten, Produktbeschreibungen.
+</Aside>
+
+***
+
+## Felder
+
+### Inhalt
+
+* **Typ:** Array
+* **Erforderlich:** Nein
+* **Zweck:** Array von Block-Elementen und Medien
+
+#### Unterstützte Block-Typen
+
+##### Text-Blöcke
+
+* **Typ:** Block
+* **Zweck:** Standard-Text-Blöcke mit Formatierungsoptionen
+* **Verfügbare Formatierung:**
+  * **Strong** (`strong`) – Fetter Text
+  * **Emphasis** (`em`) – Kursiver Text
+  * **Textausrichtung:**
+    * **Links** – Linksbündig
+    * **Zentriert** – Zentriert
+    * **Rechts** – Rechtsbündig
+
+##### Bilder
+
+* **Typ:** Bild
+* **Zweck:** Bilder, die in den Inhalt eingebettet sind
+* **Optionen:** Hotspot aktiviert
+* **Felder:**
+  * **Alternativtext** (String, erforderlich) – Wichtig für Barrierefreiheit und SEO
+  * **Bildunterschrift** (String, optional) – Optionale Bildunterschrift
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Inhalt:**
+  1. **Text-Block:** `Willkommen bei unserem Unternehmen` (Formatierung: Strong, Zentriert)
+  2. **Bild:**
+     * Bild: Modernes Bürogebäude
+     * Alt-Text: `Modernes Bürogebäude mit nachhaltigen Features`
+     * Bildunterschrift: `Unser Unternehmen bietet moderne Dienstleistungen mit nachhaltigen Praktiken`
+  3. **Text-Block:** `Wir bieten professionelle Dienstleistungen für alle Ihre Bedürfnisse. Unsere erfahrenen Teammitglieder sind hier, um Ihnen zu helfen, Ihre Ziele zu erreichen.` (Formatierung: Links)
+  4. **Text-Block:** `Unsere Vorteile:` (Formatierung: Strong)
+  5. **Text-Block:** `- Moderne Lösungen\n- Flexible Terminplanung\n- Erfahrenes Team\n- Bewährte Erfolgsbilanz` (Formatierung: Links)
+
+***
+
+## Best Practices
+
+* **Struktur:** Verwenden Sie Strong-Formatierung für Überschriften innerhalb des Textes
+* **Bilder:** Füllen Sie immer Alt-Text für Barrierefreiheit und SEO aus
+* **Textausrichtung:** Verwenden Sie zentrierte Ausrichtung sparsam, hauptsächlich für Überschriften
+* **Lesbarkeit:** Teilen Sie lange Text-Blöcke in mehrere Absätze auf
+* **Bildunterschriften:** Verwenden Sie Bildunterschriften, um zusätzlichen Kontext zu bieten
+* **Formatierung:** Verwenden Sie konsistente Formatierung für bessere Lesbarkeit
+
+***
+
+## Hauptmerkmale
+
+* **Flexible Struktur:** Kombination aus Text und Bildern in beliebiger Reihenfolge
+* **Rich-Text-Editor:** Vollständiger Editor mit Formatierungsoptionen
+* **Textausrichtung:** Inline-Ausrichtung als Mark/Dekorator
+* **Bildunterstützung:** Bilder mit Hotspot, Alt-Text und Bildunterschrift
+* **Barrierefreiheit:** Alt-Text für Bilder ist wichtig für Screenreader
+* **Vollständige Formatierung:** Unterstützung für fett, kursiv und Ausrichtungsoptionen
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten
+* **Artikel (`article`)**\
+  Als Hauptinhalt-Feld
+* **Rechtliche Seiten (`legalPage`)**\
+  Als Teil des Inhalts-Arrays
+* **Autoren (`author`)**\
+  Für Biografien
+
+***
+
+## Technische Hinweise
+
+* Inhalt verwendet blockbasierte Struktur für flexible Komposition
+* Bilder unterstützen Hotspot-Bearbeitung für besseres Zuschneiden
+* Textausrichtung wird als Inline-Dekoratoren angewendet
+* Alt-Text ist für Barrierefreiheits-Compliance erforderlich
+* Der Bereich unterstützt vollständige Rich-Text-Formatierungsmöglichkeiten
+
+***
+
+## Unterschiede zu anderen Inhaltsblöcken
+
+| Feature           | Rich-Text-Bereich       | Text mit Medien-Bereich    | Accordion-Bereich         |
+| ----------------- | ----------------------- | -------------------------- | ------------------------- |
+| Überschrift-Feld    | Nein                      | Ja                        | Ja                       |
+| Beschreibungs-Feld | Nein                      | Ja                        | Ja                       |
+| Hintergrundfarbe  | Nein                      | Ja                        | Ja                       |
+| Inhaltsstruktur | Flexibles Array          | Strukturierte Elemente (1-10)    | Strukturierte Elemente          |
+| Text-Editor       | Ja (vollständig)              | Ja (pro Element)             | Ja (pro Element)            |
+| Formatierung        | Ja (Strong, Em)        | Ja (via richTextSection)  | Ja (via richTextSection) |
+| Textausrichtung    | Ja (Links/Zentriert/Rechts) | Nein                         | Nein                        |
+| Bilder            | Ja (inline)            | Ja (strukturiert)           | Nein                        |
+| Medientypen       | Nur Bilder             | Bild/Galerie/Video/Slider | Nein                        |
+| Layout-Optionen    | Nein                      | Ja (3 Typen)              | Nein                        |
+| Icons             | Nein                      | Nein                         | Ja (Lucide Icons)        |
+| Erweiterbare Elemente  | Nein                      | Nein                         | Ja                       |
+| Verwendung             | Fließender Text            | Text-Medien-Kombinationen    | Erweiterbare Q\&A-Bereiche      |
