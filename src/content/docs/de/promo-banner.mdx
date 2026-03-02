@@ -82,7 +82,7 @@ Das **Promo Banner** ermöglicht es Ihnen, Werbebotschaften, Ankündigungen oder
 
 - **Typ:** String
 - **Erforderlich:** Nein
-- **Standardwert:** `🎉 Sonderangebot`
+- **Standardwert:** `Sonderangebot`
 - **Zweck:** Titel, der im Modal angezeigt wird
 - **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
 - **Beispiel:**  
@@ -112,27 +112,19 @@ Das **Promo Banner** ermöglicht es Ihnen, Werbebotschaften, Ankündigungen oder
 
 ---
 
-### Modal-CTA-Text
+### CTA-Button (Modal)
 
-- **Typ:** String
+- **Typ:** CTA-Button-Objekt
 - **Erforderlich:** Nein
-- **Standardwert:** `Jetzt starten`
-- **Zweck:** Text für die Haupt-CTA-Schaltfläche im Modal
+- **Zweck:** Konfiguration der Haupt-CTA-Schaltfläche im Modal (Text, Link und Rolle). Wenn der Button-Text leer ist, wird die Schaltfläche nicht angezeigt.
 - **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
-- **Beispiel:**  
-  `Jetzt starten` oder `Angebot sichern`
-
----
-
-### Modal-CTA-Link
-
-- **Typ:** String
-- **Erforderlich:** Nein
-- **Zweck:** Link für die Modal-CTA-Schaltfläche
-- **Format:** z. B. `https://example.com/promo`
-- **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
-- **Beispiel:**  
-  `https://example.com/promo`
+- **Unterfelder:**
+  - **Button-Text:** Text der Schaltfläche
+  - **Link (Intern/Extern):** Objekt zur Link-Konfiguration (internalExternalLink):
+    - **Link-Typ:** `Intern (Seite dieser Website)` oder `Extern (URL)`; erforderlich, sobald ein Ziel gesetzt ist.
+    - **Bei Intern:** **Link zu** wählen (`Seite` oder `Blog (Artikel)`), dann **Seite** (Referenz auf Seite/Rechtliche Seite) bzw. **Blogartikel** (Referenz auf Artikel) auswählen.
+    - **Bei Extern:** **URL** angeben (vollständige URL; erlaubte Schemas: http, https, mailto, tel).
+  - **Button-Rolle:** `Primary` oder `Secondary` (Dropdown); wird ausgeblendet, wenn kein Button-Text gesetzt ist
 
 ---
 
@@ -170,8 +162,7 @@ Das **Promo Banner** ermöglicht es Ihnen, Werbebotschaften, Ankündigungen oder
 - **Modal-Titel:** `Sonderangebot`
 - **Modal-Bild:** (Optionales Werbebild)
 - **Modal-Beschreibung:** `Erhalten Sie 20% Rabatt auf alle Dienstleistungen diesen Monat. Nur für kurze Zeit!`
-- **Modal-CTA-Text:** `Jetzt starten`
-- **Modal-CTA-Link:** `https://example.com/promo`
+- **CTA-Button (Modal):** Button-Text `Jetzt starten`, Link nach Wahl, Rolle `Primary`
 - **Startdatum:** `2025-01-01T09:00:00Z`
 - **Enddatum:** `2025-01-31T23:59:59Z`
 
