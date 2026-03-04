@@ -1,5 +1,5 @@
 ---
-title: Karte und Unternehmensinformationen-Bereich
+title: Karte und Unternehmensinformationen
 description: Ein umfassender Bereich, der Unternehmenskontaktinformationen,
   interaktive Karte und optionales Kontaktformular für vollständige Standort-
   und Kontaktdaten kombiniert.
@@ -7,15 +7,28 @@ slug: de/1.0/components/map-and-company-information-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import MapCompanyInformationSection from "../../../../../assets/1.0/map-company-info-section.png";
 
 ## Übersicht
 
-Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskontaktdaten, eine interaktive Karte und ein optionales Kontaktformular in einem einzigen, umfassenden Bereich. Diese All-in-One-Komponente hilft Besuchern, Ihren Standort zu finden, Ihre Kontaktinformationen anzuzeigen und Kontakt aufzunehmen – alles an einem Ort.
+Der **Karte und Unternehmensinformationen** kombiniert Unternehmenskontaktdaten, eine interaktive Karte und ein optionales Kontaktformular in einem einzigen, umfassenden Bereich. Diese All-in-One-Komponente hilft Besuchern, Ihren Standort zu finden, Ihre Kontaktinformationen anzuzeigen und Kontakt aufzunehmen – alles an einem Ort.
 
 <Aside>
-  **Ideal für:** Kontaktseiten, Standortseiten, Unternehmensfinder-Seiten, Seiten
-  die vollständige Kontakt- und Standortinformationen erfordern.
+  **Ideal für:** Kontaktseiten, Standortseiten, Unternehmensfinder-Seiten,
+  Seiten die vollständige Kontakt- und Standortinformationen erfordern.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={MapCompanyInformationSection.src} alt="Beispiel einer Karte und Unternehmensinformationen" />
+
+  <figcaption>
+    <em>Beispiel einer Karte und Unternehmensinformationen</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -51,16 +64,16 @@ Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskonta
 
 ***
 
-### Karten-Bereich
+### Karten
 
 * **Typ:** Referenz (`mapSection`)
 * **Erforderlich:** Nein
-* **Zweck:** Optionale Referenz auf ein Karten-Bereich-Dokument zur Anzeige einer interaktiven Karte mit Ihrem Standort
+* **Zweck:** Optionale Referenz auf ein Karten-Dokument zur Anzeige einer interaktiven Karte mit Ihrem Standort
 * **Hinweis:** Wenn bereitgestellt, zeigt es eine interaktive Karte mit Ihrem Geschäftsstandort an
 
 ***
 
-### Kontaktformular-Bereich
+### Kontaktformular
 
 * **Typ:** Referenz (`contactFormSection`)
 * **Erforderlich:** Nein
@@ -85,8 +98,8 @@ Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskonta
 * **Überschrift:** `Finden Sie uns`
 * **Beschreibung:** `Besuchen Sie uns an unserem Standort oder kontaktieren Sie uns über das untenstehende Formular`
 * **Unternehmensinformationen:** Referenz auf ein `companyInformation`-Dokument (z. B. "Hauptbüro - Innenstadt-Standort")
-* **Karten-Bereich:** Referenz auf ein `mapSection`-Dokument mit Koordinaten und Marker-Informationen
-* **Kontaktformular-Bereich:** Referenz auf ein `contactFormSection`-Dokument (optional)
+* **Karten:** Referenz auf ein `mapSection`-Dokument mit Koordinaten und Marker-Informationen
+* **Kontaktformular:** Referenz auf ein `contactFormSection`-Dokument (optional)
 * **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt (optional)
 
 ***
@@ -94,7 +107,7 @@ Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskonta
 ## Best Practices
 
 * **Unternehmensinformationen:** Halten Sie Ihr Unternehmensinformations-Dokument aktuell – Änderungen spiegeln sich in allen Bereichen wider, die es verwenden
-* **Karten-Integration:** Fügen Sie immer einen Karten-Bereich für Unternehmen mit physischen Standorten hinzu, um Besuchern zu helfen, Sie leicht zu finden
+* **Karten-Integration:** Fügen Sie immer einen Karten für Unternehmen mit physischen Standorten hinzu, um Besuchern zu helfen, Sie leicht zu finden
 * **Kontaktformular:** Fügen Sie ein Kontaktformular hinzu, wenn Sie möchten, dass Besucher direkt von der Seite aus Kontakt aufnehmen können
 * **Vollständigkeit:** Stellen Sie sicher, dass alle Kontaktinformationen im Unternehmensinformations-Dokument vollständig und genau sind
 * **Layout:** Dieser Bereich funktioniert am besten, wenn alle drei Komponenten (Unternehmensinfo, Karte und Formular) zusammen für ein vollständiges Kontakterlebnis verwendet werden
@@ -106,7 +119,7 @@ Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskonta
 
 * **All-in-One-Lösung:** Kombiniert Unternehmensinformationen, Karte und Kontaktformular in einem einzigen Bereich
 * **Zentralisierte Verwaltung:** Unternehmensinformationen werden an einem Ort verwaltet und auf Seiten referenziert
-* **Interaktive Karte:** Optionaler Karten-Bereich zur visuellen Standortanzeige und Routenplanung
+* **Interaktive Karte:** Optionaler Karten zur visuellen Standortanzeige und Routenplanung
 * **Kontaktformular-Integration:** Optionales Kontaktformular für direkte Anfragen ohne die Seite zu verlassen
 * **Flexible Konfiguration:** Verwenden Sie jede Kombination aus Karte und Kontaktformular basierend auf Ihren Bedürfnissen
 * **Wiederverwendbar:** Kann auf mehreren Seiten mit derselben Unternehmensinformations-Referenz verwendet werden
@@ -123,8 +136,8 @@ Der **Karte und Unternehmensinformationen-Bereich** kombiniert Unternehmenskonta
 ## Technische Hinweise
 
 * Unternehmensinformationen verweisen auf das globale `companyInformation`-Schema und sind erforderlich
-* Karten-Bereich verweist auf das globale `mapSection`-Schema und ist optional
-* Kontaktformular-Bereich verweist auf das globale `contactFormSection`-Schema und ist optional
+* Karten verweist auf das globale `mapSection`-Schema und ist optional
+* Kontaktformular verweist auf das globale `contactFormSection`-Schema und ist optional
 * Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
 * Alle drei Komponenten (Unternehmensinfo, Karte, Formular) können zusammen oder unabhängig basierend auf der Konfiguration verwendet werden
 * Der Bereich zeigt Unternehmensinformationen, Karte und Kontaktformular in einem koordinierten Layout an
