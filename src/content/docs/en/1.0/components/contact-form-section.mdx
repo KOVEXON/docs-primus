@@ -1,0 +1,281 @@
+---
+title: Contact Form
+description: A configurable contact form section with customizable fields, email
+  notifications, privacy options, and success and error messages.
+slug: en/1.0/components/contact-form-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Contact Form** section allows visitors to send messages directly via your website. You define the form fields (text, email, phone, textarea, select, checkbox), configure the email subject line, submit button, optional privacy text, and success and error messages.
+
+<Aside>
+  **Ideal for:** contact pages, support requests, call-back requests, general
+  inquiries, and feedback forms.
+</Aside>
+
+***
+
+## Fields
+
+### Active
+
+* **Type:** Boolean
+* **Default:** `true`
+* **Purpose:** Controls whether the contact form section is displayed on the website.
+
+***
+
+### Headline
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Main headline above the contact form
+* **Example:**\
+  `Contact us` or `Send us a message`
+
+***
+
+### Description
+
+* **Type:** Text
+* **Required:** No
+* **Rows:** 3
+* **Purpose:** Optional description text above the form
+* **Example:**\
+  `Fill out the form and we’ll get back to you.`
+
+***
+
+### Form Fields
+
+* **Type:** Array of form field objects
+* **Required:** Yes (at least one field)
+* **Purpose:** Defines the visible fields of the form in the desired order. **At least one field must be of type Email** (used for the reply-to address of the notification email).
+
+Each form field object contains:
+
+#### Field Type
+
+* **Type:** String (select)
+* **Required:** Yes
+* **Options:** Text, Email, Phone, Textarea, Select, Checkbox
+* **Purpose:** Defines the kind of input field.
+
+#### Field Name (machine-readable)
+
+* **Type:** Slug
+* **Required:** Yes
+* **Max length:** 40 characters
+* **Purpose:** Technical name of the field (e.g. `name`, `email`, `phone`, `message`, `company`). Also used in the email subject template (`{fieldName}`).
+
+#### Label
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** The label text shown to the user.
+
+#### Placeholder
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Placeholder text inside the input field. Not shown for checkbox fields.
+
+#### Required
+
+* **Type:** Boolean
+* **Default:** `false`
+* **Purpose:** Whether the field must be filled in before the form can be submitted.
+
+#### Default (for Checkbox)
+
+* **Type:** Boolean
+* **Default:** `false`
+* **Visible:** Only when field type = Checkbox
+* **Purpose:** Whether the checkbox is checked by default.
+
+#### Half Width (side-by-side on desktop)
+
+* **Type:** Boolean
+* **Default:** `false`
+* **Purpose:** Allows the field to be displayed next to another half-width field on desktop (e.g. name and email in one row).
+
+#### Options (for Select)
+
+* **Type:** Array of strings
+* **Visible:** Only when field type = Select
+* **Purpose:** The selectable options of the dropdown/select field.
+
+#### Allow Multiple Selection
+
+* **Type:** Boolean
+* **Default:** `false`
+* **Visible:** Only when field type = Select
+* **Purpose:** Whether multiple options can be selected at the same time.
+
+#### Rows (for Textarea)
+
+* **Type:** Number
+* **Default:** 5
+* **Valid:** 2–15
+* **Visible:** Only when field type = Textarea
+* **Purpose:** Number of visible rows of the text area.
+
+#### Max Length (optional)
+
+* **Type:** Number
+* **Required:** No
+* **Visible:** Not for Checkbox and Select
+* **Purpose:** Maximum number of characters. Empty = default (Text: 200, Email: 254, Phone: 50, Textarea: 10000).
+
+***
+
+### Email Subject Template
+
+* **Type:** String
+* **Required:** No
+* **Default:** `New contact request`
+* **Purpose:** Subject line of the notification email. Placeholders `{fieldName}` are replaced with the value of the corresponding field (e.g. `{name}`, `{email}`). Use only field names that exist on this form.
+* **Example:**\
+  `Inquiry from {name} – {email}`
+
+***
+
+### Submit Button
+
+* **Type:** Object (collapsible)
+* **Required:** No
+* **Purpose:** Button text and loading text during submission.
+
+#### Button Text
+
+* **Type:** String
+* **Default:** `Send message`
+* **Purpose:** Label of the submit button.
+
+#### Loading Text
+
+* **Type:** String
+* **Default:** `Sending...`
+* **Purpose:** Text shown while the form is being submitted.
+
+***
+
+### Required Fields Note
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Text shown below the form indicating which fields are required (e.g. “Fields marked with \* are required.”).
+
+***
+
+### Privacy Policy
+
+* **Type:** Object (collapsible)
+* **Required:** No
+* **Purpose:** Optional privacy information and link to your privacy policy.
+
+#### Privacy Policy Text
+
+* **Type:** Text
+* **Rows:** 2
+* **Default:** `I agree to the processing of my data in accordance with the privacy policy.`
+* **Purpose:** Text next to the checkbox and/or link to the privacy policy.
+
+#### Privacy Policy Link
+
+* **Type:** Reference (`ctaButtonItem`)
+* **Required:** No
+* **Purpose:** Link to the privacy policy page (URL and optional label).
+
+***
+
+### Success Message
+
+* **Type:** Text
+* **Rows:** 2
+* **Required:** No
+* **Purpose:** Message shown after the form has been successfully submitted.
+
+***
+
+### Error Message
+
+* **Type:** Text
+* **Rows:** 2
+* **Required:** No
+* **Purpose:** Message shown when form submission fails.
+
+***
+
+### Background Color
+
+* **Type:** Reference (`backgroundColor`)
+* **Required:** No
+* **Purpose:** Sets the background color for the contact form section.
+
+***
+
+## Usage Example
+
+### Typical Configuration
+
+* **Headline:** `Contact us`
+* **Description:** `Fill out the form and we’ll get back to you as soon as possible.`
+* **Form Fields:**
+  1. Text, name: `name`, label: `Name`, required: yes
+  2. Email, name: `email`, label: `Email`, required: yes
+  3. Phone, name: `phone`, label: `Phone`, half width: yes
+  4. Textarea, name: `message`, label: `Message`, rows: 5, required: yes
+* **Email Subject Template:** `Contact request from {name}`
+* **Submit Button:** text `Send message`, loading text `Sending...`
+* **Required Fields Note:** `Fields marked with * are required.`
+* **Privacy Policy:** text and link to the privacy policy page
+* **Success Message:** `Thank you. Your message has been sent.`
+* **Error Message:** `An error occurred while sending. Please try again later.`
+* **Background Color:** reference to a `backgroundColor` object (optional)
+
+***
+
+## Best Practices
+
+* **Email field:** Always include at least one field of type Email so replies can be sent to the sender.
+* **Field names:** Use short, clear slug names (e.g. `name`, `email`, `message`) and only reference existing field names in the subject template.
+* **Required fields:** Only mark fields as required if they are truly needed to reduce drop-offs.
+* **Half width:** For many fields, place name and email or phone and email side by side to keep the form compact.
+* **Privacy:** Provide a privacy text and link to your privacy policy to meet legal and GDPR requirements.
+* **Messages:** Write success and error messages clearly and in a friendly tone.
+* **Background color:** Choose a color with sufficient contrast that does not hurt readability.
+
+***
+
+## Key Features
+
+* **Flexible fields:** Six field types (text, email, phone, textarea, select, checkbox) with optional half width and character limits
+* **Email notification:** Reply-to taken from an email field, customizable subject line with placeholders
+* **Customizable button:** Custom button text and loading text
+* **Privacy:** Optional privacy checkbox and link to the privacy policy
+* **User feedback:** Configurable success and error messages
+* **Active/Inactive:** Section can be toggled on or off
+
+***
+
+## Where It’s Used
+
+* **Pages (`page`)**\
+  Contact pages, support pages, and any content pages that include a contact form
+* **Map and Company Information**\
+  As an optional reference (`contactFormSection`) alongside map and company information
+
+***
+
+## Technical Notes
+
+* At least one form field must be of type **Email** (validated in Studio).
+* Field name is a **slug** (machine-readable); in the email subject template, only existing field names are replaced as `{fieldName}`.
+* Subject placeholders: e.g. `{name}`, `{email}` – only use field names that exist on this form.
+* Privacy policy link uses the `ctaButtonItem` type (URL and optional label).
+* Background color references the global `backgroundColor` schema.
+* Checkbox fields optionally support a “default checked” state; select fields support options and optional multi-select; textarea supports 2–15 rows and an optional max length.
