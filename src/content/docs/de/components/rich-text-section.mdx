@@ -1,6 +1,6 @@
 ---
 title: Rich-Text
-description: Ein flexibler Rich-Text-Block für formatierte Inhalte mit Bildern, perfekt für Artikel, Blog-Posts und detaillierte Informationen.
+description: Ein flexibler Rich-Text-Block für formatierte Inhalte mit Bildern, Videos und Bild-Slidern – perfekt für Artikel, Blog-Posts und detaillierte Informationen.
 ---
 
 import { Aside } from "@astrojs/starlight/components";
@@ -30,6 +30,13 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 
 ## Felder
 
+### Aktiv
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein (Standard: **aktiv**)
+- **Zweck:** Steuert, ob der Rich-Text-Bereich auf der Website angezeigt wird.  
+  Deaktivieren Sie dieses Feld, wenn der Inhalt vorbereitet, aber noch nicht live sein soll.
+
 ### Inhalt
 
 - **Typ:** Array
@@ -58,6 +65,26 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 - **Felder:**
   - **Alternativtext** (String, erforderlich) – Wichtig für Barrierefreiheit und SEO
   - **Bildunterschrift** (String, optional) – Optionale Bildunterschrift
+  - **Bildunterschrift-Link** (URL, optional) – Optionaler Link, mit dem die Bildunterschrift auf eine externe Seite verweist (z. B. Quellenangabe oder weiterführende Informationen)
+
+##### Videos
+
+- **Typ:** Objekt
+- **Zweck:** Einbettung von einzelnen Videos innerhalb des Textes
+- **Felder:**
+  - **Video-Datei** (`videoFile`, File, optional) – Hochgeladene Videodatei (`video/*`)
+  - **Video-URL (Alternative)** (`videoUrl`, URL, optional) – Direkte Video-URL als Alternative zum Upload (z. B. CDN-Link)
+  - **Poster-Bild** (`poster`, Image, optional) – Vorschaubild, das vor dem Abspielen angezeigt wird (mit Hotspot-Unterstützung)
+  - **Bildunterschrift** (`caption`, String, optional) – Optionale Beschreibung oder Titel des Videos
+  - **Bildunterschrift-Link** (`captionLink`, URL, optional) – Optionaler Link für weiterführende Informationen oder Quellenangaben
+
+##### Bild-Slider
+
+- **Typ:** Objekt
+- **Zweck:** Einbettung eines Bild-Sliders innerhalb des Rich-Text-Inhalts
+- **Struktur:**
+  - **imageSlider** (`imageSlider`, Typ: `imageSliderSectionTwo`) – Referenz auf den vordefinierten Bild-Slider-Typ mit mehreren Slides
+- **Hinweis:** Die eigentlichen Slider-Einstellungen (z. B. Slides, Bilder, Beschriftungen) werden im verknüpften `imageSliderSectionTwo`-Schema gepflegt.
 
 ---
 
@@ -93,7 +120,9 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 - **Flexible Struktur:** Kombination aus Text und Bildern in beliebiger Reihenfolge
 - **Rich-Text-Editor:** Vollständiger Editor mit Formatierungsoptionen
 - **Textausrichtung:** Inline-Ausrichtung als Mark/Dekorator
-- **Bildunterstützung:** Bilder mit Hotspot, Alt-Text und Bildunterschrift
+- **Bildunterstützung:** Bilder mit Hotspot, Alt-Text, Bildunterschrift und optionalem Link in der Bildunterschrift
+- **Video-Unterstützung:** Einbettung von Videos per Datei-Upload oder externer URL inkl. Poster-Bild und optionaler Bildunterschrift
+- **Bild-Slider-Unterstützung:** Integration eines Bild-Sliders (`imageSliderSectionTwo`) direkt im Fließtext
 - **Barrierefreiheit:** Alt-Text für Bilder ist wichtig für Screenreader
 - **Vollständige Formatierung:** Unterstützung für fett, kursiv und Ausrichtungsoptionen
 
@@ -101,13 +130,13 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 
 ## Wo es verwendet wird
 
-- **Seiten (`page`)**  
+- **Seiten**  
   Allgemeine Inhaltsseiten
-- **Artikel (`article`)**  
+- **Artikel**  
   Als Hauptinhalt-Feld
-- **Rechtliche Seiten (`legalPage`)**  
+- **Rechtliche Seiten**  
   Als Teil des Inhalts-Arrays
-- **Autoren (`author`)**  
+- **Autoren**  
   Für Biografien
 
 ---
@@ -116,6 +145,8 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 
 - Inhalt verwendet blockbasierte Struktur für flexible Komposition
 - Bilder unterstützen Hotspot-Bearbeitung für besseres Zuschneiden
+- Videos können entweder als Datei (`file`) oder über eine direkte URL (`url`) eingebunden werden
+- Video-Poster werden als `image`-Feld mit Hotspot-Unterstützung verwaltet
 - Textausrichtung wird als Inline-Dekoratoren angewendet
 - Alt-Text ist für Barrierefreiheits-Compliance erforderlich
 - Der Bereich unterstützt vollständige Rich-Text-Formatierungsmöglichkeiten
@@ -134,7 +165,7 @@ Der **Rich-Text** bietet einen vollständigen Rich-Text-Editor für formatierte 
 | Formatierung          | Ja (Strong, Em)             | Ja (via richTextSection)      | Ja (via richTextSection) |
 | Textausrichtung       | Ja (Links/Zentriert/Rechts) | Nein                          | Nein                     |
 | Bilder                | Ja (inline)                 | Ja (strukturiert)             | Nein                     |
-| Medientypen           | Nur Bilder                  | Bild/Galerie/Video/Slider     | Nein                     |
+| Medientypen           | Bilder/Video/Bild-Slider    | Bild/Galerie/Video/Slider     | Nein                     |
 | Layout-Optionen       | Nein                        | Ja (3 Typen)                  | Nein                     |
 | Icons                 | Nein                        | Nein                          | Ja (Lucide Icons)        |
 | Erweiterbare Elemente | Nein                        | Nein                          | Ja                       |

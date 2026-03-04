@@ -1,6 +1,6 @@
 ---
 title: Rich Text Section
-description: A flexible rich text block for formatted content with images, perfect for articles, blog posts, and detailed information.
+description: A flexible rich text block for formatted content with images, videos, and image sliders – perfect for articles, blog posts, and detailed information.
 ---
 
 import { Aside } from "@astrojs/starlight/components";
@@ -30,6 +30,13 @@ The **Rich Text Section** provides a full-featured rich text editor for formatte
 
 ## Fields
 
+### Active
+
+- **Type:** Boolean
+- **Required:** No (Default: **active**)
+- **Purpose:** Controls whether the rich text section is displayed on the website.  
+  Disable this field if the content should be prepared but not yet visible.
+
 ### Content
 
 - **Type:** Array
@@ -58,6 +65,26 @@ The **Rich Text Section** provides a full-featured rich text editor for formatte
 - **Fields:**
   - **Alternative Text** (String, required) – Important for accessibility and SEO
   - **Caption** (String, optional) – Optional image caption
+  - **Caption Link** (URL, optional) – Optional URL that the caption can link to (e.g. a source reference or further information)
+
+##### Videos
+
+- **Type:** Object
+- **Purpose:** Embed single videos within the text
+- **Fields:**
+  - **Video File** (`videoFile`, File, optional) – Uploaded video file (`video/*`)
+  - **Video URL (Alternative)** (`videoUrl`, URL, optional) – Direct video URL as an alternative to upload (e.g. CDN link)
+  - **Poster Image** (`poster`, Image, optional) – Preview image shown before playback (with hotspot support)
+  - **Caption** (`caption`, String, optional) – Optional description or title of the video
+  - **Caption Link** (`captionLink`, URL, optional) – Optional link for further information or source references
+
+##### Image Slider
+
+- **Type:** Object
+- **Purpose:** Embed an image slider within the rich text content
+- **Structure:**
+  - **imageSlider** (`imageSlider`, type: `imageSliderSectionTwo`) – Reference to the predefined image slider type with multiple slides
+- **Note:** The actual slider settings (e.g. slides, images, captions) are managed in the linked `imageSliderSectionTwo` schema.
 
 ---
 
@@ -93,7 +120,9 @@ The **Rich Text Section** provides a full-featured rich text editor for formatte
 - **Flexible structure:** Combination of text and images in any order
 - **Rich text editor:** Full editor with formatting options
 - **Text alignment:** Inline alignment as mark/decorator
-- **Image support:** Images with hotspot, alt text, and caption
+- **Image support:** Images with hotspot, alt text, caption, and optional caption link
+- **Video support:** Embed videos via file upload or external URL, including poster image and optional caption
+- **Image slider support:** Integrate an image slider (`imageSliderSectionTwo`) directly in the flowing text
 - **Accessibility:** Alt text for images is important for screen readers
 - **Full formatting:** Support for bold, italic, and alignment options
 
@@ -116,6 +145,8 @@ The **Rich Text Section** provides a full-featured rich text editor for formatte
 
 - Content uses block-based structure for flexible composition
 - Images support hotspot editing for better cropping
+- Videos can be embedded either as a file (`file`) or via direct URL (`url`)
+- Video posters are managed as an `image` field with hotspot support
 - Text alignment is applied as inline decorators
 - Alt text is required for accessibility compliance
 - The section supports full rich text formatting capabilities
@@ -124,18 +155,18 @@ The **Rich Text Section** provides a full-featured rich text editor for formatte
 
 ## Differences from Other Content Blocks
 
-| Feature           | Rich Text Section       | Text With Media Section    | Accordion Section         |
-| ----------------- | ----------------------- | -------------------------- | ------------------------- |
-| Headline Field    | No                      | Yes                        | Yes                       |
-| Description Field | No                      | Yes                        | Yes                       |
-| Background Color  | No                      | Yes                        | Yes                       |
-| Content Structure | Flexible array          | Structured items (1-10)    | Structured items          |
-| Text Editor       | Yes (full)              | Yes (per item)             | Yes (per item)            |
-| Formatting        | Yes (Strong, Em)        | Yes (via richTextSection)  | Yes (via richTextSection) |
-| Text Alignment    | Yes (Left/Center/Right) | No                         | No                        |
-| Images            | Yes (inline)            | Yes (structured)           | No                        |
-| Media Types       | Images only             | Image/Gallery/Video/Slider | No                        |
-| Layout Options    | No                      | Yes (3 types)              | No                        |
-| Icons             | No                      | No                         | Yes (Lucide icons)        |
-| Expandable Items  | No                      | No                         | Yes                       |
-| Usage             | Flowing text            | Text-media combinations    | Expandable Q&A areas      |
+| Feature           | Rich Text Section         | Text With Media Section    | Accordion Section         |
+| ----------------- | ------------------------- | -------------------------- | ------------------------- |
+| Headline Field    | No                        | Yes                        | Yes                       |
+| Description Field | No                        | Yes                        | Yes                       |
+| Background Color  | No                        | Yes                        | Yes                       |
+| Content Structure | Flexible array            | Structured items (1-10)    | Structured items          |
+| Text Editor       | Yes (full)                | Yes (per item)             | Yes (per item)            |
+| Formatting        | Yes (Strong, Em)          | Yes (via richTextSection)  | Yes (via richTextSection) |
+| Text Alignment    | Yes (Left/Center/Right)   | No                         | No                        |
+| Images            | Yes (inline)              | Yes (structured)           | No                        |
+| Media Types       | Images/Video/Image Slider | Image/Gallery/Video/Slider | No                        |
+| Layout Options    | No                        | Yes (3 types)              | No                        |
+| Icons             | No                        | No                         | Yes (Lucide icons)        |
+| Expandable Items  | No                        | No                         | Yes                       |
+| Usage             | Flowing text              | Text-media combinations    | Expandable Q&A areas      |
