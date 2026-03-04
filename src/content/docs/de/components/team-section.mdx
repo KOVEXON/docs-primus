@@ -30,6 +30,13 @@ Der **Team** zeigt alle Teammitglieder in organisierten Karten an. Jede Karte ze
 
 ## Felder
 
+### Aktiv
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein (Standard: **aktiv**)
+- **Zweck:** Steuert, ob der gesamte Team-Bereich auf der Website angezeigt wird.
+- **Hinweis:** Deaktivieren Sie dieses Feld, wenn der Bereich vorbereitet, aber noch nicht live sein soll.
+
 ### Überschrift
 
 - **Typ:** String
@@ -41,12 +48,23 @@ Der **Team** zeigt alle Teammitglieder in organisierten Karten an. Jede Karte ze
 
 ---
 
+### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Einleitungstext unter der Überschrift, der den Team-Bereich kurz beschreibt.
+- **Beispiel:**  
+  `Lernen Sie die Menschen kennen, die hinter unserem Angebot stehen.`
+- **Hinweis:** Halten Sie den Text kompakt (1–3 Sätze), um den Bereich zu erklären, ohne die Karten zu überladen.
+
+---
+
 ### Mitglieder
 
 - **Typ:** Array von Teammitglied-Objekten
 - **Erforderlich:** Nein
 - **Zweck:** Liste der Teammitglieder – jeder Eintrag entspricht einer Team-Karte auf der Website
-- **Hinweis:** Eine Karte = eine Person oder ein System (z. B. Simulator)
+- **Hinweis:** Eine Karte = eine Person oder ein System (z. B. Simulator). 3–8 Teammitglieder sind in der Regel optimal.
 
 Jedes Teammitglied enthält:
 
@@ -69,10 +87,11 @@ Jedes Teammitglied enthält:
 
 #### Biografie
 
-- **Typ:** Text
+- **Typ:** Rich-Text
 - **Erforderlich:** Nein
 - **Zweck:** Text im Hauptbereich der Karte
-- **Hinweis:** Kann mehrere Zeilen enthalten. Längere Texte können mit "Mehr anzeigen" abgeschnitten werden. Verwenden Sie Aufzählungspunkte oder kurze Sätze, max. 5-7 Zeilen
+- **Hinweis:** Kann mehrere Zeilen enthalten. Längere Texte können mit "Mehr anzeigen" abgeschnitten werden. Verwenden Sie Aufzählungspunkte oder kurze Sätze; empfohlen sind maximal 5–7 Zeilen.
+- **Rich-Text-Optionen:** Unterstützt Formatierungen, Bilder, Videos und Bild-Slider wie im `Rich-Text`-Block beschrieben (siehe Dokumentation `Rich-Text`).
 
 #### Foto
 
@@ -91,10 +110,17 @@ Jedes Teammitglied enthält:
 
 #### Social-Links
 
-- **Typ:** Array von Social-Media-Links
+- **Typ:** Social-Links-Bereich
 - **Erforderlich:** Nein
-- **Zweck:** Social-Media-Links, die unter der Team-Karte angezeigt werden
-- **Hinweis:** Nur sichtbar, wenn "Social-Links anzeigen" aktiviert ist. Typische Links: Instagram, Facebook, LinkedIn
+- **Zweck:** Konfiguration der Social-Media-Links für dieses Teammitglied
+- **Hinweis:** Nur sichtbar, wenn "Social-Links anzeigen" aktiviert ist. Intern werden die gleichen Felder wie im Block `Social-Media-Links` verwendet (Bereichsüberschrift, Beschreibung, Social-Links-Liste, Ausrichtung und Icon-Größe). Für Details siehe die Dokumentation `Social-Media-Links`.
+
+Wenn Social-Links aktiviert sind, können Sie u. a. konfigurieren:
+
+1. **Bereichsüberschrift** und **Bereichsbeschreibung** (optional)
+2. **Social-Links** (Plattform, URL, Label, optional benutzerdefiniertes Icon)
+3. **Ausrichtung** (links, zentriert, rechts)
+4. **Icon-Größe** (klein, mittel, groß)
 
 ---
 
@@ -154,15 +180,16 @@ Jedes Teammitglied enthält:
 
 ## Wo es verwendet wird
 
-- **Seiten (`page`)**  
+- **Seiten**  
   Allgemeine Inhaltsseiten, insbesondere Über-uns-Seiten
 
 ---
 
 ## Technische Hinweise
 
+- Der gesamte Bereich kann über das Feld `Aktiv` ein- und ausgeblendet werden
 - Fotos werden als runde Bilder angezeigt
-- Social-Links verwenden plattformspezifische Icons
+- Social-Links verwenden plattformspezifische Icons und teilen sich die gleichen Optionen (Ausrichtung, Icon-Größe, Plattformauswahl) wie der Block `Social-Media-Links`
 - Biografie-Text kann mit "Mehr anzeigen" für längere Inhalte abgeschnitten werden
 - Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
 - Karten werden in einem responsiven Grid-Layout angezeigt

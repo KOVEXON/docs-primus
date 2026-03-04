@@ -6,8 +6,11 @@ slug: en/1.0/components/team-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import TeamSection from "../../../../../assets/1.0/team-section.png";
 import teamSectionWebsite from "../../../../../assets/1.0/team-section-website.png";
 import teamSectionSanity from "../../../../../assets/1.0/team-section-sanity.png";
+
+## Overview
 
 The **Team Section** displays all team members in organized cards. Each card shows a photo, name, role, bio, and optional social media links—perfect for introducing your team and building personal connections with visitors.
 
@@ -16,23 +19,28 @@ The **Team Section** displays all team members in organized cards. Each card sho
   personal connections, showcasing expertise.
 </Aside>
 
+***
+
+<br />
+
 <figure style="text-align: center;">
-  <img src={teamSectionWebsite.src} alt="Example of a team section with multiple team member cards" />
+  <img src={TeamSection.src} alt="Example of Team Section" />
 
   <figcaption>
-    <em>Example of a team section with multiple team member cards</em>
+    <em>Example of Team Section</em>
   </figcaption>
 </figure>
+
+***
 
 ## Fields
 
-<figure style="text-align: center;">
-  <img src={teamSectionSanity.src} alt="The team section fields in Sanity Studio" />
+### Active
 
-  <figcaption>
-    <em>The team section fields in Sanity Studio</em>
-  </figcaption>
-</figure>
+* **Type:** Boolean
+* **Required:** No (default: **active**)
+* **Purpose:** Controls whether the entire team section is displayed on the website.
+* **Note:** Disable this field if the section should be prepared but not live yet.
 
 ### Headline
 
@@ -45,12 +53,23 @@ The **Team Section** displays all team members in organized cards. Each card sho
 
 ***
 
+### Description
+
+* **Type:** Text
+* **Required:** No
+* **Purpose:** Introductory text below the headline that briefly explains the team section.
+* **Example:**\
+  `Get to know the people behind our services.`
+* **Note:** Keep the text compact (1–3 sentences) to explain the section without overloading the cards.
+
+***
+
 ### Members
 
 * **Type:** Array of team member objects
 * **Required:** No
 * **Purpose:** List of team members—each entry corresponds to one team card on the website
-* **Note:** One card = one person or system (e.g., simulator)
+* **Note:** One card = one person or system (e.g., simulator). In most cases, 3–8 team members are optimal.
 
 Each team member includes:
 
@@ -73,10 +92,11 @@ Each team member includes:
 
 #### Bio
 
-* **Type:** Text
+* **Type:** Rich text
 * **Required:** No
 * **Purpose:** Text in the main area of the card
-* **Note:** Can contain multiple lines. Longer texts may be truncated with "Show more". Use bullet points or short sentences, max 5-7 lines
+* **Note:** Can contain multiple lines. Longer texts may be truncated with "Show more". Use bullet points or short sentences; we recommend a maximum of 5–7 lines.
+* **Rich text options:** Supports formatting, images, videos, and image sliders as described in the `Rich Text` block documentation.
 
 #### Photo
 
@@ -95,10 +115,17 @@ Each team member includes:
 
 #### Social Links
 
-* **Type:** Array of social media links
+* **Type:** Social links section
 * **Required:** No
-* **Purpose:** Social media links displayed below the team card
-* **Note:** Only visible when "Show Social Links" is enabled. Typical links: Instagram, Facebook, LinkedIn
+* **Purpose:** Configuration of social media links for this team member
+* **Note:** Only visible when "Show Social Links" is enabled. Internally it uses the same fields as the `Social Media Links` block (section headline, description, social links list, alignment, and icon size). For details, see the `Social Media Links` documentation.
+
+When social links are enabled, you can configure, among other things:
+
+1. **Section headline** and **section description** (optional)
+2. **Social links** (platform, URL, label, optional custom icon)
+3. **Alignment** (left, center, right)
+4. **Icon size** (small, medium, large)
 
 ***
 
@@ -158,15 +185,16 @@ Each team member includes:
 
 ## Where It's Used
 
-* **Pages (`page`)**\
+* **Pages**\
   General content pages, especially about-us pages
 
 ***
 
 ## Technical Notes
 
+* The entire section can be toggled on or off via the `Active` field
 * Photos are displayed as round images
-* Social links use platform-specific icons
+* Social links use platform-specific icons and share the same options (alignment, icon size, platform selection) as the `Social Media Links` block
 * Bio text may be truncated with "Show more" for longer content
 * Background color references the global `backgroundColor` schema
 * Cards are displayed in a responsive grid layout
