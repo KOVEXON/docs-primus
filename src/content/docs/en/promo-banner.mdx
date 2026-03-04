@@ -10,7 +10,7 @@ import { Aside } from "@astrojs/starlight/components";
 The **Promo Banner** allows you to display promotional messages, announcements, or important notices at the top of your website pages. This banner is typically used for time-sensitive promotions, special offers, or important announcements that you want visitors to see immediately.
 
 <Aside>
-  **Best for:** Special promotions, limited-time offers, important
+  **Best for:** Special offers, limited-time promotions, important
   announcements, seasonal campaigns, and urgent notifications.
 </Aside>
 
@@ -24,7 +24,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 - **Required:** No
 - **Default Value:** `true`
 - **Purpose:** Toggle to show or hide the promo banner
-- **Note:** When disabled, the banner will not appear on any pages
+- **Note:** When disabled, the banner will not appear on any page
 
 ---
 
@@ -34,7 +34,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 - **Required:** Yes
 - **Purpose:** Main promotional text displayed in the banner
 - **Example:**  
-  `Special Offer: 20% off all services this month!`
+  `Special offer: 20% off all services this month!`
 
 ---
 
@@ -42,7 +42,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 - **Type:** String
 - **Required:** No
-- **Default Value:** `Get Offer`
+- **Default Value:** `Get offer`
 - **Purpose:** Text displayed on the call-to-action button in the banner
 - **Note:** If empty, the button will not be displayed
 - **Example:**  
@@ -82,11 +82,11 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 - **Type:** String
 - **Required:** No
-- **Default Value:** `🎉 Special Offer`
+- **Default Value:** `Special offer`
 - **Purpose:** Title displayed in the modal
 - **Note:** Only visible when Show Modal is enabled
 - **Example:**  
-  `Special Offer` or `Limited Time Deal`
+  `Special offer` or `Limited time offer`
 
 ---
 
@@ -112,27 +112,19 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 ---
 
-### Modal CTA Text
+### CTA Button (Modal)
 
-- **Type:** String
+- **Type:** CTA Button Object
 - **Required:** No
-- **Default Value:** `Get Started`
-- **Purpose:** Text for the main CTA button in the modal
+- **Purpose:** Configuration of the main CTA button in the modal (text, link, and role). If the button text is empty, the button will not be displayed.
 - **Note:** Only visible when Show Modal is enabled
-- **Example:**  
-  `Get Started` or `Claim Offer`
-
----
-
-### Modal CTA Link
-
-- **Type:** String
-- **Required:** No
-- **Purpose:** Link for the modal CTA button
-- **Format:** e.g., `https://example.com/promo`
-- **Note:** Only visible when Show Modal is enabled
-- **Example:**  
-  `https://example.com/promo`
+- **Subfields:**
+  - **Button Text:** Text of the button
+  - **Link (Internal/External):** Object for link configuration (`internalExternalLink`):
+    - **Link Type:** `Internal (page on this website)` or `External (URL)`; required once a target is set.
+    - **For Internal:** Choose **Link to** (`Page` or `Blog (article)`), then select **Page** (reference to page/legal page) or **Blog article** (reference to article).
+    - **For External:** Provide **URL** (full URL; allowed schemes: http, https, mailto, tel).
+  - **Button Role:** `Primary` or `Secondary` (dropdown); hidden when no button text is set
 
 ---
 
@@ -140,8 +132,8 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 - **Type:** DateTime
 - **Required:** No
-- **Purpose:** Date and time when the banner should start appearing
-- **Note:** If not set, banner appears immediately when enabled
+- **Purpose:** Date and time when the banner should appear
+- **Note:** If not set, the banner appears immediately when enabled
 - **Example:**  
   `2025-01-01T09:00:00Z`
 
@@ -151,8 +143,8 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 - **Type:** DateTime
 - **Required:** No
-- **Purpose:** Date and time when the banner should stop appearing
-- **Note:** Banner automatically hides after this date
+- **Purpose:** Date and time when the banner should no longer be displayed
+- **Note:** The banner will automatically be hidden after this date
 - **Example:**  
   `2025-01-31T23:59:59Z`
 
@@ -163,15 +155,14 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 ### Typical Configuration
 
 - **Enable Banner:** `true`
-- **Main Text:** `Special Offer: 20% off all services this month!`
+- **Main Text:** `Special offer: 20% off all services this month!`
 - **CTA Button Text:** `Learn more`
 - **Background Color:** `orange`
 - **Show Modal:** `true`
-- **Modal Title:** `Special Offer`
+- **Modal Title:** `Special offer`
 - **Modal Image:** (Optional promotional image)
 - **Modal Description:** `Get 20% off all services this month. Limited time only!`
-- **Modal CTA Text:** `Get Started`
-- **Modal CTA Link:** `https://example.com/promo`
+- **CTA Button (Modal):** Button text `Get started`, link of your choice, role `Primary`
 - **Start Date:** `2025-01-01T09:00:00Z`
 - **End Date:** `2025-01-31T23:59:59Z`
 
@@ -180,7 +171,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 ## Best Practices
 
 - **Timing:** Use start and end dates to automatically show/hide time-sensitive promotions
-- **Clarity:** Keep main text short and clear to grab attention quickly
+- **Clarity:** Keep the main text short and clear to grab attention quickly
 - **Visibility:** Choose background colors that stand out and match your brand
 - **Relevance:** Only enable banners for important messages to avoid banner fatigue
 - **Modal content:** Use the modal to provide detailed information without cluttering the banner
@@ -191,7 +182,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 ## Key Features
 
-- **Easy toggling:** Enable or disable banners with a single switch
+- **Easy toggling:** Enable or disable the banner with a single switch
 - **Automatic scheduling:** Start and end dates for automatic display control
 - **Customizable styling:** Multiple background color options
 - **Modal support:** Optional modal popup with rich content for detailed promotions
@@ -212,7 +203,7 @@ The **Promo Banner** allows you to display promotional messages, announcements, 
 
 - The banner appears above the header on all pages
 - Banner visibility is controlled by the Enable Banner toggle
-- Start and end dates use datetime format and respect the website's timezone setting
+- Start and end dates use DateTime format and respect the website's timezone setting
 - The banner is responsive and adapts to different screen sizes
 - When Show Modal is enabled, clicking the CTA button opens a modal instead of navigating directly
 - Modal fields are conditionally visible based on the Show Modal setting
