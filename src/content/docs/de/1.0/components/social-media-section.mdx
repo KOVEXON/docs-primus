@@ -1,20 +1,33 @@
 ---
-title: Social-Media-Links-Bereich
+title: Social-Media-Links
 description: Ein Inhaltsblock zur Anzeige von Social-Media-Links mit Icons von
   verschiedenen Plattformen und anpassbarer Ausrichtung und Größe.
 slug: de/1.0/components/social-media-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import SocialMediaSection from "../../../../../assets/1.0/social-media-section.png";
 
 ## Übersicht
 
-Der **Social-Media-Links-Bereich** zeigt Social-Media-Links mit plattformspezifischen Icons an. Mit Unterstützung für zahlreiche Plattformen, benutzerdefinierten Icons, flexibler Ausrichtung und Größenoptionen ist er perfekt, um Besucher mit Ihrer Social-Media-Präsenz zu verbinden.
+Der **Social-Media-Links** zeigt Social-Media-Links mit plattformspezifischen Icons an. Mit Unterstützung für zahlreiche Plattformen, benutzerdefinierten Icons, flexibler Ausrichtung und Größenoptionen ist er perfekt, um Besucher mit Ihrer Social-Media-Präsenz zu verbinden.
 
 <Aside>
   **Ideal für:** Footer-Social-Links, Kontaktseiten, Über-uns-Seiten, dedizierte
-  Social-Media-Bereiche, Markenpräsenz-Bereiche.
+  Social-Mediae, Markenpräsenze.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={SocialMediaSection.src} alt="Beispiel eines Social-Medias" />
+
+  <figcaption>
+    <em>Beispiel eines Social-Medias</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -24,7 +37,7 @@ Der **Social-Media-Links-Bereich** zeigt Social-Media-Links mit plattformspezifi
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den gesamten Social-Media-Links-Bereich
+* **Zweck:** Hauptüberschrift für den gesamten Social-Media-Links
 * **Beispiel:**\
   `Folgen Sie uns` oder `Verbinden Sie sich mit uns`
 
@@ -34,7 +47,7 @@ Der **Social-Media-Links-Bereich** zeigt Social-Media-Links mit plattformspezifi
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Social-Media-Links-Bereich
+* **Zweck:** Beschreibung für den Social-Media-Links
 * **Beispiel:**\
   `Bleiben Sie auf dem Laufenden`
 
@@ -164,7 +177,7 @@ Jeder Social-Link enthält:
 ## Wo es verwendet wird
 
 * **Seiten (`page`)**\
-  Allgemeine Inhaltsseiten, insbesondere Footer-Bereiche und Kontaktseiten
+  Allgemeine Inhaltsseiten, insbesondere Footere und Kontaktseiten
 
 ***
 

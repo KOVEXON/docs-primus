@@ -1,20 +1,33 @@
 ---
-title: Nachrichten-Bereich
+title: Nachrichten
 description: Ein Inhaltsblock zur Anzeige von Nachrichtenartikeln mit
   automatischem Abruf und "Mehr laden"-Funktionalität für einfaches Durchsuchen.
 slug: de/1.0/components/news-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import NewsSection from "../../../../../assets/1.0/news-section.png";
 
 ## Übersicht
 
-Der **Nachrichten-Bereich** ruft automatisch Nachrichtenartikel ab und zeigt sie mit einer "Mehr laden"-Funktionalität an. Artikel werden nach Veröffentlichungsdatum sortiert, sodass Besucher einfach auf dem Laufenden mit Ihren neuesten Nachrichten und Updates bleiben können.
+Der **Nachrichten** ruft automatisch Nachrichtenartikel ab und zeigt sie mit einer "Mehr laden"-Funktionalität an. Artikel werden nach Veröffentlichungsdatum sortiert, sodass Besucher einfach auf dem Laufenden mit Ihren neuesten Nachrichten und Updates bleiben können.
 
 <Aside>
-  **Ideal für:** Nachrichtenbereiche, aktuelle Updates, Blog-Vorschauen, Ankündigungen, Pressemitteilungen
-  Unternehmensupdates.
+  **Ideal für:** Nachrichtenbereiche, aktuelle Updates, Blog-Vorschauen,
+  Ankündigungen, Pressemitteilungen Unternehmensupdates.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={NewsSection.src} alt="Beispiel einer Nachricht" />
+
+  <figcaption>
+    <em>Beispiel einer Nachricht</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -24,7 +37,7 @@ Der **Nachrichten-Bereich** ruft automatisch Nachrichtenartikel ab und zeigt sie
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den Nachrichten-Bereich
+* **Zweck:** Hauptüberschrift für den Nachrichten
 * **Beispiel:**\
   `Nachrichten` oder `Neueste Updates`
 
@@ -34,7 +47,7 @@ Der **Nachrichten-Bereich** ruft automatisch Nachrichtenartikel ab und zeigt sie
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Nachrichten-Bereich
+* **Zweck:** Beschreibung für den Nachrichten
 * **Beispiel:**\
   `Neueste Nachrichten und Updates`
 

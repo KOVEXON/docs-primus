@@ -1,5 +1,5 @@
 ---
-title: Text mit Medien-Bereich
+title: Text mit Medien
 description: Ein strukturierter Inhaltsblock für Text-Medien-Kombinationen mit
   verschiedenen Layout-Optionen, perfekt für die Kombination von Text mit
   Bildern, Videos, Galerien oder Slidern.
@@ -7,6 +7,7 @@ slug: de/1.0/components/text-with-media-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import TextWithMediaSection from "../../../../../assets/1.0/text-with-media-section.png";
 import TextWithSingleImage from "../../../../../assets/1.0/text-with-media-section.png";
 import TextWithGallery from "../../../../../assets/1.0/text-with-gallery.png";
 import TextWithVideo from "../../../../../assets/1.0/text-with-video.png";
@@ -14,12 +15,24 @@ import TextWithSlider from "../../../../../assets/1.0/text-with-slider.png";
 
 ## Übersicht
 
-Der **Text mit Medien-Bereich** kombiniert Text und Medien (Bilder, Videos, Galerien, Slider) in verschiedenen Layouts. Er ist perfekt für Seiten, die strukturierte Text-Medien-Kombinationen mit flexiblen Layout-Optionen für verschiedene Inhaltstypen benötigen.
+Der **Text mit Medien** kombiniert Text und Medien (Bilder, Videos, Galerien, Slider) in verschiedenen Layouts. Er ist perfekt für Seiten, die strukturierte Text-Medien-Kombinationen mit flexiblen Layout-Optionen für verschiedene Inhaltstypen benötigen.
 
 <Aside>
   **Ideal für:** Produktpräsentationen, Serviceseiten, Über-uns-Seiten, Feature
   Präsentationen, Angebotsseiten, strukturierte Inhalte mit visuellen Elementen.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={TextWithMediaSection.src} alt="Beispiel eines Textes mit Medien" />
+
+  <figcaption>
+    <em>Beispiel eines Textes mit Medien</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -315,13 +328,13 @@ Text wird über den Medien angezeigt. Ideal für:
 
 ## Unterschiede zu anderen Inhaltsblöcken
 
-| Feature        | Text mit Medien-Bereich | Rich-Text-Bereich | Galerie-Bereich |
-| -------------- | ----------------------- | ----------------- | --------------- |
-| Struktur      | Fest (Text + Medien)    | Flexibel          | Nur Medien      |
-| Layout-Optionen | Ja (3 Typen)           | Nein                | Nein                |
-| Medientypen    | Ja (4 Typen)           | Nur Bilder       | Nur Bilder       |
-| Rich Text      | Ja (pro Element)          | Ja (vollständig)        | Nein                |
-| Mehrere Elemente | Ja (1-10)              | Nein                | Nein                |
-| Videos         | Ja                     | Nein                | Nein                |
-| Slider         | Ja                     | Nein                | Nein                |
-| Verwendung          | Strukturierte Kombinationen | Fließender Text      | Bildergalerien |
+| Feature          | Text mit Medien             | Rich-Text        | Galerie        |
+| ---------------- | --------------------------- | ---------------- | -------------- |
+| Struktur         | Fest (Text + Medien)        | Flexibel         | Nur Medien     |
+| Layout-Optionen  | Ja (3 Typen)                | Nein             | Nein           |
+| Medientypen      | Ja (4 Typen)                | Nur Bilder       | Nur Bilder     |
+| Rich Text        | Ja (pro Element)            | Ja (vollständig) | Nein           |
+| Mehrere Elemente | Ja (1-10)                   | Nein             | Nein           |
+| Videos           | Ja                          | Nein             | Nein           |
+| Slider           | Ja                          | Nein             | Nein           |
+| Verwendung       | Strukturierte Kombinationen | Fließender Text  | Bildergalerien |

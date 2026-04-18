@@ -30,6 +30,16 @@ Der **Feature** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteile oder D
 
 ## Felder
 
+### Aktiv
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true` (Standard: **aktiv**)
+- **Zweck:** Steuert, ob der Feature-Bereich auf der Website angezeigt wird
+- **Hinweis:** Deaktivieren Sie dieses Feld, wenn der Bereich vorübergehend nicht sichtbar sein soll, ohne die Konfiguration zu löschen
+
+---
+
 ### Überschrift
 
 - **Typ:** String
@@ -94,20 +104,15 @@ Der **Feature** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteile oder D
 
 - **Typ:** Boolean
 - **Erforderlich:** Nein
+- **Standardwert:** `false`
 - **Zweck:** Flag zum Anzeigen oder Ausblenden des Call-to-Action-Buttons für dieses Feature
-- **Beispiel:**  
-  `true` oder `false`
 
-**CTA-Button**
+**CTA-Button (Call to Action Button)**
 
-- **Typ:** Objekt
+- **Typ:** Referenz (`ctaButtonItem`)
 - **Erforderlich:** Nein
-- **Zweck:** Call-to-Action-Button-Konfiguration für dieses Feature
-- **Enthält:**
-  - **Label:** Der Button-Text
-  - **Link:** Die URL oder der Pfad, zu dem der Button verlinkt
-- **Beispiel:**  
-  `{ label: "Mehr erfahren", link: "/about-us" }`
+- **Zweck:** Call-to-Action-Button-Konfiguration für dieses Feature (Label, Link, Rolle)
+- **Hinweis:** Nur sichtbar, wenn „Button anzeigen“ auf `true` gesetzt ist
 
 ---
 
@@ -175,7 +180,7 @@ Der **Feature** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteile oder D
 ## Technische Hinweise
 
 - Icons stammen aus der Lucide Icon-Bibliothek
-- CTA-Buttons sind einfache Objekte mit `label`- und `link`-Feldern
+- CTA-Buttons verwenden das globale `ctaButtonItem`-Schema (Label, Link, Rolle)
 - Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
 - Features werden typischerweise in einem Grid-Layout angezeigt, das sich an die Bildschirmgröße anpasst
 - Jedes Feature hat ein `_key`-Feld (interne Sanity-Kennung)

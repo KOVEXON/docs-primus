@@ -1,5 +1,5 @@
 ---
-title: Tabs-Bereich
+title: Tabs
 description: Ein Inhaltsblock mit Tab-Navigation für strukturierte,
   kategorisierte Inhalte, perfekt für die Organisation verwandter Informationen
   in klaren Bereichen.
@@ -7,15 +7,28 @@ slug: de/1.0/components/tabs-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import TabsSection from "../../../../../assets/1.0/tabs-section.png";
 
 ## Übersicht
 
-Der **Tabs-Bereich** organisiert Inhalte in verschiedene Tabs mit Tab-Navigation. Er ist perfekt für strukturierte, kategorisierte Informationen, die von einer klaren, organisierten Präsentation profitieren, bei der nur ein Bereich gleichzeitig sichtbar ist.
+Der **Tabs** organisiert Inhalte in verschiedene Tabs mit Tab-Navigation. Er ist perfekt für strukturierte, kategorisierte Informationen, die von einer klaren, organisierten Präsentation profitieren, bei der nur ein Bereich gleichzeitig sichtbar ist.
 
 <Aside>
   **Ideal für:** Kategorisierte Inhalte, Produktdetails, Serviceseiten, Preis
   Vergleiche, Informationsseiten, Feature-Präsentationen.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={TabsSection.src} alt="Beispiel eines Tabs" />
+
+  <figcaption>
+    <em>Beispiel eines Tabs</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -25,7 +38,7 @@ Der **Tabs-Bereich** organisiert Inhalte in verschiedene Tabs mit Tab-Navigation
 
 * **Typ:** String
 * **Erforderlich:** Ja
-* **Zweck:** Hauptüberschrift für den gesamten Tabs-Bereich
+* **Zweck:** Hauptüberschrift für den gesamten Tabs
 * **Beispiel:**\
   `Unsere Service-Pakete` oder `Service-Optionen`
 
@@ -35,7 +48,7 @@ Der **Tabs-Bereich** organisiert Inhalte in verschiedene Tabs mit Tab-Navigation
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Tabs-Bereich
+* **Zweck:** Beschreibung für den Tabs
 * **Maximale Länge:** 500 Zeichen
 * **Beispiel:**\
   `Wählen Sie das richtige Service-Paket für Ihre Bedürfnisse`
@@ -144,29 +157,29 @@ Jedes Tab-Element enthält:
 
 ## Unterschiede zu anderen Inhaltsblöcken
 
-| Feature         | Tabs-Bereich     | Accordion-Bereich   |
-| --------------- | ---------------- | ------------------- |
-| Struktur       | Fest (Tabs)     | Fest (Accordion)   |
-| Navigation      | Tab-Navigation   | Erweiterbar          |
-| Sichtbarkeit      | Ein Tab aktiv   | Mehrere erweiterbar |
-| Rich Text       | Ja (pro Tab)    | Ja (pro Element)      |
-| Icons           | Nein               | Ja (optional)      |
-| Überschriften       | Ja (pro Tab)    | Ja (pro Element)      |
-| Platzsparend | Ja              | Ja                 |
-| Verwendung           | Kategorisierte Informationen | Strukturierte Informationen     |
+| Feature       | Tabs                         | Accordion                   |
+| ------------- | ---------------------------- | --------------------------- |
+| Struktur      | Fest (Tabs)                  | Fest (Accordion)            |
+| Navigation    | Tab-Navigation               | Erweiterbar                 |
+| Sichtbarkeit  | Ein Tab aktiv                | Mehrere erweiterbar         |
+| Rich Text     | Ja (pro Tab)                 | Ja (pro Element)            |
+| Icons         | Nein                         | Ja (optional)               |
+| Überschriften | Ja (pro Tab)                 | Ja (pro Element)            |
+| Platzsparend  | Ja                           | Ja                          |
+| Verwendung    | Kategorisierte Informationen | Strukturierte Informationen |
 
 ***
 
 ## Wann Tabs vs. Accordion verwenden
 
-### Verwenden Sie Tabs-Bereich, wenn:
+### Verwenden Sie Tabs, wenn:
 
 * Inhalte äquivalent und kategorisiert sind
 * Nur ein Bereich gleichzeitig sichtbar sein sollte
 * Inhalte thematisch zusammengehören
 * Klare Navigation wichtig ist
 
-### Verwenden Sie Accordion-Bereich, wenn:
+### Verwenden Sie Accordion, wenn:
 
 * Inhalte hierarchisch strukturiert sind
 * Mehrere Bereiche gleichzeitig sichtbar sein können

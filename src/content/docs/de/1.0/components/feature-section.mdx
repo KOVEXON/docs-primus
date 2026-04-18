@@ -1,5 +1,5 @@
 ---
-title: Feature-Bereich
+title: Feature
 description: Ein Inhaltsblock zur Präsentation von Features, Vorteilen oder
   Dienstleistungen mit Icons, Überschriften und Beschreibungen in einem
   organisierten Layout.
@@ -7,15 +7,28 @@ slug: de/1.0/components/feature-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import FeatureSection from "../../../../../assets/1.0/feature-section.png";
 
 ## Übersicht
 
-Der **Feature-Bereich** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteile oder Dienstleistungen in einem organisierten, visuell ansprechenden Format zu präsentieren. Jedes Feature kann ein Icon, eine Überschrift, eine Unterüberschrift, eine Beschreibung und einen optionalen Call-to-Action-Button enthalten – perfekt, um hervorzuheben, was Ihr Angebot einzigartig macht.
+Der **Feature** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteile oder Dienstleistungen in einem organisierten, visuell ansprechenden Format zu präsentieren. Jedes Feature kann ein Icon, eine Überschrift, eine Unterüberschrift, eine Beschreibung und einen optionalen Call-to-Action-Button enthalten – perfekt, um hervorzuheben, was Ihr Angebot einzigartig macht.
 
 <Aside>
-  **Ideal für:** Feature-Präsentationen, Vorteils-Highlights, Service-Übersichten,
-  Produktfeatures, Wertversprechen, Wettbewerbsvorteile.
+  **Ideal für:** Feature-Präsentationen, Vorteils-Highlights,
+  Service-Übersichten, Produktfeatures, Wertversprechen, Wettbewerbsvorteile.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={FeatureSection.src} alt="Beispiel eines Features" />
+
+  <figcaption>
+    <em>Beispiel eines Features</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -25,7 +38,7 @@ Der **Feature-Bereich** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteil
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den gesamten Feature-Bereich
+* **Zweck:** Hauptüberschrift für den gesamten Feature
 * **Beispiele:**\
   `Unsere Vorteile`, `Warum uns wählen`
 
@@ -35,7 +48,7 @@ Der **Feature-Bereich** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteil
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Feature-Bereich
+* **Zweck:** Beschreibung für den Feature
 * **Beispiel:**\
   `Warum Sie uns wählen sollten`
 
@@ -106,7 +119,7 @@ Der **Feature-Bereich** ermöglicht es Ihnen, Ihre wichtigsten Features, Vorteil
 
 * **Typ:** Referenz (`backgroundColor`)
 * **Erforderlich:** Nein
-* **Zweck:** Legt die Hintergrundfarbe für den gesamten Feature-Bereich fest
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Feature fest
 
 ***
 

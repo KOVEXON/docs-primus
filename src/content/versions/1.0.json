@@ -27,6 +27,30 @@
         "de": "Komponenten",
         "en": "Components"
       }
+    },
+    {
+      "label": "Website Settings",
+      "slug": "website-settings",
+      "translations": {
+        "de": "Website-Einstellungen",
+        "en": "Website Settings"
+      }
+    },
+    {
+      "label": "Holiday Notice",
+      "slug": "holiday-notice",
+      "translations": {
+        "de": "Urlaubsbenachrichtigung",
+        "en": "Holiday Notice"
+      }
+    },
+    {
+      "label": "Promo Banner",
+      "slug": "promo-banner",
+      "translations": {
+        "de": "Promo Banner",
+        "en": "Promo Banner"
+      }
     }
   ]
 }

@@ -1,22 +1,35 @@
 ---
-title: Hero-Bereich ZWEI
+title: Hero ZWEI
 description: Eine alternative Hero-Variante mit Überschrift, Unterüberschrift,
   Beschreibung und optionalem Badge für klare, direkte Kommunikation.
 slug: de/1.0/components/hero-section-two
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import HeroSectionTwo from "../../../../../assets/1.0/hero-section-two.png";
 
 ## Übersicht
 
-Der **Hero-Bereich ZWEI** ist eine vereinfachte Hero-Variante, die für klare und direkte Kommunikation ausgelegt ist.\
-Im Vergleich zu **Hero-Bereich EINS** entfernt er komplexe Stiloptionen wie Schlüsselwörter und hervorgehobene Überschriftenteile und ist damit ideal für unkomplizierte Botschaften.
+Der **Hero ZWEI** ist eine vereinfachte Hero-Variante, die für klare und direkte Kommunikation ausgelegt ist.\
+Im Vergleich zu **Hero EINS** entfernt er komplexe Stiloptionen wie Schlüsselwörter und hervorgehobene Überschriftenteile und ist damit ideal für unkomplizierte Botschaften.
 
 <Aside>
-  **Ideal für:** Unterseiten, Landing Pages und Informationsseiten, die
-  klare Botschaften ohne komplexe Formatierung erfordern. Ideal als leichtgewichtige Alternative
-  zu Hero-Bereich EINS.
+  **Ideal für:** Unterseiten, Landing Pages und Informationsseiten, die klare
+  Botschaften ohne komplexe Formatierung erfordern. Ideal als leichtgewichtige
+  Alternative zu Hero EINS.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={HeroSectionTwo.src} alt="Beispiel eines Heros ZWEI" />
+
+  <figcaption>
+    <em>Beispiel eines Heros ZWEI</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -27,7 +40,7 @@ Im Vergleich zu **Hero-Bereich EINS** entfernt er komplexe Stiloptionen wie Schl
 * **Typ:** String
 * **Erforderlich:** Ja
 * **Maximale Länge:** 120 Zeichen
-* **Zweck:** Hauptüberschrift des Hero-Bereichs
+* **Zweck:** Hauptüberschrift des Heros
 * **Beispiel:**\
   `Professionelle Dienstleistungen – Ihr Unternehmen in Beispielstadt`
 
@@ -58,7 +71,7 @@ Im Vergleich zu **Hero-Bereich EINS** entfernt er komplexe Stiloptionen wie Schl
 * **Typ:** Boolean
 * **Erforderlich:** Nein
 * **Standard:** `false`
-* **Zweck:** Umschalter für die Sichtbarkeit eines Badges im Hero-Bereich
+* **Zweck:** Umschalter für die Sichtbarkeit eines Badges im Hero
 
 ***
 
@@ -67,7 +80,7 @@ Im Vergleich zu **Hero-Bereich EINS** entfernt er komplexe Stiloptionen wie Schl
 * **Typ:** Referenz (`badge`)
 * **Erforderlich:** Nein
 * **Ausgeblendet wenn:** *Badge anzeigen* deaktiviert ist
-* **Zweck:** Zeigt eine Badge-Komponente im Hero-Bereich an
+* **Zweck:** Zeigt eine Badge-Komponente im Hero an
 * **Beispiele:**\
   `NEU`, `Bestseller`
 
@@ -129,13 +142,13 @@ Im Vergleich zu **Hero-Bereich EINS** entfernt er komplexe Stiloptionen wie Schl
 
 ***
 
-## Unterschiede zu Hero-Bereich EINS
+## Unterschiede zu Hero EINS
 
-| Feature            | Hero-Bereich EINS                    | Hero-Bereich ZWEI |
-| ------------------ | ----------------------------------- | ---------------- |
-| Überschriftstruktur | Mehrteilig mit Stilen und Schlüsselwörtern | Einfacher String    |
-| Schlüsselwörter           | Ja (farbig)                       | Nein               |
-| Buttons            | Ja (Primär / Sekundär)           | Nein               |
-| Badge              | Nein                                  | Ja (optional)   |
-| Hintergrundbild   | Ja                                 | Nein               |
-| Beschreibung        | Ja                                 | Ja              |
+| Feature             | Hero EINS                                  | Hero ZWEI        |
+| ------------------- | ------------------------------------------ | ---------------- |
+| Überschriftstruktur | Mehrteilig mit Stilen und Schlüsselwörtern | Einfacher String |
+| Schlüsselwörter     | Ja (farbig)                                | Nein             |
+| Buttons             | Ja (Primär / Sekundär)                     | Nein             |
+| Badge               | Nein                                       | Ja (optional)    |
+| Hintergrundbild     | Ja                                         | Nein             |
+| Beschreibung        | Ja                                         | Ja               |

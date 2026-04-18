@@ -1,18 +1,35 @@
 ---
-title: Bildslider-Bereich ZWEI
+title: Bildslider ZWEI
 description: Ein karussellbasierter Bildslider mit mehreren Slides, perfekt für
   die Präsentation mehrerer Botschaften oder Angebote auf Ihren Seiten.
 slug: de/1.0/components/image-slider-section-two
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import ImageSliderSectionTWO from "../../../../../assets/1.0/image-slider-2.png";
 
-Der **Bildslider-Bereich ZWEI** ist ein karussellbasierter Bildslider, der mehrere Slides mit Bildern, Text und Call-to-Action-Buttons unterstützt. Er ist ideal für Seiten, die mehrere Botschaften oder Angebote präsentieren möchten, die automatisch oder manuell durch verschiedene Inhalte rotieren.
+## Übersicht
+
+Der **Bildslider ZWEI** ist ein karussellbasierter Bildslider, der mehrere Slides mit Bildern, Text und Call-to-Action-Buttons unterstützt. Er ist ideal für Seiten, die mehrere Botschaften oder Angebote präsentieren möchten, die automatisch oder manuell durch verschiedene Inhalte rotieren.
 
 <Aside>
-  **Ideal für:** Startseiten mit mehreren Angeboten, Marketing-Kampagnen, Produkt
-  Präsentationen, Veranstaltungs-Highlights, rotierende Aktionen.
+  **Ideal für:** Startseiten mit mehreren Angeboten, Marketing-Kampagnen,
+  Produkt Präsentationen, Veranstaltungs-Highlights, rotierende Aktionen.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ImageSliderSectionTWO.src} alt="Beispiel eines Bildsliders ZWEI" />
+
+  <figcaption>
+    <em>Beispiel eines Bildsliders ZWEI</em>
+  </figcaption>
+</figure>
+
+***
 
 ## Felder
 
@@ -253,21 +270,21 @@ Jeder Button enthält:
 
 ***
 
-## Unterschiede zu Bildslider-Bereich EINS
+## Unterschiede zu Bildslider EINS
 
-| Feature                  | Bildslider-Bereich EINS                 | Bildslider-Bereich ZWEI              |
-| ------------------------ | ---------------------------------------- | ------------------------------------- |
-| Globale Inhalte           | Ja (Titel, Beschreibung, CTA, Ausrichtung) | Nein                                    |
-| Globaler CTA-Button        | Ja (optional)                           | Nein                                    |
-| Globale Inhaltsausrichtung | Ja (Links/Rechts)                         | Nein                                    |
-| Slide-spezifischer CTA       | Ja (optional, pro Slide)                | Ja (optional, pro Slide)             |
-| Slide-Inhaltsausrichtung  | Ja (optional, pro Slide)                | Nein                                    |
-| Slide-Überschriften          | Optional (überschreibt globalen Titel)        | Erforderlich (max. 100 Zeichen)         |
-| Slide-Beschreibungen       | Optional (überschreibt globale Beschreibung)  | Erforderlich (max. 300 Zeichen, 3 Zeilen) |
-| Bildlinks              | Ja (klickbare Bilder mit URL)          | Nein                                    |
-| Bildunterschriften           | Ja (optional)                           | Nein                                    |
-| Alt-Text                 | Erforderlich (min 1, max 125 Zeichen)     | Erforderlich (gleich)                       |
-| Slide-Anzahl              | 1-10 Slides (mindestens 1)                  | 1-10 Slides (mindestens 1)               |
-| Struktur                | Globale + slide-spezifische Inhalte          | Nur Slide-Inhalte                    |
-| Anwendungsfall                 | Inhalte mit gemeinsamen globalen Elementen      | Unabhängige Slide-Inhalte             |
-| Komplexität               | Flexibler, unterstützt globale Standardwerte  | Einfacher, slide-fokussiert                |
+| Feature                    | Bildslider EINS                              | Bildslider ZWEI                           |
+| -------------------------- | -------------------------------------------- | ----------------------------------------- |
+| Globale Inhalte            | Ja (Titel, Beschreibung, CTA, Ausrichtung)   | Nein                                      |
+| Globaler CTA-Button        | Ja (optional)                                | Nein                                      |
+| Globale Inhaltsausrichtung | Ja (Links/Rechts)                            | Nein                                      |
+| Slide-spezifischer CTA     | Ja (optional, pro Slide)                     | Ja (optional, pro Slide)                  |
+| Slide-Inhaltsausrichtung   | Ja (optional, pro Slide)                     | Nein                                      |
+| Slide-Überschriften        | Optional (überschreibt globalen Titel)       | Erforderlich (max. 100 Zeichen)           |
+| Slide-Beschreibungen       | Optional (überschreibt globale Beschreibung) | Erforderlich (max. 300 Zeichen, 3 Zeilen) |
+| Bildlinks                  | Ja (klickbare Bilder mit URL)                | Nein                                      |
+| Bildunterschriften         | Ja (optional)                                | Nein                                      |
+| Alt-Text                   | Erforderlich (min 1, max 125 Zeichen)        | Erforderlich (gleich)                     |
+| Slide-Anzahl               | 1-10 Slides (mindestens 1)                   | 1-10 Slides (mindestens 1)                |
+| Struktur                   | Globale + slide-spezifische Inhalte          | Nur Slide-Inhalte                         |
+| Anwendungsfall             | Inhalte mit gemeinsamen globalen Elementen   | Unabhängige Slide-Inhalte                 |
+| Komplexität                | Flexibler, unterstützt globale Standardwerte | Einfacher, slide-fokussiert               |

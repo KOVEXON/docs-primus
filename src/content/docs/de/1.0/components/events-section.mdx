@@ -1,20 +1,33 @@
 ---
-title: Veranstaltungs-Bereich
+title: Veranstaltungs
 description: Ein Inhaltsblock zur Anzeige von Veranstaltungen aus einer
   Veranstaltungsliste in einem klaren Tabellenformat mit Verfügbarkeitsstatus.
 slug: de/1.0/components/events-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import EventsSection from "../../../../../assets/1.0/events-section.png";
 
 ## Übersicht
 
-Der **Veranstaltungs-Bereich** präsentiert Veranstaltungen aus einer Veranstaltungsliste in einem organisierten Tabellenformat. Er ist perfekt für die Anzeige von Kursen, Terminen oder geplanten Aktivitäten mit klaren Datums-, Zeit- und Verfügbarkeitsinformationen.
+Der **Veranstaltungs** präsentiert Veranstaltungen aus einer Veranstaltungsliste in einem organisierten Tabellenformat. Er ist perfekt für die Anzeige von Kursen, Terminen oder geplanten Aktivitäten mit klaren Datums-, Zeit- und Verfügbarkeitsinformationen.
 
 <Aside>
   **Ideal für:** Veranstaltungskalender, Kursübersichten, Terminpläne, Kurs
   Auflistungen, Schulungspläne.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={EventsSection.src} alt="Beispiel einer Veranstaltung" />
+
+  <figcaption>
+    <em>Beispiel einer Veranstaltung</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -24,7 +37,7 @@ Der **Veranstaltungs-Bereich** präsentiert Veranstaltungen aus einer Veranstalt
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den Veranstaltungs-Bereich
+* **Zweck:** Hauptüberschrift für den Veranstaltungs
 * **Beispiel:**\
   `Anstehende Veranstaltungen` oder `Kursplan`
 
@@ -103,7 +116,7 @@ Jede Veranstaltungsliste enthält:
 
 * **Typ:** Array
 * **Erforderlich:** Nein
-* **Zweck:** Liste der im Veranstaltungs-Bereich anzuzeigenden Veranstaltungen
+* **Zweck:** Liste der im Veranstaltungs anzuzeigenden Veranstaltungen
 
 Jede Veranstaltung im Veranstaltungs-Array enthält:
 

@@ -1,20 +1,33 @@
 ---
-title: Preis-Bereich
+title: Preis
 description: Ein Inhaltsblock zur Präsentation von Preisen und Paketen in
   klaren, organisierten Preis-Karten mit Features und Call-to-Action-Buttons.
 slug: de/1.0/components/pricing-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import PricingSection from "../../../../../assets/1.0/pricing-section.png";
 
 ## Übersicht
 
-Der **Preis-Bereich** zeigt Preise, Pakete oder Angebote in organisierten Preis-Karten an. Jede Karte kann einen Namen, Preis, Beschreibung, Feature-Liste, optionale Buttons, Badges und Hervorhebung enthalten – perfekt für den Vergleich verschiedener Optionen und die Förderung von Conversions.
+Der **Preis** zeigt Preise, Pakete oder Angebote in organisierten Preis-Karten an. Jede Karte kann einen Namen, Preis, Beschreibung, Feature-Liste, optionale Buttons, Badges und Hervorhebung enthalten – perfekt für den Vergleich verschiedener Optionen und die Förderung von Conversions.
 
 <Aside>
   **Ideal für:** Preislisten, Paketvergleiche, Sonderangebote, Service-Stufen,
   Produktpreise, Abonnementpläne.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={PricingSection.src} alt="Beispiel eines Preises" />
+
+  <figcaption>
+    <em>Beispiel eines Preises</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -24,7 +37,7 @@ Der **Preis-Bereich** zeigt Preise, Pakete oder Angebote in organisierten Preis-
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den Preis-Bereich
+* **Zweck:** Hauptüberschrift für den Preis
 * **Beispiel:**\
   `Unsere Preise` oder `Wählen Sie Ihren Plan`
 
@@ -34,7 +47,7 @@ Der **Preis-Bereich** zeigt Preise, Pakete oder Angebote in organisierten Preis-
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Preis-Bereich
+* **Zweck:** Beschreibung für den Preis
 * **Beispiel:**\
   `Wählen Sie das richtige Paket für Ihre Bedürfnisse`
 

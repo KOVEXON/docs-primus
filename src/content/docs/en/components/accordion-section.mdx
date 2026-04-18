@@ -46,6 +46,17 @@ The **Accordion Section** lets you organize content into collapsible panels. Use
   </figcaption>
 </figure>
 
+### Active
+
+- **Field name:** `isActive`
+- **Type:** Boolean
+- **Default:** `true`
+- **Required:** No
+- **Purpose:** Controls whether this accordion section is displayed on the website.
+- **Note:** When `isActive` is turned off, the entire accordion block will not be rendered on the page—content stays in the CMS but is hidden from visitors.
+
+---
+
 ### Section Headline
 
 - **Type:** String
@@ -88,7 +99,7 @@ Each accordion item contains:
 #### Item Headline
 
 - **Type:** String
-- **Required:** Yes
+- **Required:** Yes (required field)
 - **Purpose:** The clickable title shown when collapsed
 - **Example:**  
   `What are our opening hours?`
@@ -114,7 +125,7 @@ Each accordion item contains:
 #### Content
 
 - **Type:** Rich Text Section (`richTextSection`)
-- **Required:** Yes
+- **Required:** Yes (required field)
 - **Purpose:** Rich text content shown when expanded
 - **Note:** Supports full formatting, images, links, etc.
 

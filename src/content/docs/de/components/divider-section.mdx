@@ -17,39 +17,7 @@ Verwenden Sie ihn sparsam, um lange Inhalte aufzulockern oder klare visuelle Gre
   Seitenlayouts strukturieren, lange Bereiche auflockern.
 </Aside>
 
----
-
-<br />
-
-<figure style="text-align: center;">
-  <img src={DividerSection.src} alt="Beispiel einer Trennlinie" />
-  <figcaption>
-    <em>Beispiel einer Trennlinie</em>
-  </figcaption>
-</figure>
-
----
-
 ## Felder
-
-<figure style="text-align: center;">
-  <img
-    src={DividerSectionOverview.src}
-    alt="Die Trennlinien-Felder in Sanity Studio"
-  />
-  <figcaption>
-    <em>Die Trennlinien-Felder in Sanity Studio</em>
-  </figcaption>
-</figure>
-
-### Trennlinie anzeigen
-
-- **Typ:** Boolean
-- **Erforderlich:** Nein
-- **Zweck:** Umschalter zum Anzeigen oder Ausblenden der Trennlinie
-- **Standardwert:** `false`
-
----
 
 ### Trennlinien-Breite
 
@@ -79,13 +47,9 @@ Verwenden Sie ihn sparsam, um lange Inhalte aufzulockern oder klare visuelle Gre
 
 ### Typische Konfiguration
 
-- **Trennlinie anzeigen:** `true`
-- **Trennlinien-Breite:** `100%`
-
-Für Abstand ohne sichtbare Linie:
-
-- **Trennlinie anzeigen:** `false`
-- **Trennlinien-Breite:** `100%`
+- **Trennlinien-Breite:** `100%` – Trennlinie über die volle Breite
+- **Trennlinien-Breite:** `Container-Breite (max-w-6xl)` – Begrenzte Breite innerhalb des Containers
+- **Trennlinien-Breite:** `Benutzerdefinierte Breite` mit **Benutzerdefinierte Breite:** z. B. `400px` oder `50vw` – Eigene Breite
 
 ---
 
@@ -103,7 +67,6 @@ Für Abstand ohne sichtbare Linie:
 
 - **Einfach und flexibel:** Minimale Konfiguration für maximale Flexibilität
 - **Visuelle Trennung:** Klare visuelle Grenzen zwischen Inhaltsbereichen
-- **Abstandskontrolle:** Kann Abstand ohne sichtbare Linie schaffen
 - **Breitenoptionen:** Mehrere Breitenoptionen für verschiedene Designanforderungen
 - **Leichtgewichtig:** Minimaler Einfluss auf die Seitenleistung
 
@@ -121,6 +84,5 @@ Für Abstand ohne sichtbare Linie:
 ## Technische Hinweise
 
 - Benutzerdefinierte Breite akzeptiert jeden gültigen CSS-Breitenwert (px, vw, rem, % usw.)
-- Wenn die Trennlinie ausgeblendet ist, erzeugt der Bereich dennoch Abstand
 - Hintergrundfarbe ist für diesen Bereich nicht konfigurierbar
 - Die Trennlinie verwendet semantisches HTML für Barrierefreiheit

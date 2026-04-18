@@ -1,0 +1,346 @@
+---
+title: Website Settings
+description: Configure global website settings including general site
+  information, default SEO, analytics, legal compliance (GDPR), and additional
+  global assets.
+slug: en/1.0/website-settings
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Overview
+
+The **Website Settings** section allows you to configure global settings that affect your entire website.
+
+The configuration is organized into the following blocks:
+
+* **General Site Information**
+* **Default SEO Settings**
+* **Analytics Settings**
+* **Legal & Compliance Settings (Privacy)**
+* **Additional Settings**
+
+<Aside>
+  <strong>Important:</strong> Changes to website settings affect the entire
+  website. Make sure to review changes carefully before publishing.
+</Aside>
+
+***
+
+## General Site Information
+
+General site information is used in SEO templates and structured data, among other places.
+
+### Site Name
+
+* **Type:** String
+* **Required:** Yes
+* **Purpose:** The name of your website. Used in structured data and SEO.
+* **Example:**\
+  `My Company Website`
+
+***
+
+### Default Language
+
+* **Type:** String
+* **Required:** Yes
+* **Default Value:** `de`
+* **Purpose:** Default language code (e.g., `de` for German, `en` for English). Used in the HTML `lang` attribute.
+* **Examples:**\
+  `de`, `en`, `fr`
+
+***
+
+### Default Country
+
+* **Type:** String
+* **Required:** Yes
+* **Default Value:** `DE`
+* **Purpose:** Default country code for addresses (ISO code such as `DE`, `US`, `GB`). Used in structured data.
+* **Validation:** Must be exactly 2 characters
+* **Examples:**\
+  `DE`, `US`, `GB`
+
+***
+
+## Default SEO Settings
+
+The Default SEO Settings field uses the SEO Settings object type.\
+These default SEO settings are used when no page-specific SEO settings are set.
+
+### Meta Title
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `{pageTitle} | {siteName}`
+* **Purpose:** Default meta title template. Use `{siteName}` and `{pageTitle}` as placeholders.
+
+***
+
+### Meta Description
+
+* **Type:** Text
+* **Required:** No
+* **Purpose:** Default meta description. Recommended maximum length: approximately 155 characters.
+* **Validation:** Maximum 155 characters
+
+***
+
+### Meta Keywords
+
+* **Type:** Array of strings
+* **Required:** No
+* **Purpose:** Default keywords. Not heavily used by Google, but may be useful for other search engines.
+* **Editor:** Displayed as tag list
+
+***
+
+### OG Image
+
+* **Type:** Image
+* **Required:** No
+* **Purpose:** Default Open Graph image for social media previews. Recommended size: 1200x630 px.
+* **Options:** Hotspot enabled
+
+***
+
+### OG Type
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `website`
+* **Purpose:** Default Open Graph object type.
+* **Options:**
+  * `website` – for general website pages
+  * `article` – for blog posts and articles
+
+***
+
+### Robots
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `index, follow`
+* **Purpose:** Default robots meta tag (e.g., `index, follow` or `noindex, nofollow`).
+* **Examples:**\
+  `index, follow`, `noindex, nofollow`
+
+***
+
+### Twitter Card Type
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `summary_large_image`
+* **Purpose:** Default Twitter card type.
+* **Options:**
+  * `summary` – standard summary card
+  * `summary_large_image` – summary card with large image
+
+***
+
+## Analytics Settings
+
+The Analytics field uses the Analytics Settings object type.\
+Here you configure analytics and tracking integrations for your website.
+
+### Enable Analytics
+
+* **Type:** Boolean
+* **Required:** No
+* **Default Value:** `false`
+* **Purpose:** Enable analytics tracking on the website.
+
+***
+
+### Google Analytics ID
+
+* **Type:** String
+* **Required:** No
+* **Hidden when:** Analytics is disabled **or** a Google Tag Manager ID is set
+* **Purpose:** Google Analytics measurement ID (e.g., `G-XXXXXXXXXX`).
+* **Note:** If you use Google Tag Manager, configure GA4 within GTM and leave this field empty to avoid double-tracking.
+* **Validation:** Cannot be used together with a Google Tag Manager ID. If both are set, a validation error is displayed.
+
+***
+
+### Google Tag Manager ID
+
+* **Type:** String
+* **Required:** No
+* **Hidden when:** Analytics is disabled **or** a Google Analytics ID is set
+* **Purpose:** Google Tag Manager container ID (e.g., `GTM-XXXXXXX`).
+* **Note:** If you use GTM, configure Google Analytics within GTM and leave the **Google Analytics ID** field empty to avoid double-tracking.
+* **Validation:** Cannot be used together with a Google Analytics ID. If both are set, a validation error is displayed.
+
+***
+
+### Meta Pixel ID
+
+* **Type:** String
+* **Required:** No
+* **Hidden when:** Analytics is disabled
+* **Purpose:** Meta Pixel ID for conversion tracking.
+
+***
+
+## Legal & Compliance Settings
+
+Currently this section is used mainly to manage the **Privacy Policy**.
+
+### Privacy Policy
+
+* **Type:** Object
+* **Required:** No
+* **Purpose:** Privacy and data protection settings, in particular for cookie consent and GDPR information.
+
+#### Enable Cookie Consent Banner
+
+* **Type:** Boolean
+* **Required:** No
+* **Default Value:** `true`
+* **Purpose:** Enable cookie consent banner for GDPR compliance.
+
+***
+
+#### Cookie Consent Text
+
+* **Type:** Text
+* **Required:** No
+* **Default Value:**\
+  `We use cookies to provide you with the best possible experience on our website. By using our website, you agree to the use of cookies.`
+* **Hidden when:** Cookie Consent Banner is disabled
+* **Purpose:** Text displayed in the cookie consent banner.
+
+***
+
+#### Accept Button Text
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `Accept`
+* **Hidden when:** Cookie Consent Banner is disabled
+* **Purpose:** Text for the accept button in the cookie consent banner.
+
+***
+
+#### Decline Button Text
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `Decline`
+* **Hidden when:** Cookie Consent Banner is disabled
+* **Purpose:** Text for the decline button in the cookie consent banner.
+
+***
+
+#### More Info Link Text
+
+* **Type:** String
+* **Required:** No
+* **Default Value:** `Learn more`
+* **Hidden when:** Cookie Consent Banner is disabled
+* **Purpose:** Text for the "more information" link in the cookie consent banner.
+
+***
+
+#### More Info Link
+
+* **Type:** String
+* **Required:** No
+* **Hidden when:** Cookie Consent Banner is disabled
+* **Purpose:** Link to the privacy policy page (e.g., `/privacy`).
+
+***
+
+#### Data Processing Purposes
+
+* **Type:** Array of strings
+* **Required:** No
+* **Purpose:** List of purposes for data processing (e.g., "Website functionality", "Analytics", "Marketing").
+
+***
+
+#### Data Retention Period
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** How long personal data is retained (e.g., "12 months", "Until withdrawal").
+
+***
+
+## Additional Settings
+
+The Additional Settings field is an object for additional site-wide assets, in particular icons.
+
+### Favicon
+
+* **Type:** Image
+* **Required:** No
+* **Purpose:** Website favicon. Recommended size: 32x32 px or 16x16 px.
+
+***
+
+### Apple Touch Icon
+
+* **Type:** Image
+* **Required:** No
+* **Purpose:** Apple Touch Icon for iOS devices. Recommended size: 180x180 px.
+
+***
+
+## Usage Example
+
+### Typical Configuration
+
+* **Site Name:** `My Company Website`
+* **Default Language:** `de`
+* **Default Country:** `DE`
+* **Default SEO:** Meta title template with placeholders
+* **Analytics:** Either Google Analytics ID **or** Google Tag Manager ID configured
+* **Cookie Consent:** Enabled with clear, GDPR-compliant text
+* **Favicon/Apple Touch Icon:** appropriate icons in the recommended format
+
+***
+
+## Best Practices
+
+* **Site Information:** Keep site name, language, and country consistent with your target audience.
+* **SEO Settings:** Set sensible default titles and descriptions that work for most pages.
+* **Analytics:** Enable only one tracking method (GA4 **or** GTM) to avoid double-tracking.
+* **Legal Compliance:** Align cookie texts and privacy notices with your legal advice.
+* **Privacy Text:** Phrase notices clearly, in plain language, and keep them up to date.
+
+***
+
+## Key Features
+
+* **Global Configuration:** Settings apply to the entire website.
+* **SEO Standards:** Template-based SEO settings for consistent optimization.
+* **Analytics Integration:** Support for Google Analytics, Google Tag Manager, and Meta Pixel.
+* **Privacy & Compliance:** Cookie banner, data processing purposes, and retention periods.
+* **Global Assets:** Central management of Favicon and Apple Touch Icon.
+
+***
+
+## Where It's Used
+
+* **Global Settings**\
+  Applied to all pages and components.
+* **SEO**\
+  Default meta tags and Open Graph settings when no page-specific values are set.
+* **Analytics**\
+  Initialization of tracking scripts (depending on your integrations).
+* **Legal Pages**\
+  Privacy notices and cookie information.
+
+***
+
+## Technical Notes
+
+* Website Settings is a Sanity document type and is referenced globally.
+* Changes must be published in Sanity to take effect.
+* Some settings (e.g., SEO) can be overridden at the page level.
+* Analytics settings are designed to be mutually exclusive (either Google Analytics ID **or** Google Tag Manager ID).
+* Privacy settings should be aligned with your implementation of the cookie banner in the frontend.

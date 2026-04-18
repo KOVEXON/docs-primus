@@ -1,20 +1,33 @@
 ---
-title: Roadmap-Bereich
+title: Roadmap
 description: Ein Inhaltsblock zur Anzeige von Roadmaps und Zeitplänen in
   chronologischer Reihenfolge, perfekt für Projektpläne und Meilensteine.
 slug: de/1.0/components/roadmap-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import RoadmapSection from "../../../../../assets/1.0/roadmap-section.png";
 
 ## Übersicht
 
-Der **Roadmap-Bereich** zeigt Roadmaps, Zeitpläne oder Meilensteine in chronologischer Reihenfolge an. Perfekt für die Anzeige von Projektplänen, Entwicklungszeitplänen oder wichtigen Meilensteinen in einem klaren, visuellen Format.
+Der **Roadmap** zeigt Roadmaps, Zeitpläne oder Meilensteine in chronologischer Reihenfolge an. Perfekt für die Anzeige von Projektplänen, Entwicklungszeitplänen oder wichtigen Meilensteinen in einem klaren, visuellen Format.
 
 <Aside>
   **Ideal für:** Projekt-Roadmaps, Zeitpläne, Meilensteine, Entwicklungspläne,
   Zukunftspläne, chronologische Ereignisanzeigen.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={RoadmapSection.src} alt="Beispiel einer Roadmap" />
+
+  <figcaption>
+    <em>Beispiel einer Roadmap</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -24,7 +37,7 @@ Der **Roadmap-Bereich** zeigt Roadmaps, Zeitpläne oder Meilensteine in chronolo
 
 * **Typ:** String
 * **Erforderlich:** Ja
-* **Zweck:** Hauptüberschrift für den gesamten Roadmap-Bereich
+* **Zweck:** Hauptüberschrift für den gesamten Roadmap
 * **Beispiel:**\
   `Unsere Roadmap` oder `Entwicklungszeitplan`
 
@@ -34,7 +47,7 @@ Der **Roadmap-Bereich** zeigt Roadmaps, Zeitpläne oder Meilensteine in chronolo
 
 * **Typ:** Text
 * **Erforderlich:** Nein
-* **Zweck:** Beschreibung für den Roadmap-Bereich
+* **Zweck:** Beschreibung für den Roadmap
 * **Beispiel:**\
   `Unsere geplanten Meilensteine und Entwicklungen`
 

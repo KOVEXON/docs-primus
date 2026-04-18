@@ -17,39 +17,7 @@ Use it sparingly to break up long content or create clear visual boundaries betw
   structuring page layouts, breaking up long sections.
 </Aside>
 
----
-
-<br />
-
-<figure style="text-align: center;">
-  <img src={DividerSection.src} alt="Example of Divider Section" />
-  <figcaption>
-    <em>Example of Divider Section</em>
-  </figcaption>
-</figure>
-
----
-
 ## Fields
-
-<figure style="text-align: center;">
-  <img
-    src={DividerSectionOverview.src}
-    alt="The divider section fields in Sanity Studio"
-  />
-  <figcaption>
-    <em>The divider section fields in Sanity Studio</em>
-  </figcaption>
-</figure>
-
-### Show Divider Line
-
-- **Type:** Boolean
-- **Required:** No
-- **Purpose:** Toggle to show or hide the divider line
-- **Default Value:** `false`
-
----
 
 ### Divider Width
 
@@ -79,13 +47,9 @@ Use it sparingly to break up long content or create clear visual boundaries betw
 
 ### Typical Configuration
 
-- **Show Divider Line:** `true`
-- **Divider Width:** `100%`
-
-For spacing without a visible line:
-
-- **Show Divider Line:** `false`
-- **Divider Width:** `100%`
+- **Divider Width:** `100%` – Full-width divider
+- **Divider Width:** `Container Width (max-w-6xl)` – Constrained width within the container
+- **Divider Width:** `Custom Width` with **Custom Width:** e.g. `400px` or `50vw` – Custom width value
 
 ---
 
@@ -103,7 +67,6 @@ For spacing without a visible line:
 
 - **Simple and flexible:** Minimal configuration for maximum flexibility
 - **Visual separation:** Clear visual boundaries between content sections
-- **Spacing control:** Can create spacing without a visible line
 - **Width options:** Multiple width options for different design needs
 - **Lightweight:** Minimal impact on page performance
 
@@ -121,6 +84,5 @@ For spacing without a visible line:
 ## Technical Notes
 
 - Custom width accepts any valid CSS width value (px, vw, rem, %, etc.)
-- When divider line is hidden, the section still creates spacing
 - Background color is not configurable for this section
 - The divider uses semantic HTML for accessibility

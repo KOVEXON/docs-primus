@@ -1,21 +1,34 @@
 ---
-title: Bildergalerie-Bereich
+title: Bildergalerie
 description: Eine Bildergalerie mit Titel, Untertitel und bis zu 20 Bildern zur
   Präsentation von Produkten, Veranstaltungen oder Portfolios.
 slug: de/1.0/components/image-gallery-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import ImageGallerySection from "../../../../../assets/1.0/image-gallery-section.png";
 
 ## Übersicht
 
-Der **Bildergalerie-Bereich** zeigt eine Sammlung von Bildern in einem sauberen, strukturierten Galerie-Layout an.\
+Der **Bildergalerie** zeigt eine Sammlung von Bildern in einem sauberen, strukturierten Galerie-Layout an.\
 Er ist ideal für die Präsentation visueller Inhalte wie Produkte, Veranstaltungen, Portfolios oder Referenzbilder in einem organisierten und responsiven Format.
 
 <Aside>
   **Ideal für:** Produktgalerien, Veranstaltungsgalerien, Portfolios, Referenz
-  Bilder, Fotosammlungen und Showcase-Bereiche.
+  Bilder, Fotosammlungen und Showcasee.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ImageGallerySection.src} alt="Beispiel einer Bildergalerie" />
+
+  <figcaption>
+    <em>Beispiel einer Bildergalerie</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -25,7 +38,7 @@ Er ist ideal für die Präsentation visueller Inhalte wie Produkte, Veranstaltun
 
 * **Typ:** String
 * **Erforderlich:** Ja
-* **Zweck:** Haupttitel des Galerie-Bereichs
+* **Zweck:** Haupttitel des Galeries
 * **Beispiele:**\
   `Produktgalerie`, `Veranstaltungsfotos`
 
@@ -70,7 +83,7 @@ Jedes Bild enthält:
 
 * **Typ:** Referenz (`backgroundColor`)
 * **Erforderlich:** Nein
-* **Zweck:** Legt die Hintergrundfarbe des Galerie-Bereichs fest
+* **Zweck:** Legt die Hintergrundfarbe des Galeries fest
 
 ***
 

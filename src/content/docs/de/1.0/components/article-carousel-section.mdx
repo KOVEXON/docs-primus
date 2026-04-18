@@ -1,5 +1,5 @@
 ---
-title: Artikel-Karussell-Bereich
+title: Artikel-Karussell
 description: Ein Inhaltsblock, der automatisch die neuesten Artikel in einem
   Karussell-Format anzeigt, perfekt für die Präsentation aktueller Nachrichten
   und Blog-Posts.
@@ -7,16 +7,29 @@ slug: de/1.0/components/article-carousel-section
 ---
 
 import { Aside } from "@astrojs/starlight/components";
+import ArticleCarouselSection from "../../../../../assets/1.0/article-carousel-section.png";
 
 ## Übersicht
 
-Der **Artikel-Karussell-Bereich** zeigt automatisch Ihre neuesten Artikel in einem interaktiven Karussell-Format an.\
+Der **Artikel-Karussell** zeigt automatisch Ihre neuesten Artikel in einem interaktiven Karussell-Format an.\
 Er ruft die neuesten Inhalte basierend auf dem Veröffentlichungsdatum ab und ist perfekt geeignet, um Ihre Startseite oder Nachrichtenseiten frisch und aktuell zu halten, ohne manuelle Updates.
 
 <Aside>
-  **Ideal für:** Startseiten-Highlights, Nachrichtenbereiche, Blog-Vorschauen, aktuelle
-  Updates, Artikel-Präsentationen.
+  **Ideal für:** Startseiten-Highlights, Nachrichtenbereiche, Blog-Vorschauen,
+  aktuelle Updates, Artikel-Präsentationen.
 </Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ArticleCarouselSection.src} alt="Beispiel eines Artikel-Karussells" />
+
+  <figcaption>
+    <em>Beispiel eines Artikel-Karussells</em>
+  </figcaption>
+</figure>
 
 ***
 
@@ -26,7 +39,7 @@ Er ruft die neuesten Inhalte basierend auf dem Veröffentlichungsdatum ab und is
 
 * **Typ:** String
 * **Erforderlich:** Nein
-* **Zweck:** Hauptüberschrift für den Karussell-Bereich
+* **Zweck:** Hauptüberschrift für den Karussell
 * **Maximale Länge:** 100 Zeichen
 * **Beispiel:**\
   `Neueste Artikel` oder `Aktuelle Nachrichten`
