@@ -1,8 +1,7 @@
 ---
-title: Map and Company Information Section
-description: A comprehensive section combining company contact information,
-  interactive map, and optional contact form for complete location and contact
-  details.
+title: Map and Company Information
+description: A comprehensive section that combines company contact details with
+  an interactive map for complete location and contact information.
 slug: en/1.0/components/map-and-company-information-section
 ---
 
@@ -11,36 +10,30 @@ import MapCompanyInformationSection from "../../../../../assets/1.0/map-company-
 
 ## Overview
 
-The **Map and Company Information Section** combines company contact details, an interactive map, and an optional contact form into a single, comprehensive section. This all-in-one component helps visitors find your location, view your contact information, and get in touch — all in one place.
+The **Map and Company Information** section combines company contact details and an interactive map into a single, comprehensive block. This all-in-one component helps visitors find your location, view your contact information, and get in touch – all in one place.
 
 <Aside>
-  **Best for:** Contact pages, location pages, business finder pages, pages
-  requiring complete contact and location information.
+  **Ideal for:** Contact pages, location pages, company finder pages, and pages
+  that require complete contact and location information.
 </Aside>
-
-***
-
-<br />
-
-<figure style="text-align: center;">
-  <img src={MapCompanyInformationSection.src} alt="Example of Map and Company Information Section" />
-
-  <figcaption>
-    <em>Example of Map and Company Information Section</em>
-  </figcaption>
-</figure>
-
-***
 
 ## Fields
 
-### Headline
+### Active
+
+* **Type:** Boolean
+* **Required:** No (default: **active**)
+* **Purpose:** Controls whether the section is displayed on the website.
+
+***
+
+### Heading
 
 * **Type:** String
 * **Required:** No
 * **Purpose:** Main heading for the entire section
 * **Example:**\
-  `Find Us` or `Contact & Location`
+  `Find us` or `Contact & location`
 
 ***
 
@@ -49,41 +42,52 @@ The **Map and Company Information Section** combines company contact details, an
 * **Type:** Text
 * **Required:** No
 * **Rows:** 3
-* **Purpose:** Brief description or context for the section
+* **Purpose:** Short description or context for the section
 * **Example:**\
-  `Visit us at our location or get in touch using the form below`
+  `Visit us at our location or get in touch using the contact details below.`
 
 ***
 
-### Company Information
+### Inner heading
+
+* **Type:** String
+* **Required:** No
+* **Purpose:** Additional heading inside the map/contact area (e.g. column heading or internal section heading)
+* **Example:**\
+  `How to reach us`
+
+***
+
+### Inner description
+
+* **Type:** Text
+* **Required:** No
+* **Rows:** 3
+* **Purpose:** Additional descriptive text directly in the map/contact area
+* **Example:**\
+  `An overview of our contact details and location.`
+
+***
+
+### Company information
 
 * **Type:** Reference (`companyInformation`)
-* **Required:** Yes
-* **Purpose:** Reference to a company information document containing contact details such as address, phone, email, and business hours
-* **Note:** This is a required field and must reference an existing company information document
+* **Required:** No
+* **Purpose:** Reference to a company information document that contains contact data such as address, phone, email, and business hours
+* **Note:** It is recommended to always reference an existing company information document to ensure consistent contact details.
 
 ***
 
-### Map Section
+### Map
 
 * **Type:** Reference (`mapSection`)
 * **Required:** No
-* **Purpose:** Optional reference to a map section document for displaying an interactive map with your location
-* **Note:** When provided, displays an interactive map showing your business location
+* **Purpose:** Optional reference to a map document to display an interactive map with your location
+* **Note:** When provided, it displays an interactive map with your business location.
 
 ***
 
-### Contact Form Section
-
-* **Type:** Reference (`contactFormSection`)
-* **Required:** No
-* **Purpose:** Optional contact form to display alongside the company information and map
-* **Description:** Optional contact form to display on the right side
-* **Note:** When provided, displays a contact form allowing visitors to send inquiries directly from the page
-
-***
-
-### Background Color
+### Background color
 
 * **Type:** Reference (`backgroundColor`)
 * **Required:** No
@@ -91,53 +95,51 @@ The **Map and Company Information Section** combines company contact details, an
 
 ***
 
-## Usage Example
+## Usage example
 
-### Typical Configuration
+### Typical configuration
 
-* **Headline:** `Find Us`
-* **Description:** `Visit us at our location or get in touch using the form below`
-* **Company Information:** Reference to a `companyInformation` document (e.g., "Main Office - Downtown Location")
-* **Map Section:** Reference to a `mapSection` document with coordinates and marker information
-* **Contact Form Section:** Reference to a `contactFormSection` document (optional)
-* **Background Color:** Reference to a `backgroundColor` object (optional)
-
-***
-
-## Best Practices
-
-* **Company information:** Keep your company information document up to date — changes will reflect across all sections using it
-* **Map integration:** Always include a map section for businesses with physical locations to help visitors find you easily
-* **Contact form:** Add a contact form when you want visitors to be able to reach out directly from the page
-* **Completeness:** Ensure all contact information is complete and accurate in the company information document
-* **Layout:** This section works best when all three components (company info, map, and form) are used together for a complete contact experience
-* **Background color:** Use sparingly — high contrast can reduce readability of contact information
+* **Heading:** `Find us`
+* **Description:** `Visit us at our location or contact us using the details provided.`
+* **Inner heading:** `How to reach us`
+* **Inner description:** `An overview of our contact details and location.`
+* **Company information:** Reference to a `companyInformation` document (e.g. "Head office – city center location")
+* **Map:** Reference to a `mapSection` document with coordinates and marker information (optional)
+* **Background color:** Reference to a `backgroundColor` object (optional)
 
 ***
 
-## Key Features
+## Best practices
 
-* **All-in-one solution:** Combines company information, map, and contact form in a single section
-* **Centralized management:** Company information is managed in one place and referenced across pages
-* **Interactive map:** Optional map section for visual location display and route planning
-* **Contact form integration:** Optional contact form for direct inquiries without leaving the page
-* **Flexible configuration:** Use any combination of map and contact form based on your needs
-* **Reusable:** Can be used on multiple pages with the same company information reference
+* **Company information:** Keep your company information document up to date – changes are reflected in every section that uses it.
+* **Map integration:** Add a map for businesses with physical locations to help visitors find you easily.
+* **Completeness:** Make sure all contact information in the company information document is complete and accurate.
+* **Layout:** Use the heading, inner heading, and descriptions to clearly structure the section.
+* **Background color:** Use sparingly – high contrast can reduce the readability of contact details.
 
 ***
 
-## Where It's Used
+## Key features
+
+* **All-in-one solution:** Combines company information and an optional map in a single section.
+* **Centralized management:** Company information is managed in one place and referenced across pages.
+* **Interactive map:** Optional map for visual location display and route planning.
+* **Flexible configuration:** Use the section with or without a map – company information is always the core.
+* **Reusable:** Can be used on multiple pages with the same company information reference.
+
+***
+
+## Where it is used
 
 * **Pages (`page`)**\
-  Contact pages, location pages, and general content pages requiring complete contact and location information
+  Contact pages, location pages, and general content pages that require complete contact and location information.
 
 ***
 
-## Technical Notes
+## Technical notes
 
-* Company information references the global `companyInformation` schema and is required
-* Map section references the global `mapSection` schema and is optional
-* Contact form section references the global `contactFormSection` schema and is optional
-* Background color references the global `backgroundColor` schema
-* All three components (company info, map, form) can be used together or independently based on configuration
-* The section displays company information, map, and contact form in a coordinated layout
+* Company information references the global `companyInformation` schema.
+* Map references the global `mapSection` schema and is optional.
+* Background color references the global `backgroundColor` schema.
+* Inner heading and inner description provide additional structure within the section.
+* The section displays company information and optionally a map in a coordinated layout.

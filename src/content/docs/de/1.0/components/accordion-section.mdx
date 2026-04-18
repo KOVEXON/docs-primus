@@ -44,6 +44,17 @@ Der **Accordion** ermöglicht es Ihnen, Inhalte in zusammenklappbare Bereiche zu
   </figcaption>
 </figure>
 
+### Aktiv
+
+* **Feldname:** `isActive`
+* **Typ:** Boolean
+* **Standardwert:** `true`
+* **Erforderlich:** Nein
+* **Zweck:** Steuert, ob dieser Accordion‑Bereich auf der Website angezeigt wird.
+* **Hinweis:** Wenn `isActive` deaktiviert ist, wird der gesamte Accordion‑Block auf der Seite nicht gerendert – Inhalte bleiben im CMS erhalten, sind aber für Besucher unsichtbar.
+
+***
+
 ### Bereichsüberschrift
 
 * **Typ:** String
@@ -84,7 +95,7 @@ Jedes Accordion-Element enthält:
 #### Elementüberschrift
 
 * **Typ:** String
-* **Erforderlich:** Ja
+* **Erforderlich:** Ja (Pflichtfeld)
 * **Zweck:** Der klickbare Titel, der im eingeklappten Zustand angezeigt wird
 * **Beispiel:**\
   `Wie sind unsere Öffnungszeiten?`
@@ -108,7 +119,7 @@ Jedes Accordion-Element enthält:
 #### Inhalt
 
 * **Typ:** Rich Text Section (`richTextSection`)
-* **Erforderlich:** Ja
+* **Erforderlich:** Ja (Pflichtfeld)
 * **Zweck:** Rich-Text-Inhalt, der beim Erweitern angezeigt wird
 * **Hinweis:** Unterstützt vollständige Formatierung, Bilder, Links usw.
 

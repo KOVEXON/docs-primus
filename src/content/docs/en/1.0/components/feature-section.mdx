@@ -33,6 +33,16 @@ The **Feature Section** lets you showcase your key features, benefits, or servic
 
 ## Fields
 
+### Active
+
+* **Type:** Boolean
+* **Required:** No
+* **Default Value:** `true`
+* **Purpose:** Controls whether the feature section is displayed on the website
+* **Note:** Turn this off when you want the section hidden temporarily without removing its configuration
+
+***
+
 ### Headline
 
 * **Type:** String
@@ -97,20 +107,15 @@ The **Feature Section** lets you showcase your key features, benefits, or servic
 
 * **Type:** Boolean
 * **Required:** No
+* **Default Value:** `false`
 * **Purpose:** Flag to show or hide the call-to-action button for this feature
-* **Example:**\
-  `true` or `false`
 
-**CTA Button**
+**CTA Button (Call to Action Button)**
 
-* **Type:** Object
+* **Type:** Reference (`ctaButtonItem`)
 * **Required:** No
-* **Purpose:** Call-to-action button configuration for this feature
-* **Contains:**
-  * **Label:** The button text
-  * **Link:** The URL or path the button links to
-* **Example:**\
-  `{ label: "Learn more", link: "/about-us" }`
+* **Purpose:** Call-to-action button configuration for this feature (label, link, role)
+* **Note:** Only visible when "Show Button" is set to `true`
 
 ***
 
@@ -178,7 +183,7 @@ The **Feature Section** lets you showcase your key features, benefits, or servic
 ## Technical Notes
 
 * Icons come from the Lucide icon library
-* CTA buttons are simple objects with `label` and `link` fields
+* CTA buttons use the global `ctaButtonItem` schema (label, link, role)
 * Background color references the global `backgroundColor` schema
 * Features are typically displayed in a grid layout that adapts to screen size
 * Each feature has a `_key` field (internal Sanity identifier)
