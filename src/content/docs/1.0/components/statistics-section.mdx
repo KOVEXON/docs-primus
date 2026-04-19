@@ -1,0 +1,154 @@
+---
+title: Statistiken
+description: Ein Inhaltsblock zur Anzeige von Statistiken und Kennzahlen in
+  einem organisierten, visuell ansprechenden Format.
+slug: 1.0/components/statistics-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import StatisticsSection from "../../../../assets/statistics-section.png";
+
+## Übersicht
+
+Der **Statistiken** zeigt Statistiken, Kennzahlen oder Erfolgszahlen in einem klaren, organisierten Format an. Perfekt für Vertrauensaufbau, Präsentation von Erfolgen oder Hervorhebung wichtiger Metriken, die Ihren Wert demonstrieren.
+
+<Aside>
+  **Ideal für:** Erfolgszahlen, Kennzahlen, Unternehmensstatistiken,
+  Vertrauensaufbau Erfolgs-Highlights, Metrikanzeigen.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={StatisticsSection.src} alt="Beispiel einer Statistik" />
+
+  <figcaption>
+    <em>Beispiel einer Statistik</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den Statistiken
+* **Beispiel:**\
+  `Unsere Erfolgszahlen` oder `In Zahlen`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Kurze Beschreibung des Bereichs
+* **Beispiel:**\
+  `Zahlen, die für sich sprechen`
+
+***
+
+### Statistiken
+
+* **Typ:** Array von Statistik-Element-Objekten
+* **Erforderlich:** Nein
+* **Zweck:** Liste der Statistiken
+
+Jedes Statistik-Element enthält:
+
+#### Label
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Label für die Statistik
+* **Beispiel:**\
+  `Zufriedene Kunden`
+
+#### Zahl
+
+* **Typ:** Zahl
+* **Erforderlich:** Nein
+* **Zweck:** Zahl der Statistik
+* **Beispiel:**\
+  `1000`
+
+#### Suffix
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Suffix nach der Zahl
+* **Beispiel:**\
+  `+`, `%` oder `Kunden`
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Unsere Erfolgszahlen`
+* **Beschreibung:** `Zahlen, die für sich sprechen`
+* **Statistiken:**
+  1. **"Zufriedene Kunden"**
+     * Zahl: `5000`
+     * Suffix: `+`
+  2. **"Erfolgsrate"**
+     * Zahl: `95`
+     * Suffix: `%`
+  3. **"Jahre Erfahrung"**
+     * Zahl: `15`
+     * Suffix: (leer)
+  4. **"Abgeschlossene Projekte"**
+     * Zahl: `200`
+     * Suffix: `+`
+
+***
+
+## Best Practices
+
+* **Relevanz:** Verwenden Sie nur relevante, aussagekräftige Statistiken, die einen Mehrwert bieten
+* **Genauigkeit:** Halten Sie Statistiken aktuell und genau
+* **Klarheit:** Verwenden Sie klare, verständliche Labels
+* **Suffixe:** Verwenden Sie angemessene Suffixe für bessere Lesbarkeit
+* **Anzahl:** 3-6 Statistiken sind optimal für Wirkung
+* **Visuelle Hierarchie:** Verwenden Sie konsistente Formatierung für alle Statistiken
+
+***
+
+## Hauptmerkmale
+
+* **Organisierte Anzeige:** Statistiken werden in einem sauberen, grid-basierten Layout angezeigt
+* **Flexible Formatierung:** Unterstützung für Zahlen mit benutzerdefinierten Suffixen
+* **Visuelle Wirkung:** Große Zahlen erzeugen visuelle Wirkung
+* **Vertrauensaufbau:** Statistiken helfen, Glaubwürdigkeit und Vertrauen aufzubauen
+* **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Startseiten und Über-uns-Seiten
+
+***
+
+## Technische Hinweise
+
+* Statistiken werden in einem responsiven Grid-Layout angezeigt
+* Zahlen können mit benutzerdefinierten Suffixen formatiert werden
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Der Bereich verwendet semantisches HTML für Barrierefreiheit
+* Statistiken werden typischerweise mit großen, prominenten Zahlen angezeigt

@@ -6,16 +6,17 @@ import starlightVersions from "starlight-versions";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://docs.kovexon.com',
+  site: "https://docs.kovexon.com",
   integrations: [
     starlight({
       title: "KOVEXON Docs",
       // Set German as the default language for this site.
-      defaultLocale: "de",
+      defaultLocale: "root",
       locales: {
         // German docs in `src/content/docs/de/`
-        de: {
+        root: {
           label: "Deutsch",
+          lang: "de",
         },
         en: {
           label: "English",

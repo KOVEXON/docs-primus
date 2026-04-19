@@ -1,0 +1,280 @@
+---
+title: Kontaktformular
+description: Ein konfigurierbarer Kontaktformular-Bereich mit anpassbaren
+  Feldern, E-Mail-Benachrichtigungen, Datenschutz-Optionen und Erfolgs- bzw.
+  Fehlermeldungen.
+slug: 1.0/components/contact-form-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der **Kontaktformular**-Bereich ermöglicht Besuchern, direkt über die Website Nachrichten zu senden. Sie legen die Formularfelder (Text, E-Mail, Telefon, Textarea, Auswahl, Checkbox) fest, konfigurieren die E-Mail-Betreffzeile, den Absende-Button, optionale Datenschutz-Texte sowie Erfolgs- und Fehlermeldungen.
+
+<Aside>
+  **Ideal für:** Kontaktseiten, Support-Anfragen, Rückruf-Anfragen, allgemeine
+  Anfragen und Feedback-Formulare.
+</Aside>
+
+***
+
+## Felder
+
+### Aktiv
+
+* **Typ:** Boolean
+* **Standard:** `true`
+* **Zweck:** Steuert, ob der Kontaktformular-Bereich auf der Website angezeigt wird.
+
+***
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Die Hauptüberschrift über dem Kontaktformular
+* **Beispiel:**\
+  `Kontaktieren Sie uns` oder `Schreiben Sie uns`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zeilen:** 3
+* **Zweck:** Optionale Beschreibung oberhalb des Formulars
+* **Beispiel:**\
+  `Füllen Sie das Formular aus und wir melden uns bei Ihnen.`
+
+***
+
+### Formularfelder
+
+* **Typ:** Array von Formularfeld-Objekten
+* **Erforderlich:** Ja (mindestens ein Feld)
+* **Zweck:** Definiert die sichtbaren Felder des Formulars in der gewünschten Reihenfolge. **Mindestens ein Feld muss vom Typ E-Mail sein** (wird für die Reply-to-Adresse der Benachrichtigungs-E-Mail verwendet).
+
+Jedes Formularfeld-Objekt enthält:
+
+#### Feldtyp
+
+* **Typ:** String (Auswahl)
+* **Erforderlich:** Ja
+* **Optionen:** Text, E-Mail, Telefon, Textarea, Auswahl (Select), Checkbox
+* **Zweck:** Legt die Art des Eingabefelds fest.
+
+#### Feldname (maschinenlesbar)
+
+* **Typ:** Slug
+* **Erforderlich:** Ja
+* **Max. Länge:** 40 Zeichen
+* **Zweck:** Technischer Name des Feldes (z. B. `name`, `email`, `phone`, `message`, `company`). Wird u. a. für die E-Mail-Betreffvorlage (`{fieldName}`) verwendet.
+
+#### Label
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Das dem Benutzer angezeigte Beschriftungs-Text des Feldes.
+
+#### Placeholder
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Platzhaltertext im Eingabefeld. Wird bei Feldtyp Checkbox nicht angezeigt.
+
+#### Pflichtfeld
+
+* **Typ:** Boolean
+* **Standard:** `false`
+* **Zweck:** Ob das Feld ausgefüllt werden muss, bevor das Formular abgesendet werden kann.
+
+#### Standard (für Checkbox)
+
+* **Typ:** Boolean
+* **Standard:** `false`
+* **Sichtbar:** Nur wenn Feldtyp = Checkbox
+* **Zweck:** Ob die Checkbox standardmäßig angehakt ist.
+
+#### Halbe Breite (nebeneinander auf Desktop)
+
+* **Typ:** Boolean
+* **Standard:** `false`
+* **Zweck:** Ermöglicht, dass das Feld auf Desktop neben einem anderen halbbreiten Feld angezeigt wird (z. B. Name und E-Mail in einer Zeile).
+
+#### Optionen (für Auswahl)
+
+* **Typ:** Array von Strings
+* **Sichtbar:** Nur wenn Feldtyp = Select
+* **Zweck:** Die wählbaren Optionen des Dropdown- bzw. Auswahlfeldes.
+
+#### Mehrfachauswahl erlauben
+
+* **Typ:** Boolean
+* **Standard:** `false`
+* **Sichtbar:** Nur wenn Feldtyp = Select
+* **Zweck:** Ob mehrere Optionen gleichzeitig ausgewählt werden können.
+
+#### Zeilen (für Textarea)
+
+* **Typ:** Zahl
+* **Standard:** 5
+* **Gültig:** 2–15
+* **Sichtbar:** Nur wenn Feldtyp = Textarea
+* **Zweck:** Anzahl der sichtbaren Zeilen des Textbereichs.
+
+#### Max. Länge (optional)
+
+* **Typ:** Zahl
+* **Erforderlich:** Nein
+* **Sichtbar:** Nicht bei Checkbox und Select
+* **Zweck:** Maximale Zeichenanzahl. Leer = Standard (Text: 200, E-Mail: 254, Telefon: 50, Textarea: 10000).
+
+***
+
+### E-Mail-Betreffvorlage
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standard:** `Neue Kontaktanfrage`
+* **Zweck:** Betreffzeile der Benachrichtigungs-E-Mail. Platzhalter `{fieldName}` ersetzen den Wert des jeweiligen Formularfeldes (z. B. `{name}`, `{email}`). Nur Feldnamen verwenden, die in diesem Formular existieren.
+* **Beispiel:**\
+  `Anfrage von {name} – {email}`
+
+***
+
+### Absende-Button
+
+* **Typ:** Objekt (zusammenklappbar)
+* **Erforderlich:** Nein
+* **Zweck:** Text des Buttons und Text während des Sendevorgangs.
+
+#### Button-Text
+
+* **Typ:** String
+* **Standard:** `Nachricht senden`
+* **Zweck:** Beschriftung des Absende-Buttons.
+
+#### Lade-Text
+
+* **Typ:** String
+* **Standard:** `Wird gesendet...`
+* **Zweck:** Text, der angezeigt wird, während das Formular gesendet wird.
+
+***
+
+### Hinweis zu Pflichtfeldern
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Text unterhalb des Formulars, der kennzeichnet, welche Felder Pflichtfelder sind (z. B. „Mit \* markierte Felder sind Pflichtfelder.“).
+
+***
+
+### Datenschutz
+
+* **Typ:** Objekt (zusammenklappbar)
+* **Erforderlich:** Nein
+* **Zweck:** Optionale Datenschutz-Information und Link zur Datenschutzerklärung.
+
+#### Datenschutz-Text
+
+* **Typ:** Text
+* **Zeilen:** 2
+* **Standard:** `Ich stimme der Verarbeitung meiner Daten gemäß der Datenschutzerklärung zu.`
+* **Zweck:** Text neben der Checkbox bzw. dem Link zur Datenschutzerklärung.
+
+#### Datenschutz-Link
+
+* **Typ:** Referenz (`ctaButtonItem`)
+* **Erforderlich:** Nein
+* **Zweck:** Link zur Datenschutzseite (URL und optionaler Anzeigetext).
+
+***
+
+### Erfolgsmeldung
+
+* **Typ:** Text
+* **Zeilen:** 2
+* **Erforderlich:** Nein
+* **Zweck:** Meldung, die nach erfolgreichem Absenden des Formulars angezeigt wird.
+
+***
+
+### Fehlermeldung
+
+* **Typ:** Text
+* **Zeilen:** 2
+* **Erforderlich:** Nein
+* **Zweck:** Meldung, die angezeigt wird, wenn das Absenden fehlschlägt.
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den Kontaktformular-Bereich fest.
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Kontaktieren Sie uns`
+* **Beschreibung:** `Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.`
+* **Formularfelder:**
+  1. Text, Name: `name`, Label: `Name`, Pflichtfeld: ja
+  2. E-Mail, Name: `email`, Label: `E-Mail`, Pflichtfeld: ja
+  3. Telefon, Name: `phone`, Label: `Telefon`, Halbe Breite: ja
+  4. Textarea, Name: `message`, Label: `Nachricht`, Zeilen: 5, Pflichtfeld: ja
+* **E-Mail-Betreffvorlage:** `Kontaktanfrage von {name}`
+* **Absende-Button:** Text `Nachricht senden`, Lade-Text `Wird gesendet...`
+* **Hinweis zu Pflichtfeldern:** `Mit * markierte Felder sind Pflichtfelder.`
+* **Datenschutz:** Text und Link zur Datenschutzseite
+* **Erfolgsmeldung:** `Vielen Dank. Ihre Nachricht wurde gesendet.`
+* **Fehlermeldung:** `Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.`
+* **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt (optional)
+
+***
+
+## Best Practices
+
+* **E-Mail-Feld:** Immer mindestens ein Feld vom Typ E-Mail verwenden, damit Antworten an den Absender gesendet werden können.
+* **Feldnamen:** Kurze, eindeutige Slug-Namen (z. B. `name`, `email`, `message`) verwenden und in der Betreffvorlage nur vorhandene Feldnamen nutzen.
+* **Pflichtfelder:** Nur die wirklich nötigen Felder als Pflichtfeld markieren, um die Abbruchrate zu senken.
+* **Halbe Breite:** Bei vielen Feldern Name und E-Mail oder Telefon und E-Mail nebeneinander setzen, um das Formular kompakter zu gestalten.
+* **Datenschutz:** Datenschutz-Text und Link zur Datenschutzerklärung anbieten, um DSGVO-Anforderungen zu erfüllen.
+* **Meldungen:** Erfolgs- und Fehlermeldung klar und freundlich formulieren.
+* **Hintergrundfarbe:** Mit Kontrast zur Seite wählen, ohne die Lesbarkeit zu beeinträchtigen.
+
+***
+
+## Hauptmerkmale
+
+* **Flexible Felder:** Sechs Feldtypen (Text, E-Mail, Telefon, Textarea, Auswahl, Checkbox) mit optionaler Halbbreite und Zeichenbegrenzung
+* **E-Mail-Benachrichtigung:** Reply-to aus einem E-Mail-Feld, anpassbare Betreffzeile mit Platzhaltern
+* **Anpassbarer Button:** Eigener Button- und Lade-Text
+* **Datenschutz:** Optionale Datenschutz-Checkbox und Link zur Datenschutzerklärung
+* **Nutzerfeedback:** Konfigurierbare Erfolgs- und Fehlermeldungen
+* **Aktiv/Inaktiv:** Bereich kann ein- oder ausgeblendet werden
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Kontaktseiten, Support-Seiten und beliebige Inhaltsseiten mit Kontaktformular
+
+***
+
+## Technische Hinweise
+
+* Mindestens ein Formularfeld muss vom Typ **E-Mail** sein (Validierung im Studio).
+* Feldname ist ein **Slug** (maschinenlesbar); in der E-Mail-Betreffvorlage werden nur existierende Feldnamen als `{fieldName}` ersetzt.
+* Platzhalter für Betreff: z. B. `{name}`, `{email}` – nur Feldnamen aus diesem Formular verwenden.
+* Datenschutz-Link verwendet den Typ `ctaButtonItem` (URL und optionaler Text).
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema.
+* Checkbox-Felder haben optional „Standard (angehakt)“; Select-Felder unterstützen Optionen und optionale Mehrfachauswahl; Textarea unterstützt 2–15 Zeilen und optionale max. Länge.

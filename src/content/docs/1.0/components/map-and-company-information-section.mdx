@@ -1,0 +1,145 @@
+---
+title: Karte und Unternehmensinformationen
+description: Ein umfassender Bereich, der Unternehmenskontaktinformationen und
+  eine interaktive Karte für vollständige Standort- und Kontaktdaten kombiniert.
+slug: 1.0/components/map-and-company-information-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import MapCompanyInformationSection from "../../../../assets/map-company-info-section.png";
+
+## Übersicht
+
+Der **Karte und Unternehmensinformationen** kombiniert Unternehmenskontaktdaten und eine interaktive Karte in einem einzigen, umfassenden Bereich. Diese All-in-One-Komponente hilft Besuchern, Ihren Standort zu finden, Ihre Kontaktinformationen anzuzeigen und Kontakt aufzunehmen – alles an einem Ort.
+
+<Aside>
+  **Ideal für:** Kontaktseiten, Standortseiten, Unternehmensfinder-Seiten,
+  Seiten die vollständige Kontakt- und Standortinformationen erfordern.
+</Aside>
+
+## Felder
+
+### Aktiv
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein (Standard: **aktiv**)
+* **Zweck:** Steuert, ob der Bereich auf der Website angezeigt wird.
+
+***
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den gesamten Bereich
+* **Beispiel:**\
+  `Finden Sie uns` oder `Kontakt & Standort`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zeilen:** 3
+* **Zweck:** Kurze Beschreibung oder Kontext für den Bereich
+* **Beispiel:**\
+  `Besuchen Sie uns an unserem Standort oder nehmen Sie Kontakt mit uns auf.`
+
+***
+
+### Innere Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Zusätzliche Überschrift innerhalb des Karten-/Kontaktbereichs (z. B. Spaltenüberschrift oder interne Section-Überschrift)
+* **Beispiel:**\
+  `So erreichen Sie uns`
+
+***
+
+### Innere Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zeilen:** 3
+* **Zweck:** Ergänzender Beschreibungstext direkt im Karten-/Kontaktbereich
+* **Beispiel:**\
+  `Unsere Kontaktdaten und der Standort im Überblick.`
+
+***
+
+### Unternehmensinformationen
+
+* **Typ:** Referenz (`companyInformation`)
+* **Erforderlich:** Nein
+* **Zweck:** Referenz auf ein Unternehmensinformations-Dokument, das Kontaktdaten wie Adresse, Telefon, E-Mail und Geschäftszeiten enthält
+* **Hinweis:** Es wird empfohlen, immer auf ein bestehendes Unternehmensinformations-Dokument zu verweisen, um konsistente Kontaktdaten zu gewährleisten
+
+***
+
+### Karte
+
+* **Typ:** Referenz (`mapSection`)
+* **Erforderlich:** Nein
+* **Zweck:** Optionale Referenz auf ein Karten-Dokument zur Anzeige einer interaktiven Karte mit Ihrem Standort
+* **Hinweis:** Wenn bereitgestellt, zeigt es eine interaktive Karte mit Ihrem Geschäftsstandort an
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Finden Sie uns`
+* **Beschreibung:** `Besuchen Sie uns an unserem Standort oder kontaktieren Sie uns über die angegebenen Kontaktdaten`
+* **Innere Überschrift:** `So erreichen Sie uns`
+* **Innere Beschreibung:** `Unsere Kontaktdaten und der Standort im Überblick`
+* **Unternehmensinformationen:** Referenz auf ein `companyInformation`-Dokument (z. B. "Hauptbüro - Innenstadt-Standort")
+* **Karte:** Referenz auf ein `mapSection`-Dokument mit Koordinaten und Marker-Informationen (optional)
+* **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt (optional)
+
+***
+
+## Best Practices
+
+* **Unternehmensinformationen:** Halten Sie Ihr Unternehmensinformations-Dokument aktuell – Änderungen spiegeln sich in allen Bereichen wider, die es verwenden
+* **Karten-Integration:** Fügen Sie eine Karte für Unternehmen mit physischen Standorten hinzu, um Besuchern zu helfen, Sie leicht zu finden
+* **Vollständigkeit:** Stellen Sie sicher, dass alle Kontaktinformationen im Unternehmensinformations-Dokument vollständig und genau sind
+* **Layout:** Nutzen Sie Überschrift, innere Überschrift und Beschreibungen, um den Bereich klar zu strukturieren
+* **Hintergrundfarbe:** Verwenden Sie sparsam – hoher Kontrast kann die Lesbarkeit von Kontaktinformationen reduzieren
+
+***
+
+## Hauptmerkmale
+
+* **All-in-One-Lösung:** Kombiniert Unternehmensinformationen und optional eine Karte in einem einzigen Bereich
+* **Zentralisierte Verwaltung:** Unternehmensinformationen werden an einem Ort verwaltet und auf Seiten referenziert
+* **Interaktive Karte:** Optionale Karte zur visuellen Standortanzeige und Routenplanung
+* **Flexible Konfiguration:** Verwenden Sie den Bereich mit oder ohne Karte – Unternehmensinformationen sind immer der Kern
+* **Wiederverwendbar:** Kann auf mehreren Seiten mit derselben Unternehmensinformations-Referenz verwendet werden
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Kontaktseiten, Standortseiten und allgemeine Inhaltsseiten, die vollständige Kontakt- und Standortinformationen erfordern
+
+***
+
+## Technische Hinweise
+
+* Unternehmensinformationen verweisen auf das globale `companyInformation`-Schema
+* Karte verweist auf das globale `mapSection`-Schema und ist optional
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Innere Überschrift und innere Beschreibung dienen der zusätzlichen Strukturierung innerhalb des Bereichs
+* Der Bereich zeigt Unternehmensinformationen und optional eine Karte in einem koordinierten Layout an

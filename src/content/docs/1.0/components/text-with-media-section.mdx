@@ -1,0 +1,340 @@
+---
+title: Text mit Medien
+description: Ein strukturierter Inhaltsblock für Text-Medien-Kombinationen mit
+  verschiedenen Layout-Optionen, perfekt für die Kombination von Text mit
+  Bildern, Videos, Galerien oder Slidern.
+slug: 1.0/components/text-with-media-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import TextWithMediaSection from "../../../../assets/text-with-media-section.png";
+import TextWithSingleImage from "../../../../assets/text-with-media-section.png";
+import TextWithGallery from "../../../../assets/text-with-gallery.png";
+import TextWithVideo from "../../../../assets/text-with-video.png";
+import TextWithSlider from "../../../../assets/text-with-slider.png";
+
+## Übersicht
+
+Der **Text mit Medien** kombiniert Text und Medien (Bilder, Videos, Galerien, Slider) in verschiedenen Layouts. Er ist perfekt für Seiten, die strukturierte Text-Medien-Kombinationen mit flexiblen Layout-Optionen für verschiedene Inhaltstypen benötigen.
+
+<Aside>
+  **Ideal für:** Produktpräsentationen, Serviceseiten, Über-uns-Seiten, Feature
+  Präsentationen, Angebotsseiten, strukturierte Inhalte mit visuellen Elementen.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={TextWithMediaSection.src} alt="Beispiel eines Textes mit Medien" />
+
+  <figcaption>
+    <em>Beispiel eines Textes mit Medien</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den gesamten Bereich
+* **Beispiel:**\
+  `Unsere Produkte` oder `Unsere Dienstleistungen`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibung für den gesamten Bereich
+* **Beispiel:**\
+  `Entdecken Sie unsere Palette innovativer Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind`
+
+***
+
+### Elemente
+
+* **Typ:** Array von `textWithMediaItem`-Objekten
+* **Erforderlich:** Ja
+* **Mindestanzahl:** 1
+* **Maximalanzahl:** 10
+* **Zweck:** Liste der Text-Medien-Elemente
+
+Jedes Text-mit-Medien-Element enthält:
+
+#### Elementüberschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für dieses Element
+* **Beispiel:**\
+  `Produktübersicht`
+
+#### Inhalt
+
+* **Typ:** Rich Text Section (`richTextSection`)
+* **Erforderlich:** Nein
+* **Zweck:** Textinhalt im Rich-Text-Format
+* **Hinweis:** Unterstützt vollständige Formatierung, Bilder, Links usw.
+
+#### Layout-Optionen
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Layout-Konfiguration für Text und Medien
+
+##### Layout-Typ
+
+* **Typ:** String
+* **Standardwert:** `split`
+* **Zweck:** Wählen Sie den Layout-Stil für dieses Element
+* **Optionen:**
+  * **Split-Layout** (`split`) – Text und Medien nebeneinander
+  * **Medien oben, Text unten** (`mediaAbove`) – Medien oben, Text unten
+  * **Text oben, Medien unten** (`textAbove`) – Text oben, Medien unten
+
+##### Split-Verhältnis
+
+* **Typ:** String
+* **Standardwert:** `50-50`
+* **Ausgeblendet:** Ja (wenn Layout-Typ nicht "Split-Layout" ist)
+* **Zweck:** Split-Verhältnis für Text und Medien (nur für Split-Layout)
+* **Optionen:**
+  * **50/50 (Gleich)** (`50-50`) – Gleiche Aufteilung zwischen Text und Medien
+  * **60/40 (Text breiter)** (`60-40-text`) – 60% Text, 40% Medien
+  * **60/40 (Bild breiter)** (`60-40-image`) – 60% Medien, 40% Text
+
+##### Split-Medien-Position
+
+* **Typ:** String
+* **Standardwert:** `left`
+* **Ausgeblendet:** Ja (wenn Layout-Typ nicht "Split-Layout" ist)
+* **Zweck:** Position der Medien relativ zum Text (nur für Split-Layout)
+* **Optionen:**
+  * **Medien links, Text rechts** (`left`)
+  * **Medien rechts, Text links** (`right`)
+
+##### Medientyp
+
+* **Typ:** String
+* **Standardwert:** `image`
+* **Zweck:** Wählen Sie, welches Medium neben dem Text angezeigt werden soll
+* **Optionen:**
+  * **Einzelbild** (`image`)
+  * **Bildergalerie** (`imageGallery`)
+  * **Video** (`video`)
+  * **Bildslider** (`slider`)
+
+#### Medienfelder
+
+Felder werden bedingt angezeigt basierend auf dem ausgewählten Medientyp.
+
+##### Einzelbild
+
+<img src={TextWithSingleImage.src} alt="Übersicht von Text mit Einzelbild" />
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Ausgeblendet:** Ja (wenn Medientyp nicht "Einzelbild" ist)
+* **Zweck:** Einzelbild mit Alt-Text und Bildunterschrift
+* **Felder:**
+  * **Bild:** Bild mit Hotspot-Unterstützung
+  * **Alt-Text:** Alternativtext für Barrierefreiheit und SEO
+  * **Bildunterschrift:** Optionale Bildunterschrift für das Bild
+
+##### Bildergalerie
+
+<img src={TextWithGallery.src} alt="Übersicht von Text mit Bildergalerie" />
+
+* **Typ:** Array von Bildern
+* **Erforderlich:** Nein
+* **Ausgeblendet:** Ja (wenn Medientyp nicht "Bildergalerie" ist)
+* **Mindestanzahl:** 1
+* **Maximalanzahl:** 20
+* **Zweck:** Mehrere Bilder, die als Galerie angezeigt werden
+* **Felder pro Bild:**
+  * **Bild:** Galeriebild mit Hotspot-Unterstützung
+  * **Alt-Text:** Alternativtext für Barrierefreiheit und SEO
+  * **Bildunterschrift:** Optionale Bildunterschrift für das Bild
+
+##### Video
+
+<img src={TextWithVideo.src} alt="Übersicht von Text mit Video" />
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Ausgeblendet:** Ja (wenn Medientyp nicht "Video" ist)
+* **Zweck:** Video-Konfiguration für das Text-mit-Medien-Element
+* **Felder:**
+  * **Video-Datei:** Laden Sie eine Video-Datei hoch (MP4, WebM usw.) - akzeptiert `video/*`
+  * **Video-URL (Alternative):** Direkte Video-URL anstelle des Hochladens einer Datei
+  * **Poster-Bild:** Thumbnail-Bild, das angezeigt wird, bevor das Video abgespielt wird (mit Hotspot-Unterstützung)
+* **Hinweis:** Entweder Video-Datei oder Video-URL sollte bereitgestellt werden
+
+##### Bildslider
+
+<img src={TextWithSlider.src} alt="Übersicht von Text mit Bildslider" />
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Ausgeblendet:** Ja (wenn Medientyp nicht "Bildslider" ist)
+* **Zweck:** Bildslider-Konfiguration mit Slides, Autoplay und Navigation
+* **Felder:**
+  * **Slides:** Array von Slide-Objekten
+    * **Mindestanzahl:** 1
+    * **Maximalanzahl:** 10
+    * **Felder pro Slide:**
+      * **Slide-Bild:** Bild mit Hotspot-Unterstützung (erforderlich)
+      * **Alt-Text:** Alternativtext für Barrierefreiheit und SEO
+  * **Autoplay aktivieren:** Boolean zum Aktivieren des automatischen Slide-Fortschritts
+    * **Standardwert:** `true`
+  * **Autoplay-Geschwindigkeit:** Anzahl der Sekunden zwischen Slides
+    * **Standardwert:** 5
+    * **Mindestwert:** 1
+    * **Maximalwert:** 30
+    * **Ausgeblendet:** Ja (wenn Autoplay deaktiviert ist)
+  * **Navigationspunkte anzeigen:** Boolean zum Anzeigen der Punkt-Navigation
+    * **Standardwert:** `true`
+
+#### Call-to-Action-Buttons
+
+* **Typ:** Referenz auf `button`-Schema
+* **Erforderlich:** Nein
+* **Zweck:** Button-Konfiguration für dieses Element
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Unsere Produkte`
+* **Beschreibung:** `Entdecken Sie unsere Palette innovativer Lösungen, die auf Ihre Bedürfnisse zugeschnitten sind`
+* **Elemente:**
+  1. **"Produktübersicht"**
+     * Inhalt: "Unser Flaggschiff-Produkt kombiniert Qualität und Innovation..."
+     * Layout-Typ: Split-Layout
+     * Split-Verhältnis: 50/50 (Gleich)
+     * Medien-Position: Medien links, Text rechts
+     * Medientyp: Einzelbild
+     * Bild: Produktbild mit Alt-Text und Bildunterschrift
+  2. **"Produktgalerie"**
+     * Inhalt: "Entdecken Sie unsere vollständige Produktpalette..."
+     * Layout-Typ: Medien oben, Text unten
+     * Medientyp: Bildergalerie
+     * Bilder: Array von 5 Produktbildern, jedes mit Alt-Text und Bildunterschriften
+  3. **"So funktioniert es"**
+     * Inhalt: "Sehen Sie sich dieses Video an, um zu sehen, wie unsere Lösung funktioniert..."
+     * Layout-Typ: Text oben, Medien unten
+     * Medientyp: Video
+     * Video-Datei: Hochgeladene MP4-Video-Datei
+     * Poster-Bild: Thumbnail-Bild für das Video
+  4. **"Features-Showcase"**
+     * Inhalt: "Erfahren Sie mehr über die wichtigsten Features, die uns auszeichnen..."
+     * Layout-Typ: Split-Layout
+     * Split-Verhältnis: 60/40 (Text breiter)
+     * Medien-Position: Medien rechts, Text links
+     * Medientyp: Bildslider
+     * Slides: 6 Slides, die verschiedene Features präsentieren
+     * Autoplay: Aktiviert
+     * Autoplay-Geschwindigkeit: 5 Sekunden
+     * Navigationspunkte anzeigen: Aktiviert
+
+***
+
+## Layout-Optionen im Detail
+
+### Split-Layout
+
+* **50/50 (Gleich) Split:** Gleiche Aufteilung zwischen Text und Medien
+* **60/40 (Text breiter) Split:** 60% Textbereich, 40% Medienbereich
+* **60/40 (Bild breiter) Split:** 60% Medienbereich, 40% Textbereich
+* **Medien-Position:** Positionierbar links oder rechts
+
+### Medien oben, Text unten
+
+Medien werden vollständig über dem Text angezeigt. Ideal für:
+
+* Große, aussagekräftige Bilder
+* Videos, die Aufmerksamkeit erregen sollen
+* Galerien, die prominent präsentiert werden sollen
+
+### Text oben, Medien unten
+
+Text wird über den Medien angezeigt. Ideal für:
+
+* Textlastige Inhalte
+* Erklärungen vor visuellen Elementen
+* Schritt-für-Schritt-Anleitungen
+
+***
+
+## Best Practices
+
+* **Konsistenz:** Verwenden Sie ähnliche Layout-Typen innerhalb eines Bereichs für bessere Lesbarkeit
+* **Medienauswahl:** Wählen Sie den angemessenen Medientyp für den Inhalt
+* **Alt-Text:** Füllen Sie immer Alt-Text für Bilder für Barrierefreiheit und SEO aus
+* **Split-Verhältnis:** 50/50 für ausgewogene Anzeige, 60/40 (Text breiter) für textlastige Inhalte, 60/40 (Bild breiter) für bildlastige Inhalte
+* **Anzahl der Elemente:** 3-5 Elemente sind optimal für die Benutzererfahrung
+* **Hintergrundfarbe:** Verwenden Sie Hintergrundfarben sparsam, um Lesbarkeit sicherzustellen
+
+***
+
+## Hauptmerkmale
+
+* **Flexible Layouts:** Drei verschiedene Layout-Typen für verschiedene Anforderungen
+* **Verschiedene Medientypen:** Einzelbilder, Galerien, Videos oder Slider
+* **Rich-Text-Inhalt:** Vollständiger Rich-Text-Editor für Textinhalte
+* **Mehrere Elemente:** Bis zu 10 Elemente pro Bereich für umfassende Inhalte
+* **Individuelle Konfiguration:** Jedes Element kann individuell konfiguriert werden
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Produkt- und Serviceseiten
+
+***
+
+## Technische Hinweise
+
+* Jedes Element kann unterschiedliches Layout und Medientyp haben
+* Layout-Optionen sind in einem `layout`-Objekt innerhalb jedes Elements verschachtelt
+* Medienfelder werden bedingt angezeigt basierend auf dem ausgewählten `layout.mediaType`
+* Split-Verhältnis- und Medien-Positionsfelder sind nur sichtbar, wenn Layout-Typ "Split-Layout" ist
+* Rich-Text-Inhalt verwendet den Typ `richTextSection`
+* Video unterstützt sowohl Datei-Upload (`videoFile`) als auch URL (`videoUrl`)-Optionen
+* Slider-Autoplay-Geschwindigkeit ist nur sichtbar, wenn Autoplay aktiviert ist
+* Bildergalerie unterstützt 1-20 Bilder, Slider unterstützt 1-10 Slides
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Der Bereich unterstützt responsive Layouts für alle Medientypen
+
+***
+
+## Unterschiede zu anderen Inhaltsblöcken
+
+| Feature          | Text mit Medien             | Rich-Text        | Galerie        |
+| ---------------- | --------------------------- | ---------------- | -------------- |
+| Struktur         | Fest (Text + Medien)        | Flexibel         | Nur Medien     |
+| Layout-Optionen  | Ja (3 Typen)                | Nein             | Nein           |
+| Medientypen      | Ja (4 Typen)                | Nur Bilder       | Nur Bilder     |
+| Rich Text        | Ja (pro Element)            | Ja (vollständig) | Nein           |
+| Mehrere Elemente | Ja (1-10)                   | Nein             | Nein           |
+| Videos           | Ja                          | Nein             | Nein           |
+| Slider           | Ja                          | Nein             | Nein           |
+| Verwendung       | Strukturierte Kombinationen | Fließender Text  | Bildergalerien |

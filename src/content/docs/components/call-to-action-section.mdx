@@ -1,0 +1,133 @@
+---
+title: Call-to-Action
+description: Ein Inhaltsblock, der darauf ausgelegt ist, Besucher zu einer bestimmten Aktion zu motivieren, perfekt für Conversions und Engagement.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import CallToActionSection from "../../../assets/call-to-action-section.png";
+
+## Übersicht
+
+Der **Call-to-Action** ist ein fokussierter Inhaltsblock, der Besucher dazu ermutigt, eine bestimmte Aktion auszuführen.  
+Mit einer überzeugenden Überschrift, unterstützender Beschreibung und klaren Buttons leitet er Benutzer zu Ihren Hauptzielen – ob das Anmeldung, Kontaktaufnahme oder das Herunterladen von Ressourcen ist.
+
+<Aside>
+  **Ideal für:** Kontaktaufforderungen, Kursanmeldungen, Downloads, Newsletter
+  Anmeldungen, Sonderangebote, conversionsorientierte Seiten.
+</Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={CallToActionSection.src} alt="Beispiel eines Call-to-Actions" />
+  <figcaption>
+    <em>Beispiel eines Call-to-Actions</em>
+  </figcaption>
+</figure>
+
+---
+
+## Felder
+
+### Aktiv
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true` (Standard: **aktiv**)
+- **Zweck:** Steuert, ob der Call-to-Action-Bereich auf der Website angezeigt wird
+- **Hinweis:** Deaktivieren Sie dieses Feld, wenn der Bereich vorübergehend nicht sichtbar sein soll, ohne die Konfiguration zu löschen
+
+---
+
+### Überschrift
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Hauptüberschrift, die Aufmerksamkeit erregt und die Aktion kommuniziert
+- **Maximale Länge:** 100 Zeichen
+- **Beispiel:**  
+  `Bereit loszulegen?` oder `Starten Sie noch heute Ihre Reise`
+
+---
+
+### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Unterstützender Text, der den Wert oder Nutzen erklärt
+- **Maximale Länge:** 200 Zeichen
+- **Beispiel:**  
+  `Melden Sie sich jetzt an und starten Sie Ihre Reise mit erfahrenen Fachleuten und qualitativ hochwertigem Service.`
+
+---
+
+### Call-to-Action-Buttons
+
+- **Typ:** Array
+- **Erforderlich:** Nein
+- **Zweck:** Konfiguration der Call-to-Action-Buttons für diesen Bereich.
+- **Maximale Anzahl:** 2 Buttons
+- **Validierung/Regeln:**
+  - Maximal **ein Primär-Button** (Rolle `primary`)
+  - Maximal **ein Sekundär-Button** (Rolle `secondary`)
+  - Alle Button-Felder (Label, Link, Rolle) sind im `ctaButtonItem`-Schema erforderlich
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Überschrift:** `Bereit loszulegen?`
+- **Beschreibung:** `Melden Sie sich jetzt an und starten Sie Ihre Reise mit erfahrenen Fachleuten und qualitativ hochwertigem Service.`
+- **Call-to-Action-Buttons:**
+  - **Primärer Button:** Label `Jetzt anmelden` → Link `/registration` → Rolle `primary`
+  - **Sekundärer Button:** Label `Mehr erfahren` → Link `/about-us` → Rolle `secondary`
+
+---
+
+## Best Practices
+
+- **Klarheit:** Verwenden Sie klare, handlungsorientierte Überschriften, die sofort kommunizieren, was Sie von Benutzern möchten
+- **Motivation:** Die Beschreibung sollte den Nutzen oder Wertversprechen klar kommunizieren
+- **Buttons:** Verwenden Sie einen primären Button für die Hauptaktion, mit einem optionalen sekundären Button für alternative Aktionen
+- **Platzierung:** Oft am Ende von Seiten oder nach wichtigen Informationen platziert, um Interesse zu wecken
+- **Hintergrundfarbe:** Eine markante Hintergrundfarbe kann Aufmerksamkeit erregen, stellen Sie aber sicher, dass ausreichend Kontrast für die Lesbarkeit vorhanden ist
+- **Einzelner Fokus:** Halten Sie den CTA auf eine primäre Aktion fokussiert, um Entscheidungslähmung zu vermeiden
+
+---
+
+## Hauptmerkmale
+
+- **Handlungsorientiertes Design:** Speziell darauf ausgelegt, Conversions und Engagement zu fördern
+- **Flexible Buttons:** Unterstützung für primäre und sekundäre Aktions-Buttons
+- **Klare Botschaft:** Überschrift und Beschreibung arbeiten zusammen, um Wert zu kommunizieren
+- **Visuelle Betonung:** Hintergrundfarboptionen helfen dem Bereich, sich abzuheben
+- **Strategische Platzierung:** Funktioniert am besten, wenn er nach relevanten Inhalten positioniert wird, die Benutzer konsumiert haben
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere am Ende von Bereichen
+- **Landing Pages**  
+  Conversionsorientierte Landing Pages
+
+---
+
+## Technische Hinweise
+
+- Buttons verwenden das globale `ctaButtonItem`-Schema (inklusive Rollen-Validierung für primär/sekundär)
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Der Bereich ist für Conversion optimiert mit klarer visueller Hierarchie

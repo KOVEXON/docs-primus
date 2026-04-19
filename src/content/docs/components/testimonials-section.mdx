@@ -1,0 +1,154 @@
+---
+title: Testimonials
+description: Ein Inhaltsblock zur Anzeige von Kundenbewertungen und Testimonials mit Zitaten, Autorennamen und optionalen Avataren.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import TestimonialsSection from "../../../assets/testimonials-section.png";
+
+## Übersicht
+
+Der **Testimonials** zeigt Kundenbewertungen, Referenzen und Testimonials in einem organisierten Format an. Mit Zitaten, Autorennamen und optionalen Avataren ist er perfekt für Vertrauensaufbau und Präsentation von Social Proof.
+
+<Aside>
+  **Ideal für:** Kundenbewertungen, Referenzen, Erfolgsgeschichten,
+  Vertrauensaufbau, Social Proof, Glaubwürdigkeitssteigerung.
+</Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={TestimonialsSection.src} alt="Beispiel eines Testimonials" />
+  <figcaption>
+    <em>Beispiel eines Testimonials</em>
+  </figcaption>
+</figure>
+
+---
+
+## Felder
+
+### Überschrift
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Hauptüberschrift für den Testimonials
+- **Beispiele:**  
+  `Kundenbewertungen`, `Testimonials`
+
+---
+
+### Beschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Beschreibungstext für den Testimonials
+- **Beispiel:**  
+  `Lesen Sie, was unsere zufriedenen Kunden über ihre Erfahrung sagen.`
+
+---
+
+### Testimonials
+
+- **Typ:** Array von Testimonial-Objekten
+- **Erforderlich:** Nein
+- **Zweck:** Liste der anzuzeigenden Testimonials
+
+#### Testimonial-Objekt-Felder
+
+**Zitat**
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zweck:** Zitat- oder Bewertungstext
+- **Beispiel:**  
+  `Der beste Serviceanbieter in der Region! Sehr professionell und hilfreich.`
+
+**Autor**
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Name des Bewertungsautors
+- **Beispiel:**  
+  `Max Mustermann`
+
+**Avatar anzeigen**
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Umschalter zum Anzeigen oder Ausblenden des Avatars für dieses Testimonial
+- **Standard:** `true`
+
+**Avatar**
+
+- **Typ:** Bild
+- **Erforderlich:** Nein
+- **Zweck:** Profilbild des Autors
+- **Hinweis:** Ausgeblendet, wenn Avatar anzeigen nicht aktiviert ist
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Testimonials fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Überschrift:** `Kundenbewertungen`
+- **Beschreibung:** `Lesen Sie, was unsere zufriedenen Kunden über ihre Erfahrung sagen.`
+- **Testimonials:**
+  1. **"Der beste Serviceanbieter in der Region! Sehr professionell und hilfreich."**
+     - Autor: `Max Mustermann`
+     - Avatar anzeigen: `true`
+     - Avatar: Profilbild
+  2. **"Schnelle und erfolgreiche Servicebereitstellung. Kann nur empfehlen!"**
+     - Autor: `Anna Schmidt`
+     - Avatar anzeigen: `true`
+     - Avatar: Profilbild
+
+---
+
+## Best Practices
+
+- **Authentizität:** Verwenden Sie echte, authentische Bewertungen – echte Testimonials schaffen mehr Vertrauen.
+- **Vielfalt:** Zeigen Sie verschiedene Perspektiven und Erfahrungen.
+- **Avatare:** Profilbilder erhöhen die Glaubwürdigkeit.
+- **Anzahl:** 3-6 Testimonials sind optimal für Wirkung.
+- **Regelmäßige Updates:** Aktualisieren Sie regelmäßig mit neuen Bewertungen, um Inhalte frisch zu halten.
+- **Ausgewogenheit:** Mischen Sie positive Bewertungen mit konstruktivem Feedback, wenn angemessen.
+
+---
+
+## Hauptmerkmale
+
+- **Organisierte Anzeige:** Testimonials werden in sauberen, organisierten Karten angezeigt
+- **Avatar-Unterstützung:** Optionale Profilbilder für jedes Testimonial
+- **Flexibler Inhalt:** Zitat und Autorenname für umfassende Informationen
+- **Vertrauensaufbau:** Social Proof hilft, Glaubwürdigkeit aufzubauen
+- **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Allgemeine Inhaltsseiten, insbesondere Startseiten und Serviceseiten
+
+---
+
+## Technische Hinweise
+
+- Testimonials werden in einem responsiven Grid- oder Karussell-Layout angezeigt
+- Avatare werden als runde Bilder angezeigt, wenn aktiviert
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Der Bereich verwendet semantisches HTML für Barrierefreiheit
+- Testimonials werden typischerweise mit Zitat-Styling angezeigt
+- Jedes Testimonial hat ein `_key`-Feld (interne Sanity-Kennung)

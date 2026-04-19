@@ -1,0 +1,136 @@
+---
+title: Bildergalerie
+description: Eine Bildergalerie mit Titel, Untertitel und bis zu 20 Bildern zur
+  Präsentation von Produkten, Veranstaltungen oder Portfolios.
+slug: 1.0/components/image-gallery-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import ImageGallerySection from "../../../../assets/image-gallery-section.png";
+
+## Übersicht
+
+Der **Bildergalerie** zeigt eine Sammlung von Bildern in einem sauberen, strukturierten Galerie-Layout an.\
+Er ist ideal für die Präsentation visueller Inhalte wie Produkte, Veranstaltungen, Portfolios oder Referenzbilder in einem organisierten und responsiven Format.
+
+<Aside>
+  **Ideal für:** Produktgalerien, Veranstaltungsgalerien, Portfolios, Referenz
+  Bilder, Fotosammlungen und Showcasee.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={ImageGallerySection.src} alt="Beispiel einer Bildergalerie" />
+
+  <figcaption>
+    <em>Beispiel einer Bildergalerie</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Titel
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Haupttitel des Galeries
+* **Beispiele:**\
+  `Produktgalerie`, `Veranstaltungsfotos`
+
+***
+
+### Untertitel
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Unterstützender Untertitel, der unter dem Titel angezeigt wird
+* **Beispiel:**\
+  `Entdecken Sie unsere neueste Kollektion`
+
+***
+
+### Bilder
+
+* **Typ:** Array von Bildern
+* **Erforderlich:** Nein
+* **Minimum:** 1
+* **Maximum:** 20
+* **Zweck:** Bilder, die in der Galerie angezeigt werden
+
+#### Bildfelder
+
+Jedes Bild enthält:
+
+* **Alt-Text**
+
+  * **Typ:** String
+  * **Erforderlich:** Ja
+  * **Zweck:** Beschreibung für Barrierefreiheit und SEO
+
+* **Bildunterschrift**
+  * **Typ:** String
+  * **Erforderlich:** Nein
+  * **Zweck:** Optionaler beschreibender Text, der unter dem Bild angezeigt wird
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe des Galeries fest
+
+***
+
+## Verwendungsbeispiel
+
+### Grundkonfiguration
+
+* **Titel:** `Produktgalerie`
+* **Untertitel:** `Entdecken Sie unsere neueste Kollektion`
+* **Bilder:**
+  * Array von Produktbildern
+  * Jedes Bild enthält Alt-Text und optionale Bildunterschriften
+
+***
+
+## Best Practices
+
+* **Alt-Text:** Geben Sie immer aussagekräftigen Alt-Text für Barrierefreiheit und SEO an.
+* **Bildqualität:** Verwenden Sie hochwertige Bilder mit konsistentem Licht und Stil.
+* **Anzahl der Bilder:** 6–12 Bilder bieten das beste Gleichgewicht zwischen Engagement und Benutzerfreundlichkeit.
+* **Bildunterschriften:** Verwenden Sie Bildunterschriften, um bei Bedarf Kontext hinzuzufügen.
+* **Konsistenz:** Halten Sie nach Möglichkeit konsistente Seitenverhältnisse bei.
+* **Organisation:** Gruppieren Sie verwandte Bilder logisch, um den visuellen Fluss zu verbessern.
+
+***
+
+## Hauptmerkmale
+
+* **Organisiertes Layout:** Saubere, grid-basierte Bildpräsentation
+* **Barrierefrei:** Unterstützung für erforderlichen Alt-Text
+* **Bildunterschriften:** Optionale Bildunterschriften für zusätzlichen Kontext
+* **Flexible Größe:** Unterstützt 1–20 Bilder
+* **Responsive Design:** Passt sich reibungslos an verschiedene Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Produktseiten, Veranstaltungsseiten, Portfolio-Seiten und allgemeine Inhaltsseiten
+
+***
+
+## Technische Hinweise
+
+* Bilder werden in einem responsiven Grid-Layout gerendert
+* Alt-Text ist für Barrierefreiheits-Compliance obligatorisch
+* Bildunterschriften erscheinen unter Bildern, wenn sie bereitgestellt werden
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Bilder sind für die Webbereitstellung optimiert

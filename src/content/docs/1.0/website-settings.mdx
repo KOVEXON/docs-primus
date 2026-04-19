@@ -1,0 +1,347 @@
+---
+title: Website-Einstellungen
+description: Konfigurieren Sie globale Website-Einstellungen einschließlich
+  allgemeiner Site-Informationen, Standard-SEO, Analytics, rechtlicher
+  Compliance (DSGVO) und zusätzlicher globaler Assets.
+slug: 1.0/website-settings
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Der Bereich **Website-Einstellungen** ermöglicht es Ihnen, globale Einstellungen zu konfigurieren, die Ihre gesamte Website betreffen.
+
+Die Konfiguration ist in folgende Blöcke gegliedert:
+
+* **Allgemeine Site-Informationen**
+* **Standard-SEO-Einstellungen**
+* **Analytics-Einstellungen**
+* **Rechtliche & Compliance-Einstellungen (Datenschutz)**
+* **Zusätzliche Einstellungen**
+
+<Aside>
+  <strong>Wichtig:</strong> Änderungen an den Website-Einstellungen betreffen
+  die gesamte Website. Stellen Sie sicher, dass Sie Änderungen sorgfältig
+  überprüfen, bevor Sie sie veröffentlichen.
+</Aside>
+
+***
+
+## Allgemeine Site-Informationen
+
+Die allgemeinen Site-Informationen werden u. a. in SEO-Vorlagen und strukturierten Daten verwendet.
+
+### Site-Name
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Der Name Ihrer Website. Wird in strukturierten Daten und SEO verwendet.
+* **Beispiel:**\
+  `Meine Firmen-Website`
+
+***
+
+### Standardsprache
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Standardwert:** `de`
+* **Zweck:** Standard-Sprachcode (z. B. `de` für Deutsch, `en` für Englisch). Wird im HTML-`lang`-Attribut verwendet.
+* **Beispiele:**\
+  `de`, `en`, `fr`
+
+***
+
+### Standardland
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Standardwert:** `DE`
+* **Zweck:** Standard-Ländercode für Adressen (ISO-Code wie `DE`, `US`, `GB`). Wird in strukturierten Daten verwendet.
+* **Validierung:** Muss genau 2 Zeichen lang sein
+* **Beispiele:**\
+  `DE`, `US`, `GB`
+
+***
+
+## Standard-SEO-Einstellungen
+
+Das Feld Standard-SEO-Einstellungen verwendet den Objekt-Typ SEO-Einstellungen.\
+Diese Standard-SEO-Einstellungen werden verwendet, wenn für eine Seite keine eigenen SEO-Einstellungen gesetzt sind.
+
+### Meta-Titel
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `{pageTitle} | {siteName}`
+* **Zweck:** Standard-Meta-Titel-Vorlage. Verwenden Sie `{siteName}` und `{pageTitle}` als Platzhalter.
+
+***
+
+### Meta-Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Standard-Meta-Beschreibung. Empfohlene maximale Länge: ca. 155 Zeichen.
+* **Validierung:** Maximal 155 Zeichen
+
+***
+
+### Meta-Schlüsselwörter
+
+* **Typ:** Array von Strings
+* **Erforderlich:** Nein
+* **Zweck:** Standard-Schlüsselwörter. Werden von Google nicht stark genutzt, können aber für andere Suchmaschinen nützlich sein.
+* **Editor:** Darstellung als Tag-Liste
+
+***
+
+### OG-Bild
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Zweck:** Standard-Open-Graph-Bild für Social-Media-Vorschauen. Empfohlene Größe: 1200×630 px.
+* **Optionen:** Hotspot aktiviert
+
+***
+
+### OG-Typ
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `website`
+* **Zweck:** Standard-Open-Graph-Objekttyp.
+* **Optionen:**
+  * `website` – für allgemeine Website-Seiten
+  * `article` – für Blog-Posts und Artikel
+
+***
+
+### Robots
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `index, follow`
+* **Zweck:** Standard-Robots-Meta-Tag (z. B. `index, follow` oder `noindex, nofollow`).
+* **Beispiele:**\
+  `index, follow`, `noindex, nofollow`
+
+***
+
+### Twitter-Card-Typ
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `summary_large_image`
+* **Zweck:** Standard-Twitter-Card-Typ.
+* **Optionen:**
+  * `summary` – Standard-Zusammenfassungskarte
+  * `summary_large_image` – Zusammenfassungskarte mit großem Bild
+
+***
+
+## Analytics-Einstellungen
+
+Das Feld Analytics verwendet den Objekt-Typ Analytics-Einstellungen.\
+Hier konfigurieren Sie Analytics- und Tracking-Integrationen für Ihre Website.
+
+### Analytics aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Standardwert:** `false`
+* **Zweck:** Analytics-Tracking auf der Website aktivieren.
+
+***
+
+### Google Analytics ID
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Ausgeblendet wenn:** Analytics ist deaktiviert **oder** eine Google Tag Manager ID gesetzt ist
+* **Zweck:** Google-Analytics-Mess-ID (z. B. `G-XXXXXXXXXX`).
+* **Hinweis:** Wenn Sie Google Tag Manager verwenden, konfigurieren Sie GA4 innerhalb von GTM und lassen Sie dieses Feld leer, um Doppeltracking zu vermeiden.
+* **Validierung:** Kann nicht zusammen mit einer Google Tag Manager ID verwendet werden. Wenn beide gesetzt sind, wird ein Validierungsfehler ausgegeben.
+
+***
+
+### Google Tag Manager ID
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Ausgeblendet wenn:** Analytics ist deaktiviert **oder** eine Google Analytics ID gesetzt ist
+* **Zweck:** Google-Tag-Manager-Container-ID (z. B. `GTM-XXXXXXX`).
+* **Hinweis:** Wenn Sie GTM verwenden, konfigurieren Sie Google Analytics innerhalb von GTM und lassen Sie das Feld **Google Analytics ID** leer, um Doppeltracking zu vermeiden.
+* **Validierung:** Kann nicht zusammen mit einer Google Analytics ID verwendet werden. Wenn beide gesetzt sind, wird ein Validierungsfehler ausgegeben.
+
+***
+
+### Meta Pixel ID
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Ausgeblendet wenn:** Analytics ist deaktiviert
+* **Zweck:** Meta Pixel ID für Conversion-Tracking.
+
+***
+
+## Rechtliche & Compliance-Einstellungen
+
+Aktuell wird hier insbesondere die **Datenschutzerklärung / Privacy Policy** verwaltet.
+
+### Datenschutzerklärung
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Datenschutz- und Datenschutzeinstellungen, insbesondere für Cookie-Consent und DSGVO-Informationen.
+
+#### Cookie-Consent-Banner aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Standardwert:** `true`
+* **Zweck:** Cookie-Consent-Banner für GDPR/DSGVO-Compliance aktivieren.
+
+***
+
+#### Cookie-Consent-Text
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Standardwert:**\
+  `Wir verwenden Cookies, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Durch die Nutzung unserer Website stimmen Sie der Verwendung von Cookies zu.`
+* **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+* **Zweck:** Text, der im Cookie-Consent-Banner angezeigt wird.
+
+***
+
+#### Akzeptieren-Button-Text
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `Akzeptieren`
+* **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+* **Zweck:** Text für den Akzeptieren-Button im Cookie-Consent-Banner.
+
+***
+
+#### Ablehnen-Button-Text
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `Ablehnen`
+* **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+* **Zweck:** Text für den Ablehnen-Button im Cookie-Consent-Banner.
+
+***
+
+#### Mehr-Info-Link-Text
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `Mehr erfahren`
+* **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+* **Zweck:** Text für den „Weitere Informationen“-Link im Cookie-Consent-Banner.
+
+***
+
+#### Mehr-Info-Link
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Ausgeblendet wenn:** Cookie-Consent-Banner ist deaktiviert
+* **Zweck:** Link zur Datenschutzrichtlinien-Seite (z. B. `/datenschutz`).
+
+***
+
+#### Datenverarbeitungszwecke
+
+* **Typ:** Array von Strings
+* **Erforderlich:** Nein
+* **Zweck:** Liste der Zwecke für die Datenverarbeitung (z. B. „Website-Funktionalität“, „Analytics“, „Marketing“).
+
+***
+
+#### Datenaufbewahrungsdauer
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Wie lange personenbezogene Daten aufbewahrt werden (z. B. „12 Monate“, „Bis zum Widerruf“).
+
+***
+
+## Zusätzliche Einstellungen
+
+Das Feld Zusätzliche Einstellungen ist ein Objekt für zusätzliche websiteweite Assets, insbesondere Icons.
+
+### Favicon
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Zweck:** Website-Favicon. Empfohlene Größe: 32×32 px oder 16×16 px.
+
+***
+
+### Apple Touch Icon
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Zweck:** Apple Touch Icon für iOS-Geräte. Empfohlene Größe: 180×180 px.
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Site-Name:** `Meine Firmen-Website`
+* **Standardsprache:** `de`
+* **Standardland:** `DE`
+* **Standard-SEO:** Meta-Titel-Vorlage mit Platzhaltern
+* **Analytics:** Entweder Google Analytics ID **oder** Google Tag Manager ID konfiguriert
+* **Cookie-Consent:** Aktiviert mit verständlichem, DSGVO-konformem Text
+* **Favicon/Apple Touch Icon:** passende Icons im empfohlenen Format
+
+***
+
+## Best Practices
+
+* **Site-Informationen:** Halten Sie Site-Name, Sprache und Land konsistent mit Ihrer Zielgruppe.
+* **SEO-Einstellungen:** Setzen Sie sinnvolle Standardtitel und -beschreibungen, die für die meisten Seiten funktionieren.
+* **Analytics:** Aktivieren Sie nur eine Tracking-Methode (GA4 **oder** GTM), um Doppeltracking zu vermeiden.
+* **Rechtliche Compliance:** Stimmen Sie Cookie-Texte und Datenschutzhinweise mit Ihrer Rechtsberatung ab.
+* **Datenschutztexte:** Formulieren Sie Hinweise klar, verständlich und aktuell.
+
+***
+
+## Hauptmerkmale
+
+* **Globale Konfiguration:** Einstellungen gelten für die gesamte Website.
+* **SEO-Standards:** Vorlagenbasierte SEO-Einstellungen für konsistente Optimierung.
+* **Analytics-Integration:** Unterstützung für Google Analytics, Google Tag Manager und Meta Pixel.
+* **Datenschutz & Compliance:** Cookie-Banner, Zwecke der Datenverarbeitung und Aufbewahrungsfristen.
+* **Globale Assets:** Verwaltung von Favicon und Apple Touch Icon an zentraler Stelle.
+
+***
+
+## Wo es verwendet wird
+
+* **Globale Einstellungen**\
+  Angewendet auf allen Seiten und Komponenten.
+* **SEO**\
+  Standard-Meta-Tags und Open-Graph-Einstellungen, wenn keine seitenspezifischen Werte gesetzt sind.
+* **Analytics**\
+  Initialisierung von Tracking-Skripten (abhängig von Ihren Integrationen).
+* **Rechtliche Seiten**\
+  Datenschutzhinweise und Cookie-Informationen.
+
+***
+
+## Technische Hinweise
+
+* Website-Einstellungen ist ein Sanity-Dokumenttyp und wird global referenziert.
+* Änderungen müssen in Sanity veröffentlicht werden, um wirksam zu werden.
+* Einige Einstellungen (z. B. SEO) können auf Seitenebene überschrieben werden.
+* Analytics-Einstellungen sind gegenseitig ausschließend konzipiert (entweder Google Analytics ID **oder** Google Tag Manager ID).
+* Die Datenschutz-Einstellungen sollten mit Ihrer Implementierung des Cookie-Banners im Frontend abgestimmt sein.

@@ -1,0 +1,198 @@
+---
+title: Team
+description: Ein Inhaltsblock zur Anzeige von Teammitgliedern mit Fotos, Rollen,
+  Biografien und optionalen Social-Media-Links.
+slug: 1.0/components/team-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import TeamSection from "../../../../assets/team-section.png";
+
+## Übersicht
+
+Der **Team** zeigt alle Teammitglieder in organisierten Karten an. Jede Karte zeigt ein Foto, einen Namen, eine Rolle, eine Biografie und optionale Social-Media-Links – perfekt für die Vorstellung Ihres Teams und den Aufbau persönlicher Verbindungen mit Besuchern.
+
+<Aside>
+  **Ideal für:** Team-Vorstellungen, Mitarbeiter-Seiten, Über-unse, Aufbau
+  persönlicher Verbindungen, Präsentation von Expertise.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={TeamSection.src} alt="Beispiel eines Teams" />
+
+  <figcaption>
+    <em>Beispiel eines Teams</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Aktiv
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein (Standard: **aktiv**)
+* **Zweck:** Steuert, ob der gesamte Team-Bereich auf der Website angezeigt wird.
+* **Hinweis:** Deaktivieren Sie dieses Feld, wenn der Bereich vorbereitet, aber noch nicht live sein soll.
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift, die über den Team-Karten angezeigt wird
+* **Beispiel:**\
+  `Unser Team` oder `Lernen Sie das Team kennen`
+* **Hinweis:** Halten Sie es kurz – ein Satz oder maximal 2 Zeilen
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Einleitungstext unter der Überschrift, der den Team-Bereich kurz beschreibt.
+* **Beispiel:**\
+  `Lernen Sie die Menschen kennen, die hinter unserem Angebot stehen.`
+* **Hinweis:** Halten Sie den Text kompakt (1–3 Sätze), um den Bereich zu erklären, ohne die Karten zu überladen.
+
+***
+
+### Mitglieder
+
+* **Typ:** Array von Teammitglied-Objekten
+* **Erforderlich:** Nein
+* **Zweck:** Liste der Teammitglieder – jeder Eintrag entspricht einer Team-Karte auf der Website
+* **Hinweis:** Eine Karte = eine Person oder ein System (z. B. Simulator). 3–8 Teammitglieder sind in der Regel optimal.
+
+Jedes Teammitglied enthält:
+
+#### Name
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Wird als fette Überschrift auf der Karte angezeigt
+* **Beispiel:**\
+  `Max Mustermann`
+
+#### Rolle
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Wird als farbiges Label unter dem Namen angezeigt
+* **Beispiel:**\
+  `Projektmanager`, `Business-Berater` oder `Technischer Spezialist`
+* **Hinweis:** Halten Sie es kurz und klar
+
+#### Biografie
+
+* **Typ:** Rich-Text
+* **Erforderlich:** Nein
+* **Zweck:** Text im Hauptbereich der Karte
+* **Hinweis:** Kann mehrere Zeilen enthalten. Längere Texte können mit "Mehr anzeigen" abgeschnitten werden. Verwenden Sie Aufzählungspunkte oder kurze Sätze; empfohlen sind maximal 5–7 Zeilen.
+* **Rich-Text-Optionen:** Unterstützt Formatierungen, Bilder, Videos und Bild-Slider wie im `Rich-Text`-Block beschrieben (siehe Dokumentation `Rich-Text`).
+
+#### Foto
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Zweck:** Rundes Profilbild, das über der Karte angezeigt wird
+* **Hinweis:** Sollte eigenständig und gut beleuchtet sein. Konsistenter Stil für alle Teammitglieder, Gesicht klar sichtbar
+
+#### Social-Links anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen von Social-Media-Icons unter der Karte
+* **Standardwert:** `false`
+* **Hinweis:** Nur aktivieren, wenn die Person öffentlich kontaktierbar sein sollte und Social Media gepflegt wird
+
+#### Social-Links
+
+* **Typ:** Social-Links-Bereich
+* **Erforderlich:** Nein
+* **Zweck:** Konfiguration der Social-Media-Links für dieses Teammitglied
+* **Hinweis:** Nur sichtbar, wenn "Social-Links anzeigen" aktiviert ist. Intern werden die gleichen Felder wie im Block `Social-Media-Links` verwendet (Bereichsüberschrift, Beschreibung, Social-Links-Liste, Ausrichtung und Icon-Größe). Für Details siehe die Dokumentation `Social-Media-Links`.
+
+Wenn Social-Links aktiviert sind, können Sie u. a. konfigurieren:
+
+1. **Bereichsüberschrift** und **Bereichsbeschreibung** (optional)
+2. **Social-Links** (Plattform, URL, Label, optional benutzerdefiniertes Icon)
+3. **Ausrichtung** (links, zentriert, rechts)
+4. **Icon-Größe** (klein, mittel, groß)
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+* **Hinweis:** Beeinflusst nicht einzelne Karten
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Unser Team`
+* **Mitglieder:**
+  1. **Name:** `Max Mustermann`
+     * **Rolle:** `Projektmanager`
+     * **Biografie:** Teamleiter, Prozesskoordinator, Kundenbeziehungs-Spezialist
+     * **Foto:** Profilfoto
+     * **Social-Links anzeigen:** `true`
+     * **Social-Links:** Instagram, LinkedIn
+
+***
+
+## Best Practices
+
+* **Teamgröße:** 3-8 Teammitglieder sind optimal
+* **Konsistente Bilder:** Verwenden Sie einheitlichen Foto-Stil für alle Teammitglieder
+* **Rollen:** Halten Sie Rollen kurz und klar
+* **Biografien:** Halten Sie Texte persönlich, aber professionell
+* **Social-Links:** Nur aktivieren, wenn Profile aktiv gepflegt werden
+* **Fotoqualität:** Verwenden Sie hochwertige, konsistente Fotos mit guter Beleuchtung
+
+***
+
+## Häufige Fehler, die vermieden werden sollten
+
+* **Lange Texte:** Vermeiden Sie sehr lange Texte ohne Absätze
+* **Inkonsistente Fotos:** Verwenden Sie nicht verschiedene Fotoformate oder -stile
+* **Leere Rollen:** Füllen Sie immer Rollenfelder aus
+* **Ungepflegte Social-Links:** Aktivieren Sie keine Social-Links ohne aktive Profile
+
+***
+
+## Hauptmerkmale
+
+* **Organisierte Karten:** Teammitglieder werden in sauberen, organisierten Karten angezeigt
+* **Foto-Unterstützung:** Runde Profilbilder für jedes Mitglied
+* **Social-Integration:** Optionale Social-Media-Links für jedes Mitglied
+* **Flexibler Inhalt:** Name, Rolle und Biografie für umfassende Informationen
+* **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten**\
+  Allgemeine Inhaltsseiten, insbesondere Über-uns-Seiten
+
+***
+
+## Technische Hinweise
+
+* Der gesamte Bereich kann über das Feld `Aktiv` ein- und ausgeblendet werden
+* Fotos werden als runde Bilder angezeigt
+* Social-Links verwenden plattformspezifische Icons und teilen sich die gleichen Optionen (Ausrichtung, Icon-Größe, Plattformauswahl) wie der Block `Social-Media-Links`
+* Biografie-Text kann mit "Mehr anzeigen" für längere Inhalte abgeschnitten werden
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Karten werden in einem responsiven Grid-Layout angezeigt

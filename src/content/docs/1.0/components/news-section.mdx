@@ -1,0 +1,131 @@
+---
+title: Nachrichten
+description: Ein Inhaltsblock zur Anzeige von Nachrichtenartikeln mit
+  automatischem Abruf und "Mehr laden"-Funktionalität für einfaches Durchsuchen.
+slug: 1.0/components/news-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import NewsSection from "../../../../assets/news-section.png";
+
+## Übersicht
+
+Der **Nachrichten** ruft automatisch Nachrichtenartikel ab und zeigt sie mit einer "Mehr laden"-Funktionalität an. Artikel werden nach Veröffentlichungsdatum sortiert, sodass Besucher einfach auf dem Laufenden mit Ihren neuesten Nachrichten und Updates bleiben können.
+
+<Aside>
+  **Ideal für:** Nachrichtenbereiche, aktuelle Updates, Blog-Vorschauen,
+  Ankündigungen, Pressemitteilungen Unternehmensupdates.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={NewsSection.src} alt="Beispiel einer Nachricht" />
+
+  <figcaption>
+    <em>Beispiel einer Nachricht</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Bereichsüberschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den Nachrichten
+* **Beispiel:**\
+  `Nachrichten` oder `Neueste Updates`
+
+***
+
+### Bereichsbeschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibung für den Nachrichten
+* **Beispiel:**\
+  `Neueste Nachrichten und Updates`
+
+***
+
+### Maximale anzuzeigende Artikel
+
+* **Typ:** Zahl
+* **Erforderlich:** Nein
+* **Zweck:** Maximale Anzahl der Artikel, die zunächst angezeigt werden
+* **Standardwert:** `6`
+* **Mindestwert:** 1
+* **Maximalwert:** 50
+
+***
+
+### "Mehr laden"-Button anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Ob ein "Mehr laden"-Button für zusätzliche Artikel angezeigt werden soll
+* **Standardwert:** `true`
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Bereichsüberschrift:** `Nachrichten`
+* **Bereichsbeschreibung:** `Neueste Nachrichten und Updates`
+* **Maximale anzuzeigende Artikel:** `6`
+* **"Mehr laden"-Button anzeigen:** `true`
+* **Hintergrundfarbe:** Referenz auf ein `backgroundColor`-Objekt
+
+***
+
+## Best Practices
+
+* **Anfangsanzahl:** Zeigen Sie 6-12 Artikel zunächst für optimale Leistung und Benutzererfahrung an
+* **Mehr laden:** Aktivieren Sie "Mehr laden" für bessere Leistung, wenn Sie viele Artikel haben
+* **Regelmäßige Updates:** Veröffentlichen Sie regelmäßig neue Artikel, um Inhalte frisch zu halten
+* **Überschriften:** Machen Sie Artikelüberschriften klar und überzeugend
+* **Beschreibungen:** Verwenden Sie Bereichsbeschreibungen, um Kontext über die Arten von Artikeln zu geben, die Benutzer finden werden
+* **Konsistenz:** Halten Sie einen konsistenten Veröffentlichungsplan für besseres Benutzerengagement ein
+
+***
+
+## Hauptmerkmale
+
+* **Automatisches Abrufen:** Artikel werden automatisch abgerufen und angezeigt
+* **Mehr laden:** Zusätzliche Artikel können bei Bedarf geladen werden
+* **Nach Datum sortiert:** Artikel werden nach Veröffentlichungsdatum sortiert (neueste zuerst)
+* **Leistungsoptimiert:** Beim ersten Laden werden begrenzte Artikel angezeigt, mit mehr verfügbar bei Bedarf
+* **Responsive:** Passt sich verschiedenen Bildschirmgrößen an
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Nachrichten- oder Blog-Seiten
+
+***
+
+## Technische Hinweise
+
+* Artikel werden automatisch aus dem Artikel-Schema abgerufen
+* Nur veröffentlichte Artikel werden angezeigt
+* Artikel werden nach Veröffentlichungsdatum in absteigender Reihenfolge sortiert (neueste zuerst)
+* "Mehr laden"-Funktionalität lädt zusätzliche Artikel ohne Seitenaktualisierung
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Der Bereich verwendet paginierungsähnliches Verhalten mit "Mehr laden" anstelle traditioneller Paginierung

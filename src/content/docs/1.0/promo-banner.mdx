@@ -1,0 +1,213 @@
+---
+title: Promo Banner
+description: Erstellen und verwalten Sie Werbebanner, die oben auf Ihren
+  Website-Seiten erscheinen.
+slug: 1.0/promo-banner
+---
+
+import { Aside } from "@astrojs/starlight/components";
+
+## Übersicht
+
+Das **Promo Banner** ermöglicht es Ihnen, Werbebotschaften, Ankündigungen oder wichtige Hinweise oben auf Ihren Website-Seiten anzuzeigen. Dieses Banner wird typischerweise für zeitkritische Werbeaktionen, Sonderangebote oder wichtige Ankündigungen verwendet, die Besucher sofort sehen sollen.
+
+<Aside>
+  **Am besten für:** Sonderangebote, zeitlich begrenzte Angebote, wichtige
+  Ankündigungen, saisonale Kampagnen und dringende Benachrichtigungen.
+</Aside>
+
+***
+
+## Felder
+
+### Banner aktivieren
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Standardwert:** `true`
+* **Zweck:** Umschalten, um das Werbebanner anzuzeigen oder auszublenden
+* **Hinweis:** Wenn deaktiviert, erscheint das Banner auf keiner Seite
+
+***
+
+### Haupttext
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Hauptwerbetext, der im Banner angezeigt wird
+* **Beispiel:**\
+  `Sonderangebot: 20% Rabatt auf alle Dienstleistungen diesen Monat!`
+
+***
+
+### CTA-Button-Text
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `Angebot sichern`
+* **Zweck:** Text, der auf der Call-to-Action-Schaltfläche im Banner angezeigt wird
+* **Hinweis:** Wenn leer, wird die Schaltfläche nicht angezeigt
+* **Beispiel:**\
+  `Mehr erfahren` oder `Jetzt einkaufen`
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `green`
+* **Zweck:** Hintergrundfarbe des Banners
+* **Optionen:**
+  * `green` – Grün
+  * `orange` – Orange
+  * `purple` – Lila
+  * `blue` – Blau
+  * `red` – Rot
+  * `pink` – Rosa
+  * `yellow` – Gelb
+  * `gray` – Grau
+
+***
+
+### Modal anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Standardwert:** `true`
+* **Zweck:** Ob ein Modal angezeigt werden soll, wenn die CTA-Schaltfläche geklickt wird
+* **Hinweis:** Wenn aktiviert, öffnet das Klicken auf die CTA-Schaltfläche ein Modal mit zusätzlichen Details
+
+***
+
+### Modal-Titel
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Standardwert:** `Sonderangebot`
+* **Zweck:** Titel, der im Modal angezeigt wird
+* **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
+* **Beispiel:**\
+  `Sonderangebot` oder `Zeitlich begrenztes Angebot`
+
+***
+
+### Modal-Bild
+
+* **Typ:** Bild
+* **Erforderlich:** Nein
+* **Zweck:** Optionales Bild, das im Modal angezeigt werden soll
+* **Optionen:**\
+  Unterstützt Hotspot für responsives Zuschneiden
+* **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
+
+***
+
+### Modal-Beschreibung
+
+* **Typ:** Rich Text Section
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibungstext, der im Modal angezeigt wird
+* **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
+* **Beispiel:**\
+  Detaillierte Informationen über die Werbeaktion, Allgemeine Geschäftsbedingungen usw.
+
+***
+
+### CTA-Button (Modal)
+
+* **Typ:** CTA-Button-Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Konfiguration der Haupt-CTA-Schaltfläche im Modal (Text, Link und Rolle). Wenn der Button-Text leer ist, wird die Schaltfläche nicht angezeigt.
+* **Hinweis:** Nur sichtbar, wenn Modal anzeigen aktiviert ist
+* **Unterfelder:**
+  * **Button-Text:** Text der Schaltfläche
+  * **Link (Intern/Extern):** Objekt zur Link-Konfiguration (internalExternalLink):
+    * **Link-Typ:** `Intern (Seite dieser Website)` oder `Extern (URL)`; erforderlich, sobald ein Ziel gesetzt ist.
+    * **Bei Intern:** **Link zu** wählen (`Seite` oder `Blog (Artikel)`), dann **Seite** (Referenz auf Seite/Rechtliche Seite) bzw. **Blogartikel** (Referenz auf Artikel) auswählen.
+    * **Bei Extern:** **URL** angeben (vollständige URL; erlaubte Schemas: http, https, mailto, tel).
+  * **Button-Rolle:** `Primary` oder `Secondary` (Dropdown); wird ausgeblendet, wenn kein Button-Text gesetzt ist
+
+***
+
+### Startdatum
+
+* **Typ:** DateTime
+* **Erforderlich:** Nein
+* **Zweck:** Datum und Uhrzeit, zu der das Banner erscheinen soll
+* **Hinweis:** Wenn nicht gesetzt, erscheint das Banner sofort, wenn es aktiviert ist
+* **Beispiel:**\
+  `2025-01-01T09:00:00Z`
+
+***
+
+### Enddatum
+
+* **Typ:** DateTime
+* **Erforderlich:** Nein
+* **Zweck:** Datum und Uhrzeit, zu der das Banner nicht mehr angezeigt werden soll
+* **Hinweis:** Das Banner wird nach diesem Datum automatisch ausgeblendet
+* **Beispiel:**\
+  `2025-01-31T23:59:59Z`
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Banner aktivieren:** `true`
+* **Haupttext:** `Sonderangebot: 20% Rabatt auf alle Dienstleistungen diesen Monat!`
+* **CTA-Button-Text:** `Mehr erfahren`
+* **Hintergrundfarbe:** `orange`
+* **Modal anzeigen:** `true`
+* **Modal-Titel:** `Sonderangebot`
+* **Modal-Bild:** (Optionales Werbebild)
+* **Modal-Beschreibung:** `Erhalten Sie 20% Rabatt auf alle Dienstleistungen diesen Monat. Nur für kurze Zeit!`
+* **CTA-Button (Modal):** Button-Text `Jetzt starten`, Link nach Wahl, Rolle `Primary`
+* **Startdatum:** `2025-01-01T09:00:00Z`
+* **Enddatum:** `2025-01-31T23:59:59Z`
+
+***
+
+## Best Practices
+
+* **Timing:** Verwenden Sie Start- und Enddaten, um zeitkritische Werbeaktionen automatisch anzuzeigen/auszublenden
+* **Klarheit:** Halten Sie den Haupttext kurz und klar, um schnell Aufmerksamkeit zu erregen
+* **Sichtbarkeit:** Wählen Sie Hintergrundfarben, die auffallen und zu Ihrer Marke passen
+* **Relevanz:** Aktivieren Sie Banner nur für wichtige Nachrichten, um Banner-Müdigkeit zu vermeiden
+* **Modal-Inhalt:** Verwenden Sie das Modal, um detaillierte Informationen bereitzustellen, ohne das Banner zu überladen
+* **CTA-Schaltflächen:** Machen Sie CTA-Button-Texte handlungsorientiert und überzeugend
+* **Häufigkeit:** Lassen Sie Banner nicht unbegrenzt aktiv—aktualisieren oder entfernen Sie sie regelmäßig
+
+***
+
+## Hauptmerkmale
+
+* **Einfaches Umschalten:** Banner mit einem einzigen Schalter aktivieren oder deaktivieren
+* **Automatische Planung:** Start- und Enddaten für automatische Anzeigesteuerung
+* **Anpassbares Styling:** Mehrere Hintergrundfarboptionen
+* **Modal-Unterstützung:** Optionales Modal-Popup mit Rich-Content für detaillierte Werbeaktionen
+* **Rich-Content:** Modal unterstützt Rich-Text und Bilder für umfassende Nachrichten
+* **CTA-Schaltflächen:** Konfigurierbare Call-to-Action-Schaltflächen sowohl im Banner als auch im Modal
+* **Globale Anzeige:** Erscheint auf allen Seiten, wenn aktiviert
+
+***
+
+## Wo es verwendet wird
+
+* **Alle Seiten**\
+  Das Werbebanner erscheint oben auf allen Website-Seiten, wenn es aktiviert ist
+
+***
+
+## Technische Hinweise
+
+* Das Banner erscheint über dem Header auf allen Seiten
+* Die Banner-Sichtbarkeit wird durch den Banner aktivieren-Schalter gesteuert
+* Start- und Enddaten verwenden das DateTime-Format und berücksichtigen die Zeitzoneneinstellung der Website
+* Das Banner ist responsiv und passt sich verschiedenen Bildschirmgrößen an
+* Wenn Modal anzeigen aktiviert ist, öffnet das Klicken auf die CTA-Schaltfläche ein Modal, anstatt direkt zu navigieren
+* Modal-Felder sind bedingt sichtbar basierend auf der Modal anzeigen-Einstellung
+* Modal-Bilder unterstützen Hotspot-Zuschneiden für responsive Anzeige
+* Banner-Einstellungen werden global gespeichert und betreffen die gesamte Website

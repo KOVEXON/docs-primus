@@ -1,0 +1,210 @@
+---
+title: Preis
+description: Ein Inhaltsblock zur Präsentation von Preisen und Paketen in
+  klaren, organisierten Preis-Karten mit Features und Call-to-Action-Buttons.
+slug: 1.0/components/pricing-section
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import PricingSection from "../../../../assets/pricing-section.png";
+
+## Übersicht
+
+Der **Preis** zeigt Preise, Pakete oder Angebote in organisierten Preis-Karten an. Jede Karte kann einen Namen, Preis, Beschreibung, Feature-Liste, optionale Buttons, Badges und Hervorhebung enthalten – perfekt für den Vergleich verschiedener Optionen und die Förderung von Conversions.
+
+<Aside>
+  **Ideal für:** Preislisten, Paketvergleiche, Sonderangebote, Service-Stufen,
+  Produktpreise, Abonnementpläne.
+</Aside>
+
+***
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={PricingSection.src} alt="Beispiel eines Preises" />
+
+  <figcaption>
+    <em>Beispiel eines Preises</em>
+  </figcaption>
+</figure>
+
+***
+
+## Felder
+
+### Überschrift
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Hauptüberschrift für den Preis
+* **Beispiel:**\
+  `Unsere Preise` oder `Wählen Sie Ihren Plan`
+
+***
+
+### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibung für den Preis
+* **Beispiel:**\
+  `Wählen Sie das richtige Paket für Ihre Bedürfnisse`
+
+***
+
+### Elemente
+
+* **Typ:** Array von Preis-Element-Objekten
+* **Erforderlich:** Nein
+* **Zweck:** Liste der Preis-Pakete
+
+Jedes Preis-Element enthält:
+
+#### Elementname
+
+* **Typ:** String
+* **Erforderlich:** Ja
+* **Zweck:** Name des Preis-Pakets
+* **Beispiel:**\
+  `Basis-Paket`
+
+#### Preis
+
+* **Typ:** String
+* **Erforderlich:** Nein
+* **Zweck:** Preis (z. B. "€1.500" oder "Auf Anfrage")
+* **Beispiel:**\
+  `€1.500` oder `Kontaktieren Sie uns`
+
+#### Beschreibung
+
+* **Typ:** Text
+* **Erforderlich:** Nein
+* **Zweck:** Beschreibung des Pakets
+
+#### Enthaltene Features
+
+* **Typ:** Array von Strings
+* **Erforderlich:** Nein
+* **Zweck:** Liste der Features/enthaltenen Elemente im Paket
+
+#### Button anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen eines Buttons auf dieser Preis-Karte
+* **Standardwert:** `false`
+
+#### Button
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Button-Konfiguration für diese Preis-Karte
+* **Hinweis:** Nur sichtbar, wenn "Button anzeigen" aktiviert ist
+* **Felder:**
+  * **Label** (String, erforderlich) – Text, der auf dem Button angezeigt wird
+  * **Link** (String, erforderlich) – Relativer Pfad (z. B., `/contact`, `/registration`)
+    * **Validierung:** Muss mit `/` beginnen
+  * **Rolle** (String, erforderlich) – Rolle des Buttons (Primary/Secondary)
+    * **Standard:** `primary`
+
+#### Hervorgehoben
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Markiert dieses Paket als hervorgehoben (z. B. "Empfohlen")
+* **Standardwert:** `false`
+
+#### Badge anzeigen
+
+* **Typ:** Boolean
+* **Erforderlich:** Nein
+* **Zweck:** Umschalter zum Anzeigen eines Badges auf dieser Preis-Karte
+* **Standardwert:** `false`
+
+#### Badge
+
+* **Typ:** Objekt
+* **Erforderlich:** Nein
+* **Zweck:** Badge-Konfiguration für diese Preis-Karte
+* **Hinweis:** Nur sichtbar, wenn "Badge anzeigen" aktiviert ist
+* **Felder:**
+  * **Text** (String) – Das Label, das im Badge angezeigt wird
+  * **Farbe** (String, erforderlich) – Die Farbe des Badges
+    * **Optionen:** `green`, `red`, `yellow`, `blue`
+    * **Standard:** `green`
+
+***
+
+### Hintergrundfarbe
+
+* **Typ:** Referenz (`backgroundColor`)
+* **Erforderlich:** Nein
+* **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+***
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+* **Überschrift:** `Unsere Preise`
+* **Beschreibung:** `Wählen Sie das richtige Paket für Ihre Bedürfnisse`
+* **Elemente:**
+  1. **"Basis-Paket"**
+     * Preis: `€1.200`
+     * Beschreibung: Basis-Paket für wesentliche Dienstleistungen
+     * Enthaltene Features: 12 Beratungssitzungen, 20 Service-Stunden, Support und Beratung
+     * Button anzeigen: `true`
+     * Button: Label "Jetzt buchen" → Link `/registration` → Rolle `primary`
+     * Hervorgehoben: `false`
+  2. **"Premium-Paket"**
+     * Preis: `€1.800`
+     * Beschreibung: Umfassendes Training mit zusätzlichen Dienstleistungen
+     * Enthaltene Features: Alle Basis-Features, Zusätzliche 10 Service-Stunden, Intensivkurs-Option, Persönlicher Berater
+     * Button anzeigen: `true`
+     * Button: Label "Jetzt buchen" → Link `/registration` → Rolle `primary`
+     * Hervorgehoben: `true`
+     * Badge anzeigen: `true`
+     * Badge: Text "Bestseller" → Farbe `green`
+
+***
+
+## Best Practices
+
+* **Klarheit:** Verwenden Sie klare, verständliche Preisinformationen
+* **Vergleichbarkeit:** Verwenden Sie ähnliche Strukturen für alle Pakete für einfachen Vergleich
+* **Hervorhebung:** Heben Sie ein Paket als "Empfohlen" hervor, um Benutzer zu leiten
+* **Features:** Bieten Sie eine klare Auflistung der enthaltenen Features
+* **Buttons:** Verwenden Sie CTA-Buttons, um Conversions zu fördern
+* **Anzahl:** 2-4 Pakete sind optimal für Entscheidungsfindung
+* **Badges:** Verwenden Sie Badges sparsam und nur, wenn sie einen Mehrwert bieten
+
+***
+
+## Hauptmerkmale
+
+* **Organisierte Karten:** Preise werden in klaren, scannbaren Karten angezeigt
+* **Feature-Listen:** Jedes Paket kann eine Liste von Features enthalten
+* **Call-to-Action:** Optionale Buttons für jedes Paket
+* **Hervorhebung:** Ein Paket kann als empfohlen hervorgehoben werden
+* **Badges:** Optionale Badges für Sonderangebote oder beliebte Pakete
+* **Flexible Preise:** Unterstützung für feste Preise oder "Auf Anfrage"-Optionen
+
+***
+
+## Wo es verwendet wird
+
+* **Seiten (`page`)**\
+  Allgemeine Inhaltsseiten, insbesondere Service- und Produktseiten
+
+***
+
+## Technische Hinweise
+
+* Button-Konfiguration wird inline innerhalb jedes Preis-Elements definiert
+* Badge-Konfiguration wird inline mit Text- und Farboptionen (grün, rot, gelb, blau) definiert
+* Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+* Preis-Karten werden in einem responsiven Grid-Layout angezeigt
+* Hervorgehobene Pakete werden visuell von anderen unterschieden

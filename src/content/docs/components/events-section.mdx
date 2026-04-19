@@ -1,0 +1,265 @@
+---
+title: Veranstaltungsbereich
+description: Ein Inhaltsblock zur Anzeige von Veranstaltungen aus einer Veranstaltungsliste in einem klaren Tabellenformat mit Verfügbarkeitsstatus.
+---
+
+import { Aside } from "@astrojs/starlight/components";
+import EventsSection from "../../../assets/events-section.png";
+
+## Übersicht
+
+Der **Veranstaltungsbereich** präsentiert Veranstaltungen aus einer Veranstaltungsliste in einem organisierten Tabellenformat. Er ist perfekt für die Anzeige von Kursen, Terminen oder geplanten Aktivitäten mit klaren Datums-, Zeit- und Verfügbarkeitsinformationen.
+
+<Aside>
+  **Ideal für:** Veranstaltungskalender, Kursübersichten, Terminpläne, Kurs
+  Auflistungen, Schulungspläne.
+</Aside>
+
+---
+
+<br />
+
+<figure style="text-align: center;">
+  <img src={EventsSection.src} alt="Beispiel einer Veranstaltung" />
+  <figcaption>
+    <em>Beispiel einer Veranstaltung</em>
+  </figcaption>
+</figure>
+
+---
+
+## Felder
+
+### Aktiv
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Standardwert:** `true` (Standard: **aktiv**)
+- **Zweck:** Steuert, ob der Veranstaltungs-Bereich auf der Website angezeigt wird
+- **Hinweis:** Deaktivieren Sie dieses Feld, wenn der Bereich vorübergehend nicht sichtbar sein soll, ohne die Konfiguration zu löschen
+
+---
+
+### Bereichsüberschrift
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Hauptüberschrift für den Veranstaltungs
+- **Beispiel:**  
+  `Anstehende Veranstaltungen` oder `Kursplan`
+
+---
+
+### Bereichsbeschreibung
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zeilen:** 3
+- **Zweck:** Optionale Beschreibung unter der Überschrift
+- **Beispiel:**  
+  `Hier finden Sie alle aktuellen Kurse und Termine`
+
+---
+
+### Datumsspalten-Titel
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Titel für die Datumsspalte
+- **Beispiel:**  
+  `Datum` oder `Tag & Datum`
+
+---
+
+### Titelspalten-Titel
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Titel für die Sitzungstitel-Spalte
+- **Beispiel:**  
+  `Kurs` oder `Veranstaltung`
+
+---
+
+### Zeitspalten-Titel
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Titel für die Zeitspalte
+- **Beispiel:**  
+  `Zeit` oder `Startzeit`
+
+---
+
+### Verfügbar-Status-Text
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Text, der angezeigt wird, wenn Plätze verfügbar sind
+- **Beispiel:**  
+  `Plätze verfügbar` oder `Offen`
+
+---
+
+### Voll-Status-Text
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Text, der angezeigt wird, wenn die Veranstaltung ausgebucht ist
+- **Beispiel:**  
+  `Ausgebucht` oder `Verkauft`
+
+---
+
+### Veranstaltungsliste
+
+- **Typ:** Referenz (`eventsList`)
+- **Erforderlich:** Ja
+- **Zweck:** Referenz auf ein Veranstaltungslisten-Dokument. Das Veranstaltungslisten-Dokument enthält ein Array von Veranstaltungen. Jede Veranstaltung kann mehrere Sitzungen haben.
+
+Jede Veranstaltungsliste enthält:
+
+#### Veranstaltungen
+
+- **Typ:** Array
+- **Erforderlich:** Nein
+- **Zweck:** Liste der im Veranstaltungs anzuzeigenden Veranstaltungen
+
+Jede Veranstaltung im Veranstaltungs-Array enthält:
+
+#### Veranstaltung aktivieren
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Umschalter zum Anzeigen/Ausblenden der Veranstaltung
+- **Standardwert:** `true`
+
+#### Veranstaltungstitel
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Titel der Veranstaltung
+
+#### Ist voll
+
+- **Typ:** Boolean
+- **Erforderlich:** Nein
+- **Zweck:** Ob diese Veranstaltung ausgebucht ist
+- **Standardwert:** `false`
+
+#### Benutzerdefinierte Voll-Nachricht
+
+- **Typ:** Text
+- **Erforderlich:** Nein
+- **Zeilen:** 3
+- **Zweck:** Benutzerdefinierte Nachricht, die angezeigt wird, wenn die Veranstaltung voll ist (optional). Wenn leer gelassen, wird die Standardnachricht verwendet.
+- **Hinweis:** Nur sichtbar, wenn "Ist voll" auf `true` gesetzt ist
+
+#### Standort
+
+- **Typ:** Referenz (`companyInformation`)
+- **Erforderlich:** Nein
+- **Zweck:** Standort der Veranstaltung
+
+#### Veranstaltungssitzungen
+
+- **Typ:** Array
+- **Erforderlich:** Nein
+- **Zweck:** Sitzungen für diese Veranstaltung
+
+Jede Sitzung im Veranstaltungssitzungen-Array enthält:
+
+#### Sitzungstitel
+
+- **Typ:** String
+- **Erforderlich:** Ja
+- **Zweck:** Titel der Sitzung
+
+#### Startzeit
+
+- **Typ:** Datetime
+- **Erforderlich:** Ja
+- **Zweck:** Startzeit der Sitzung
+- **Datumsformat:** TT.MM.JJJJ
+- **Zeitformat:** HH:mm
+- **Zeitschritt:** 15 Minuten
+
+#### Endzeit
+
+- **Typ:** Datetime
+- **Erforderlich:** Ja
+- **Zweck:** Endzeit der Sitzung
+- **Datumsformat:** TT.MM.JJJJ
+- **Zeitformat:** HH:mm
+- **Zeitschritt:** 15 Minuten
+
+---
+
+### Keine Veranstaltungen-Nachricht
+
+- **Typ:** String
+- **Erforderlich:** Nein
+- **Zweck:** Nachricht, die angezeigt wird, wenn keine Veranstaltungen vorhanden sind
+- **Beispiel:**  
+  `Derzeit sind keine Veranstaltungen geplant`
+
+---
+
+### Hintergrundfarbe
+
+- **Typ:** Referenz (`backgroundColor`)
+- **Erforderlich:** Nein
+- **Zweck:** Legt die Hintergrundfarbe für den gesamten Bereich fest
+
+---
+
+## Verwendungsbeispiel
+
+### Typische Konfiguration
+
+- **Bereichsüberschrift:** `Anstehende Veranstaltungen`
+- **Bereichsbeschreibung:** `Hier finden Sie alle aktuellen Kurse und Termine`
+- **Datumsspalten-Titel:** `Datum`
+- **Titelspalten-Titel:** `Kurs`
+- **Zeitspalten-Titel:** `Zeit`
+- **Verfügbar-Status-Text:** `Plätze verfügbar`
+- **Voll-Status-Text:** `Ausgebucht`
+- **Veranstaltungsliste:** Referenz auf ein `eventsList`-Dokument
+- **Keine Veranstaltungen-Nachricht:** `Derzeit sind keine Veranstaltungen geplant`
+
+---
+
+## Best Practices
+
+- **Spaltentitel:** Verwenden Sie klare, verständliche Spaltentitel, die zu Ihrem Inhalt passen
+- **Status-Texte:** Verwenden Sie klare Status-Texte, die Benutzer schnell verstehen können
+- **Regelmäßige Updates:** Halten Sie die Veranstaltungsliste mit anstehenden Veranstaltungen aktuell
+- **Leerer Zustand:** Bieten Sie eine freundliche Nachricht, wenn keine Veranstaltungen verfügbar sind
+- **Konsistenz:** Verwenden Sie konsistente Terminologie für alle Spaltentitel und Status-Texte
+- **Barrierefreiheit:** Stellen Sie sicher, dass die Tabellenstruktur mit ordnungsgemäßen Überschriften barrierefrei ist
+
+---
+
+## Hauptmerkmale
+
+- **Tabellenformat:** Veranstaltungen werden in einem klaren, scannbaren Tabellenlayout angezeigt
+- **Statusanzeige:** Zeigt den Verfügbarkeitsstatus für jede Veranstaltung an
+- **Zentralisierte Verwaltung:** Verwendet Veranstaltungslisten-Dokumente für zentralisierte Veranstaltungsverwaltung
+- **Anpassbare Spalten:** Spaltentitel können an Ihre Bedürfnisse angepasst werden
+- **Leerer Zustand:** Freundliche Nachricht, wenn keine Veranstaltungen verfügbar sind
+
+---
+
+## Wo es verwendet wird
+
+- **Seiten (`page`)**  
+  Veranstaltungsseiten, Kursseiten und allgemeine Inhaltsseiten
+
+---
+
+## Technische Hinweise
+
+- Veranstaltungen werden aus dem referenzierten Veranstaltungslisten-Dokument abgerufen
+- Tabellenstruktur verwendet semantisches HTML für Barrierefreiheit
+- Hintergrundfarbe verweist auf das globale `backgroundColor`-Schema
+- Nur aktivierte Veranstaltungen werden in der Tabelle angezeigt
