@@ -6,7 +6,7 @@ import starlightVersions from "starlight-versions";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://docs.kovexon.com'
+  site: 'https://docs.kovexon.com',
   integrations: [
     starlight({
       title: "KOVEXON Docs",
