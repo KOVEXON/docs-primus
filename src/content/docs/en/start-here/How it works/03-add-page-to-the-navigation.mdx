@@ -1,0 +1,67 @@
+---
+title: Add a page to the navigation
+description: Learn how to add a page to the navigation in Sanity Studio and make it visible on the website.
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import sanityStudioAddPageToTheNavigation from "../../../../../assets/sanity-studio-add-page-to-the-navigation.png";
+
+Once a page has been created and published, the next step is to add it to the navigation so visitors can see and click it in the menu.
+
+<br />
+
+<Aside type="tip">
+  If the page does not exist yet, create it first in the **Pages** section and
+  publish it.
+</Aside>
+
+<br />
+
+<Steps>
+1. **Click "Header" in the left sidebar.**
+   This opens the settings for your website's header area.
+
+2. **Select "Navigation" in the middle column.**
+   This takes you to the header navigation structure.
+
+3. **Click the "Navigation" document in the next column.**
+   This document contains all current menu entries.
+
+4. **In the "Items" section, click "Add item".**
+   This creates a new navigation entry.
+
+5. **Enter a label.**
+   The **Label** field is a custom name for the navigation. If the field is
+   left empty, the page title is used automatically.
+
+6. **For the new entry, choose the link type "Simple link" or "Dropdown".**
+   Use **Simple link** for a single menu item and **Dropdown** when you want to
+   group multiple subpages under one parent item.
+
+7. **Link the entry to the desired page.**
+   In the reference field, choose the page that should appear in the menu.
+
+8. **Move the new entry to the desired position.**
+   Drag and drop the entry to the correct place in the menu.
+
+9. **Click "Publish".**
+   The new navigation item appears on the live website only after publishing.
+
+</Steps>
+
+<figure style="text-align: center;">
+  <img
+    src={sanityStudioAddPageToTheNavigation.src}
+    alt="Sanity Studio add page to navigation"
+  />
+  <figcaption>
+    <em>Sanity Studio add page to navigation</em>
+  </figcaption>
+</figure>
+
+<br />
+
+<Aside type="note">
+  If the new menu item is not visible right away, refresh the website and check
+  whether both the page and the navigation have been published.
+</Aside>
