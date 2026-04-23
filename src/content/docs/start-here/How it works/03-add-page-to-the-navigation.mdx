@@ -1,0 +1,70 @@
+---
+title: Seite zur Navigation hinzufügen
+description: Erfahren Sie, wie Sie eine Seite in Sanity Studio zur Navigation hinzufügen und auf der Website sichtbar machen.
+---
+
+import { Steps, Aside } from "@astrojs/starlight/components";
+import sanityStudioAddPageToTheNavigation from "../../../../assets/sanity-studio-add-page-to-the-navigation.png";
+
+Wenn eine Seite erstellt und veröffentlicht wurde, können Sie sie im nächsten Schritt in die Navigation aufnehmen, damit Besucher sie im Menü sehen und anklicken können.
+
+<br />
+
+<Aside type="tip">
+  Wenn die Seite noch nicht existiert, erstellen Sie sie zuerst im Bereich
+  **Seiten** und veröffentlichen Sie sie.
+</Aside>
+
+<br />
+
+<Steps>
+1. **Klicken Sie links in der Seitenleiste auf „Kopfzeile“.**
+   Damit öffnen Sie die Einstellungen für den Header-Bereich Ihrer Website.
+
+2. **Wählen Sie in der mittleren Spalte den Eintrag „Navigation“ aus.**
+   So gelangen Sie zur Navigationsstruktur der Kopfzeile.
+
+3. **Klicken Sie in der nächsten Spalte auf das Dokument „Navigation“.**
+   Dieses Dokument enthält alle aktuellen Menüeinträge.
+
+4. **Klicken Sie im Bereich „Elemente“ auf „Element hinzufügen“.**
+   Dadurch wird ein neuer Navigationseintrag erstellt.
+
+5. **Tragen Sie ein Label ein.**
+   Das Feld **Label** ist eine benutzerdefinierte Beschriftung für die
+   Navigation. Wenn das Feld leer bleibt, wird automatisch der Seitentitel
+   verwendet.
+
+6. **Wählen Sie für den neuen Eintrag den Linktyp „Einfacher Link“ oder „Dropdown“ aus.**
+   Verwenden Sie **Einfacher Link** für einen einzelnen Menüpunkt und
+   **Dropdown**, wenn mehrere Unterseiten unter einem gemeinsamen Hauptpunkt
+   gruppiert werden sollen.
+
+7. **Verknüpfen Sie den Eintrag mit der gewünschten Seite.**
+   Wählen Sie im Referenzfeld die Seite aus, die im Menü erscheinen soll.
+
+8. **Ordnen Sie den neuen Eintrag an die gewünschte Position.**
+   Ziehen Sie den Eintrag per Drag-and-drop an die richtige Stelle im Menü.
+
+9. **Klicken Sie auf „Veröffentlichen“.**
+   Erst danach erscheint der neue Navigationspunkt auf der Live-Website.
+
+</Steps>
+
+<figure style="text-align: center;">
+  <img
+    src={sanityStudioAddPageToTheNavigation.src}
+    alt="Sanity Studio Seite zur Navigation hinzufügen"
+  />
+  <figcaption>
+    <em>Sanity Studio Seite zur Navigation hinzufügen</em>
+  </figcaption>
+</figure>
+
+<br />
+
+<Aside type="note">
+  Wenn der neue Menüpunkt nicht sofort sichtbar ist, laden Sie die Website neu
+  und prüfen Sie, ob sowohl die Seite als auch die Navigation veröffentlicht
+  wurden.
+</Aside>
